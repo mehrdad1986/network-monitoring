@@ -1,0 +1,251 @@
+/* Website Monitor Page - NOC System Style */
+:where([data-page~="WebsiteMonitor"])  .website-monitor-page {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* Stats Grid */
+:where([data-page~="WebsiteMonitor"])  .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-icon {
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-content {
+  flex: 1;
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-label);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-card.stat-success {
+  border-left: 3px solid var(--success);
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-card.stat-danger {
+  border-left: 3px solid var(--danger);
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-card.stat-warning {
+  border-left: 3px solid var(--warning);
+}
+
+:where([data-page~="WebsiteMonitor"])  .stat-card.stat-info {
+  border-left: 3px solid var(--info);
+}
+
+/* Websites Grid */
+:where([data-page~="WebsiteMonitor"])  .websites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 24px;
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-card {
+  padding: 24px;
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-info {
+  flex: 1;
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-url {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: block;
+  font-family: 'Fira Code', monospace;
+  transition: color 0.2s ease;
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-url:hover {
+  color: var(--accent-primary);
+}
+
+:where([data-page~="WebsiteMonitor"])  .status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+:where([data-page~="WebsiteMonitor"])  .status-badge.up {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+}
+
+:where([data-page~="WebsiteMonitor"])  .status-badge.down {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+}
+
+:where([data-page~="WebsiteMonitor"])  .status-badge.degraded {
+  background: rgba(251, 146, 60, 0.15);
+  color: var(--warning);
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+:where([data-page~="WebsiteMonitor"])  .metric-item {
+  text-align: center;
+}
+
+:where([data-page~="WebsiteMonitor"])  .metric-label {
+  font-size: 11px;
+  color: var(--text-label);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+:where([data-page~="WebsiteMonitor"])  .metric-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+:where([data-page~="WebsiteMonitor"])  .metric-value.success {
+  color: var(--success);
+}
+
+:where([data-page~="WebsiteMonitor"])  .ssl-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+:where([data-page~="WebsiteMonitor"])  .ssl-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+:where([data-page~="WebsiteMonitor"])  .ssl-expiry {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+
+:where([data-page~="WebsiteMonitor"])  .last-check {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+:where([data-page~="WebsiteMonitor"])  .website-actions {
+  display: flex;
+  gap: 8px;
+}
+
+:where([data-page~="WebsiteMonitor"])  .action-btn {
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+:where([data-page~="WebsiteMonitor"])  .action-btn:hover {
+  border-color: var(--accent-primary);
+  background: rgba(79, 124, 255, 0.1);
+  color: var(--accent-primary);
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  :where([data-page~="WebsiteMonitor"])  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="WebsiteMonitor"])  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="WebsiteMonitor"])  .websites-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="WebsiteMonitor"])  .website-metrics {
+    grid-template-columns: 1fr;
+  }
+}

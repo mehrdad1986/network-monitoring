@@ -1,0 +1,9 @@
+# Python modules used across the original 103 apps.
+# Network utilities such as curl, dig, tshark, tcpdump and xray are separate executables.
+dnspython
+cryptography
+httpx[http2]
+rich
+scapy
+dpkt
+pyshark

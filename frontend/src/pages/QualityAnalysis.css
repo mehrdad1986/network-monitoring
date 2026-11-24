@@ -1,0 +1,330 @@
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: QualityAnalysis-fadeInUp 0.6s ease;
+}
+
+@keyframes QualityAnalysis-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .page-header h1 {
+  font-size: 24px;
+  font-weight: 650;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .page-description {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin: 4px 0 0;
+  font-weight: 500;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .btn-refresh {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  padding: 8px 14px;
+  min-height: 36px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .btn-refresh:hover:not(:disabled) {
+  background: rgba(34, 211, 238, 0.2);
+  border-color: var(--accent-cyan);
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .btn-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .quality-score-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+  animation: QualityAnalysis-scaleIn 0.5s ease;
+}
+
+@keyframes QualityAnalysis-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .score-inner {
+  width: 108px;
+  height: 108px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .score-value {
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 650;
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .score-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metric-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  animation: QualityAnalysis-slideIn 0.5s ease backwards;
+}
+
+@keyframes QualityAnalysis-slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metric-icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metric-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metric-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metric-value {
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 650;
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-cyan);
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metric-status {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .history-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 18px;
+  animation: QualityAnalysis-slideDown 0.5s ease;
+}
+
+@keyframes QualityAnalysis-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .history-section h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .timeline-item {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) 32px;
+  min-height: 28px;
+  gap: 8px;
+  align-items: center;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .timeline-time {
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .timeline-bar {
+  height: 8px;
+  min-width: 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .timeline-score {
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--accent-cyan);
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis {
+    padding: 16px;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .page-header h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .btn-refresh {
+    width: 100%;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .quality-score-card {
+    padding: 18px;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .score-circle {
+    width: 112px;
+    height: 112px;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .score-inner {
+    width: 100px;
+    height: 100px;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .score-value {
+    font-size: 26px;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .metric-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .timeline-item {
+    grid-template-columns: 68px minmax(0, 1fr) 28px;
+    font-size: 12px;
+  }
+}
+
+.app .page-surface[data-page~="QualityAnalysis"] .quality-analysis .btn-refresh:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}

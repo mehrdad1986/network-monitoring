@@ -1,0 +1,204 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║          COMPLETE WEBSITE & DoH CHECKING SYSTEM - READY TO USE             ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📦 YOUR 3 PYTHON APPLICATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. check_doh.py (9.5 KB)
+   ├─ Tests 738 DoH servers
+   ├─ Measures latency
+   └─ Outputs: doh_results.csv, doh_results.txt
+
+2. check_websites.py (37 KB) ⭐ ENHANCED
+   ├─ Checks 4000 websites (2000 top + 2000 next)
+   ├─ Compares: System DNS vs Google 8.8.8.8 vs DoH
+   ├─ Detects DNS poisoning (10.x IPs)
+   ├─ Measures latency for accessible sites
+   └─ Outputs 4 reports:
+      • website_check_results.csv
+      • filtered_websites_report.txt
+      • fastest_100_websites.txt ⭐ NEW!
+      • filtered_with_wrong_ips.txt ⭐ NEW! (8.8.8.8 analysis)
+
+3. master_checker.py (19 KB) ⭐ ORCHESTRATOR
+   ├─ Runs check_doh.py automatically
+   ├─ Double-verifies top 20 DoH servers
+   ├─ Selects best 3 DoH servers
+   ├─ Runs website checks with all 3 DoH servers
+   └─ Generates master comparison report
+
+📄 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• README.md - Quick start guide
+• SYSTEM_SUMMARY.md - Complete feature documentation
+• quick_test.sh - Automated test script
+
+🎯 NEW FEATURES IMPLEMENTED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ FASTEST 100 WEBSITES REPORT
+   Shows best ping latency with ranking:
+
+   RANK | LATENCY (ms) | DOMAIN | COUNTRY
+     1. |      45.23 ms | example.com [United States]
+     2. |      52.11 ms | google.com [United States]
+
+   Includes: min, max, average latency statistics
+
+✅ FILTERED WEBSITES WITH WRONG IPS (8.8.8.8 ANALYSIS)
+   Shows ALL filtered sites with DNS comparison:
+
+   Domain: blocked-site.com
+     Filter Reason: Connection timeout (possible DPI blocking)
+     System DNS IP: 10.10.34.34
+     Google DNS (8.8.8.8) IP: 10.10.34.34  ⚠ WRONG IP!
+     DoH Server IP: 142.250.185.46
+     ⚠ DNS MISMATCH: System DNS: 10.10.34.34 vs DoH: 142.250.185.46
+
+   Groups by:
+   - DNS resolution failures
+   - Private IPs (10.x.x.x) from 8.8.8.8
+   - DNS mismatches between sources
+
+✅ TRIPLE DNS COMPARISON
+   Every website checked against:
+   • Your System DNS
+   • Google DNS (8.8.8.8)
+   • Selected DoH server
+
+   → Catches ALL types of DNS manipulation!
+
+✅ MULTI-DOH PARALLEL CHECKING
+   Runs 3 website checks simultaneously with different DoH servers
+   → Compare which DoH detects most filtering
+
+🚀 QUICK START
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Install requirements:
+   $ pip3 install requests dnspython
+
+2. Run quick test (2-3 minutes):
+   $ ./quick_test.sh
+
+   OR manually:
+   $ python3 master_checker.py --limit 20
+
+3. Run full check (45-60 minutes):
+   $ python3 master_checker.py
+
+📊 OUTPUT FILES YOU'LL GET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+From master_checker.py full run:
+
+DoH Results (3 files):
+├─ doh_results.csv (all 738 servers)
+├─ doh_results.txt (ranked list)
+└─ verified_doh_servers.json (double-checked top 20)
+
+Website Results per DoH (4 files × 3 DoH servers = 12 files):
+├─ website_check_results_doh1.csv
+├─ filtered_websites_report_doh1.txt
+├─ fastest_100_websites_doh1.txt ⭐
+├─ filtered_with_wrong_ips_doh1.txt ⭐ (8.8.8.8 wrong IPs)
+│
+├─ website_check_results_doh2.csv
+├─ filtered_websites_report_doh2.txt
+├─ fastest_100_websites_doh2.txt ⭐
+├─ filtered_with_wrong_ips_doh2.txt ⭐
+│
+├─ website_check_results_doh3.csv
+├─ filtered_websites_report_doh3.txt
+├─ fastest_100_websites_doh3.txt ⭐
+└─ filtered_with_wrong_ips_doh3.txt ⭐
+
+Master Report (1 file):
+└─ master_report.txt (comparison across all 3 DoH servers)
+
+TOTAL: 16 comprehensive output files!
+
+⚙️ ADVANCED USAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Use top 5 DoH servers instead of 3
+$ python3 master_checker.py --doh-count 5
+
+# Verify more DoH servers (top 30)
+$ python3 master_checker.py --verify-count 30
+
+# Test with 100 websites
+$ python3 master_checker.py --limit 100
+
+# Skip DoH check if already done
+$ python3 master_checker.py --skip-doh-check
+
+# Run individual components
+$ python3 check_doh.py
+$ python3 check_websites.py --doh https://dns.google/dns-query --limit 50
+$ python3 check_websites.py --cloudflare-ip  # Use 162.159.36.1
+
+🔍 WHAT YOU'LL DISCOVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. DNS POISONING DETECTION
+   Compare IPs from System DNS vs Google 8.8.8.8 vs DoH
+   → Different IPs = DNS manipulation!
+   → Special focus on 10.x.x.x wrong IPs from 8.8.8.8
+
+2. DPI FILTERING METHODS
+   • DNS Poisoning (wrong/private IPs)
+   • IP Blocking (connection refused)
+   • SSL/TLS Interference (HTTPS blocked)
+   • Connection Reset (TCP terminated)
+
+3. PERFORMANCE ANALYSIS
+   • Top 100 fastest websites from your location
+   • Latency comparison across 4000 websites
+   • Best websites for connectivity testing
+
+4. NETWORK FILTERING EVIDENCE
+   • Which sites are blocked
+   • How they're blocked (method)
+   • DNS manipulation proof (wrong IPs)
+   • Comparison across 3 different DoH servers
+
+💡 KEY INSIGHTS YOU'LL GET
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Which websites are filtered in your network
+✓ Whether your ISP manipulates even Google DNS (8.8.8.8)
+✓ Evidence of DNS poisoning (10.x IPs)
+✓ Fastest websites for your location
+✓ Which DoH servers work best
+✓ Differences in filtering detection between DoH servers
+✓ Complete DNS manipulation report
+
+⏱️ TIMING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Quick test (20 sites):   ~2-3 minutes
+Medium test (100 sites): ~5-8 minutes
+Full run (4000 sites):   ~45-65 minutes
+
+🎁 SUMMARY OF ENHANCEMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Fastest 100 websites report with latency ranking
+✅ Filtered websites with wrong IPs from Google DNS 8.8.8.8
+✅ Triple DNS comparison (System + 8.8.8.8 + DoH)
+✅ Special 10.x.x.x IP detection
+✅ DNS mismatch highlighting in real-time
+✅ 4 reports per DoH server (was 2)
+✅ Master orchestrator with double DoH verification
+✅ Parallel multi-DoH website checking
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 YOU'RE READY TO GO! RUN: ./quick_test.sh
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Generated: 2026-10-27 02:18 UTC

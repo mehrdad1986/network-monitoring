@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetMon Status</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --border: #e0e0e0;
+            --accent: #0066cc;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --degraded: #eab308;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0a0a0a;
+                --text: #e0e0e0;
+                --border: #2a2a2a;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .status-operational { background: var(--success); color: white; }
+        .status-degraded { background: var(--degraded); color: white; }
+        .status-partial_outage { background: var(--warning); color: white; }
+        .status-major_outage { background: var(--error); color: white; }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background: var(--border);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            opacity: 0.7;
+            font-size: 0.875rem;
+        }
+        
+        .section {
+            margin: 3rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cells-container {
+            display: flex;
+            gap: 2px;
+            height: 40px;
+            margin: 1rem 0;
+        }
+        
+        .cell {
+            flex: 1;
+            background: var(--border);
+        }
+        
+        .cell.up { background: var(--success); }
+        .cell.degraded { background: var(--degraded); }
+        .cell.down { background: var(--error); }
+        
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.875rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.5;
+        }
+        
+        .analysis-box {
+            background: var(--border);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .insight {
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NetMon Status</h1>
+            <p>Network Monitoring Platform</p>
+        </header>
+        
+        <div id="app" class="loading">
+            Loading status data...
+        </div>
+        
+        <footer>
+            <p>Last updated: <span id="timestamp">-</span></p>
+            <p>NetMon - Distributed Network Monitoring Platform</p>
+        </footer>
+    </div>
+    
+    <script>
+        async function loadStatus() {
+            try {
+                const response = await fetch('site.json');
+                const data = await response.json();
+                renderStatus(data);
+            } catch (error) {
+                document.getElementById('app').innerHTML = `
+                    <div style="color: var(--error); text-align: center; padding: 2rem;">
+                        Failed to load status data. Please try again later.
+                    </div>
+                `;
+            }
+        }
+        
+        function renderStatus(data) {
+            const latest = data.latest || {};
+            const counts = latest.counts || { up: 0, degraded: 0, down: 0 };
+            const status = latest.overall_status || 'unknown';
+            const analysis = data.analysis || {};
+            
+            document.getElementById('timestamp').textContent = 
+                data.updated_at ? new Date(data.updated_at).toLocaleString() : '-';
+            
+            let html = `
+                <div class="status-badge status-${status}">
+                    ${status.replace(/_/g, ' ').toUpperCase()}
+                </div>
+                
+                <div class="metrics">
+                    <div class="metric-card">
+                        <div class="metric-value" style="color: var(--success)">${counts.up}</div>
+                        <div class="metric-label">Services Up</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" style="color: var(--degraded)">${counts.degraded}</div>
+                        <div class="metric-label">Degraded</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" style="color: var(--error)">${counts.down}</div>
+                        <div class="metric-label">Services Down</div>
+                    </div>
+                </div>
+            `;
+            
+            if (data.cells_24h && data.cells_24h.length > 0) {
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">24 Hour History</h2>
+                        <div class="cells-container">
+                            ${data.cells_24h.map(cell => 
+                                `<div class="cell ${cell.status}" title="${cell.time}: ${cell.status}"></div>`
+                            ).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (analysis.public_summary) {
+                html += `
+                    <div class="section">
+                        <h2 class="section-title">Analysis</h2>
+                        <div class="analysis-box">
+                            <p>${analysis.public_summary}</p>
+                            ${analysis.insight ? `<p class="insight">${analysis.insight}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('app').innerHTML = html;
+        }
+        
+        // Load status on page load
+        loadStatus();
+        
+        // Refresh every 60 seconds
+        setInterval(loadStatus, 60000);
+    </script>
+</body>
+</html>

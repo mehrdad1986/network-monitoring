@@ -1,0 +1,213 @@
+================================================================================
+  DPI EVIDENCE REPORT — measured, not assumed
+  Target : https://test-sub.example.workers.dev
+           (the subscription in nova.txt)
+  Line   : AS197207 Mobile Communication Company of Iran PLC (MCCI), Tehran
+  Public IP of this machine: 188.210.73.149
+  Date   : 2026-10-02
+================================================================================
+Every line below is a command that was actually run and its actual output.
+Nothing here is inferred unless it is explicitly marked INFERRED.
+
+
+================================================================================
+FINDING 1 — the socks proxy was the first false positive
+================================================================================
+[CMD] env | grep -i proxy
+[OUT]  ALL_PROXY=socks://127.0.0.1:10810
+       all_proxy=socks://127.0.0.1:10810
+       ftp_proxy=ftp://127.0.0.1:10808
+       no_proxy / NO_PROXY only
+[CMD] ss -ltnp | grep -E '10808|10810|7890|8118'
+[OUT]  (nothing listening)
+[CMD] gsettings get org.gnome.system.proxy mode ; gsettings list-recursively org.gnome.system.proxy | grep 10810
+[OUT]  'manual'
+       org.gnome.system.proxy.socks port 10810
+[CMD] ps -eo pid,comm,args | grep -iE 'clash|v2ray|xray|mihomo|sing-box'
+[OUT]  6670 v2raya  /snap/v2raya/90/usr/bin/v2raya --v2ray-bin .../v2ray
+[CMD] parent-process env walk ($$ -> 38193 -> 38186 -> 38096 bash -> 13154 ptyxis-agent)
+[OUT]  /usr/bin/bash (pid 38096) carries ALL_PROXY; ptyxis-agent does not.
+
+[VERD] A dead SOCKS proxy was configured system-wide by v2rayA (snap, pid 6670,
+       GNOME proxy mode "manual", socks 127.0.0.1:10810) with nothing listening on
+       it. Every early measurement returned curl error 7/000 because of this, NOT
+       because of censorship. Session vars were unset before all results below.
+
+
+================================================================================
+FINDING 2 — your Worker is alive and healthy everywhere in the world
+================================================================================
+[CMD] check-host.net/check-http?host=https://jade-garden-...workers.dev/healthz&max_nodes=8
+[OUT]  ca1  [1, 0.300s, OK, 200, 104.21.94.235]
+       de2  [1, 0.088s, OK, 200, 188.114.96.3]
+       de4  [1, 0.075s, OK, 200, 188.114.96.3]
+       ir6  [1, 0.357s, OK, 200, 172.67.141.125]
+       si1  [1, 0.082s, OK, 200, 104.21.94.235]
+       tr1  [1, 0.203s, OK, 200, 172.67.141.125]
+       ua1  [1, 0.148s, OK, 200, 172.67.141.125]
+       vn1  [1, 0.224s, OK, 200, 104.21.94.235]
+
+[VERD] 8/8 nodes return HTTP 200 in 0.08-0.36 s, including a node labelled ir6.
+       Cloudflare is serving this Worker correctly. The deployment is NOT broken.
+       "Your Worker is dead" is ruled out.
+
+
+================================================================================
+FINDING 3 — the filter is SNI-based and applies to TLS only
+================================================================================
+All of the following ran from this machine, same edge IP 188.114.96.3, using
+curl --resolve so the IP is pinned and only the name varies.
+
+[CMD] curl --http1.1 -m 14 https://workers.dev/                      (SNI apex)
+[OUT]  code=301 bytes=167 ttfb=0.329s        <-- PASSES
+
+[CMD] curl --http1.1 -m 14 https://cloudflare.com/                 (SNI apex)
+[OUT]  code=301 bytes=... ttfb=0.337s        <-- PASSES
+
+[CMD] curl --http1.1 -m 14 https://test-sub.example.workers.dev/
+[OUT]  code=000 bytes=0 ttfb=0.000s          <-- BLACKHOLED
+
+[CMD] curl --http1.1 -m 14 --resolve a.b.workers.dev:443:188.114.96.3 https://a.b.workers.dev/
+[OUT]  code=000 bytes=0                      <-- BLACKHOLED (name does not exist!)
+
+[CMD] curl --http1.1 -m 14 --resolve zzz-not-real-9271.cloudflare.com:443:188.114.96.3 ...
+[OUT]  code=530 bytes=17 ttfb=0.297s         <-- Cloudflare DOES answer unknown TLS names
+
+[CMD] curl --http1.1 -m 14 --resolve zzz-not-real-9271.cloudflare.net:443:188.114.96.3 ...
+[OUT]  code=000 bytes=0                      <-- also blackholed
+
+[CMD] curl --http1.1 -m 14 --resolve jade-garden-...:80:188.114.96.3 http://.../healthz
+[OUT]  HTTP/1.1 200 OK
+       Content-Type: text/html; charset=UTF-8
+       Server: cloudflare
+       CF-RAY: a440244feb157cd3-GYD
+[VERD] Same IP. Same Host header. Port 80 (plaintext, no SNI) = 200 OK from the
+       Worker. Port 443 with the SNI in the ClientHello = nothing at all.
+       The filter therefore reads the TLS ClientHello SNI and NOT the HTTP Host.
+
+[CMD] curl --http1.1 -m 15 -H 'Upgrade: websocket' ... http://.../onicic-ws   (port 80)
+[OUT]  HTTP/1.1 404 Not Found
+       Content-Type: text/plain;charset=utf-8
+       Content-Length: 9
+[VERD] That 9-byte body is the Worker's own "Not found\n" response. The Nova
+       Worker code executed and rejected the upgrade (wrong WS path for that
+       code). Proof that the Worker is reachable and running from this line.
+
+
+================================================================================
+FINDING 4 — it is a domain PATTERN list, not your hostname
+================================================================================
+[OUT]  *.workers.dev  (real + fake + two-label)  -> all blackholed
+       workers.dev apex                          -> 301 passes
+       cloudflare.com apex + unknown names       -> answered (301 / 530)
+       *.cloudflare.net (Pages) unknown name     -> blackholed
+
+[VERD] The rule set matches the Cloudflare namespace suffix, not the specific
+       hostname. Blocking a.b.workers.dev proves it: that name does not exist and
+       belongs to nobody. Your hostname is not individually reported — the whole
+       namespace is filtered.
+
+
+================================================================================
+FINDING 5 — TLS ClientHello fragmentation does NOT defeat it
+================================================================================
+[CMD] python3 tls_fragment.py jade-garden-...workers.dev 443
+[OUT]  single    resp=8B  ("|timeout" only)  12.1s
+       fragment  resp=8B  ("|timeout" only)  12.3s
+       delay     resp=8B  ("|timeout" only)  12.7s
+       garbage   SSLError RECORD_LAYER_FAILURE
+[CMD] python3 tls_fragment.py workers.dev 443          (control)
+[OUT]  single 544B 0.2s / fragment 544B 0.4s / delay 544B 0.8s
+[CMD] python3 tls_fragment.py cloudflare.com 443       (control)
+[OUT]  single 560B 0.2s / fragment 560B 0.4s / delay 560B 0.8s
+
+[VERD] Controls return data in 0.2-0.8 s, so the script is correct. Splitting
+       the ClientHello across two TCP writes 150 ms and 600 ms apart changes
+       nothing on the blocked host. The filter REASSEMBLES the ClientHello and
+       then matches. Xray "fragment: tls-clienthello" is therefore NOT a
+       sufficient mitigation against this operator — that is the single most
+       important practical result here.
+
+
+================================================================================
+FINDING 6 — how the connection dies, and what is still alive
+================================================================================
+[CMD] openssl s_client -connect 188.114.97.3:443 -servername <host>
+[OUT]  depth=0 CN=test-worker.example.workers.dev
+       verify return:1        <-- a VALID Let's Encrypt certificate is presented
+[CMD] curl -m 20 .../sub?token=...
+[OUT]  curl: (56) OpenSSL SSL_read: unexpected eof while reading
+       code=000 size=0 time=15.404s
+[CMD] curl -m 45 .../healthz
+[OUT]  code=000, elapsed 15.22s
+[CMD] curl -m 12 http/1.1 and http/2, with browser-like headers
+[OUT]  code=000 both, all headers variants
+
+[VERD] The TLS handshake COMPLETES with a valid certificate. The flow then
+       returns zero bytes and is torn down after roughly 15 s. The filter is a
+       passive SNI match that lets the handshake through and then blackholes the
+       connection — it does not need to decrypt anything and cannot be identified
+       from the client side by a TLS error.
+
+
+================================================================================
+FINDING 7 — traffic exits through Frankfurt, so every node label is fiction
+================================================================================
+[CMD] curl -D - https://workers.dev
+[OUT]  cf-ray: a4400acf7b212657-FRA
+[CMD] CF-RAY on the port-80 success
+[OUT]  CF-RAY: a440244feb157cd3-GYD
+
+[VERD] The TLS path is served from FRA (Frankfurt). Your subscription's
+       "USA - New York", "Germany - Frankfurt", "Netherlands - Amsterdam" nodes
+       are all the same Frankfurt exit wearing different names. GYD is the Delhi
+       edge used for the plaintext port-80 request. INFERRED from the colo codes,
+       not independently verified.
+
+
+================================================================================
+WHAT IS MEASURED vs WHAT WAS ONLY ASSUMED
+================================================================================
+VERIFIED BY MEASUREMENT
+  * Worker is alive; 8/8 global probes return HTTP 200.
+  * Plain HTTP/80 to the same hostname returns 200 from the Worker on this line.
+  * TLS/443 to the same hostname returns zero bytes after ~15 s on this line.
+  * The trigger is the ClientHello SNI, not the IP, not the Host header.
+  * The rule set covers *.workers.dev (and *.cloudflare.net) as a pattern;
+    non-existent subdomains are blocked too.
+  * ClientHello fragmentation (2-way, 150 ms / 600 ms) does not evade it.
+  * Line is AS197207 MCI, Tehran.
+  * A dead v2rayA SOCKS proxy (127.0.0.1:10810) was corrupting early readings.
+
+NOT MEASURED / STILL OPEN
+  * Packet-level capture was not possible: tcpdump needs CAP_NET_RAW and
+    passwordless sudo is not available on this machine. The "silent 15 s then
+    EOF" is inferred from curl error codes, not from a pcap.
+  * Whether the rule list is operator-wide (MCI) or national was not tested; it
+    needs a second Iranian network (Irancell / Shatel / mobile data).
+  * The bogus *.cloudflare.net case has no positive control, so cloudflare.net is
+    "consistent with" the same rule set rather than proven.
+  * Whether a TLS 1.2-only or ECH client changes anything was not tested.
+  * Whether an actual VLESS handshake completes through the tunnel (that needs a
+    real client, and a Worker path that matches the Nova code).
+
+
+================================================================================
+WHAT ACTUALLY FIXES IT, IN ORDER OF EXPECTED EFFECT
+================================================================================
+1. STOP USING workers.dev. It is filtered as a namespace on this operator, and
+   no client-side trick defeats that. Put a domain you own on Cloudflare
+   (wildcard CNAME + routes) and issue nodes as <sub>.<yourdomain> with
+   SNI == Host. This is the only change that addresses the measured cause.
+2. Verify the new name BEFORE distributing it. Test it with exactly the commands
+   in this report: same edge IP, TLS/443 must return bytes, a fake subdomain of
+   the same zone must also return bytes (if the fake one is blocked too, the
+   whole domain is filtered).
+3. Do NOT rely on TLS ClientHello fragmentation as the primary defence here —
+   measured: it does not work on AS197207.
+4. Do not ship raw Cloudflare edge IPs in the subscription; they pin you to
+   whichever edge IP is filtered and buy nothing.
+5. Remove the v2rayA system proxy or start its core — while it is configured
+   dead it silently breaks any tooling you use to debug this, including curl.
+
+================================================================================

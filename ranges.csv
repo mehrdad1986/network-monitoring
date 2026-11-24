@@ -1,0 +1,4 @@
+start_ip,end_ip,count,date,organization
+8.8.8.0,8.8.8.255,256,2024-01-01,Google DNS
+1.1.1.0,1.1.1.255,256,2024-01-01,Cloudflare DNS
+208.67.222.0,208.67.222.255,256,2024-01-01,OpenDNS

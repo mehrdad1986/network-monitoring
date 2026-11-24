@@ -1,0 +1,1257 @@
+{
+  "mode": "run",
+  "python": "/usr/bin/python3",
+  "started_at": "2026-10-23T16:15:58.723297+00:00",
+  "results": [
+    {
+      "file": "ADSL/ads_battery.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:15:58.723364+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/ADSL/ads_battery.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/ADSL__ads_battery.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/ADSL__ads_battery.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.215
+    },
+    {
+      "file": "ADSL/ads_ladder.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:15:58.945739+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/ADSL/ads_ladder.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/ADSL__ads_ladder.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/ADSL__ads_ladder.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.215
+    },
+    {
+      "file": "analyze_paths.py",
+      "status": "skipped",
+      "reason": "Utility needs explicit selection or --include-special"
+    },
+    {
+      "file": "bgp_report.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:15:59.166513+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/bgp_report.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/bgp_report.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/bgp_report.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.066
+    },
+    {
+      "file": "bgp_route_analysis.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:15:59.244807+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/bgp_route_analysis.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/bgp_route_analysis.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/bgp_route_analysis.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.166
+    },
+    {
+      "file": "big4_filter_methods.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:15:59.428748+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/big4_filter_methods.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/big4_filter_methods.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/big4_filter_methods.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.417
+    },
+    {
+      "file": "big5_dpi_methods.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:15:59.859073+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/big5_dpi_methods.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/big5_dpi_methods.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/big5_dpi_methods.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.667
+    },
+    {
+      "file": "big5_dpi_methods_v2.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:00.549021+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/big5_dpi_methods_v2.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/big5_dpi_methods_v2.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/big5_dpi_methods_v2.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.517
+    },
+    {
+      "file": "check ips/analyze_lantern.py",
+      "status": "skipped",
+      "reason": "Live monitor needs explicit selection and a timeout"
+    },
+    {
+      "file": "check ips/aws app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:01.096605+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/aws app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__aws app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__aws app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.166
+    },
+    {
+      "file": "check ips/aws_test.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:01.276461+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/aws_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__aws_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__aws_test.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.369
+    },
+    {
+      "file": "check ips/azure app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:01.678938+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/azure app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__azure app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__azure app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.117
+    },
+    {
+      "file": "check ips/cloudflareapp.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:01.806872+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/cloudflareapp.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__cloudflareapp.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__cloudflareapp.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.115
+    },
+    {
+      "file": "check ips/digi ocean app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:01.930410+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/digi ocean app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__digi ocean app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__digi ocean app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.115
+    },
+    {
+      "file": "check ips/digitalocean_test.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:02.048762+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/digitalocean_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__digitalocean_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__digitalocean_test.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.52
+    },
+    {
+      "file": "check ips/gcp app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:02.590455+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/gcp app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__gcp app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__gcp app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.115
+    },
+    {
+      "file": "check ips/gcp_test.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:02.715273+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/gcp_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__gcp_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__gcp_test.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.423
+    },
+    {
+      "file": "check ips/generate_summary.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:03.151619+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/generate_summary.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__generate_summary.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__generate_summary.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.117
+    },
+    {
+      "file": "check ips/hetzner_test.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:03.285896+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/hetzner_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__hetzner_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__hetzner_test.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.622
+    },
+    {
+      "file": "check ips/master_controller.py",
+      "status": "skipped",
+      "reason": "Nested batch runner; its child apps are already catalogued"
+    },
+    {
+      "file": "check ips/monitor_dns_tunnel.py",
+      "status": "skipped",
+      "reason": "Live monitor needs explicit selection and a timeout"
+    },
+    {
+      "file": "check ips/monitor_lantern_live.py",
+      "status": "skipped",
+      "reason": "Live monitor needs explicit selection and a timeout"
+    },
+    {
+      "file": "check ips/oracle app.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:03.956919+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/oracle app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__oracle app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__oracle app.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.828
+    },
+    {
+      "file": "check ips/run_all_tests.py",
+      "status": "skipped",
+      "reason": "Nested batch runner; its child apps are already catalogued"
+    },
+    {
+      "file": "check ips/test_dns_server.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:04.826193+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/test_dns_server.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__test_dns_server.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__test_dns_server.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.033
+    },
+    {
+      "file": "check ips/test_dns_tunnel_client.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:04.866116+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/test_dns_tunnel_client.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__test_dns_tunnel_client.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__test_dns_tunnel_client.stderr.log",
+      "duration_seconds": 1.005
+    },
+    {
+      "file": "check ips/vultr app.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:05.880681+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/check ips/vultr app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/check ips__vultr app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/check ips__vultr app.stderr.log",
+      "duration_seconds": 1.01
+    },
+    {
+      "file": "test_dns_servers_list.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:06.934563+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_dns_servers_list.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/claude test dns servers with all list.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/claude test dns servers with all list.stderr.log",
+      "duration_seconds": 1.009
+    },
+    {
+      "file": "cloudflare_port_protocol_scanner.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:07.953588+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/cloudflare_port_protocol_scanner.py"
+      ],
+      "argument_count": 1,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/cloudflare_port_protocol_scanner.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/cloudflare_port_protocol_scanner.stderr.log",
+      "duration_seconds": 1.01
+    },
+    {
+      "file": "comprehensive_live_test.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:08.984434+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/comprehensive_live_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/comprehensive_live_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/comprehensive_live_test.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.367
+    },
+    {
+      "file": "cross_isp_battery.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:09.377566+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/cross_isp_battery.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/cross_isp_battery.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/cross_isp_battery.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.516
+    },
+    {
+      "file": "daily_orchestrator.py",
+      "status": "skipped",
+      "reason": "Nested batch runner; its child apps are already catalogued"
+    },
+    {
+      "file": "daily_tests/cloudflare_port_protocol_scanner.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:09.901152+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/cloudflare_port_protocol_scanner.py"
+      ],
+      "argument_count": 1,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__cloudflare_port_protocol_scanner.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__cloudflare_port_protocol_scanner.stderr.log",
+      "duration_seconds": 1.01
+    },
+    {
+      "file": "daily_tests/daily_orchestrator.py",
+      "status": "skipped",
+      "reason": "Nested batch runner; its child apps are already catalogued"
+    },
+    {
+      "file": "daily_tests/dns_poisoning_detector.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:10.959902+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/dns_poisoning_detector.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__dns_poisoning_detector.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__dns_poisoning_detector.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.216
+    },
+    {
+      "file": "daily_tests/encrypted_dns_monitor.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:11.194743+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/encrypted_dns_monitor.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__encrypted_dns_monitor.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__encrypted_dns_monitor.stderr.log",
+      "duration_seconds": 1.005
+    },
+    {
+      "file": "daily_tests/multi_isp_comparison.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:12.236899+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/multi_isp_comparison.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__multi_isp_comparison.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__multi_isp_comparison.stderr.log",
+      "duration_seconds": 1.005
+    },
+    {
+      "file": "daily_tests/site_blocker_scanner.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:13.249336+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/site_blocker_scanner.py"
+      ],
+      "argument_count": 1,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__site_blocker_scanner.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__site_blocker_scanner.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.115
+    },
+    {
+      "file": "daily_tests/sni_filter_scanner.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:13.375460+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/sni_filter_scanner.py"
+      ],
+      "argument_count": 2,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__sni_filter_scanner.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__sni_filter_scanner.stderr.log",
+      "duration_seconds": 1.005
+    },
+    {
+      "file": "daily_tests/sni_filter_tester.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:14.391502+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/sni_filter_tester.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__sni_filter_tester.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__sni_filter_tester.stderr.log",
+      "duration_seconds": 1.006
+    },
+    {
+      "file": "daily_tests/sni_spoofing_tester.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:15.424255+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/daily_tests/sni_spoofing_tester.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/daily_tests__sni_spoofing_tester.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/daily_tests__sni_spoofing_tester.stderr.log",
+      "duration_seconds": 1.006
+    },
+    {
+      "file": "dns_poisoning_detector.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:16.453383+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/dns_poisoning_detector.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/dns_poisoning_detector.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/dns_poisoning_detector.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.217
+    },
+    {
+      "file": "test_doh.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:16.686595+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_doh.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/doh test claude.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/doh test claude.stderr.log",
+      "duration_seconds": 1.009
+    },
+    {
+      "file": "doh_mass_tester.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:17.706518+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/doh_mass_tester.py"
+      ],
+      "argument_count": 1,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/doh_mass_tester.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/doh_mass_tester.stderr.log",
+      "duration_seconds": 1.017
+    },
+    {
+      "file": "doh_resolve.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:18.738329+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/doh_resolve.py"
+      ],
+      "argument_count": 1,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/doh_resolve.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/doh_resolve.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.065
+    },
+    {
+      "file": "doh_retry.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:18.808099+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/doh_retry.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/doh_retry.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/doh_retry.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.166
+    },
+    {
+      "file": "doh_sweep.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:18.986903+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/doh_sweep.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/doh_sweep.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/doh_sweep.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.417
+    },
+    {
+      "file": "dpi_probe.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:19.424410+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/dpi_probe.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/dpi_probe.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/dpi_probe.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.266
+    },
+    {
+      "file": "dpi_test_agent.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:19.703324+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/dpi_test_agent.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/dpi_test_agent.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/dpi_test_agent.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.817
+    },
+    {
+      "file": "dpi_test_agent2.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:20.528813+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/dpi_test_agent2.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/dpi_test_agent2.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/dpi_test_agent2.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.415
+    },
+    {
+      "file": "dpi_toolkit_test.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:20.947636+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/dpi_toolkit_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/dpi_toolkit_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/dpi_toolkit_test.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.515
+    },
+    {
+      "file": "dropshape.py",
+      "status": "unavailable",
+      "started_at": "2026-10-23T16:16:21.465528+00:00",
+      "reasons": [
+        "Arguments required; supply args for this app in --config"
+      ]
+    },
+    {
+      "file": "early_close.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:21.467751+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/early_close.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/early_close.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/early_close.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.215
+    },
+    {
+      "file": "ech_probe.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:21.683962+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/ech_probe.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/ech_probe.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/ech_probe.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.066
+    },
+    {
+      "file": "encrypted_dns_monitor.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:21.757165+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/encrypted_dns_monitor.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/encrypted_dns_monitor.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/encrypted_dns_monitor.stderr.log",
+      "duration_seconds": 1.006
+    },
+    {
+      "file": "extract_azix.py",
+      "status": "skipped",
+      "reason": "Utility needs explicit selection or --include-special"
+    },
+    {
+      "file": "fake_rst.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "from cryptography import x509.py",
+      "status": "skipped",
+      "reason": "Utility needs explicit selection or --include-special"
+    },
+    {
+      "file": "generate_all_ips.py",
+      "status": "skipped",
+      "reason": "Utility needs explicit selection or --include-special"
+    },
+    {
+      "file": "ip_access_tests/cloudflare/cloudflare app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:22.792045+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/ip_access_tests/cloudflare/cloudflare app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__cloudflare__cloudflare app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__cloudflare__cloudflare app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.165
+    },
+    {
+      "file": "ip_access_tests/digitalocean/digi ocean app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:22.961189+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/ip_access_tests/digitalocean/digi ocean app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__digitalocean__digi ocean app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__digitalocean__digi ocean app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.165
+    },
+    {
+      "file": "ip_access_tests/gcp/app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:23.132787+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/ip_access_tests/gcp/app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__gcp__app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__gcp__app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.166
+    },
+    {
+      "file": "ip_access_tests/hetzner/app.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:23.312373+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/ip_access_tests/hetzner/app.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__hetzner__app.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/ip_access_tests__hetzner__app.stderr.log",
+      "exit_code": 2,
+      "duration_seconds": 0.215
+    },
+    {
+      "file": "live_sni_test.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:23.533063+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/live_sni_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/live_sni_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/live_sni_test.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.217
+    },
+    {
+      "file": "live_subscription_test.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:23.761371+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/live_subscription_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/live_subscription_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/live_subscription_test.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.516
+    },
+    {
+      "file": "make_xray.py",
+      "status": "skipped",
+      "reason": "Utility needs explicit selection or --include-special"
+    },
+    {
+      "file": "master_kilo_runner.py",
+      "status": "skipped",
+      "reason": "Nested batch runner; its child apps are already catalogued"
+    },
+    {
+      "file": "multi_isp_comparison.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:24.289497+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/multi_isp_comparison.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/multi_isp_comparison.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/multi_isp_comparison.stderr.log",
+      "duration_seconds": 1.006
+    },
+    {
+      "file": "netmon_analyzer.py",
+      "status": "skipped",
+      "reason": "Utility needs explicit selection or --include-special"
+    },
+    {
+      "file": "protocol_bypass_analysis.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:25.327575+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/protocol_bypass_analysis.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/protocol_bypass_analysis.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/protocol_bypass_analysis.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.115
+    },
+    {
+      "file": "quick_doh_test.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:25.448823+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/quick_doh_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/quick_doh_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/quick_doh_test.stderr.log",
+      "duration_seconds": 1.005
+    },
+    {
+      "file": "rst_comprehensive.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_comprehensive_v2.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_evader.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_evader_v2.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_final.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_simple_test.py",
+      "status": "skipped",
+      "reason": "Uses historical captured connection addresses and sequence numbers; edit those for a current test before running"
+    },
+    {
+      "file": "rst_simple_v2.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_test_v2.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_test_v3.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_test_v4.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_test_v5.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "run_chunked.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:26.463161+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/run_chunked.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/run_chunked.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/run_chunked.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.316
+    },
+    {
+      "file": "run_dpi_chunk.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:26.782517+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/run_dpi_chunk.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/run_dpi_chunk.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/run_dpi_chunk.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.365
+    },
+    {
+      "file": "simple_sni_test.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:27.150183+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/simple_sni_test.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/simple_sni_test.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/simple_sni_test.stderr.log",
+      "duration_seconds": 1.006
+    },
+    {
+      "file": "site_blocker_scanner.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:28.165397+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/site_blocker_scanner.py"
+      ],
+      "argument_count": 1,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/site_blocker_scanner.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/site_blocker_scanner.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.166
+    },
+    {
+      "file": "sni_filter_scanner.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:28.365191+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/sni_filter_scanner.py"
+      ],
+      "argument_count": 2,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/sni_filter_scanner.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/sni_filter_scanner.stderr.log",
+      "duration_seconds": 1.006
+    },
+    {
+      "file": "sni_filter_tester.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:29.391528+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/sni_filter_tester.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/sni_filter_tester.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/sni_filter_tester.stderr.log",
+      "duration_seconds": 1.005
+    },
+    {
+      "file": "sni_fragment_sweep.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:30.411243+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/sni_fragment_sweep.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/sni_fragment_sweep.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/sni_fragment_sweep.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.266
+    },
+    {
+      "file": "sni_preflight.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:30.682447+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/sni_preflight.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/sni_preflight.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/sni_preflight.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.065
+    },
+    {
+      "file": "sni_spoofing_tester.py",
+      "status": "timeout",
+      "started_at": "2026-10-23T16:16:30.750586+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/sni_spoofing_tester.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/sni_spoofing_tester.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/sni_spoofing_tester.stderr.log",
+      "duration_seconds": 1.009
+    },
+    {
+      "file": "sni_variants4.py",
+      "status": "failed",
+      "started_at": "2026-10-23T16:16:31.771978+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/sni_variants4.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/sni_variants4.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/sni_variants4.stderr.log",
+      "exit_code": 1,
+      "duration_seconds": 0.216
+    },
+    {
+      "file": "spoof_rst.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "tcp_flag_evader.py",
+      "status": "skipped",
+      "reason": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "test_all_apps.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:32.001777+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_all_apps.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_all_apps.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_all_apps.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.518
+    },
+    {
+      "file": "test_dns_interception.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:32.533318+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_dns_interception.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_dns_interception.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_dns_interception.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.116
+    },
+    {
+      "file": "test_dpi_patterns.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:32.660932+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_dpi_patterns.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_dpi_patterns.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_dpi_patterns.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.117
+    },
+    {
+      "file": "test_fragmentation_idea.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:32.784909+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_fragmentation_idea.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_fragmentation_idea.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_fragmentation_idea.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.165
+    },
+    {
+      "file": "test_protocol_detection.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:32.952350+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_protocol_detection.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_protocol_detection.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_protocol_detection.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.066
+    },
+    {
+      "file": "test_sni.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:33.031063+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_sni.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_sni.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_sni.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.215
+    },
+    {
+      "file": "test_sni_filtering.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:33.250730+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_sni_filtering.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_sni_filtering.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_sni_filtering.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.066
+    },
+    {
+      "file": "test_sni_tls_fingerprint.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:33.322235+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/test_sni_tls_fingerprint.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/test_sni_tls_fingerprint.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/test_sni_tls_fingerprint.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.065
+    },
+    {
+      "file": "tls_fragment.py",
+      "status": "completed",
+      "started_at": "2026-10-23T16:16:33.390751+00:00",
+      "command": [
+        "/usr/bin/python3",
+        "-u",
+        "/tmp/dpi-backend-smoke-a6nmu2lo/tls_fragment.py"
+      ],
+      "argument_count": 0,
+      "stdout": "/home/user py apps/reports/backend_startup_logs/tls_fragment.stdout.log",
+      "stderr": "/home/user py apps/reports/backend_startup_logs/tls_fragment.stderr.log",
+      "exit_code": 0,
+      "duration_seconds": 0.165
+    }
+  ],
+  "note": "completed means exit code 0, not that network access or censorship conclusions were validated",
+  "counts": {
+    "failed": 24,
+    "skipped": 28,
+    "completed": 31,
+    "timeout": 19,
+    "unavailable": 1
+  },
+  "finished_at": "2026-10-23T16:16:33.557985+00:00",
+  "programming_exceptions_observed": [],
+  "scope": "One-second startup smoke in a temporary copy. Not full network validation. Special apps and nested runners skipped."
+}

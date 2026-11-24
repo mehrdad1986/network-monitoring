@@ -1,0 +1,1039 @@
+================================================================================
+                    COMPREHENSIVE DPI INTELLIGENCE REPORT
+                Deep Packet Inspection Analysis: Iran Network Infrastructure
+                          MCI (AS197207) Primary Investigation
+================================================================================
+
+CLASSIFICATION: TECHNICAL INTELLIGENCE
+REPORT DATE: 2026-10-09
+INVESTIGATION PERIOD: 2026-10-02 (04:30 - 07:45 UTC+01:00)
+PRIMARY INVESTIGATOR: Kilo (Packet-level measurements)
+TARGET NETWORK: AS197207 Mobile Communication Company of Iran PLC (MCI/MCCI)
+SECONDARY NETWORK: AS57218 Rightel Communication Service Company PJS
+METHODOLOGY: Empirical measurement, packet capture, comparative ISP analysis
+
+================================================================================
+                            EXECUTIVE SUMMARY
+================================================================================
+
+THREAT ASSESSMENT:
+Advanced inline Deep Packet Inspection (DPI) infrastructure deployed on Iranian
+mobile carrier MCI (AS197207) performing SNI-based censorship with NO TLS
+decryption capability. Equipment operates as stateless middlebox with multiple
+enforcement mechanisms.
+
+KEY FINDINGS:
+1. *.workers.dev namespace BLOCKED on MCI via SNI inspection (ISP-specific, NOT national)
+2. Four distinct filtering mechanisms identified and mapped
+3. DNS poisoning affecting major platforms (Facebook, Instagram, YouTube, X/Twitter)
+4. Encrypted DNS (DoH/DoT) systematically blocked except IP-literal access
+5. Filter operates on label-count pattern matching (2-4 labels blocked, 5+ pass)
+6. NO TLS interception - genuine certificates delivered intact
+7. Rightel (AS57218) does NOT filter workers.dev - confirms MCI-specific policy
+
+STRATEGIC IMPACT:
+Custom domain deployment with 5+ DNS labels bypasses ALL measured restrictions.
+ClientHello fragmentation ineffective. Multi-ISP DoH failover mandatory.
+
+================================================================================
+                        PART 1: DPI INFRASTRUCTURE
+================================================================================
+
+1.1 EQUIPMENT CHARACTERISTICS (MEASURED)
+----------------------------------------
+Hardware Type:
+- Carrier-grade inline DPI middlebox
+- Deployment: MCI mobile packet core (PGW/GGSN) and TIC international transit
+- Operation: Stateless and stateful inspection of IPv4/IPv6 flows
+- Positioning: Inline without TLS termination
+
+Technical Capabilities CONFIRMED:
+✓ SNI extraction from TLS ClientHello
+✓ DNS query interception and rewriting (UDP/TCP port 53)
+✓ Selective packet dropping (application-layer only)
+✓ Case normalization in DNS and SNI matching
+✓ Multi-port inspection (443, 8443, 2053, 2083, 2087, 2096)
+✗ NO TLS decryption (Cloudflare certificates verified intact)
+✗ NO TCP RST injection for workers.dev (0 RST packets in 134KB capture)
+✗ NO MTU manipulation (1472-byte payloads pass)
+✗ NO protocol-level inspection (VLESS vs static HTML treated identically)
+
+1.2 NETWORK TOPOLOGY (MEASURED)
+--------------------------------
+Route from Client (10.170.48.221) to Cloudflare (188.114.97.3):
+  Hop 1:  10.170.48.246      1.558 ms    (CPE/Router - MAC randomized)
+  Hop 2:  *
+  Hop 3:  10.0.22.177       23.076 ms
+  Hop 4:  10.0.22.134       32.057 ms    } MCI internal network
+  Hop 5:  10.0.22.130       29.032 ms    } 13 hops total
+  Hop 6:  10.0.22.137       33.574 ms    } All private 10.x addresses
+  Hop 7:  10.0.22.142       23.099 ms    } Never leaves MCI network
+  Hop 8:  10.30.96.157      23.656 ms    }
+  Hop 9:  10.202.7.132      27.373 ms    }
+  Hop 10: 10.21.211.10      28.971 ms    }
+  Hop 11: *
+  Hop 12: *
+  Hop 13: 188.114.97.3    106.098 ms    (Cloudflare Frankfurt)
+
+RTT Analysis:
+- SYN TTL out: 64
+- SYN-ACK TTL in: 49
+- Average RTT: 113 ms (MCI), 205 ms (Rightel)
+- Cloudflare Colo: FRA (Frankfurt) for both TLS and plaintext
+
+1.3 DEVICE IDENTITY (DOCUMENTED + MEASURED)
+--------------------------------------------
+VENDOR: UNKNOWN - No conclusive evidence for any specific manufacturer
+
+Claims REJECTED:
+- "Huawei/ZTE 10 Gbps+ appliances" - UNSOURCED
+- "ML classifier with 90%+ accuracy" - FABRICATED
+- "Weekly signature database updates" - UNSUPPORTED
+- "Commercial threat-intel feeds" - UNSUPPORTED
+- "Active probing systems" - UNSUPPORTED
+
+Evidence CONFIRMED:
+- Sinkhole addresses: 10.10.34.34, .35, .36 (all ports filtered, ICMP dead)
+- Gateway MAC: 36:a4:df:c6:e3:f6 (locally-administered/randomized)
+- No exposed management interfaces
+- No fingerprinting vectors available
+
+Historical Context (Wikipedia "Internet censorship in Iran", 2026-10-02):
+- Original: SmartFilter by Secure Computing
+- Later: Iran-built hardware and software
+- Nokia Siemens Networks: lawful-intercept monitoring centre (2009)
+- 2023: Cloudflare reported ~70% Iranian traffic cut off
+- 2024: IPv6 blocking reported
+- 2026: Chinese censorship technology imported
+- Authority: Supreme Council of Cyberspace (policy)
+- Enforcement: Internet Filtering Committee under Prosecutor-General
+- Legal: Computer Crimes Law art. 21 (3-month traffic data retention)
+
+================================================================================
+                    PART 2: FILTERING MECHANISMS (MEASURED)
+================================================================================
+
+FOUR DISTINCT MECHANISMS IDENTIFIED:
+
+2.1 MECHANISM 1: DNS FORGERY
+-----------------------------
+Scope: UDP and TCP port 53 (all queries intercepted regardless of resolver)
+
+Targets:
+- facebook.com, instagram.com, youtube.com, x.com
+- pages.dev, trycloudflare.com
+- ALL DoH resolver hostnames (dns.google, cloudflare-dns.com, etc.)
+
+Forged Responses:
+  A Record:    10.10.34.36 (MCI) / 10.10.34.35 (Rightel)
+  AAAA Record: 2001:4188:2:600:10:10:34:36 (documentation prefix - impossible)
+  TTL:         417-420 seconds (characteristic of synthesized responses)
+  NS/MX/TXT:   No answer (dropped)
+
+Bypass Resistance:
+✗ 0x20 case randomization: INEFFECTIVE (filter normalizes case)
+✗ Alternate resolvers: INEFFECTIVE (all intercepted equally)
+✗ TCP vs UDP: BOTH intercepted
+
+Sinkhole Behavior:
+- All ports (53, 80, 443, 8080, 22): Refused/filtered
+- UDP/53: Silent
+- ICMP: 100% loss
+- Complete network isolation
+
+2.2 MECHANISM 2: SNI SILENT DROP (workers.dev)
+-----------------------------------------------
+Scope: *.workers.dev with 2-4 DNS labels
+
+Behavior:
+1. TLS handshake COMPLETES normally
+2. Server certificate delivered intact (Let's Encrypt, verified)
+3. Server sends full 4889-byte flight (ServerHello + Certificate chain)
+4. Client ACKs all received bytes (Ack=4889 confirmed)
+5. Client sends application data (287 bytes: Finished + HTTP request)
+6. DPI SILENTLY DROPS all client application segments
+7. Zero inbound packets (no ACK, no RST)
+8. Client enters exponential backoff: 0.35s, 0.70s, 1.41s, 2.81s, 5.62s, 11.2s
+9. Cloudflare timeout at ~15 seconds (Cloudflare's TLS handshake timeout)
+10. Cloudflare FIN with Ack=1612 (proves only ClientHello received)
+
+Timing:
+- Classification: t=3.098310s (ClientHello departure)
+- First drop: t=3.217890s (119ms decision window)
+- Complete invisibility to client (no error signal)
+
+Proof NOT Cloudflare:
+Frame 196: Cloudflare's FIN carries Ack=1612
+  → Cloudflare received 1612 bytes (ClientHello only)
+  → 287 bytes of application data never arrived
+  → Cloudflare never dispatched request to Worker
+  → Cloudflare closed connection after own timeout
+
+2.3 MECHANISM 3: SNI TCP RESET (pages.dev, DoH names)
+------------------------------------------------------
+Scope:
+- pages.dev (apex, www, and non-existent subdomains)
+- All DoH resolver hostnames
+
+Behavior:
+- TCP RST injected DURING TLS handshake
+- Handshake never completes
+- Connection torn down before certificate exchange
+
+Distinguishing Test:
+  Non-existent *.workers.dev name → Cloudflare TLS alert (connection reached)
+  Non-existent *.pages.dev name → TCP RST (connection killed upstream)
+  → Proves RST is filter-generated, not Cloudflare refusal
+
+2.4 MECHANISM 4: LABEL-COUNT WINDOW (Pattern Matcher Limitation)
+-----------------------------------------------------------------
+Discovered through systematic SNI label variation on same IP:
+
+  SNI Name                      Labels   Verdict       Behavior
+  ----------------------------  -------  ------------  ------------------------
+  workers.dev                      2     ALLOWED       HTTP/1.1 301 from CF
+  a.workers.dev                    3     BLOCKED       Handshake + silent drop
+  a.b.workers.dev                  4     BLOCKED       Handshake + silent drop
+  a.b.c.workers.dev                5     FORWARDED     Reaches CF (TLS alert)
+  a.b.c.d.workers.dev              6     FORWARDED     Reaches CF (TLS alert)
+  a.b.c.d.e.workers.dev            7     FORWARDED     Reaches CF (TLS alert)
+
+Key Insights:
+- Anchored full-string pattern match inspecting first 4 labels maximum
+- Names with 5+ labels fall outside match window
+- NOT length-based: 13-55 character names all blocked at 3-4 labels
+- NOT case-sensitive: Case normalization applied before matching
+- Stateless: 5 sequential identical connections all blocked identically
+- TLS version independent: TLS 1.2 and 1.3 treated identically
+
+Critical Limitation:
+Workers.dev hostnames are only ever 1 label deep (subdomain.workers.dev = 3 labels)
+→ Every usable workers.dev name falls inside blocked window
+→ No workers.dev hostname can bypass this filter
+
+================================================================================
+                    PART 3: ENCRYPTED DNS LANDSCAPE
+================================================================================
+
+3.1 DNS-OVER-TLS (DoT) - PORT 853
+----------------------------------
+Status: 100% BLOCKED on both MCI and Rightel
+
+Tested Resolvers (all timeout):
+- 1.1.1.1, 1.0.0.1 (Cloudflare)
+- 8.8.8.8, 8.8.4.4 (Google)
+- 9.9.9.9, 149.112.112.112 (Quad9)
+- 94.140.14.14, 94.140.15.15 (AdGuard)
+- 185.222.222.222 (DNS.SB)
+- 1.12.12.12 (Alidns)
+- 223.5.5.5 (Alibaba)
+
+3.2 DNS-OVER-HTTPS (DoH) BY HOSTNAME
+-------------------------------------
+Status: 100% BLOCKED (TCP RST or TLS record failure)
+
+Blocked Hostnames:
+  cloudflare-dns.com, one.one.one.one
+  dns.google
+  dns.quad9.net
+  dns.adguard-dns.com
+  dns.alidns.com
+  doh.pub
+  dns.sb
+  dns.mullvad.net
+  doh.opendns.com
+  dns.nextdns.io
+  doh.dns.sb
+  dot.pub
+
+Double-Block Confirmed:
+- All above names ALSO DNS-poisoned to 10.10.34.36
+- Cannot be resolved OR connected to
+- Two independent filtering layers
+
+ISP Differences (MCI vs Rightel):
+  MCI:     All names → TCP RST during handshake
+  Rightel: Split behavior
+    - cloudflare-dns.com, dns.google, dns.quad9.net → TLS record failure
+    - dns.adguard-dns.com, dns.sb, doh.pub → TCP RST
+
+3.3 DNS-OVER-HTTPS (DoH) BY IP LITERAL - THE WORKING METHOD
+------------------------------------------------------------
+Status: WORKS (asymmetric per ISP)
+
+Google DNS (CN=dns.google with IP SANs):
+  https://8.8.8.8/dns-query     → WORKS on MCI, BLOCKED on Rightel
+  https://8.8.4.4/dns-query     → WORKS on MCI, BLOCKED on Rightel
+
+Cloudflare DNS:
+  https://1.1.1.1/dns-query     → BLOCKED on MCI, WORKS on Rightel
+  https://1.0.0.1/dns-query     → BLOCKED on both
+
+Why It Works:
+- No resolver hostname appears in SNI
+- Certificate validation via IP SAN (RFC 6125)
+- OpenSSL verification: "Verify return code: 0 (ok)"
+- Filter has no name to match
+
+Critical Configuration Requirement:
+Clients MUST support BOTH 8.8.8.8 AND 1.1.1.1 for cross-ISP compatibility
+Hardcoding single resolver = portability failure
+
+3.4 PLAIN HTTP/80 RESOLVER ACCESS (Context)
+--------------------------------------------
+  1.1.1.1:80   → 301 (port open, request form refused)
+  doh.pub:80   → 403 (reachable but refuses)
+  8.8.8.8:80   → Connection fails
+  9.9.9.9:80   → Connection fails
+
+================================================================================
+                    PART 4: ISP COMPARATIVE ANALYSIS
+================================================================================
+
+4.1 MCI (AS197207) - PRIMARY INVESTIGATION
+-------------------------------------------
+Network: Mobile Communication Company of Iran PLC
+Coverage: Tehran, mobile carrier
+Test IP: 188.210.73.149 (public) / 10.170.48.221 (private)
+
+Workers.dev Filter: YES
+  - 2-4 label *.workers.dev: BLOCKED (silent drop)
+  - Apex workers.dev: ALLOWED
+  - 5+ labels: FORWARDED (reaches Cloudflare)
+
+DNS Sinkhole: 10.10.34.36
+DoH Working: 8.8.8.8, 8.8.4.4 (by IP literal)
+DoH Blocked: 1.1.1.1 (even by IP)
+RTT to CF: ~113 ms
+IPv6: Fabricated AAAA records
+
+4.2 RIGHTEL (AS57218) - COMPARISON NETWORK
+-------------------------------------------
+Network: Rightel Communication Service Company PJS (RighTel-3G-LTE)
+Coverage: Mobile LTE operator
+Test IP: 37.137.10.18 (public) / 192.168.0.102 (private)
+CPE Device: D-Link DWR-M922 (identified)
+
+Workers.dev Filter: NO - NOT FILTERED
+  - workers.dev apex: SERVED (301)
+  - a.workers.dev (3 labels): SERVED (404 from CF)
+  - a.b.workers.dev (4 labels): SERVED (404 from CF)
+  - Real Worker jade-garden-6ff7: HTTP/2 200, valid certificate
+  - User's VLESS front: WORKS UNCHANGED
+
+DNS Sinkhole: 10.10.34.35 (different last octet)
+DoH Working: 1.1.1.1 (by IP literal)
+DoH Blocked: 8.8.8.8, 8.8.4.4
+RTT to CF: ~205 ms
+IPv6: Real IPv6 connectivity, genuine AAAA records
+
+Critical Finding:
+Workers.dev blocking is MCI-SPECIFIC, NOT national policy
+Custom domain requirement applies ONLY to MCI users
+Existing VLESS configurations work unchanged on Rightel
+
+4.3 SHARED NATIONAL-LEVEL CENSORSHIP
+-------------------------------------
+Identical on BOTH ISPs (confirms national scope):
+
+1. DNS Poisoning of Major Platforms:
+   facebook.com, instagram.com, youtube.com, x.com
+   (Only sinkhole address differs: .36 vs .35)
+
+2. DoT/853: 100% blocked everywhere
+
+3. DoH by name: 100% blocked (all resolver hostnames)
+
+4. Big Four SNI Blocking (tested on Rightel):
+   Resolving true IPs via working DoH, then connecting:
+     facebook.com @157.240.0.35 → TCP RST
+     instagram.com @157.240.0.174 → TLS record failure
+     youtube.com @142.251.14.136 → TCP RST
+     x.com @162.159.140.229 → TCP RST
+   Control: same IPs with SNI=cloudflare.com → HTTP 301
+   → Proves dual-layer censorship: DNS + SNI
+
+5. pages.dev: Blocked on both (different mechanism signatures)
+
+================================================================================
+                PART 5: VLESS/PROXY CONFIGURATION ANALYSIS
+================================================================================
+
+5.1 THE FAILED CONFIGURATION (Found In-Situ)
+---------------------------------------------
+Location: /home/user
+Source: BPB Panel template (bpb-normal-xray.json, 16 variants)
+
+Configuration:
+  Protocol: VLESS + WebSocket + TLS
+  Server: 104.21.28.168:443 (Cloudflare)
+  UUID: 38befcfd-b4f3-405c-89a7-19eeaf8d7105
+  Path: /vl/Xu1qOzZTZNtI8Np5i7K8oW5X0fz?ed=2560
+  SNI: LoXBhBOHuKwgVX51H35nv6bEFNHa4a.neTFREedoM-PROJeCT.wORKErs.DEv
+  Host: loxbhbohukwgvx51h35nv6befnha4a.netfreedom-project.workers.dev
+
+Evasion Strategy (Panel-Generated):
+- 16 case-mangled variants of workers.dev SNI
+- Intent: defeat literal byte comparison against "workers.dev"
+- Theory: DNS names are case-insensitive, filter might be case-sensitive
+
+5.2 WHY THE EVASION FAILED (MEASURED)
+--------------------------------------
+Test Results at 104.21.28.168:443:
+
+  SNI (mixed case as written)     → BLOCKED (0 bytes)
+  SNI (lowercased)                → BLOCKED (0 bytes)
+  Host header (workers.dev)       → BLOCKED (0 bytes)
+  cloudflare.com                  → SERVED (HTTP/1.1 301)
+  challenges.cloudflare.com       → SERVED (HTTP/1.1 200)
+  a.b.workers.dev                 → BLOCKED
+  a.b.c.workers.dev               → FORWARDED (CF TLS alert)
+
+Failure Analysis:
+1. Case Normalization: Filter converts SNI to canonical case before matching
+2. Label Count: All 16 variants are 4-label names → inside blocked window
+3. No Advantage: Case randomization provides zero evasion benefit
+
+5.3 TLS CLIENTHELLO FRAGMENTATION TEST
+---------------------------------------
+Method: ssl.MemoryBIO splitting ClientHello across 2 TCP writes
+
+Results (jade-garden...workers.dev):
+  Single write (one packet)       → No response, 12s timeout
+  Fragment (2 writes, 150ms gap)  → No response, 12s timeout
+  Delay (2 writes, 600ms gap)     → No response, 12s timeout
+
+Controls (workers.dev and cloudflare.com):
+  Single:   0.2s - 0.8s responses
+  Fragment: 0.2s - 0.8s responses
+  Delay:    0.2s - 0.8s responses
+
+Conclusion:
+Filter REASSEMBLES before matching
+ClientHello fragmentation INEFFECTIVE
+Xray "fragment: tls-clienthello" provides NO evasion benefit
+
+5.4 FRAGMENT FILE ANALYSIS
+---------------------------
+Location: /home/user fragment
+
+Configuration:
+  Outbound: tcp-fragment-tls
+  streamSettings.finalmask:
+    packets: "tlshello"
+    fragments: 114+1 bytes, maxSplit 11
+
+Problems Identified:
+1. NOT valid JSON (missing opening brace, truncated)
+2. Only helps against first-segment inspection (this filter reassembles)
+3. DoH bootstrap maps cloudflare-dns.com to challenges.cloudflare.com IP
+   - Only pins IP, SNI still literal "cloudflare-dns.com"
+   - That hostname is now reset → breaks DNS
+
+================================================================================
+                    PART 6: PORT-BASED ANALYSIS
+================================================================================
+
+Test Configuration: Pinned to 188.114.96.3, SNI=blocked hostname
+
+  Port    Result                 Note
+  ------  ---------------------  ------------------------------------------
+  80      HTTP 200               Plaintext, NO SNI, Worker code executed
+  443     Silent (0 bytes)       Standard HTTPS
+  2053    Silent (0 bytes)       Cloudflare alternate HTTPS
+  2083    Silent (0 bytes)       Cloudflare alternate HTTPS
+  2087    Silent (0 bytes)       Cloudflare alternate HTTPS
+  2096    Silent (0 bytes)       Cloudflare alternate HTTPS
+  8443    Silent (0 bytes)       Cloudflare alternate HTTPS
+
+Critical Finding:
+Port 80 SUCCESS proves:
+- Same hostname, same edge IP, same second
+- No SNI present in plaintext HTTP
+- Worker reachable and executing
+- Decision is 100% SNI-based, NOT port-based
+
+All TLS ports behave identically → Port rotation provides NO evasion benefit
+
+================================================================================
+                    PART 7: MITIGATION STRATEGIES
+================================================================================
+
+7.1 PRIMARY SOLUTION: CUSTOM DOMAIN WITH 5+ LABELS
+---------------------------------------------------
+Method: Deploy Worker on user-controlled domain
+
+Requirements:
+- Domain registered to user
+- Hosted on Cloudflare (proxied/orange cloud)
+- Minimum 5 DNS labels total: a.b.c.d.yourdomain.com
+
+Cloudflare Configuration:
+  DNS: *  CNAME  yourdomain.com (proxied)
+  Worker Route: { pattern = "*.yourdomain.com/*", zone_name = "yourdomain.com" }
+  Certificate: Auto-provisioned by Cloudflare
+
+Client Configuration:
+  address: Custom domain (NOT Cloudflare IP)
+  SNI: Custom domain
+  Host: Custom domain
+  Port: 443 (or 2053, 2083, 2087, 2096, 8443)
+
+Why It Works:
+- 5+ labels fall outside filter's match window
+- Name not in blocklist
+- Cloudflare serves legitimate certificate
+- Traffic appears as normal HTTPS to web server
+
+Pre-Flight Testing (MANDATORY):
+1. Test custom domain:
+   curl -m 12 https://a.b.c.d.yourdomain.com/
+   → Must return HTTP response (200/301/404 from CF/Worker)
+
+2. Test non-existent subdomain:
+   curl -m 12 https://zzzfake9182.yourdomain.com/
+   → Must return HTTP response (530/404 from CF)
+   → If BOTH real and fake names blocked: entire zone filtered
+
+7.2 DNS RESOLUTION STRATEGY
+----------------------------
+Configuration: Dual-upstream DoH with IP literal addressing
+
+Required Entries:
+  Primary:   https://8.8.8.8/dns-query (works on MCI)
+  Fallback:  https://1.1.1.1/dns-query (works on Rightel)
+
+Routing Rules:
+  Block: 10.10.34.0/24 (sinkhole IPv4)
+  Block: 2001:4188:2:600::/64 (sinkhole IPv6)
+  Block: UDP/443 (force QUIC downgrade to TCP if needed)
+
+Why Dual-Upstream:
+- ISP-specific blocking patterns
+- 8.8.8.8 works on MCI, fails on Rightel
+- 1.1.1.1 works on Rightel, fails on MCI
+- Single resolver = guaranteed failure on one network
+
+7.3 CONNECTION OPTIMIZATION
+----------------------------
+Timeout Configuration:
+  Connect timeout: 2.0 - 2.5 seconds
+  First-byte timeout: 2.0 - 2.5 seconds
+
+Rationale:
+- DPI blackholes packets without RST
+- Standard clients wait 30+ seconds in RTO backoff
+- Fast timeout enables rapid failover to backup IP
+
+IP Selection:
+  Primary: 188.114.96.1 (measured: 187ms, 0% loss on MCI)
+  Backup: 188.114.96.3
+  Avoid: Raw Cloudflare anycast IPs without DNS
+
+Port Distribution:
+  443, 2053, 2083, 2087, 2096, 8443 (all supported by CF)
+  Note: Port rotation provides NO evasion but aids load distribution
+
+7.4 CONFIGURATION GENERATOR
+----------------------------
+Delivered Tooling:
+  /home/user
+  - Generates v2rayNG JSON config
+  - Validates 5+ label requirement
+  - Includes dual DoH upstream
+  - Outputs vless:// share link
+  - Validated with "xray run -test" → Configuration OK
+
+  /home/user
+  - Pre-deployment hostname checker
+  - Tests TLS reachability
+  - Classifies: SERVED / BLOCKED / RESET / NXDOMAIN
+  - Usage: python3 sni_preflight.py <hostname>
+
+  /home/user
+  - Cloudflare-side configuration steps
+  - DNS record creation
+  - Worker route binding
+  - Pre-flight verification procedures
+
+7.5 WHAT DOES NOT WORK (PROVEN INEFFECTIVE)
+--------------------------------------------
+❌ Case-mangled SNI (workers.dev → wORKErs.DEv)
+   → Filter normalizes case
+
+❌ ClientHello fragmentation
+   → Filter reassembles before matching
+
+❌ Port rotation among TLS ports
+   → All TLS ports filtered identically
+
+❌ Renaming Worker or changing path
+   → Filter matches SNI, not Worker name
+
+❌ Different VLESS UUID
+   → Filter cannot see encrypted tunnel
+
+❌ Protocol change (VLESS → Trojan)
+   → Filter matches name, not protocol
+
+❌ Switching between panel's 16 variants
+   → All are 4-label names inside blocked window
+
+❌ Any client-side setting
+   → DNS, buffer size, MUX, fingerprint all irrelevant
+
+❌ Fresh workers.dev hostname
+   → Wildcard rule on namespace, not enumerated blocklist
+
+================================================================================
+                        PART 8: PACKET-LEVEL EVIDENCE
+================================================================================
+
+8.1 CAPTURE DETAILS
+-------------------
+File: kilo/pcap/session_2026-10-02.pcap
+Size: 134 KB
+Tool: dumpcap (cap_net_raw file capability, no root required)
+Filter: port 443 and host 188.114.97.3
+
+8.2 BLOCKED FLOW TIMELINE (Frames 27-219)
+------------------------------------------
+Time     Frame  Direction  Event
+-------  -----  ---------  ------------------------------------------------
+2.983s     27   OUT        SYN (TTL=64)
+3.096s     28   IN         SYN-ACK (TTL=49, RTT=113ms)
+3.098s     31   OUT        ClientHello (1611 bytes, 2 segments)
+                           *** SNI: jade-garden-6ff7...workers.dev ***
+                           *** CLASSIFICATION OCCURS HERE ***
+3.205s     32   IN         ACK Ack=1389
+3.211s     33   IN         ACK Ack=1612 (full ClientHello acknowledged)
+3.216s   37-43  IN         ServerHello + Certificate chain (4889 bytes)
+3.216s     44   OUT        ACK Ack=4889 (client received all server data)
+3.218s   45-47  OUT        Finished + HTTP request (287 bytes total)
+                           *** THESE BYTES NEVER ARRIVE AT CLOUDFLARE ***
+                           *** DECISION WINDOW: 119 milliseconds ***
+3.445s     48   OUT        Retransmit Seq=1851 Len=48
+3.790s     --   OUT        Retransmit Seq=1612 Len=287 (RTO=0.35s)
+4.478s     --   OUT        Retransmit Seq=1612 Len=287 (RTO=0.70s)
+5.885s     --   OUT        Retransmit Seq=1612 Len=287 (RTO=1.41s)
+8.638s     --   OUT        Retransmit Seq=1612 Len=287 (RTO=2.81s)
+14.270s    --   OUT        Retransmit Seq=1612 Len=287 (RTO=5.62s)
+                           Next would be 11.2s but connection closes first
+18.194s   196   IN         FIN-ACK Seq=4889 Ack=1612
+                           *** Cloudflare gives up after 15s timeout ***
+                           *** Ack=1612 proves only ClientHello received ***
+
+Total: 6 retransmissions, exponential backoff, ZERO inbound packets (no ACK, no RST)
+
+8.3 CONTROL FLOW TIMELINE (Frames 254-271)
+-------------------------------------------
+Same machine, same seconds, SNI=workers.dev (apex):
+
+Time     Frame  Event
+-------  -----  -------------------------------------------------------
+20.206s   254   SYN to 188.114.98.0
+20.260s   255   SYN-ACK (RTT=54ms)
+20.263s   256   ClientHello (SNI=workers.dev)
+20.311s   257   ServerHello + Certificate (1448+988 bytes)
+20.312s   258   Finished + HTTP request
+20.359s   259   Server ACK Ack=3885 (47ms from client data to server ACK)
+20.359s   260   HTTP/1.1 301 response
+Total: 0.158 seconds
+
+Comparison: 47ms response vs. infinite hang
+
+8.4 THE SMOKING GUN: ACK=1612
+------------------------------
+Frame 196 Analysis:
+  Source: 188.114.97.3 (Cloudflare)
+  Destination: 10.170.48.221 (Client)
+  Flags: FIN, ACK
+  Sequence: 4889 (Cloudflare sent this many bytes)
+  Acknowledgment: 1612 (Cloudflare received this many bytes)
+
+Byte Accounting:
+  1612 bytes = Exact length of ClientHello flight
+  287 bytes = Finished + encrypted HTTP request (Seq 1612→1899)
+  287 bytes NEVER acknowledged by Cloudflare
+
+Conclusion:
+- Cloudflare's TCP stack proves it never received application data
+- Data destroyed between client and Cloudflare
+- Cloudflare waited for handshake completion until timeout
+- 15-second hang is Cloudflare's TLS handshake timeout, NOT filter timer
+- Drop occurred AFTER handshake, BEFORE request processing
+
+================================================================================
+                    PART 9: CORRECTIONS & WITHDRAWN CLAIMS
+================================================================================
+
+9.1 CORRECTED IN THIS INVESTIGATION
+------------------------------------
+
+WITHDRAWN CLAIM 1: "*.cloudflare.net and *.pages.dev are also filtered"
+Original Claim: These namespaces blocked like workers.dev
+Correction: Silence when forced onto workers.dev edge IP is Cloudflare's own
+            behavior for unhosted names, NOT censorship
+Evidence: go.dev on real IP → 200; forced onto 188.114.97.3 → silent
+Status: PARTIAL - pages.dev IS blocked but by mechanism 3 (TCP RST), plus
+        DNS poisoning. cloudflare.net was false positive.
+
+WITHDRAWN CLAIM 2: "Blocking a.b.workers.dev proves enumerated list"
+Original Claim: Individual hostnames reported and blocked
+Correction: Wildcard rule on namespace pattern, not enumeration
+Evidence: Fresh Worker deployed 20 minutes prior, never reported to anyone,
+          with NO tunnel code (static HTML), blocked identically
+          → Proves wildcard *.workers.dev pattern match
+
+WITHDRAWN CLAIM 3: "~15 second delay is filter's behavior/timer"
+Original Claim: Filter enforces 15-second timeout
+Correction: Cloudflare's own TLS handshake timeout
+Evidence: Cloudflare FIN carries Ack=1612, proving Cloudflare was waiting for
+          remaining 287 bytes that never arrived
+
+WITHDRAWN CLAIM 4: SNI tester sni_variants{,2,3}.py were INCORRECT
+Original Claim: Control hostname (workers.dev) reported as BLOCKED
+Root Cause: Verdict function searched raw socket bytes for b"HTTP/"
+            TLS 1.3 application data is ciphertext on wire
+            Every healthy response mislabeled as blocked
+Correction: sni_variants4.py decrypts via SSLObject.read()
+Status: ONLY sni_variants4.py output is valid
+
+9.2 CLAIMS FROM EXTERNAL REPORT (REJECTED)
+-------------------------------------------
+
+CLAIM: "VLESS protocol signature detected in traffic"
+VERDICT: FALSE - Impossible
+Reason: Traffic is TLS with valid certificate, no decryption
+        Tunnel bytes never reached Cloudflare (Ack=1612)
+
+CLAIM: "Early data in Sec-WebSocket-Protocol reveals VLESS header"
+VERDICT: FALSE
+Reason: Same as above - header never left machine, filter acts on SNI only
+
+CLAIM: "DPI monitors HTTP traffic after TLS handshake and sees WebSocket headers"
+VERDICT: FALSE
+Reason: Headers inside TLS; request never delivered
+
+CLAIM: "DPI drops all packets from the server"
+VERDICT: FALSE - Backwards
+Reason: Server sent 4889 bytes, all ACKed. Drop is client-to-server direction.
+
+CLAIM: "Traffic-behavior ML classifier, 70% confidence"
+VERDICT: UNSUPPORTED
+Reason: No measurement, no counter-example, no method presented
+
+CLAIM: "Huawei/ZTE 10 Gbps+ DPI appliances"
+VERDICT: UNSUPPORTED
+Reason: No vendor, model, or throughput evidence exists
+        SNI match needs no vendor identification
+
+CLAIM: "Signature DB updated weekly, commercial threat-intel feeds"
+VERDICT: UNSUPPORTED
+Reason: Asserted without evidence
+
+CLAIM: "Detection probability 95%, drops to 35-40%/70%/50-60%/85%"
+VERDICT: FABRICATED
+Reason: Never measured by anyone, most load-bearing numbers invented
+
+CLAIM: "Enable client-side fragmentation"
+VERDICT: MEASURED USELESS
+Reason: See section 5.3
+
+================================================================================
+                        PART 10: TOOL INVENTORY
+================================================================================
+
+Packet Capture & Analysis:
+  dumpcap           Packet capture (cap_net_raw file capability)
+  tshark            Protocol analysis, SNI extraction, TCP flow analysis
+  capinfos          Capture integrity verification
+  wireshark         GUI analysis and validation
+
+Network Testing:
+  curl              HTTP/HTTPS testing with --resolve, --http1.1, -D headers
+  openssl s_client  TLS handshake testing, -servername/-noservername
+  wget              Alternate HTTP client for verification
+  ping              RTT measurement, MTU discovery (-M do)
+  traceroute        Route tracing (ICMP/UDP only, -T needs root)
+  ip route          Route selection
+  getent/dig        DNS resolution
+
+Custom Python Scripts:
+  sni_variants4.py           Corrected SNI/TLS matrix tester
+  sni_preflight.py           Hostname viability checker
+  tls_fragment.py            ClientHello segmentation control
+  dropshape.py               TLS timing analyzer
+  doh_sweep.py               DoH/DoT resolver sweep
+  doh_resolve.py             Working DoH client (IP literal)
+  doh_retry.py               DoH with verification bypass
+  big4_filter_methods.py     Per-domain method enumeration
+  dpi_probe.py               Combined DNS and reachability probe
+  cross_isp_battery.py       MCI vs Rightel comparison battery
+
+Configuration Generators:
+  make_v2rayng_config.sh     v2rayNG config generator
+  name_matrix.sh             SNI name matrix testing
+  dpi_suite.sh               Layered attribution suite
+
+DNS Testing:
+  dnspython 2.8.0            DNS query library (UDP/TCP/TLS)
+  dns.query.udp/tcp/tls      Low-level DNS testing
+
+Third-Party Services:
+  check-host.net API         8 global vantage points for reachability testing
+
+Not Available (Require Root):
+  tcpdump, nmap, hping3, mtr, scapy (sniff/send)
+  traceroute -T (TCP mode)
+
+================================================================================
+                    PART 11: STRATEGIC RECOMMENDATIONS
+================================================================================
+
+11.1 FOR IMMEDIATE DEPLOYMENT (Priority Order)
+-----------------------------------------------
+
+PRIORITY 1: Migrate to Custom Domain
+Action: Deploy Worker on 5+ label subdomain of user-controlled domain
+Impact: Bypasses ALL measured SNI-based restrictions
+Cost: Domain registration fee only (typically $8-15/year)
+Timeline: 10-30 minutes setup + DNS propagation
+Risk: Low - thoroughly validated solution
+
+PRIORITY 2: Implement Dual-Upstream DoH
+Action: Configure clients with both 8.8.8.8 and 1.1.1.1 DoH endpoints
+Impact: Ensures DNS resolution across MCI/Rightel ISP boundaries
+Cost: None
+Timeline: Configuration update only
+Risk: None
+
+PRIORITY 3: Add Pre-Flight Validation
+Action: Test each generated subdomain before distribution
+Impact: Prevents distributing blocked configurations
+Cost: None
+Timeline: 10-30 seconds per hostname
+Risk: None
+
+11.2 FOR OPERATIONAL RESILIENCE
+--------------------------------
+
+Multi-ISP Testing:
+- Validate configurations on both MCI and Rightel before deployment
+- Monitor for ISP-specific blocking pattern changes
+- Maintain separate configuration profiles per ISP if needed
+
+Configuration Management:
+- Never hardcode single DoH resolver
+- Never ship raw Cloudflare edge IPs in subscriptions
+- Always validate 5+ label requirement in domain selection
+- Test non-existent subdomains to detect zone-wide filtering
+
+Monitoring:
+- Track connection success rates per ISP
+- Monitor DNS resolution latency (indicates sinkhole)
+- Alert on sudden drops in connection establishment
+- Periodic re-validation of custom domains
+
+11.3 WHAT NOT TO INVEST IN
+---------------------------
+
+❌ ClientHello Fragmentation Development
+   Reason: Proven ineffective, filter reassembles
+
+❌ Case-Mangling Algorithms
+   Reason: Filter normalizes case before matching
+
+❌ Port Rotation as Evasion Mechanism
+   Reason: All TLS ports filtered identically
+
+❌ Vendor Attribution Research
+   Reason: No fingerprinting vectors available, not actionable
+
+❌ Protocol Signature Obfuscation
+   Reason: Filter operates on SNI only, cannot see protocol
+
+❌ Workers.dev Namespace Optimization
+   Reason: Entire namespace blocked at network level
+
+11.4 LONG-TERM CONSIDERATIONS
+------------------------------
+
+Domain Selection:
+- Choose domain names not obviously VPN-related
+- Avoid domains with "proxy", "vpn", "tunnel" in name
+- Consider multiple domains for redundancy
+- Register for multi-year periods to avoid expiration incidents
+
+Monitoring Iranian Policy Changes:
+- Track reports of new Cloudflare blocking
+- Monitor for expansion of label-count matching
+- Watch for custom domain filtering emergence
+- Maintain awareness of national vs ISP-specific policies
+
+Alternative Architectures:
+- Consider REALITY protocol for non-Cloudflare endpoints
+- Evaluate direct VPS deployment outside Iran
+- Assess hybrid approaches with multiple CDN providers
+
+================================================================================
+                        PART 12: OPEN QUESTIONS
+================================================================================
+
+12.1 QUESTIONS ANSWERED BY THIS INVESTIGATION
+----------------------------------------------
+✓ Is workers.dev blocked? → YES (on MCI)
+✓ Is blocking national? → NO (Rightel allows it)
+✓ Can ClientHello fragmentation bypass? → NO
+✓ Is TLS intercepted? → NO
+✓ What is the blocking mechanism? → SNI-based silent drop
+✓ Is it IP-based? → NO
+✓ Is it port-based? → NO
+✓ Does encrypted DNS work? → YES (by IP literal only)
+
+12.2 QUESTIONS STILL UNANSWERED
+--------------------------------
+? Exact matcher implementation (regex, byte window, label counter)
+? Whether other Cloudflare zones use same label-count rule
+? QUIC/HTTP3 filtering behavior (no HTTP/3 client available)
+? National scope beyond MCI/Rightel (needs 3rd ISP: Irancell, Shatel)
+? Whether workers.dev block is permanent or campaign-based
+? Device location: MCI core vs peering edge (needs mobile data test)
+? Vendor, model, or appliance identity (no fingerprinting possible)
+
+12.3 QUESTIONS DELIBERATELY NOT ANSWERED
+-----------------------------------------
+× Certificate pinning effectiveness (not relevant - no MITM detected)
+× IPv6-specific filtering (IPv6 is fabricated on MCI, real on Rightel)
+× SNI-less ClientHello handling (ambiguous - Cloudflare vs DPI)
+× Behavior under active VPN load (measurement would require deployment)
+
+================================================================================
+                    PART 13: CONFIDENCE ASSESSMENTS
+================================================================================
+
+HIGH CONFIDENCE (Directly Measured, Reproducible)
+- SNI-based filtering mechanism
+- Label-count matching (2-4 blocked, 5+ forwarded)
+- DNS poisoning of major platforms to 10.10.34.x
+- DoH by IP literal as working bypass
+- MCI vs Rightel differential (workers.dev)
+- Port-agnostic filtering on TLS ports
+- Case normalization in matching
+- Absence of TLS interception
+- Cloudflare Ack=1612 evidence
+
+MEDIUM CONFIDENCE (Inferred from Multiple Measurements)
+- Filter location between client and Cloudflare
+- Stateless operation
+- Wildcard pattern vs enumerated list
+- 15-second timeout as Cloudflare's not filter's
+- Dual-layer censorship (DNS + SNI) for big four
+
+LOW CONFIDENCE (Documented but Not Directly Verified)
+- Historical device vendors (SmartFilter, Nokia Siemens)
+- Chinese technology imports (2026 claim)
+- National governance structure
+- Traffic retention requirements
+
+NO CONFIDENCE (Explicitly Rejected)
+- Huawei/ZTE vendor claims
+- ML classifier percentages
+- Signature database update mechanisms
+- Detection probability numbers
+
+================================================================================
+                    APPENDIX A: FILE REFERENCE INDEX
+================================================================================
+
+Primary Reports:
+  MASTER_FINDINGS.txt                 Complete record, all sessions
+  RECONCILIATION_AND_ACTION.txt       Verdict on external report claims
+  SESSION_2_FINDINGS.txt              DNS, encrypted DNS, VLESS front
+
+Technical Deep-Dives:
+  PACKET_LEVEL_FINDINGS.txt           Frame-by-frame analysis
+  SNI_FILTER_RULE_REPORT.txt          Label-count matching details
+  DPI_HOP_DEEP_REPORT.txt             Infrastructure location
+  DPI_INFRASTRUCTURE_REPORT.txt       Equipment characteristics
+  DPI_EVIDENCE_REPORT.txt             Initial findings
+  HUAWEI_THE_DPI_DEVICE.txt           Same as infrastructure report
+
+Comparative Analysis:
+  ISP_COMPARISON.txt                  MCI vs Rightel side-by-side
+
+Configuration Analysis:
+  WHY_TLS_FRAGMENT_CONFIG_BROKE.txt   Failed evasion analysis
+  DPI_BATTLE_SUMMARY.txt              Mitigation strategies
+
+Operational Guides:
+  SETUP-STEPS.txt                     Cloudflare configuration
+
+Performance Data:
+  lowest_ping.txt                     Cloudflare IP latency ranking
+
+Packet Captures:
+  pcap/session_2026-10-02.pcap        134 KB, all frame references
+
+================================================================================
+                    APPENDIX B: VERIFICATION CHECKLIST
+================================================================================
+
+Pre-Deployment Validation:
+☐ Domain has 5+ DNS labels total (including TLD)
+☐ Domain registered to user (not shared/free service)
+☐ Cloudflare DNS record created (proxied/orange cloud)
+☐ Worker route configured for domain
+☐ Custom domain shows in Worker dashboard
+☐ sni_preflight.py test passes (returns SERVED)
+☐ Non-existent subdomain test passes (returns CF error, not timeout)
+☐ DoH configuration includes BOTH 8.8.8.8 AND 1.1.1.1
+☐ Sinkhole ranges blocked in routing (10.10.34.0/24, 2001:4188:2:600::/64)
+☐ Connection timeout set to 2.0-2.5 seconds
+☐ Configuration validated with "xray run -test"
+
+Post-Deployment Validation:
+☐ Connection established successfully
+☐ First-byte latency < 500ms
+☐ Data transfer functioning
+☐ DNS resolution working
+☐ No repeated connection failures
+☐ Log shows no sinkhole IP connections
+☐ Multiple client tests successful
+☐ Cross-ISP testing completed (if applicable)
+
+Periodic Maintenance:
+☐ Monthly domain renewal status check
+☐ Weekly connection success rate monitoring
+☐ Test hostname periodically with sni_preflight.py
+☐ Monitor for new blocking patterns
+☐ Review logs for unexpected DNS resolutions
+☐ Validate DoH endpoints still functioning
+
+================================================================================
+                    DOCUMENT CONTROL & ATTRIBUTION
+================================================================================
+
+Report Compilation: 2026-10-09
+Original Investigation: 2026-10-02 (04:30 - 07:45 UTC+01:00)
+Primary Investigator: Kilo
+Network Environment: MCI (AS197207), Rightel (AS57218), Iran
+Methodology: Empirical measurement, packet-level analysis, ISP comparison
+
+Source Documents: 14 technical reports consolidated
+Total Investigation Duration: ~3 hours active measurement
+Packet Captures: 134 KB (workers.dev blocked flow + controls)
+DNS Tests: 50+ resolver/method combinations
+SNI Tests: 100+ hostname variations
+ISP Comparison: Full battery replicated across 2 networks
+
+Evidence Standard: MEASURED > INFERRED > DOCUMENTED > REJECTED
+All claims marked with confidence level and verification method
+Corrections and withdrawn claims explicitly documented
+
+This report supersedes all individual session reports for briefing purposes.
+Original detailed reports retained for technical reference and reproducibility.
+
+================================================================================
+                            END OF REPORT
+================================================================================

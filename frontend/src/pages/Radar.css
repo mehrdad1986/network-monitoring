@@ -1,0 +1,32 @@
+.standalone-tool-shell .network-summary { box-sizing: border-box; min-width: 0; }
+.standalone-tool-shell .summary-page-header { margin-bottom: 18px; }
+.standalone-tool-shell .summary-metric-grid { grid-template-columns: repeat(auto-fit,minmax(min(100%,190px),1fr)); gap: 12px; margin-bottom: 16px; }
+.standalone-tool-shell .summary-metric-card { min-height: 92px; padding: 16px; }
+.netmon-radar-form,.netmon-radar-progress,.netmon-radar-candidates,.netmon-radar-results,.netmon-radar-empty,.netmon-radar-error { box-sizing: border-box; min-width: 0; margin-bottom: 14px; padding: 18px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-surface); }
+.netmon-radar-form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px 16px; }
+.netmon-radar-form > label,.netmon-radar-form > input,.netmon-radar-form > p,.netmon-radar-form > fieldset,.netmon-radar-actions { grid-column: 1 / -1; }
+.netmon-radar-form > label { color: var(--ui-text); font-size: 12px; font-weight: 650; }
+.netmon-radar-form > label span,.netmon-radar-form > p { color: var(--ui-secondary); font-size: 11px; font-weight: 400; }
+.netmon-radar-form > input:not([type=checkbox]) { box-sizing: border-box; width: 100%; min-height: 40px; padding: 9px 11px; border: 1px solid var(--ui-border); border-radius: 8px; color: var(--ui-text); background: var(--ui-input); font: inherit; }
+.netmon-radar-form input:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 2px; }
+.netmon-radar-form fieldset { display: flex; flex-wrap: wrap; gap: 8px 14px; min-width: 0; margin: 0; padding: 12px; border: 1px solid var(--ui-border); border-radius: 8px; }
+.netmon-radar-form legend { padding: 0 5px; color: var(--ui-secondary); font-size: 11px; }
+.netmon-radar-form fieldset label { display: inline-flex; align-items: center; gap: 6px; color: var(--ui-text); font-size: 11px; }
+.netmon-radar-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.netmon-radar-actions button { min-height: 40px; padding: 8px 14px; border: 1px solid var(--ui-accent); border-radius: 8px; color: var(--ui-text); background: color-mix(in srgb,var(--ui-accent) 16%,var(--ui-surface)); font: inherit; font-size: 12px; font-weight: 650; cursor: pointer; }
+.netmon-radar-actions button:disabled { opacity: .55; cursor: not-allowed; }
+.netmon-radar-actions .secondary { border-color: var(--ui-border); background: var(--ui-raised); }
+.netmon-radar-form > p { grid-column: 1 / -1; margin: 0; line-height: 1.6; }
+.netmon-radar-progress > div { display: flex; justify-content: space-between; gap: 10px; color: var(--ui-text); font-size: 12px; }
+.netmon-radar-progress progress { width: 100%; height: 8px; margin: 12px 0 6px; accent-color: var(--ui-accent); }
+.netmon-radar-progress small { color: var(--ui-secondary); font-size: 11px; }
+.netmon-radar-error { color: #ef9aa0; font-size: 12px; overflow-wrap: anywhere; }
+.netmon-radar-empty h2,.netmon-radar-candidates h2,.netmon-radar-results h2 { margin: 0 0 10px; color: var(--ui-text); font-size: 15px; }
+.netmon-radar-empty p { margin: 0; color: var(--ui-secondary); font-size: 12px; line-height: 1.6; }
+.netmon-radar-candidates h2 span,.netmon-radar-results h2 span { color: var(--ui-secondary); font-size: 12px; }
+.netmon-radar-table-wrap { max-width: 100%; overflow-x: auto; }
+.netmon-radar-table-wrap table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.netmon-radar-table-wrap th,.netmon-radar-table-wrap td { padding: 10px 12px; border-bottom: 1px solid var(--ui-border); text-align: left; white-space: nowrap; }
+.netmon-radar-table-wrap th { color: var(--ui-secondary); font-size: 10px; text-transform: uppercase; }
+.netmon-radar-table-wrap td { color: var(--ui-text); }
+@media(max-width:700px) { .netmon-radar-form { grid-template-columns: minmax(0,1fr); padding: 14px; } .netmon-radar-candidates,.netmon-radar-results,.netmon-radar-empty,.netmon-radar-progress { padding: 14px; } }

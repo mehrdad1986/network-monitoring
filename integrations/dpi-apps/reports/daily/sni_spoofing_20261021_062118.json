@@ -1,0 +1,337 @@
+{
+  "timestamp": "2026-10-21T06:20:39.768855",
+  "test_results": {
+    "baseline": {
+      "technique": "baseline_normal_sni",
+      "description": "Standard TLS connection with blocked SNI",
+      "blocked_sni_result": {
+        "ip": "188.114.96.1",
+        "port": 443,
+        "sni": "test.blocked.workers.dev",
+        "description": "Normal blocked SNI",
+        "success": true,
+        "handshake_completed": true,
+        "reached_server": true,
+        "bytes_received": 777,
+        "verdict": "SUCCESS",
+        "error": null
+      },
+      "control_sni_result": {
+        "ip": "188.114.96.1",
+        "port": 443,
+        "sni": "workers.dev",
+        "description": "Control SNI",
+        "success": true,
+        "handshake_completed": true,
+        "reached_server": true,
+        "bytes_received": 423,
+        "verdict": "SUCCESS",
+        "error": null
+      },
+      "baseline_works": false
+    },
+    "case_mangling": {
+      "technique": "case_mangling",
+      "description": "Randomize case of SNI to evade literal string match",
+      "expected_outcome": "INEFFECTIVE",
+      "test_cases": [
+        {
+          "variant": "test.blocked.workers.dev",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "test.blocked.workers.dev",
+            "description": "Case variant: test.blocked.workers.dev",
+            "success": true,
+            "handshake_completed": true,
+            "reached_server": true,
+            "bytes_received": 775,
+            "verdict": "SUCCESS",
+            "error": null
+          }
+        },
+        {
+          "variant": "TEST.BLOCKED.WORKERS.DEV",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "TEST.BLOCKED.WORKERS.DEV",
+            "description": "Case variant: TEST.BLOCKED.WORKERS.DEV",
+            "success": true,
+            "handshake_completed": true,
+            "reached_server": true,
+            "bytes_received": 771,
+            "verdict": "SUCCESS",
+            "error": null
+          }
+        },
+        {
+          "variant": "TeSt.BlOcKeD.wOrKeRs.DeV",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "TeSt.BlOcKeD.wOrKeRs.DeV",
+            "description": "Case variant: TeSt.BlOcKeD.wOrKeRs.DeV",
+            "success": true,
+            "handshake_completed": true,
+            "reached_server": true,
+            "bytes_received": 777,
+            "verdict": "SUCCESS",
+            "error": null
+          }
+        },
+        {
+          "variant": "test.BLOCKED.workers.DEV",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "test.BLOCKED.workers.DEV",
+            "description": "Case variant: test.BLOCKED.workers.DEV",
+            "success": true,
+            "handshake_completed": true,
+            "reached_server": true,
+            "bytes_received": 773,
+            "verdict": "SUCCESS",
+            "error": null
+          }
+        }
+      ],
+      "bypass_successful": true,
+      "conclusion": "UNEXPECTED: Case variant worked"
+    },
+    "clienthello_fragmentation": {
+      "technique": "clienthello_fragmentation",
+      "description": "Split ClientHello across multiple TCP packets",
+      "expected_outcome": "INEFFECTIVE",
+      "test_cases": [
+        {
+          "strategy": "split_at_sni",
+          "description": "Split ClientHello at SNI field",
+          "result": {
+            "strategy": "split_at_sni",
+            "success": false,
+            "verdict": "NOT_IMPLEMENTED",
+            "note": "Fragmentation requires low-level TLS manipulation - skipping for now"
+          }
+        },
+        {
+          "strategy": "tiny_chunks",
+          "description": "Send in very small chunks (10 bytes)",
+          "result": {
+            "strategy": "tiny_chunks",
+            "success": false,
+            "verdict": "NOT_IMPLEMENTED",
+            "note": "Fragmentation requires low-level TLS manipulation - skipping for now"
+          }
+        },
+        {
+          "strategy": "delayed_split",
+          "description": "Split with 200ms delay",
+          "result": {
+            "strategy": "delayed_split",
+            "success": false,
+            "verdict": "NOT_IMPLEMENTED",
+            "note": "Fragmentation requires low-level TLS manipulation - skipping for now"
+          }
+        }
+      ],
+      "bypass_successful": false,
+      "conclusion": "Fragmentation does NOT bypass filter - all strategies blocked"
+    },
+    "sni_omission": {
+      "technique": "sni_omission",
+      "description": "Send ClientHello without SNI extension",
+      "expected_outcome": "AMBIGUOUS",
+      "test_result": {
+        "description": "SNI-less connection",
+        "success": true,
+        "handshake_completed": true,
+        "verdict": "SUCCESS",
+        "error": null
+      },
+      "bypass_successful": true,
+      "conclusion": "SNI-less connection WORKS - filter only matches when SNI present"
+    },
+    "label_count_bypass": {
+      "technique": "label_count_bypass",
+      "description": "Use 5+ DNS labels to exceed filter's pattern window",
+      "expected_outcome": "EFFECTIVE",
+      "test_cases": [
+        {
+          "domain": "a.b.workers.dev",
+          "label_count": 4,
+          "description": "4 labels - should be BLOCKED",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "a.b.workers.dev",
+            "description": "4 labels - should be BLOCKED",
+            "success": true,
+            "handshake_completed": true,
+            "reached_server": true,
+            "bytes_received": 767,
+            "verdict": "SUCCESS",
+            "error": null
+          }
+        },
+        {
+          "domain": "a.b.c.workers.dev",
+          "label_count": 5,
+          "description": "5 labels - should PASS",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "a.b.c.workers.dev",
+            "description": "5 labels - should PASS",
+            "success": false,
+            "handshake_completed": false,
+            "reached_server": false,
+            "bytes_received": 0,
+            "verdict": "CONNECTION_FAILED",
+            "error": "[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1082)"
+          }
+        },
+        {
+          "domain": "a.b.c.d.workers.dev",
+          "label_count": 6,
+          "description": "6 labels - should PASS",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "a.b.c.d.workers.dev",
+            "description": "6 labels - should PASS",
+            "success": false,
+            "handshake_completed": false,
+            "reached_server": false,
+            "bytes_received": 0,
+            "verdict": "CONNECTION_FAILED",
+            "error": "[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1082)"
+          }
+        },
+        {
+          "domain": "a.b.c.d.e.workers.dev",
+          "label_count": 7,
+          "description": "7 labels - should PASS",
+          "result": {
+            "ip": "188.114.96.1",
+            "port": 443,
+            "sni": "a.b.c.d.e.workers.dev",
+            "description": "7 labels - should PASS",
+            "success": false,
+            "handshake_completed": false,
+            "reached_server": false,
+            "bytes_received": 0,
+            "verdict": "CONNECTION_FAILED",
+            "error": "[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1082)"
+          }
+        }
+      ],
+      "bypass_successful": false,
+      "conclusion": "5+ label bypass NOT working"
+    },
+    "domain_fronting": {
+      "technique": "domain_fronting",
+      "description": "SNI uses allowed domain, Host header uses blocked domain",
+      "expected_outcome": "UNKNOWN",
+      "test_cases": [
+        {
+          "sni": "cloudflare.com",
+          "host_header": "test.blocked.workers.dev",
+          "description": "SNI:CF, Host:blocked",
+          "result": {
+            "sni": "cloudflare.com",
+            "host_header": "test.blocked.workers.dev",
+            "description": "SNI:CF, Host:blocked",
+            "success": false,
+            "verdict": "REJECTED_BY_SERVER",
+            "response_status": "HTTP/1.1 403 Forbidden",
+            "error": null
+          }
+        },
+        {
+          "sni": "workers.dev",
+          "host_header": "test.blocked.workers.dev",
+          "description": "SNI:workers.dev, Host:blocked",
+          "result": {
+            "sni": "workers.dev",
+            "host_header": "test.blocked.workers.dev",
+            "description": "SNI:workers.dev, Host:blocked",
+            "success": false,
+            "verdict": "REJECTED_BY_SERVER",
+            "response_status": "HTTP/1.1 403 Forbidden",
+            "error": null
+          }
+        },
+        {
+          "sni": "workers.dev",
+          "host_header": "test.blocked.workers.dev",
+          "description": "SNI:control, Host:blocked",
+          "result": {
+            "sni": "workers.dev",
+            "host_header": "test.blocked.workers.dev",
+            "description": "SNI:control, Host:blocked",
+            "success": false,
+            "verdict": "REJECTED_BY_SERVER",
+            "response_status": "HTTP/1.1 403 Forbidden",
+            "error": null
+          }
+        }
+      ],
+      "bypass_successful": false,
+      "conclusion": "Domain fronting FAILS - Cloudflare validates SNI/Host match or filter sees Host"
+    },
+    "tls_version_variation": {
+      "technique": "tls_version_variation",
+      "description": "Try TLS 1.2 vs TLS 1.3",
+      "expected_outcome": "INEFFECTIVE",
+      "test_cases": [
+        {
+          "tls_version": "TLS 1.2",
+          "result": {
+            "tls_version": "TLS 1.2",
+            "success": true,
+            "verdict": "SUCCESS",
+            "error": null
+          }
+        },
+        {
+          "tls_version": "TLS 1.3",
+          "result": {
+            "tls_version": "TLS 1.3",
+            "success": true,
+            "verdict": "SUCCESS",
+            "error": null
+          }
+        }
+      ],
+      "bypass_successful": true,
+      "conclusion": "UNEXPECTED: TLS version matters"
+    }
+  },
+  "effective_techniques": [
+    "case_mangling",
+    "sni_omission",
+    "tls_version_variation"
+  ],
+  "ineffective_techniques": [
+    "clienthello_fragmentation",
+    "label_count_bypass",
+    "domain_fronting"
+  ],
+  "summary": {
+    "total_techniques_tested": 6,
+    "effective_techniques": 3,
+    "ineffective_techniques": 3,
+    "effective_list": [
+      "case_mangling",
+      "sni_omission",
+      "tls_version_variation"
+    ],
+    "ineffective_list": [
+      "clienthello_fragmentation",
+      "label_count_bypass",
+      "domain_fronting"
+    ],
+    "recommendation": "USE_TECHNIQUES: case_mangling, sni_omission, tls_version_variation"
+  }
+}

@@ -1,0 +1,2279 @@
+{
+  "timestamp": "2026-10-09T15:44:02.201821",
+  "summary": {
+    "total_tested": 260,
+    "working_count": 195,
+    "blocked_count": 21,
+    "error_count": 44,
+    "by_verdict": {
+      "WORKING": 195,
+      "HTTP_400": 7,
+      "HTTP_505": 19,
+      "ERROR": 15,
+      "TIMEOUT_BLOCKED": 21,
+      "SSL_ERROR": 1,
+      "HTTP_404": 1,
+      "HTTP_405": 1
+    }
+  },
+  "working_servers": [
+    {
+      "url": "https://dns.smartguard.io/dns-query",
+      "domain": "dns.smartguard.io",
+      "success": true,
+      "response_time_ms": 1230,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.neeb.it/dns-query",
+      "domain": "dns.neeb.it",
+      "success": true,
+      "response_time_ms": 1254,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.digitalsize.net/dns-query",
+      "domain": "dns.digitalsize.net",
+      "success": true,
+      "response_time_ms": 1261,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.nextdns.io",
+      "domain": "dns.nextdns.io",
+      "success": true,
+      "response_time_ms": 1293,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.niyawe.de/dns-query",
+      "domain": "doh.niyawe.de",
+      "success": true,
+      "response_time_ms": 1337,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.dns.sb/dns-query",
+      "domain": "doh.dns.sb",
+      "success": true,
+      "response_time_ms": 1370,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://zdn.ro/dns-query",
+      "domain": "zdn.ro",
+      "success": true,
+      "response_time_ms": 1376,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.nick-slowinski.de/dns-query",
+      "domain": "dns.nick-slowinski.de",
+      "success": true,
+      "response_time_ms": 1420,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://privacy.plumedns.com/dns-query",
+      "domain": "privacy.plumedns.com",
+      "success": true,
+      "response_time_ms": 1429,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.li/dns-query",
+      "domain": "doh.li",
+      "success": true,
+      "response_time_ms": 1432,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.skrep.eu/dns-query",
+      "domain": "dns.skrep.eu",
+      "success": true,
+      "response_time_ms": 1447,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.hostux.net/ads",
+      "domain": "dns.hostux.net",
+      "success": true,
+      "response_time_ms": 1459,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.practicallyunhackable.com/dns-query",
+      "domain": "dns.practicallyunhackable.com",
+      "success": true,
+      "response_time_ms": 1461,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.njal.la/dns-query",
+      "domain": "dns.njal.la",
+      "success": true,
+      "response_time_ms": 1463,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.farshidhakimy.de/dns-query",
+      "domain": "dns.farshidhakimy.de",
+      "success": true,
+      "response_time_ms": 1472,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.envs.net/dns-query",
+      "domain": "dns.envs.net",
+      "success": true,
+      "response_time_ms": 1475,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.luma-medien.com/dns-query",
+      "domain": "dns.luma-medien.com",
+      "success": true,
+      "response_time_ms": 1498,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ada.openbld.net/dns-query",
+      "domain": "ada.openbld.net",
+      "success": true,
+      "response_time_ms": 1516,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.simplylinux.ch/dns-query",
+      "domain": "dns.simplylinux.ch",
+      "success": true,
+      "response_time_ms": 1516,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://filter.dns.yunzheng.space/dns-query",
+      "domain": "filter.dns.yunzheng.space",
+      "success": true,
+      "response_time_ms": 1537,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.libredns.gr/dns-query",
+      "domain": "doh.libredns.gr",
+      "success": true,
+      "response_time_ms": 1541,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ns2.4netguides.org/dns-query",
+      "domain": "ns2.4netguides.org",
+      "success": true,
+      "response_time_ms": 1541,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.tls-data.de/dns-query",
+      "domain": "dns.tls-data.de",
+      "success": true,
+      "response_time_ms": 1543,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.hostux.net/dns-query",
+      "domain": "dns.hostux.net",
+      "success": true,
+      "response_time_ms": 1545,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh-dilution-to-upstreams-adguardhome.nicolas-dorriere.fr/dns-query",
+      "domain": "doh-dilution-to-upstreams-adguardhome.nicolas-dorriere.fr",
+      "success": true,
+      "response_time_ms": 1565,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ca01.dns4me.net",
+      "domain": "ca01.dns4me.net",
+      "success": true,
+      "response_time_ms": 1579,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.novg.net/dns-query",
+      "domain": "dns.novg.net",
+      "success": true,
+      "response_time_ms": 1579,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://wikimedia-dns.org/dns-query",
+      "domain": "wikimedia-dns.org",
+      "success": true,
+      "response_time_ms": 1585,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.w3ctag.org/dns-query",
+      "domain": "dns.w3ctag.org",
+      "success": true,
+      "response_time_ms": 1594,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://wurzn.hagezi.org/dns-query",
+      "domain": "wurzn.hagezi.org",
+      "success": true,
+      "response_time_ms": 1597,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://root.hagezi.org/dns-query",
+      "domain": "root.hagezi.org",
+      "success": true,
+      "response_time_ms": 1605,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://masters-of-cloud.de/dns-query",
+      "domain": "masters-of-cloud.de",
+      "success": true,
+      "response_time_ms": 1606,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.lobbygod.com/dns-query",
+      "domain": "dns.lobbygod.com",
+      "success": true,
+      "response_time_ms": 1607,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.unx.io/dns-query",
+      "domain": "dns.unx.io",
+      "success": true,
+      "response_time_ms": 1607,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://abel.waringer-atg.de/dns-query",
+      "domain": "abel.waringer-atg.de",
+      "success": true,
+      "response_time_ms": 1607,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/p1",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1608,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.libredns.gr/noads",
+      "domain": "doh.libredns.gr",
+      "success": true,
+      "response_time_ms": 1609,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://secure.hafnova.com/dns-query",
+      "domain": "secure.hafnova.com",
+      "success": true,
+      "response_time_ms": 1613,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ca02.dns4me.net",
+      "domain": "ca02.dns4me.net",
+      "success": true,
+      "response_time_ms": 1639,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.ffmuc.net/dns-query",
+      "domain": "doh.ffmuc.net",
+      "success": true,
+      "response_time_ms": 1649,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.adguard-dns.com/dns-query",
+      "domain": "dns.adguard-dns.com",
+      "success": true,
+      "response_time_ms": 1653,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.mh4ckt3mh4ckt1c4s.xyz/dns-query",
+      "domain": "dns.mh4ckt3mh4ckt1c4s.xyz",
+      "success": true,
+      "response_time_ms": 1658,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.roedel.cloud/dns-query",
+      "domain": "dns.roedel.cloud",
+      "success": true,
+      "response_time_ms": 1664,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.decky.eu/dns-query",
+      "domain": "dns.decky.eu",
+      "success": true,
+      "response_time_ms": 1669,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.anon.no/dns-query",
+      "domain": "dns.anon.no",
+      "success": true,
+      "response_time_ms": 1677,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.kapite.in/dns-query",
+      "domain": "dns.kapite.in",
+      "success": true,
+      "response_time_ms": 1681,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.kernel-error.de/dns-query",
+      "domain": "dns.kernel-error.de",
+      "success": true,
+      "response_time_ms": 1681,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://unfiltered.adguard-dns.com/dns-query",
+      "domain": "unfiltered.adguard-dns.com",
+      "success": true,
+      "response_time_ms": 1689,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.a47.me/dns-query",
+      "domain": "dns.a47.me",
+      "success": true,
+      "response_time_ms": 1690,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.cynthialabs.net/dns-query",
+      "domain": "dns.cynthialabs.net",
+      "success": true,
+      "response_time_ms": 1693,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.yunzheng.space/dns-query",
+      "domain": "dns.yunzheng.space",
+      "success": true,
+      "response_time_ms": 1698,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-goodbyeads",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1708,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-adguard",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1709,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.omada.cafe/dns-query",
+      "domain": "dns.omada.cafe",
+      "success": true,
+      "response_time_ms": 1710,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://addns1.m-it.ro/dns-query",
+      "domain": "addns1.m-it.ro",
+      "success": true,
+      "response_time_ms": 1716,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns1.techniverse.net/dns-query",
+      "domain": "dns1.techniverse.net",
+      "success": true,
+      "response_time_ms": 1717,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://adfreedns.top/dns-query",
+      "domain": "adfreedns.top",
+      "success": true,
+      "response_time_ms": 1719,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.lacontrevoie.fr/dns-query",
+      "domain": "doh.lacontrevoie.fr",
+      "success": true,
+      "response_time_ms": 1720,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.vaioswolke.xyz/dns-query",
+      "domain": "dns.vaioswolke.xyz",
+      "success": true,
+      "response_time_ms": 1720,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.mmmalia.com/dns-query",
+      "domain": "doh.mmmalia.com",
+      "success": true,
+      "response_time_ms": 1721,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://public.dns.iij.jp/dns-query",
+      "domain": "public.dns.iij.jp",
+      "success": true,
+      "response_time_ms": 1722,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.google/dns-query",
+      "domain": "dns.google",
+      "success": true,
+      "response_time_ms": 1727,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.pub/dns-query",
+      "domain": "dns.pub",
+      "success": true,
+      "response_time_ms": 1734,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.dev-umbrellagov.com/dns-query",
+      "domain": "dns.dev-umbrellagov.com",
+      "success": true,
+      "response_time_ms": 1737,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us-nyc-w-p-1.nashkan.net/dns-query",
+      "domain": "us-nyc-w-p-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 1750,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://adfree.usableprivacy.net/dns-query",
+      "domain": "adfree.usableprivacy.net",
+      "success": true,
+      "response_time_ms": 1752,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-hagezi-ultimate",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1757,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns64.dns.google/dns-query",
+      "domain": "dns64.dns.google",
+      "success": true,
+      "response_time_ms": 1757,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.mateo.ovh/dns-query",
+      "domain": "dns.mateo.ovh",
+      "success": true,
+      "response_time_ms": 1767,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.sz-dns.com/dns-query",
+      "domain": "doh.sz-dns.com",
+      "success": true,
+      "response_time_ms": 1769,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/p3",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1770,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.easyhns.com/dns-query",
+      "domain": "dns.easyhns.com",
+      "success": true,
+      "response_time_ms": 1771,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-hagezi-tif",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1776,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.kescher.at/dns-query",
+      "domain": "dns.kescher.at",
+      "success": true,
+      "response_time_ms": 1778,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/p2",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1798,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.brembeck.cloud/dns-query",
+      "domain": "dns.brembeck.cloud",
+      "success": true,
+      "response_time_ms": 1803,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.guard.io/dns-query",
+      "domain": "dns.guard.io",
+      "success": true,
+      "response_time_ms": 1813,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://loadlow.me/dns-query",
+      "domain": "loadlow.me",
+      "success": true,
+      "response_time_ms": 1818,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://8888.google/dns-query",
+      "domain": "8888.google",
+      "success": true,
+      "response_time_ms": 1835,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.belnet.be/dns-query",
+      "domain": "dns.belnet.be",
+      "success": true,
+      "response_time_ms": 1840,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-devdan",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1840,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.gamban.com/dns-query",
+      "domain": "dns.gamban.com",
+      "success": true,
+      "response_time_ms": 1843,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.blokada.org/dns-query",
+      "domain": "dns.blokada.org",
+      "success": true,
+      "response_time_ms": 1872,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-stevenblack",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1887,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.faked.org/dns-query",
+      "domain": "dns.faked.org",
+      "success": true,
+      "response_time_ms": 1890,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.mayx.eu.org/dns-query",
+      "domain": "dns.mayx.eu.org",
+      "success": true,
+      "response_time_ms": 1891,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://gb-lon-w-p-2.nashkan.net/dns-query",
+      "domain": "gb-lon-w-p-2.nashkan.net",
+      "success": true,
+      "response_time_ms": 1893,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-hagezi-proplus",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 1899,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://v.recipes/dns-ecs",
+      "domain": "v.recipes",
+      "success": true,
+      "response_time_ms": 1933,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.familyshield.opendns.com/dns-query",
+      "domain": "doh.familyshield.opendns.com",
+      "success": true,
+      "response_time_ms": 1934,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us-kan-w-p-1.nashkan.net/dns-query",
+      "domain": "us-kan-w-p-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 1938,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.quiet.rocks/dns-query",
+      "domain": "dns.quiet.rocks",
+      "success": true,
+      "response_time_ms": 1938,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.datenquark.de/dns-query",
+      "domain": "dns.datenquark.de",
+      "success": true,
+      "response_time_ms": 1941,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.opendns.com/dns-query",
+      "domain": "doh.opendns.com",
+      "success": true,
+      "response_time_ms": 1943,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://family.adguard-dns.com/dns-query",
+      "domain": "family.adguard-dns.com",
+      "success": true,
+      "response_time_ms": 1964,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.startupstack.tech/dns-query",
+      "domain": "dns.startupstack.tech",
+      "success": true,
+      "response_time_ms": 1968,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://v.recipes/dns-adblock",
+      "domain": "v.recipes",
+      "success": true,
+      "response_time_ms": 1973,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://sky.rethinkdns.com/dns-query",
+      "domain": "sky.rethinkdns.com",
+      "success": true,
+      "response_time_ms": 1976,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.umbrella.com/dns-query",
+      "domain": "doh.umbrella.com",
+      "success": true,
+      "response_time_ms": 1993,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-1hosts-mini",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2000,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ae-fuj-w-p-2.nashkan.net/dns-query",
+      "domain": "ae-fuj-w-p-2.nashkan.net",
+      "success": true,
+      "response_time_ms": 2004,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.busold.ws/dns-query",
+      "domain": "dns.busold.ws",
+      "success": true,
+      "response_time_ms": 2032,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ro-buc-w-p-1.nashkan.net/dns-query",
+      "domain": "ro-buc-w-p-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 2032,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://xn--durhre-yxa.de/dns-query",
+      "domain": "xn--durhre-yxa.de",
+      "success": true,
+      "response_time_ms": 2037,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/family",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2038,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.l337.site/dns-query",
+      "domain": "dns.l337.site",
+      "success": true,
+      "response_time_ms": 2044,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ae-fuj-w-p-1.nashkan.net/dns-query",
+      "domain": "ae-fuj-w-p-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 2047,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.stirringphoto.com/dns-query",
+      "domain": "dns.stirringphoto.com",
+      "success": true,
+      "response_time_ms": 2047,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://sky.rethinkdns.com/1:IAAgAA==",
+      "domain": "sky.rethinkdns.com",
+      "success": true,
+      "response_time_ms": 2050,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ibuki.cgnat.net/dns-query",
+      "domain": "ibuki.cgnat.net",
+      "success": true,
+      "response_time_ms": 2058,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-1hosts-lite",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2061,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://v0dka.ru/dns-query",
+      "domain": "v0dka.ru",
+      "success": true,
+      "response_time_ms": 2062,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://es-ma.foxyfy.net/dns-query",
+      "domain": "es-ma.foxyfy.net",
+      "success": true,
+      "response_time_ms": 2065,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://bazooki-infra.dev/dns-query",
+      "domain": "bazooki-infra.dev",
+      "success": true,
+      "response_time_ms": 2088,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.bmwhocking.com/dns-query",
+      "domain": "dns.bmwhocking.com",
+      "success": true,
+      "response_time_ms": 2090,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.chenu.ch/dns-query",
+      "domain": "dns.chenu.ch",
+      "success": true,
+      "response_time_ms": 2091,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.cleanbrowsing.org/doh/security-filter/",
+      "domain": "doh.cleanbrowsing.org",
+      "success": true,
+      "response_time_ms": 2091,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.elemental.software/dns-query",
+      "domain": "dns.elemental.software",
+      "success": true,
+      "response_time_ms": 2091,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ae-fuj-w-p-3.nashkan.net/dns-query",
+      "domain": "ae-fuj-w-p-3.nashkan.net",
+      "success": true,
+      "response_time_ms": 2095,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.angry.im/dns-query",
+      "domain": "doh.angry.im",
+      "success": true,
+      "response_time_ms": 2097,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.mzjtechnology.com/dns-query",
+      "domain": "dns.mzjtechnology.com",
+      "success": true,
+      "response_time_ms": 2105,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.paesa.es/dns-query",
+      "domain": "dns.paesa.es",
+      "success": true,
+      "response_time_ms": 2107,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-oisd-basic",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2115,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.liberador.net",
+      "domain": "dns.liberador.net",
+      "success": true,
+      "response_time_ms": 2118,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.glf.wtf/dns-query",
+      "domain": "dns.glf.wtf",
+      "success": true,
+      "response_time_ms": 2143,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us-jac-w-f-1.nashkan.net/dns-query",
+      "domain": "us-jac-w-f-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 2181,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us01.dns4me.net",
+      "domain": "us01.dns4me.net",
+      "success": true,
+      "response_time_ms": 2188,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.marasov.id/dns-query",
+      "domain": "dns.marasov.id",
+      "success": true,
+      "response_time_ms": 2205,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.cleanbrowsing.org/doh/family-filter/",
+      "domain": "doh.cleanbrowsing.org",
+      "success": true,
+      "response_time_ms": 2221,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://safeservedns.com/dns-query",
+      "domain": "safeservedns.com",
+      "success": true,
+      "response_time_ms": 2252,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.tiar.app/dns-query",
+      "domain": "doh.tiar.app",
+      "success": true,
+      "response_time_ms": 2256,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://de01.dns4me.net",
+      "domain": "de01.dns4me.net",
+      "success": true,
+      "response_time_ms": 2295,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.surfsharkdns.com/dns-query",
+      "domain": "dns.surfsharkdns.com",
+      "success": true,
+      "response_time_ms": 2308,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us-chi-w-f-1.nashkan.net/dns-query",
+      "domain": "us-chi-w-f-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 2320,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ag.apollohct.com/dns-query",
+      "domain": "ag.apollohct.com",
+      "success": true,
+      "response_time_ms": 2333,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://agh.dshubham.xyz/dns-query",
+      "domain": "agh.dshubham.xyz",
+      "success": true,
+      "response_time_ms": 2336,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.alidns.com/dns-query",
+      "domain": "dns.alidns.com",
+      "success": true,
+      "response_time_ms": 2347,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.inforlogia.com/dns-query",
+      "domain": "dns.inforlogia.com",
+      "success": true,
+      "response_time_ms": 2347,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/p0",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2354,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.flatuslifir.is/dns-query",
+      "domain": "dns.flatuslifir.is",
+      "success": true,
+      "response_time_ms": 2363,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-hagezi-pro",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2402,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.tipsy.coffee/dns-query",
+      "domain": "dns.tipsy.coffee",
+      "success": true,
+      "response_time_ms": 2412,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.seby.io/dns-query",
+      "domain": "doh.seby.io",
+      "success": true,
+      "response_time_ms": 2416,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://sg-w-p-1.nashkan.net/dns-query",
+      "domain": "sg-w-p-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 2417,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://v.recipes/dns-query",
+      "domain": "v.recipes",
+      "success": true,
+      "response_time_ms": 2432,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.christerwaren.fi",
+      "domain": "dns.christerwaren.fi",
+      "success": true,
+      "response_time_ms": 2439,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://ie01.dns4me.net",
+      "domain": "ie01.dns4me.net",
+      "success": true,
+      "response_time_ms": 2450,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://adguard.meddy94.de/dns-query",
+      "domain": "adguard.meddy94.de",
+      "success": true,
+      "response_time_ms": 2452,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doth.huque.com/dns-query",
+      "domain": "doth.huque.com",
+      "success": true,
+      "response_time_ms": 2453,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.asterimoon.com/dns-query",
+      "domain": "dns.asterimoon.com",
+      "success": true,
+      "response_time_ms": 2461,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://juuri.hagezi.org/dns-query",
+      "domain": "juuri.hagezi.org",
+      "success": true,
+      "response_time_ms": 2513,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://pooblet.co.za/dns-query",
+      "domain": "pooblet.co.za",
+      "success": true,
+      "response_time_ms": 2521,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dukun.de/dns-query",
+      "domain": "dukun.de",
+      "success": true,
+      "response_time_ms": 2526,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://uk01.dns4me.net",
+      "domain": "uk01.dns4me.net",
+      "success": true,
+      "response_time_ms": 2527,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.viatech.com.tw/dns-query",
+      "domain": "doh.viatech.com.tw",
+      "success": true,
+      "response_time_ms": 2547,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://hnsdoh.com/dns-query",
+      "domain": "hnsdoh.com",
+      "success": true,
+      "response_time_ms": 2553,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.applewebkit.dev/dns-query",
+      "domain": "dns.applewebkit.dev",
+      "success": true,
+      "response_time_ms": 2571,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.buzz/dns-query",
+      "domain": "doh.buzz",
+      "success": true,
+      "response_time_ms": 2579,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.futa.gg/dns-query",
+      "domain": "doh.futa.gg",
+      "success": true,
+      "response_time_ms": 2639,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.comss.one/dns-query",
+      "domain": "dns.comss.one",
+      "success": true,
+      "response_time_ms": 2661,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-hagezi-light",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2721,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-hagezi-normal",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2728,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-1hosts-pro",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2733,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.d94.xyz/dns-query",
+      "domain": "dns.d94.xyz",
+      "success": true,
+      "response_time_ms": 2744,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.slinkyman.net/dns-query",
+      "domain": "dns.slinkyman.net",
+      "success": true,
+      "response_time_ms": 2767,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.kosan.moe/dns-query",
+      "domain": "dns.kosan.moe",
+      "success": true,
+      "response_time_ms": 2780,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://per.adfilter.net/dns-query",
+      "domain": "per.adfilter.net",
+      "success": true,
+      "response_time_ms": 2822,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us-jac-w-p-1.nashkan.net/dns-query",
+      "domain": "us-jac-w-p-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 2822,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://adguard.shoupperuser.com/dns-query",
+      "domain": "adguard.shoupperuser.com",
+      "success": true,
+      "response_time_ms": 2844,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://au-syd-w-f-1.nashkan.net/dns-query",
+      "domain": "au-syd-w-f-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 2852,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dog.dns.qwer.pw/dns-query",
+      "domain": "dog.dns.qwer.pw",
+      "success": true,
+      "response_time_ms": 2872,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://tiger.dns.qwer.pw/dns-query",
+      "domain": "tiger.dns.qwer.pw",
+      "success": true,
+      "response_time_ms": 2888,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://adl.adfilter.net/dns-query",
+      "domain": "adl.adfilter.net",
+      "success": true,
+      "response_time_ms": 2906,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/x-oisd",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 2960,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dnslow.me/dns-query",
+      "domain": "dnslow.me",
+      "success": true,
+      "response_time_ms": 3032,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us-chi-w-p-1.nashkan.net/dns-query",
+      "domain": "us-chi-w-p-1.nashkan.net",
+      "success": true,
+      "response_time_ms": 3101,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.retakecs.com/dns-query",
+      "domain": "dns.retakecs.com",
+      "success": true,
+      "response_time_ms": 3114,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://adblock.krctech.dev/dns-query",
+      "domain": "adblock.krctech.dev",
+      "success": true,
+      "response_time_ms": 3139,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 1
+    },
+    {
+      "url": "https://dns.chunghwamc.com/dns-query",
+      "domain": "dns.chunghwamc.com",
+      "success": true,
+      "response_time_ms": 3244,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.haka.se/dns-query",
+      "domain": "dns.haka.se",
+      "success": true,
+      "response_time_ms": 3275,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://japan.dnsovertor.cc/dns-query",
+      "domain": "japan.dnsovertor.cc",
+      "success": true,
+      "response_time_ms": 3357,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.beauty",
+      "domain": "doh.beauty",
+      "success": true,
+      "response_time_ms": 3366,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://dns.koala.us.to/dns-query",
+      "domain": "dns.koala.us.to",
+      "success": true,
+      "response_time_ms": 3372,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://sa01.dns4me.net",
+      "domain": "sa01.dns4me.net",
+      "success": true,
+      "response_time_ms": 3426,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://cloudflare-dns.com/dns-query",
+      "domain": "cloudflare-dns.com",
+      "success": true,
+      "response_time_ms": 3520,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://freedns.controld.com/uncensored",
+      "domain": "freedns.controld.com",
+      "success": true,
+      "response_time_ms": 3832,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://seoul.dnsovertor.cc/dns-query",
+      "domain": "seoul.dnsovertor.cc",
+      "success": true,
+      "response_time_ms": 3850,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://family.cloudflare-dns.com/dns-query",
+      "domain": "family.cloudflare-dns.com",
+      "success": true,
+      "response_time_ms": 3920,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.aaaab3n.moe/dns-query-114514",
+      "domain": "doh.aaaab3n.moe",
+      "success": true,
+      "response_time_ms": 4080,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://us02.dns4me.net",
+      "domain": "us02.dns4me.net",
+      "success": true,
+      "response_time_ms": 4108,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://doh.cleanbrowsing.org/doh/adult-filter/",
+      "domain": "doh.cleanbrowsing.org",
+      "success": true,
+      "response_time_ms": 4160,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://chuncheon.dnsovertor.cc/dns-query",
+      "domain": "chuncheon.dnsovertor.cc",
+      "success": true,
+      "response_time_ms": 4161,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://sg01.dns4me.net",
+      "domain": "sg01.dns4me.net",
+      "success": true,
+      "response_time_ms": 4323,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    },
+    {
+      "url": "https://paranoia.mydns.network/dns-query",
+      "domain": "paranoia.mydns.network",
+      "success": true,
+      "response_time_ms": 4452,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 3
+    },
+    {
+      "url": "https://au01.dns4me.net",
+      "domain": "au01.dns4me.net",
+      "success": true,
+      "response_time_ms": 5125,
+      "status_code": 200,
+      "verdict": "WORKING",
+      "error": null,
+      "dns_answers": 2
+    }
+  ],
+  "blocked_servers": [
+    {
+      "url": "https://dns.bitservices.io/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://dns.caspervk.net/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://mozilla.cloudflare-dns.com/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://security.cloudflare-dns.com/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://doh.disconnect.app/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://odvr.nic.cz/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://protective.joindns4.eu/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://child.joindns4.eu/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://noads.joindns4.eu/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://child-noads.joindns4.eu/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://unfiltered.joindns4.eu/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://nz01.dns4me.net",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://dnsvps.familiamv.net/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://dns.floriantinney.de/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://freedom.mydns.network/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://adblock.mydns.network/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://family.mydns.network/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://dns.paulo.nom.za/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://regiopolis.cloud/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://dns.silen.org/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    },
+    {
+      "url": "https://dns.redhosting.com.ar/dns-query",
+      "verdict": "TIMEOUT_BLOCKED"
+    }
+  ],
+  "errors": [
+    {
+      "url": "https://dns.aa.net.uk/dns-query",
+      "verdict": "HTTP_400",
+      "error": "Bad Request"
+    },
+    {
+      "url": "https://nsec.arnor.org/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://rfree2.blue-shield.at/dns-query",
+      "verdict": "ERROR",
+      "error": "\u0000\u0000\u0006\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000d"
+    },
+    {
+      "url": "https://rfree1.blue-shield.at/dns-query",
+      "verdict": "ERROR",
+      "error": "\u0000\u0000\u0006\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000d"
+    },
+    {
+      "url": "https://dns.cert.ee/dns-query",
+      "verdict": "ERROR",
+      "error": "\u0000\u0000\u0006\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0003ÿÿÿ"
+    },
+    {
+      "url": "https://doh-01.spectrum.com/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://doh-02.spectrum.com/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://private.canadianshield.cira.ca/dns-query",
+      "verdict": "HTTP_400",
+      "error": "Bad Request"
+    },
+    {
+      "url": "https://protected.canadianshield.cira.ca/dns-query",
+      "verdict": "HTTP_400",
+      "error": "Bad Request"
+    },
+    {
+      "url": "https://family.canadianshield.cira.ca/dns-query",
+      "verdict": "HTTP_400",
+      "error": "Bad Request"
+    },
+    {
+      "url": "https://dns64.cloudflare-dns.com/dns-query",
+      "verdict": "SSL_ERROR",
+      "error": "[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1082)"
+    },
+    {
+      "url": "https://dns.digitale-gesellschaft.ch/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://ns.data.haus/dns-query",
+      "verdict": "HTTP_404",
+      "error": "Not Found"
+    },
+    {
+      "url": "https://doh.dns4all.eu/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns.dnshome.de/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://doh.domreg.lt/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://ns0.fdn.fr/dns-query",
+      "verdict": "HTTP_400",
+      "error": "Bad Request"
+    },
+    {
+      "url": "https://ns1.fdn.fr/dns-query",
+      "verdict": "HTTP_400",
+      "error": "Bad Request"
+    },
+    {
+      "url": "https://doh.applied-privacy.net/query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://fidelius.top/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://dns.furrix.zone/dns-query",
+      "verdict": "ERROR",
+      "error": "\u0000\u0000\u0006\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0000d"
+    },
+    {
+      "url": "https://gibblets.top/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://glacius.top/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://dns1.in-berlin.de/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns2.in-berlin.de/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://imperio.top/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://doh.lv/dns-query",
+      "verdict": "ERROR",
+      "error": "\u0000\u0000\u0006\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0001,"
+    },
+    {
+      "url": "https://doh.nic.lv/dns-query",
+      "verdict": "ERROR",
+      "error": "\u0000\u0000\u0006\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000\u0000\u0001,"
+    },
+    {
+      "url": "https://dns4eu.online/dns-query",
+      "verdict": "HTTP_405",
+      "error": "Method Not Allowed"
+    },
+    {
+      "url": "https://kronos.plan9-dns.com/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://helios.plan9-dns.com/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns.quad9.net/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns9.quad9.net/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns10.quad9.net/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns11.quad9.net/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns12.quad9.net/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dnspub.restena.lu/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns.rbn.gr/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://revelio.top/dns-query",
+      "verdict": "ERROR",
+      "error": "Remote end closed connection without response"
+    },
+    {
+      "url": "https://resolver.sunet.se/dns-query",
+      "verdict": "HTTP_400",
+      "error": "Bad Request"
+    },
+    {
+      "url": "https://dns.switch.ch/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns.t53.de/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://dns.telekom.de/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    },
+    {
+      "url": "https://anycast.uncensoreddns.org/dns-query",
+      "verdict": "HTTP_505",
+      "error": "HTTP Version Not Supported"
+    }
+  ]
+}

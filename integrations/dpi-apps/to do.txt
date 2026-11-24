@@ -1,0 +1,3 @@
+this is educatiuonal , there is heavy dpi going on now , I need you to create test for checking if these ips are accessible , 
+ips of famous cloud services d, aws , google cloud , digital ocean , hetzenr
+and create one app.py for each to test if their ips are accesseible from here or blocked 

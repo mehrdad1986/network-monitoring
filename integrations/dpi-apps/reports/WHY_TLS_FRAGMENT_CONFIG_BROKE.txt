@@ -1,0 +1,150 @@
+================================================================================
+WHY THE "tls fragment" / BPB CONFIG STOPPED WORKING  —  root cause
+Date: 2026-10-02
+Files examined: /home/user fragment  (truncated JSON fragment)
+               /home/user  (9 entries, 16 variants)
+               /home/user  (active)
+Tester: /home/user plus targeted probes this session
+Server actually in use: 104.21.28.168:443 (Cloudflare)
+================================================================================
+
+--------------------------------------------------------------------------------
+1. THE EVASION TRICK IN THESE CONFIGS, AND WHY IT IS NOW DEAD
+--------------------------------------------------------------------------------
+Every one of the 16 outbound variants in bpb-normal-xray.json uses the same idea:
+a Cloudflare-fronted VLESS/Trojan + WebSocket endpoint whose SNI is a
+CASE-MANGLED workers.dev name, e.g.
+
+    LoXBhBOHuKwgVX51H35nv6bEFNHa4a.neTFREedoM-PROJeCT.wORKErs.DEv
+    loxbhbohukwgvx51h35nv6befnha4a.netfreedom-project.workers.dev   (WS Host)
+
+The intent is obvious and was reasonable when written: DNS names and TLS SNI are
+case-insensitive, so a filter doing a literal byte comparison against
+"workers.dev" would miss "wORKErs.DEv". The panel randomises the case of all
+four labels, in 16 combinations, betting that at least one slips past.
+
+That bet no longer pays, for two independent reasons, both measured:
+
+(a) THE FILTER NORMALISES CASE. Testing their own server, 104.21.28.168:443:
+      SNI as-written (mixed case)   -> BLOCKED (0 application bytes)
+      SNI lowercased                -> BLOCKED (0 application bytes)
+    Case randomisation buys nothing.
+
+(b) THE FILTER MATCHES ON LABEL COUNT. The ladder measured this session:
+      workers.dev            (2 labels)  ALLOWED, served HTTP 301
+      a.workers.dev          (3 labels)  BLOCKED
+      a.b.workers.dev        (4 labels)  BLOCKED   <-- every panel variant lives here
+      a.b.c.workers.dev      (5 labels)  forwarded to Cloudflare
+      a.b.c.d.workers.dev    (6 labels)  forwarded to Cloudflare
+    A length sweep from 13 to 55 characters was blocked at every length, so this
+    is a label-count window, not truncation or a buffer overflow.
+
+    Their SNI has exactly four labels (X . Y . worKers . deV), i.e. it sits
+    squarely inside the blocked window. So do all 16 variants and the WS Host
+    header, which is a genuine one-label workers.dev subdomain.
+
+Positive controls at the same IP, same TLS stack, proving the test method:
+      cloudflare.com            -> SERVED  HTTP/1.1 301
+      challenges.cloudflare.com -> SERVED  HTTP/1.1 200
+      a.b.workers.dev           -> BLOCKED
+      a.b.c.workers.dev         -> reached Cloudflare (real TLS alert)
+So the endpoint is reachable and Cloudflare is healthy. Only the NAME is refused.
+
+CONCLUSION: this is not a client-side bug. No setting in v2rayNG can fix it,
+because the blocked string is the SNI, and the SNI is dictated by the server
+front, not by the phone. Every usable *.workers.dev name is inside the blocked
+window by construction — workers.dev subdomains are only ever one label deep.
+
+--------------------------------------------------------------------------------
+2. WHY THE "tls fragment" / finalmask PART CANNOT HELP
+--------------------------------------------------------------------------------
+Both variants in the fragment file route TLS through a "tcp-fragment-tls"
+outbound whose streamSettings.finalmask splits the ClientHello
+(packets "tlshello", then 1-1 byte fragments of 114+1, maxSplit 11).
+
+That technique only ever helped against a filter that inspects the FIRST TCP
+segment. This filter is not that filter:
+  - It reassembles the ClientHello, or matches on the name after reassembly.
+  - Earlier in this investigation, deliberate ClientHello fragmentation was
+    tested and did NOT evade the filter.
+Fragmenting a connection whose SNI is blocked does not hide that SNI; it only
+makes the blocked connection arrive more slowly. Adding or enlarging
+fragmentation here is wasted effort and costs throughput.
+
+Two lesser problems with the fragment file itself, worth knowing:
+  - It is not valid JSON. It starts mid-object (the opening "{" is gone) and is
+    truncated at the end. It is a paste fragment for the BPB panel, not a
+    runnable config.
+  - Its DoH bootstrap relies on a hosts trick: "cloudflare-dns.com" is mapped to
+    challenges.cloudflare.com's address. That only pins the IP. The TLS SNI is
+    still the literal string "cloudflare-dns.com", and that name is now reset by
+    the filter. Pinning an IP does not change the name on the wire.
+
+--------------------------------------------------------------------------------
+3. DNS ON THIS NETWORK — THE FULL PICTURE (all measured)
+--------------------------------------------------------------------------------
+FILTERED / POISONED:
+  - Every UDP/53 query is intercepted regardless of the server asked. A, AAAA
+    for facebook.com, instagram.com, youtube.com, x.com all return 10.10.34.36,
+    a dead sinkhole. AAAA returns a fabricated 2001:4188:2:600:10:10:34:36 in
+    a documentation prefix. Case-randomised names are poisoned too, so 0x20
+    encoding does not help. NS/MX/TXT return nothing.
+  - DoT/853 is blocked: 1.1.1.1, 8.8.8.8, 9.9.9.9, 94.140.14.14, 185.222.222.222,
+    1.12.12.12, 223.5.5.5.
+  - DoH by NAME is reset (TCP RST during the handshake) for every resolver
+    tried: cloudflare-dns.com, one.one.one.one, dns.google, dns.quad9.net,
+    dns.adguard-dns.com, dns.alidns.com, doh.pub, dns.sb, doh.mullvad.net,
+    doh.opendns.com, dns.nextdns.io, dot.pub, doh.dns.sb. Every one of these
+    names is ALSO DNS-poisoned to 10.10.34.36, so they cannot even be resolved.
+
+WORKS:
+  - DoH to the IP LITERAL https://8.8.8.8/dns-query. No SNI keyword to match, and
+    the certificate presented is CN=dns.google with IP SANs 8.8.8.8, 8.8.4.4,
+    8.8.8.53, so hostname verification succeeds (openssl: "Verify return code: 0
+    (ok)"). Real DNS answers were returned. 8.8.4.4 behaves the same.
+  - 1.1.1.1 and 1.0.0.1 by IP literal do NOT work: connection times out, i.e.
+    Cloudflare's resolver addresses are separately unreachable.
+  - Plain HTTP/80 to 1.1.1.1 answers (301), and doh.pub:80 answers (403) — the
+    port is open, the resolver just refuses the request form.
+
+  The bpb template already uses https://8.8.8.8/dns-query, so its DNS design is
+  still correct. Your ACTIVE v2rayN config is the one at fault: it pins resolver
+  IPs in dns.hosts but keeps hostname SNI, so it hits the RST rule above.
+
+  Note: this workstation's Python failed to verify that chain (empty verify
+  error) while openssl verified it cleanly, so that is a local CA-store quirk of
+  this machine, not a network fault. Go-based clients (v2rayNG/v2rayN on Android
+  and desktop) verify IP SANs normally.
+
+--------------------------------------------------------------------------------
+4. WHAT ACTUALLY GETS THROUGH
+--------------------------------------------------------------------------------
+Measured as served on this network right now:
+    cloudflare.com              SERVED
+    challenges.cloudflare.com   SERVED
+    a.b.c.workers.dev (5 labels) forwarded (Cloudflare has no such zone)
+    any usable *.workers.dev name BLOCKED
+
+So the filter is not blocking Cloudflare, and it is not blocking TLS or the IP.
+It blocks a bounded set of NAMES. Two ways to satisfy it, in order of
+preference:
+
+  A. HOST A 5-LABEL (OR DEEPER) NAME ON A DOMAIN YOU CONTROL, proxied by
+     Cloudflare. Anything with five or more labels was forwarded. This keeps the
+     whole VLESS+WS+TLS+CDN design, its path, its UUID and its panel, and needs
+     only a DNS record you control, e.g.  v p n . c d n . yourdomain . com
+     pointed at the Worker/Cloudflare, with a matching certificate.
+     This is the direct upgrade of what they already have.
+
+  B. MOVE OFF WORKERS.DEV ENTIRELY — VLESS + REALITY straight to a VPS IP, or a
+     normal domain on a normal server. No workers.dev name ever appears, so the
+     rule being enforced is never triggered. Reality's SNI is a borrowed,
+     popular, unremarkable site.
+
+  WHAT WILL NOT WORK, so do not spend time on it:
+    - case-mangled workers.dev SNI (measured dead)
+    - ClientHello fragmentation / finalmask (cannot defeat a name match)
+    - switching between the panel's 16 variants (all 16 are 4-label, all blocked)
+    - Trojan instead of VLESS (same SNI, same result)
+    - any client-side setting, including DNS, buffer size, MUX, or fingerprint
+================================================================================

@@ -1,0 +1,5 @@
+bin/
+dist/
+monitor.log
+.DS_Store
+.agents/

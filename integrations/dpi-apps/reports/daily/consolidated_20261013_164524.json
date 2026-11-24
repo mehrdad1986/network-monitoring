@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-10-13T16:45:24.959904",
+  "test_suite_version": "1.0.0",
+  "tests_run": [
+    {
+      "name": "DNS Poisoning Detection",
+      "script": "dns_poisoning_detector.py",
+      "start_time": "2026-10-13T16:45:24.959949",
+      "success": false,
+      "duration_seconds": 0.03,
+      "output_file": null,
+      "error": "Traceback (most recent call last):\n  File \"D:\\kilo\\daily_tests\\dns_poisoning_detector.py\", line 8, in <module>\n    import dns.resolver\nModuleNotFoundError: No module named 'dns'\n"
+    },
+    {
+      "name": "SNI Filter Testing",
+      "script": "sni_filter_tester.py",
+      "start_time": "2026-10-13T16:45:24.993805",
+      "success": false,
+      "duration_seconds": 34.31,
+      "output_file": null,
+      "error": "Traceback (most recent call last):\n  File \"D:\\kilo\\daily_tests\\sni_filter_tester.py\", line 295, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\kilo\\daily_tests\\sni_filter_tester.py\", line 281, in main\n    tester.save_report()\n    ~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\kilo\\daily_tests\\sni_filter_tester.py\", line 272, in save_report\n    with open(filename, 'w', encoding='utf-8') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/media/xxx/6060-C6D4/kilo/reports/daily\\\\sni_filter_20261013_164559.json'\n"
+    },
+    {
+      "name": "Encrypted DNS Monitoring",
+      "script": "encrypted_dns_monitor.py",
+      "start_time": "2026-10-13T16:45:59.299634",
+      "success": false,
+      "duration_seconds": 21.26,
+      "output_file": null,
+      "error": "Traceback (most recent call last):\n  File \"D:\\kilo\\daily_tests\\encrypted_dns_monitor.py\", line 407, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\kilo\\daily_tests\\encrypted_dns_monitor.py\", line 387, in main\n    monitor.save_report()\n    ~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\kilo\\daily_tests\\encrypted_dns_monitor.py\", line 378, in save_report\n    with open(filename, 'w', encoding='utf-8') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/media/xxx/6060-C6D4/kilo/reports/daily\\\\encrypted_dns_20261013_164620.json'\n"
+    },
+    {
+      "name": "Multi-ISP Comparison",
+      "script": "multi_isp_comparison.py",
+      "start_time": "2026-10-13T16:46:20.563961",
+      "success": false,
+      "duration_seconds": 14.7,
+      "output_file": null,
+      "error": "Traceback (most recent call last):\n  File \"D:\\kilo\\daily_tests\\multi_isp_comparison.py\", line 372, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\kilo\\daily_tests\\multi_isp_comparison.py\", line 357, in main\n    comparison.save_report()\n    ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"D:\\kilo\\daily_tests\\multi_isp_comparison.py\", line 348, in save_report\n    with open(filename, 'w', encoding='utf-8') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/media/xxx/6060-C6D4/kilo/reports/daily\\\\isp_comparison_20261013_164635.json'\n"
+    }
+  ],
+  "tests_failed": [
+    "DNS Poisoning Detection",
+    "SNI Filter Testing",
+    "Encrypted DNS Monitoring",
+    "Multi-ISP Comparison"
+  ],
+  "consolidated_findings": {
+    "censorship_active": false,
+    "dns_poisoning_active": false,
+    "sni_filtering_active": false,
+    "encrypted_dns_available": false,
+    "working_resolvers": [],
+    "detected_isp": "UNKNOWN",
+    "censorship_layers": 0
+  },
+  "alerts": [
+    {
+      "severity": "HIGH",
+      "type": "NO_ENCRYPTED_DNS",
+      "message": "No encrypted DNS resolvers available - DNS queries exposed to poisoning"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "TEST_FAILURES",
+      "message": "4 tests failed: DNS Poisoning Detection, SNI Filter Testing, Encrypted DNS Monitoring, Multi-ISP Comparison"
+    }
+  ],
+  "historical_comparison": {}
+}

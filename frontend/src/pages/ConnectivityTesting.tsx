@@ -1,0 +1,6 @@
+import { NetworkSummary } from '../components/NetworkSummary';
+import { UIIcon } from '../components/UIIcon';
+const results=[{target:'google.com',latency:18.5,status:'Pass'},{target:'cloudflare.com',latency:22.1,status:'Pass'},{target:'aws.amazon.com',latency:35.2,status:'Pass'}];
+export const ConnectivityTesting=()=> <NetworkSummary title="Connectivity Testing" category="ISP & Connectivity" description="Review endpoint reachability and response times in a readable results table." metrics={[
+{label:'Endpoints',value:results.length,icon:'target'},{label:'Successful results',value:results.filter(r=>r.status==='Pass').length,icon:'check'},{label:'Average response',value:(results.reduce((sum,r)=>sum+r.latency,0)/results.length).toFixed(1)+' ms',icon:'time'}
+]}><section className="summary-detail-card"><header><h2>Endpoint results</h2><p>Existing sample checks, grouped by destination.</p></header><div className="summary-table-wrap"><table><thead><tr><th>Endpoint</th><th>Result</th><th>Response time</th></tr></thead><tbody>{results.map(result=><tr key={result.target}><td>{result.target}</td><td><span className="summary-inline-badge"><UIIcon symbol="check" />{result.status}</span></td><td>{result.latency} ms</td></tr>)}</tbody></table></div></section></NetworkSummary>;

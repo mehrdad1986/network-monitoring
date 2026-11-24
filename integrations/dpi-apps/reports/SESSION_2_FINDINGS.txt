@@ -1,0 +1,193 @@
+================================================================================
+SESSION 2 — DNS POISONING, ENCRYPTED-DNS BLOCKING, AND THE VLESS FRONT
+Date: 2026-10-02   06:00 - 06:45 (+01:00)
+Network: MCI, Iran. Host: /home/xxx
+Testers added this session:
+    /home/user      corrected SNI/TLS matrix
+    /home/user per-domain method enumeration
+    /home/user          DoH/DoT sweep
+    /home/user          DoH retry with verification off
+    /home/user        working DoH client (SNI=8.8.8.8)
+    /home/user      "will this hostname pass?" checker
+    /home/user
+    /home/user
+Companion reports:
+    SNI_FILTER_RULE_REPORT.txt           the label-count rule
+    WHY_TLS_FRAGMENT_CONFIG_BROKE.txt    why the VLESS front died
+================================================================================
+
+--------------------------------------------------------------------------------
+1. HIGHLY-CENSORED SITES: ALL FOUR ARE POISONED AT DNS
+--------------------------------------------------------------------------------
+facebook.com, instagram.com, youtube.com, x.com — identical behaviour:
+
+  query type   answer                                        note
+  -----------  --------------------------------------------  ----------------
+  A            10.10.34.36                                  dead sinkhole
+  AAAA         2001:4188:2:600:10:10:34:36                  fabricated; that
+                                                                 prefix is a
+                                                                 documentation
+                                                                 range, so this
+                                                                 address can never
+                                                                 be real
+  NS/MX/TXT    no answer                                    not forwarded
+  A to 1.1.1.1 10.10.34.36                                  identical
+  A to 8.8.8.8 10.10.34.36                                  identical
+  A, name uppercased 10.10.34.36                            0x20 case
+                                                            randomisation does
+                                                            not help
+
+So the interceptor is destination-agnostic at the DNS layer: it does not matter
+which resolver is asked, every UDP/53 query is intercepted and rewritten. The
+TTL seen earlier on these forged answers (~417-418) is characteristic of a
+synthesised response rather than an authoritative one.
+
+Because these names never resolve truthfully, every application-layer test of
+them fails before a single packet leaves the host. That is the first and
+strongest layer, and it is why these four are the hardest to reach.
+
+workers.dev is NOT on this list: it resolves truthfully to Cloudflare. That is
+precisely what makes it the clean instrument for measuring the SNI layer, and
+it is the only censored-zone name in this investigation that is reachable at
+the IP layer.
+
+--------------------------------------------------------------------------------
+2. ENCRYPTED DNS: EVERY RESOLVER NAME IS BLOCKED, BUT THE IP LITERAL WORKS
+--------------------------------------------------------------------------------
+DoT, port 853 — no answer from any of:
+    1.1.1.1, 8.8.8.8, 9.9.9.9, 94.140.14.14, 185.222.222.222, 1.12.12.12,
+    223.5.5.5
+
+DoH, addressed BY NAME — TCP reset during the handshake, every one of:
+    cloudflare-dns.com        (104.16.248.249 and 104.16.249.249)
+    one.one.one.one           (at the same Cloudflare address)
+    dns.google                (8.8.8.8 and 8.8.4.4)
+    dns.quad9.net             (9.9.9.9 and 149.112.112.112)
+    dns.adguard-dns.com       (94.140.14.14 and 94.140.15.15)
+    dns.alidns.com            (223.5.5.5)
+    doh.pub                   (1.12.12.12)
+    dns.sb                    (185.222.222.222)
+    dns.mullvad.net           (194.242.2.2)
+    doh.opendns.com, dns.nextdns.io, doh.dns.sb, dot.pub
+And every one of these names is simultaneously DNS-poisoned to 10.10.34.36, so
+they cannot be resolved either. Two independent blocks stacked on each name.
+
+DoH, addressed BY IP LITERAL — this is the one that works:
+    https://8.8.8.8/dns-query      real DNS answers returned
+    https://8.8.4.4/dns-query      same behaviour
+The certificate presented is CN=dns.google with SANs including the IP addresses
+8.8.8.8 and 8.8.4.4, so hostname verification succeeds; openssl reports
+"Verify return code: 0 (ok)". Because no resolver NAME appears on the wire, the
+name-matching filter has nothing to match.
+
+Note the asymmetry: 1.1.1.1 and 1.0.0.1 TIMED OUT even by IP literal, i.e.
+Cloudflare's resolver addresses are separately unreachable from this network.
+Cloudflare's CDN addresses are not: 104.21.28.168, 188.114.96.3 and 104.16.248.249
+all connect fine. The blocking is specific to the resolver service, not the
+ASN.
+
+Plain HTTP on port 80 for context:
+    1.1.1.1:80   answers 301   (port open, wrong request form refused)
+    doh.pub:80   answers 403
+    8.8.8.8:80   TCP connect fails
+    9.9.9.9:80   TCP connect fails
+
+Practical consequence: the only encrypted resolver usable here is Google's,
+and only when addressed as an IP. That is why the BPB panel's use of
+https://8.8.8.8/dns-query is still correct, and why the active v2rayN config
+was broken: it pins resolver IPs in dns.hosts but keeps the resolver hostname
+as the SNI, which is reset.
+
+--------------------------------------------------------------------------------
+3. THE ENFORCEMENT CATALOGUE — FOUR DISTINCT MECHANISMS
+--------------------------------------------------------------------------------
+The filter is not one mechanism. Four different responses were observed, and the
+difference is useful both for detection and for writing client-side rules:
+
+  MECHANISM 1 — DNS FORGERY
+      Symptom   forged A/AAAA, no answer for NS/MX/TXT, every resolver
+      Applies   facebook.com, instagram.com, youtube.com, x.com, pages.dev, and
+                every encrypted-resolver hostname
+      Signature answers point at 10.10.34.36 / 2001:4188:2:600:...; TTL ~417-418
+
+  MECHANISM 2 — SNI SILENT DROP (the workers.dev case)
+      Symptom   TLS handshake COMPLETES, certificate is delivered, then zero
+                application bytes; the peer hangs until it times out
+      Applies   *.workers.dev with 2 to 4 labels
+      Not       MITM, not a certificate substitution, not an injected RST
+
+  MECHANISM 3 — SNI TCP RESET (the harder case)
+      Symptom   TCP RST during the handshake; the handshake never completes
+      Applies   pages.dev (apex, www, and even nonexistent names), and every
+                DoH resolver hostname
+      Why it is the filter and not Cloudflare: a nonexistent *.workers.dev name
+      gets a genuine TLS alert from Cloudflare, whereas a nonexistent pages.dev
+      name gets a RST. Cloudflare refuses neither; the connection dies upstream.
+
+  MECHANISM 4 — LABEL-COUNT WINDOW (the rule behind mechanism 2)
+      Symptom   names with 5+ labels are forwarded untouched
+      Applies   any hostname, not just workers.dev
+      Note      this is a parsing limitation of the filter's matcher, not a
+                smarter filter. It is not a usable evasion for workers.dev,
+                because Cloudflare serves no such name.
+
+--------------------------------------------------------------------------------
+4. THE USER'S VLESS FRONT WAS DEAD, AND NO CLIENT SETTING COULD SAVE IT
+--------------------------------------------------------------------------------
+The endpoint in use is VLESS + WebSocket + TLS through Cloudflare at
+104.21.28.168:443, with a case-mangled SNI of the shape
+X . Y . wORKErs . dEv and a WS Host header of a genuine one-label workers.dev
+subdomain. The BPB template generates 16 such case variants.
+
+Tested at the real server address, with controls that prove the method:
+      SNI as written (mixed case)          BLOCKED, 0 bytes
+      SNI lowercased                       BLOCKED, 0 bytes
+      WS Host workers.dev name             BLOCKED, 0 bytes
+      cloudflare.com                       SERVED  HTTP/1.1 301
+      challenges.cloudflare.com            SERVED  HTTP/1.1 200
+      a.b.workers.dev                      BLOCKED
+      a.b.c.workers.dev                    reached Cloudflare
+
+So case randomisation is defeated (the filter normalises case), and every
+generated variant is a 4-label name, i.e. inside the blocked window. Fragmenting
+the ClientHello — which the fragment file's finalmask rules do — cannot help,
+because fragmentation was already measured not to evade this filter and the
+decision is made on the name.
+
+The fix is a hostname with 5 or more labels on a domain the user controls,
+proxied by Cloudflare. Delivered as a generator plus a pre-flight checker; the
+generated config was validated with xray run -test ("Configuration OK") and
+needs no geodata files. Full reasoning in WHY_TLS_FRAGMENT_CONFIG_BROKE.txt.
+
+--------------------------------------------------------------------------------
+5. CORRECTION TO EARLIER WORK — THE SNI MATRIX WAS WRONG AT FIRST
+--------------------------------------------------------------------------------
+sni_variants.py, sni_variants2.py and sni_variants3.py all reported the CONTROL
+hostname as blocked, which contradicted curl. The cause was in the tester, not
+the network: the verdict looked for b"HTTP/" in RAW socket bytes, and TLS 1.3
+application data is still ciphertext on the wire, so every healthy response was
+misread as blocked. Proof the control is reachable: 946 bytes of application
+data arrive in 0.25 s. sni_variants4.py decrypts through SSLObject.read() and
+is the only tester whose output is cited. Any conclusion that depended on the
+earlier three files is void.
+
+Separately, this workstation's Python had an empty trust store — its default CA
+path /usr/lib/ssl/cert.pem does not exist, so verification failed with code 20
+("unable to get local issuer certificate") while openssl verified the same chain
+cleanly. That is a local packaging quirk, not a network symptom, and it briefly
+made the working DoH endpoint look broken. Fixed by loading
+/etc/ssl/certs/ca-certificates.crt explicitly in doh_resolve.py.
+
+--------------------------------------------------------------------------------
+6. STILL NOT KNOWN
+--------------------------------------------------------------------------------
+- The exact matcher behind the 4-label window (regex, label counter, or fixed
+  byte window). Only its observable boundary is mapped.
+- Whether the workers.dev and pages.dev rules are explicit entries or one
+  broader Cloudflare-zone category.
+- Whether the mechanism differs for QUIC/HTTP3. UDP/443 was blocked client-side
+  in the configs, and this host has no HTTP/3 client, so it was never measured.
+- Whether all of this is MCI-specific or national. Requires a second network.
+- No vendor, model, or management interface identified. The gateway MAC is
+  randomised and the sinkhole hosts answer nothing.
+================================================================================

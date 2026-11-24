@@ -1,0 +1,21 @@
+:where([data-page~="Contact"]).contact-standalone { min-height: 100vh; padding: 38px clamp(20px, 6vw, 88px); color: #e8eef8; background: #0b1220; }
+:where([data-page~="Contact"]) .contact-page { width: min(100%, 900px); margin: 0 auto; }
+:where([data-page~="Contact"]) .contact-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+:where([data-page~="Contact"]) .contact-eyebrow { color: #87add0; font-size: 10px; font-weight: 750; letter-spacing: .14em; }
+:where([data-page~="Contact"]) .contact-header h1 { margin: 7px 0 8px; color: #f1f6fc; font-size: clamp(26px, 4vw, 36px); }
+:where([data-page~="Contact"]) .contact-header p { margin: 0; color: #a9bad0; font-size: 14px; }
+:where([data-page~="Contact"]) .contact-back { display: grid; flex: 0 0 auto; width: 42px; height: 42px; place-items: center; border: 1px solid #2b3d55; border-radius: 10px; color: #c4d5e8; background: #111c2b; }
+:where([data-page~="Contact"]) .contact-back:hover { color: #fff; border-color: #5b8bb6; background: #17263a; }
+:where([data-page~="Contact"]) :is(.contact-back, .contact-submit):focus-visible { outline: 2px solid #88c7ff; outline-offset: 3px; }
+:where([data-page~="Contact"]) .contact-form { padding: clamp(18px, 3vw, 30px); border: 1px solid #263a52; border-radius: 14px; background: #101a29; }
+:where([data-page~="Contact"]) .contact-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 22px; }
+:where([data-page~="Contact"]) .contact-form label { display: flex; flex-direction: column; gap: 8px; color: #c9d7e7; font-size: 13px; font-weight: 600; }
+:where([data-page~="Contact"]) .contact-form input { min-height: 44px; padding: 10px 12px; border: 1px solid #34465e; border-radius: 8px; outline: none; color: #f4f7fb; background: #080d15; font: inherit; }
+:where([data-page~="Contact"]) .contact-form input:focus, :where([data-page~="Contact"]) .contact-message:focus { border-color: #6ba6d8; box-shadow: 0 0 0 3px #6ba6d825; }
+:where([data-page~="Contact"]) .contact-message { display: block; width: 100%; min-height: 260px; margin-top: 9px; padding: 14px; resize: vertical; border: 1px solid #34465e; border-radius: 8px; outline: none; color: #f4f7fb; background: #05080d; font: inherit; line-height: 1.6; }
+:where([data-page~="Contact"]) .contact-message::placeholder { color: #71839a; }
+:where([data-page~="Contact"]) .contact-submit-row { display: flex; align-items: center; gap: 16px; margin-top: 18px; }
+:where([data-page~="Contact"]) .contact-submit { min-height: 42px; padding: 0 18px; border: 1px solid #437db0; border-radius: 8px; color: #f4f8fc; background: #1c5c91; font: inherit; font-weight: 650; cursor: pointer; }
+:where([data-page~="Contact"]) .contact-submit:hover { background: #2472af; }
+:where([data-page~="Contact"]) .contact-submit-row p { margin: 0; color: #aec1d6; font-size: 13px; }
+@media (max-width: 620px) { :where([data-page~="Contact"]) .contact-fields { grid-template-columns: 1fr; } :where([data-page~="Contact"]) .contact-submit-row { align-items: flex-start; flex-direction: column; } }

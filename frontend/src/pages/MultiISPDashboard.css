@@ -1,0 +1,686 @@
+/* Multi-ISP Dashboard Styling */
+
+:where([data-page~="MultiISPDashboard"])  .multi-isp {
+  background: linear-gradient(135deg, #0f1421 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .multi-isp.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+:where([data-page~="MultiISPDashboard"])  .loading-spinner {
+  text-align: center;
+}
+
+:where([data-page~="MultiISPDashboard"])  .loading-spinner div {
+  border: 4px solid rgba(59, 130, 246, 0.2);
+  border-top: 4px solid #3B82F6;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: MultiISPDashboard-spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes MultiISPDashboard-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-header {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-header .subtitle {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+  padding-bottom: 1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .tab:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #60a5fa;
+}
+
+:where([data-page~="MultiISPDashboard"])  .tab.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-content {
+  animation: MultiISPDashboard-fadeIn 0.4s ease;
+}
+
+@keyframes MultiISPDashboard-fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:where([data-page~="MultiISPDashboard"])  .section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  border-left: 4px solid #3B82F6;
+  padding-left: 1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="MultiISPDashboard"])  .overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .stat-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+:where([data-page~="MultiISPDashboard"])  .stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 48px rgba(59, 130, 246, 0.2);
+}
+
+:where([data-page~="MultiISPDashboard"])  .stat-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+:where([data-page~="MultiISPDashboard"])  .stat-info {
+  flex: 1;
+}
+
+:where([data-page~="MultiISPDashboard"])  .stat-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .stat-detail {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+/* ISP Cards */
+:where([data-page~="MultiISPDashboard"])  .isp-cards {
+  margin-top: 2rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 2px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 48px rgba(59, 130, 246, 0.2);
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-card.connected {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-card.disconnected {
+  border-color: rgba(239, 68, 68, 0.3);
+  opacity: 0.7;
+}
+
+:where([data-page~="MultiISPDashboard"])  .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="MultiISPDashboard"])  .card-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .isp-code {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .card-details {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .card-details p {
+  margin: 0;
+}
+
+:where([data-page~="MultiISPDashboard"])  .card-details strong {
+  color: #94a3b8;
+}
+
+:where([data-page~="MultiISPDashboard"])  .card-status {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="MultiISPDashboard"])  .status-indicator {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .ip-address {
+  font-size: 0.85rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: #60a5fa;
+  margin: 0;
+}
+
+/* Tables */
+:where([data-page~="MultiISPDashboard"])  .connections-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="MultiISPDashboard"])  .connections-table thead {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.08));
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="MultiISPDashboard"])  .connections-table th {
+  padding: 1rem;
+  text-align: left;
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .connections-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+  color: #cbd5e1;
+}
+
+:where([data-page~="MultiISPDashboard"])  .connections-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+:where([data-page~="MultiISPDashboard"])  .ip-cell {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+/* Traffic Cards */
+:where([data-page~="MultiISPDashboard"])  .traffic-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .traffic-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="MultiISPDashboard"])  .traffic-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .traffic-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 6px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-row .label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-row .value {
+  font-weight: 600;
+  color: #60a5fa;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+/* Health Checks */
+:where([data-page~="MultiISPDashboard"])  .health-checks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .health-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="MultiISPDashboard"])  .health-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="MultiISPDashboard"])  .health-header h4 {
+  margin: 0;
+}
+
+:where([data-page~="MultiISPDashboard"])  .health-status {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+:where([data-page~="MultiISPDashboard"])  .health-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .health-details p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+:where([data-page~="MultiISPDashboard"])  .health-details strong {
+  color: #94a3b8;
+}
+
+/* Diagnostics Grid */
+:where([data-page~="MultiISPDashboard"])  .diagnostics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .diagnostic-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="MultiISPDashboard"])  .diagnostic-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .diag-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .diag-metrics .metric {
+  display: flex;
+  flex-direction: column;
+}
+
+:where([data-page~="MultiISPDashboard"])  .diag-metrics .label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .diag-metrics .value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+/* Metrics List */
+:where([data-page~="MultiISPDashboard"])  .metrics-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-header h3 {
+  margin: 0;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-item .label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-item .value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+:where([data-page~="MultiISPDashboard"])  .metric-item .detail {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  margin-top: 0.2rem;
+}
+
+/* Failover & Load Balancing */
+:where([data-page~="MultiISPDashboard"])  .failover-card,:where([data-page~="MultiISPDashboard"])  
+.lb-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  max-width: 800px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .failover-card h3,:where([data-page~="MultiISPDashboard"])  
+.lb-card h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .failover-details,:where([data-page~="MultiISPDashboard"])  
+.lb-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 6px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .detail-row .label {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+:where([data-page~="MultiISPDashboard"])  .detail-row .value {
+  color: #cbd5e1;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="MultiISPDashboard"])  .weights-table {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="MultiISPDashboard"])  .weights-table h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="MultiISPDashboard"])  .weights-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="MultiISPDashboard"])  .weights-table thead {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="MultiISPDashboard"])  .weights-table th {
+  padding: 0.75rem;
+  text-align: left;
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="MultiISPDashboard"])  .weights-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+  color: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="MultiISPDashboard"])  .isp-header h1 {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .cards-grid,:where([data-page~="MultiISPDashboard"])  
+  .traffic-cards,:where([data-page~="MultiISPDashboard"])  
+  .diagnostics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="MultiISPDashboard"])  .multi-isp {
+    padding: 1rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .isp-header h1 {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .tabs-container {
+    gap: 0.25rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .traffic-metrics,:where([data-page~="MultiISPDashboard"])  
+  .diag-metrics,:where([data-page~="MultiISPDashboard"])  
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .connections-table {
+    font-size: 0.8rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .connections-table th,:where([data-page~="MultiISPDashboard"])  
+  .connections-table td {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="MultiISPDashboard"])  .isp-header h1 {
+    font-size: 1.2rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .stat-icon {
+    font-size: 2.5rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .tabs-container {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .metric-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  :where([data-page~="MultiISPDashboard"])  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

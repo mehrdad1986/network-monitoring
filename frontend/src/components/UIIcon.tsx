@@ -1,0 +1,52 @@
+const paths: Record<string, string> = {
+  chart: 'M3 3v18h18M7 16v-5m5 5V7m5 9v-7',
+  check: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-4 9 3 3 5-6',
+  cross: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM9 9l6 6m0-6-6 6',
+  warning: 'm12 3 10 18H2L12 3Zm0 6v4m0 4h.01',
+  time: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 4v5l3 2',
+  globe: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM2 12h20M12 2c-5 5-5 15 0 20 5-5 5-15 0-20Z',
+  server: 'M4 3h16v7H4V3ZM4 14h16v7H4v-7ZM7 7h.01M7 18h.01M11 7h6M11 18h6',
+  shield: 'm12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6l8-3Zm-3 9 2 2 4-4',
+  settings: 'M3 7h18M3 17h18M9 4v6m6 4v6',
+  users: 'M9 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM2 21v-2a7 7 0 0 1 14 0v2m1-17a4 4 0 0 1 0 8m1 3a6 6 0 0 1 4 5',
+  palette: 'M12 3a9 9 0 1 0 0 18h2a2 2 0 0 0 0-4h-1a2 2 0 0 1 0-4h4a4 4 0 0 0 4-4c0-4-5-6-9-6ZM7 9h.01M10 6h.01M15 6h.01M6 13h.01',
+  refresh: 'M20 7v5h-5M4 17v-5h5M5 8a8 8 0 0 1 13-3l2 2M4 17l2 2a8 8 0 0 0 13-3',
+  play: 'm7 4 14 8-14 8V4Z',
+  pause: 'M7 4v16M17 4v16',
+  search: 'M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm5 12 6 6',
+  download: 'M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5',
+  upload: 'M12 16V4m-5 5 5-5 5 5M4 16v5h16v-5',
+  bolt: 'm13 2-9 11h7l-1 9 10-12h-7V2Z',
+  route: 'M5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM19 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM5 15V8a4 4 0 0 1 4-4h6M7 17h8a4 4 0 0 0 4-4V9',
+  bell: 'M5 17h14l-2-3V9a5 5 0 0 0-10 0v5l-2 3Zm5 4h4',
+  target: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 3v2',
+  sun: 'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0-6v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1',
+  moon: 'M20 15A9 9 0 0 1 9 4a9 9 0 1 0 11 11Z',
+  monitor: 'M3 4h18v13H3V4Zm5 17h8m-4-4v4',
+  list: 'M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01',
+  link: 'M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-2 2M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l2-2',
+  cube: 'm12 2 9 5v10l-9 5-9-5V7l9-5ZM3 7l9 5 9-5M12 12v10',
+  trash: 'M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7',
+  info: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 7v7m0-10h.01',
+  plus: 'M12 4v16M4 12h16',
+  eye: 'M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Zm10-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z',
+  edit: 'm15 3 6 6L9 21H3v-6L15 3Zm-2 2 6 6',
+  cloud: 'M6 18h12a4 4 0 0 0 0-8 6 6 0 0 0-11-3 5 5 0 0 0-1 11Z',
+  folder: 'M3 5h7l2 3h9v12H3V5Z',
+  file: 'M5 3h9l5 5v13H5V3Zm9 0v5h5M8 12h8m-8 4h6',
+  logout: 'M9 3H3v18h6m4-14 5 5-5 5m-5-5h13',
+  phone: 'M5 3h4l1 5-3 2a15 15 0 0 0 7 7l2-3 5 1v4c0 2-3 3-5 2A23 23 0 0 1 3 8c-1-2 0-5 2-5Z',
+};
+const groups: Record<string, string> = {
+  chart: '📊📈📉🌊', check: '✅👍✓✔🟢', cross: '❌✗✕❎🔴🚫', warning: '⚠️🟡❗🚨🟠',
+  time: '⏱️⏰🕐⌛⏳', globe: '🌐🌍🌎🌏', server: '🖥️🏢🗄️💾🏗️🏘️', shield: '🔒🔐🛡️🔑',
+  settings: '⚙️🔧🛠️', users: '👤👥👨‍💼', palette: '🎨', refresh: '🔄🔃', play: '▶️', pause: '⏸️⏹️',
+  search: '🔍🔎', download: '⬇️📥📤', upload: '⬆️', bolt: '⚡🚀✨🏆🐛', route: '🗺️🛤️🧠📡🧬🔀🛣️🛰️🌳', bell: '🔔📧',
+  target: '🎯🔬🏓📸🧪📷', sun: '☀️', moon: '🌙', monitor: '💻📱🍎', list: '📋📚📝📜🔖🏷️', link: '🔗🔌⛓️', cube: '📦🔷🔶🟦💿', trash: '🗑️',
+  info: 'ℹ️⚪', plus: '➕', eye: '👁️', edit: '✏️', cloud: '☁️', folder: '📁', file: '📄', logout: '🚪↗', phone: '☎️',
+};
+
+export function UIIcon({ symbol = 'cube', className = '' }: { symbol?: string; className?: string }) {
+  const kind = paths[symbol] ? symbol : Object.keys(groups).find(key => groups[key].includes(symbol.replace(/\uFE0F/g, '')) || groups[key].includes(symbol)) || 'cube';
+  return <svg className={`ui-icon ${className}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d={paths[kind]} /></svg>;
+}

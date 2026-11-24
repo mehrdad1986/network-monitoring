@@ -1,0 +1,514 @@
+/* System Dashboard Styling */
+
+:where([data-page~="SystemDashboard"])  .system-dashboard {
+  background: linear-gradient(135deg, #0f1421 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+:where([data-page~="SystemDashboard"])  .system-header {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="SystemDashboard"])  .system-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="SystemDashboard"])  .system-subtitle {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="SystemDashboard"])  .system-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+  padding-bottom: 1rem;
+}
+
+:where([data-page~="SystemDashboard"])  .system-tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+}
+
+:where([data-page~="SystemDashboard"])  .system-tab:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #60a5fa;
+}
+
+:where([data-page~="SystemDashboard"])  .system-tab.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="SystemDashboard"])  .system-content {
+  animation: SystemDashboard-fadeIn 0.4s ease;
+}
+
+@keyframes SystemDashboard-fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:where([data-page~="SystemDashboard"])  .system-section {
+  margin-bottom: 2rem;
+}
+
+/* Overview Cards */
+:where([data-page~="SystemDashboard"])  .overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="SystemDashboard"])  .overview-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+:where([data-page~="SystemDashboard"])  .overview-card h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.25);
+  padding-bottom: 1rem;
+}
+
+:where([data-page~="SystemDashboard"])  .status-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Progress Bar */
+:where([data-page~="SystemDashboard"])  .progress-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="SystemDashboard"])  .progress-label {
+  min-width: 60px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+:where([data-page~="SystemDashboard"])  .progress-bar {
+  flex: 1;
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: #60a5fa;
+  letter-spacing: 2px;
+}
+
+:where([data-page~="SystemDashboard"])  .progress-value {
+  min-width: 50px;
+  text-align: right;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+/* Large Progress Bars */
+:where([data-page~="SystemDashboard"])  .large-progress {
+  width: 100%;
+  height: 30px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+:where([data-page~="SystemDashboard"])  .large-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, #06b6d4);
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.75rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Resources Grid */
+:where([data-page~="SystemDashboard"])  .resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="SystemDashboard"])  .resource-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="SystemDashboard"])  .resource-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+:where([data-page~="SystemDashboard"])  .resource-details {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="SystemDashboard"])  .resource-details p {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="SystemDashboard"])  .resource-details strong {
+  color: #94a3b8;
+}
+
+/* Status Info */
+:where([data-page~="SystemDashboard"])  .status-info {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="SystemDashboard"])  .status-info p {
+  margin: 0.5rem 0;
+}
+
+:where([data-page~="SystemDashboard"])  .status-info strong {
+  color: #94a3b8;
+}
+
+/* Network Summary */
+:where([data-page~="SystemDashboard"])  .network-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:where([data-page~="SystemDashboard"])  .network-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="SystemDashboard"])  .network-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+:where([data-page~="SystemDashboard"])  .status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: SystemDashboard-pulse 2s infinite;
+}
+
+:where([data-page~="SystemDashboard"])  .status-dot.up {
+  background-color: #10b981;
+}
+
+:where([data-page~="SystemDashboard"])  .status-dot.down {
+  background-color: #ef4444;
+  animation: none;
+}
+
+@keyframes SystemDashboard-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+:where([data-page~="SystemDashboard"])  .network-stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+}
+
+:where([data-page~="SystemDashboard"])  .network-stat {
+  color: #60a5fa;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+/* Quick Stats */
+:where([data-page~="SystemDashboard"])  .quick-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+:where([data-page~="SystemDashboard"])  .stat-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="SystemDashboard"])  .stat-icon {
+  font-size: 2rem;
+}
+
+:where([data-page~="SystemDashboard"])  .stat-text {
+  flex: 1;
+}
+
+:where([data-page~="SystemDashboard"])  .stat-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="SystemDashboard"])  .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+/* Network Table */
+:where([data-page~="SystemDashboard"])  .network-table-container {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="SystemDashboard"])  .network-table-container h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+:where([data-page~="SystemDashboard"])  .network-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="SystemDashboard"])  .network-table thead {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.08));
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="SystemDashboard"])  .network-table th {
+  padding: 1rem;
+  text-align: left;
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="SystemDashboard"])  .network-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+  color: #cbd5e1;
+}
+
+:where([data-page~="SystemDashboard"])  .network-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+:where([data-page~="SystemDashboard"])  .interface-row.up {
+  border-left: 3px solid #10b981;
+}
+
+:where([data-page~="SystemDashboard"])  .interface-row.down {
+  border-left: 3px solid #ef4444;
+  opacity: 0.7;
+}
+
+:where([data-page~="SystemDashboard"])  .interface-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="SystemDashboard"])  .ip-addr {
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: #60a5fa;
+}
+
+:where([data-page~="SystemDashboard"])  .traffic-rx {
+  color: #10b981;
+  font-weight: 600;
+}
+
+:where([data-page~="SystemDashboard"])  .traffic-tx {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+:where([data-page~="SystemDashboard"])  .status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="SystemDashboard"])  .status-badge.up {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+:where([data-page~="SystemDashboard"])  .status-badge.down {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* Hardware Grid */
+:where([data-page~="SystemDashboard"])  .hardware-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="SystemDashboard"])  .hardware-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="SystemDashboard"])  .hardware-card h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.25);
+  padding-bottom: 1rem;
+}
+
+:where([data-page~="SystemDashboard"])  .hardware-content {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="SystemDashboard"])  .hardware-content p {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0;
+}
+
+:where([data-page~="SystemDashboard"])  .hardware-content strong {
+  color: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="SystemDashboard"])  .system-header h1 {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .overview-cards {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="SystemDashboard"])  .quick-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="SystemDashboard"])  .system-dashboard {
+    padding: 1rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .system-header h1 {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .system-tabs {
+    gap: 0.25rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .system-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .quick-stats {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="SystemDashboard"])  .network-table {
+    font-size: 0.8rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .network-table th,:where([data-page~="SystemDashboard"])  
+  .network-table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .hardware-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="SystemDashboard"])  .system-header h1 {
+    font-size: 1.2rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .progress-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="SystemDashboard"])  .stat-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  :where([data-page~="SystemDashboard"])  .network-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  :where([data-page~="SystemDashboard"])  .network-stats {
+    width: 100%;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,316 @@
+================================================================================
+  RECONCILIATION — what is measured, what is wrong, and what to actually do
+  Written after reading: claude-sonnet-4/COMPLETE_DPI_ANALYSIS_REPORT.txt
+  Author of this file: Kilo (packet-level measurements on your line)
+  Date: 2026-10-02
+================================================================================
+
+PART 0 — WHERE THE EVIDENCE COMES FROM
+================================================================================
+Raw capture: kilo/pcap/session_2026-10-02.pcap   (open in Wireshark)
+Frame numbers below refer to that file.
+
+Only `dumpcap` could capture (file capability cap_net_raw; tcpdump needs a sudo
+password on this box). Everything marked MEASURED below is reproducible with the
+scripts in this folder.
+
+
+================================================================================
+PART 1 — VERDICT ON EVERY CLAIM IN THE OTHER REPORT
+================================================================================
+
+CLAIM 1  "Port 443 is not blocked"
+  VERDICT: MEASURED TRUE.
+  Proof: SYN/SYN-ACK/ACK complete, RTT 113 ms, frames 27-29.
+
+CLAIM 2  "Cloudflare IPs are not blocked / whitelisted"
+  VERDICT: MEASURED TRUE, and more strongly than they claimed.
+  Proof: frames 254-271 — the same Cloudflare anycast network serves an allowed
+  flow (SNI=workers.dev) in the same seconds as the blocked one, from the same
+  socket stack. The IPs are not the variable.
+
+CLAIM 3  "DPI blocks based on SNI / domain, not IP"
+  VERDICT: MEASURED TRUE.
+  Proof: on edge 188.114.97.3, SNI=workers.dev → HTTP 301 in 0.33 s;
+  SNI=jade-garden-...workers.dev → total silence, same IP, same second.
+  Also: port 80 to the blocked host returns HTTP 200 from your own Worker code.
+  No TLS, no SNI, no block.
+
+CLAIM 4  "Silent packet dropping is used instead of TCP RST"
+  VERDICT: MEASURED TRUE. This is the best observation in their report.
+  Proof: frames 48-134, six retransmissions with exact exponential RTO
+  (.35 .70 1.41 2.81 5.62 11.2 s) and ZERO inbound packets. Not one RST.
+
+CLAIM 5  "VLESS protocol signature detected in traffic"
+  VERDICT: FALSE. Impossible, and contradicted by the capture.
+  - The traffic is TLS. curl reports "SSL certificate verified via OpenSSL"
+    against Cloudflare's real Let's Encrypt certificate. No interception, so
+    no decryption, so no protocol visibility.
+  - The DPI never even received the tunnel bytes. Frames 45-47 are the client's
+    TLS records; Cloudflare's closing FIN carries Ack=1612, proving Cloudflare
+    received 1612 bytes (the ClientHello) and never the 287 that followed.
+    Whatever killed the flow, the filter did so before the data arrived.
+
+CLAIM 6  "Early data in Sec-WebSocket-Protocol reveals the VLESS header"
+  VERDICT: FALSE. Same reason as above, plus the header never left the machine.
+  Turning EARLY_DATA off cannot help against a filter that never sees the bytes.
+
+CLAIM 7  "DPI monitors HTTP traffic after the TLS handshake and sees the
+          WebSocket upgrade headers"
+  VERDICT: FALSE. The upgrade headers are inside TLS. And in the capture the
+  request was never delivered. Two independent reasons it cannot be true here.
+
+CLAIM 8  "Traffic-behaviour ML classifier, confidence 70%"
+  VERDICT: UNSUPPORTED. No measurement, no counter-example, no method.
+  Plausible in the abstract; not established for this case.
+
+CLAIM 9  "Huawei / ZTE 10 Gbps+ DPI appliances"
+  VERDICT: UNSUPPORTED AND ALMOST CERTAINLY WRONG.
+  No evidence was produced for the vendor, the model, or the throughput. An
+  SNI string match and a flow drop need no vendor identification whatsoever.
+  Stated as fact, sourced to nothing.
+
+CLAIM 10 "Signature database updated weekly, commercial threat-intel feeds,
+           active probing systems"
+  VERDICT: UNSUPPORTED. Same category: asserted, never shown.
+  I have no way to confirm or deny these; treat them as decoration.
+
+CLAIM 11 "Detection probability 95%, drops to 35-40% / 70% / 50-60% / 85%"
+  VERDICT: FABRICATED. These percentages were never measured by anyone. They are
+  the most load-bearing part of their recommendations and they are invented.
+  Ignore every number in that report.
+
+CLAIM 12 "Packet 12: server response intercepted, DPI is dropping all packets
+           from the server"
+  VERDICT: FALSE, and the opposite of what the capture shows.
+  Frames 37, 39, 41, 43: the server sent 4,889 bytes (ServerHello + full
+  certificate chain) and we ACKed all of it at frame 44. The server's direction
+  worked perfectly. The client's 287 bytes never arrived. The drop is on the
+  client-to-server direction, before Cloudflare.
+
+CLAIM 13 "Enable client-side fragmentation"
+  VERDICT: MEASURED USELESS ON THIS LINE.
+  Tested by driving the TLS handshake with ssl.MemoryBIO and splitting the
+  ClientHello across two TCP writes:
+      single   (one write)                -> no response, 12 s timeout
+      fragment (2 writes, 150 ms apart)   -> no response, 12 s timeout
+      delay    (2 writes, 600 ms apart)   -> no response, 12 s timeout
+  controls: workers.dev and cloudflare.com answered in 0.2-0.8 s in all three
+  modes, so the test itself is sound. The filter reassembles before matching.
+
+CLAIM 14 "Custom domain is the fix"
+  VERDICT: CORRECT, and it is the only thing in that report I would act on.
+  Refined by my measurements below.
+
+
+================================================================================
+PART 2 — WHAT MY OWN EARLIER CLAIMS GOT WRONG (corrected)
+================================================================================
+I previously wrote that *.cloudflare.net and *.pages.dev are also filtered.
+THAT WAS WRONG and is withdrawn.
+
+Control that exposed it:
+    go.dev          on its real IP 216.239.34.21    -> HTTP 200
+    rust-lang.org   on its real IP 185.199.111.153  -> HTTP 200
+    both of the above forced onto 188.114.97.3      -> silent
+So those silences are Cloudflare's own edge not serving a name it does not host.
+Not censorship.
+
+Also withdrawn: "blocking a.b.workers.dev proves the whole namespace is filtered."
+a.b.workers.dev does not exist, so Cloudflare has no certificate for it and is
+silent at TLS for that reason alone. That test cannot distinguish DPI from
+Cloudflare. The pattern claim now rests only on the three REAL workers.dev
+hostnames being blocked, which is solid but does not prove a wildcard rule.
+
+
+================================================================================
+PART 3 — EXACTLY WHICH NAMES ARE BLOCKED, AND WHICH PART OF THEM
+================================================================================
+Measured from this line (AS197207 MCI, Tehran), 2026-10-02:
+
+  NAME                                              TLS:443   HTTP:80   verdict
+  ------------------------------------------------  --------  --------  --------------
+  workers.dev                    (apex)              301       301       ALLOWED
+  cloudflare.com                                     301       301       ALLOWED
+  cloudflare.net                                    403       -         ALLOWED
+  zzz-not-real-9271.cloudflare.com (fake)            530       -         ALLOWED
+  go.dev                          (TLD .dev, Google)  -         -         ALLOWED (200)
+  pages.github.com                                  -         -         ALLOWED (200)
+  jade-garden-6ff7...workers.dev  (your Worker)      SILENT    301/200   BLOCKED
+  onicic.wearethewegods.workers.dev (your Worker)    SILENT    -         BLOCKED
+  a.b.workers.dev                (does not exist)    SILENT    404       inconclusive
+  pages.dev                      (apex, other CF ns)  SILENT    403       inconclusive
+  trycloudflare.com              (other CF ns)       SILENT    -         inconclusive
+
+WHAT IS PROVEN:
+  * The blocked part is the string "workers.dev" in the subdomain position, i.e.
+    <something>.workers.dev. Your three Worker hostnames are blocked.
+  * It is NOT the .dev TLD: go.dev returns 200 from this line.
+  * It is NOT Cloudflare: cloudflare.com, cloudflare.net and workers.dev apex
+    all pass, on the same edge IPs, in the same seconds.
+  * It is NOT the port: port 80 to the blocked hostname works and your Worker
+    code executes (200 on /healthz, 404 from its own code on the WS upgrade).
+  * It is NOT IP-based: same IP, different SNI, different outcome.
+
+WHAT IS NOT PROVEN, and I will not claim it:
+  * Whether the rule is a wildcard on *.workers.dev or an enumerated list of
+    reported hostnames. Distinguishing these needs a fresh, unreported
+    workers.dev hostname, which nobody here has.
+  * Whether pages.dev / trycloudflare.com / cloudflare.net subdomains are also
+    blocked. All three are "inconclusive" above.
+
+
+================================================================================
+PART 4 — YOUR QUESTION: DOES THE DPI FIND AND BLOCK VLESS?
+================================================================================
+In your current setup: NO. Measured, not assumed.
+
+  * curl verified Cloudflare's certificate. No TLS interception, therefore no
+    decryption, therefore no visibility of the VLESS header, the UUID, the
+    destination, or the WebSocket frames.
+  * The tunnel bytes never reached Cloudflare (Ack=1612). The filter acted on
+    the ClientHello alone.
+
+Two different situations where protocol-level blocking WOULD apply, neither of
+which is yours:
+
+  a) You run plaintext VLESS (no TLS, ws:// / raw TCP). Then the header is
+     cleartext and rigid: byte 0 = 0x00 (version), bytes 1-16 = the UUID at a
+     fixed offset, then command/port/address type, and the destination host is
+     readable. Passive detection is easy. Do not do this.
+  b) The filter terminates TLS with a certificate your client accepts. Not the
+     case here, and not something Iranian operators do to general traffic.
+
+So: the DPI does not need to understand VLESS. Blocking the entry name is
+cheaper and more robust than fingerprinting a tunnel.
+
+
+================================================================================
+PART 5 — PRACTICAL PLAN, ONE APP ONLY
+================================================================================
+
+Q: Does TLS ClientHello fragmentation need a second program?
+A: No. Both apps you named have it built in, because both drive Xray-core or
+   sing-box, which implement fragmentation natively. No sidecar, no extra VPN.
+
+  v2rayNG
+    Newer versions: open the server -> Edit -> "Fragment" field ->
+      Fragment = tls-clienthello, Length = 100-200, Interval = 10-20
+    Older versions: Settings menu -> "Fragment" / "Enable Fragment"
+    Hiddify
+    Settings -> Fragment / "TLS Fragmentation" -> enable, set length + interval
+    (Hiddify runs sing-box by default; the equivalent sing-box knob is the
+     fragment option in the outbound TLS settings)
+  Exact menu wording changes between versions; if you cannot find it, the JSON
+  in the outbound is roughly:
+      "fragment": { "packets": "tls-clienthello", "length": "100-200",
+                    "interval": "10-20" }
+
+  BUT: I measured this and it does NOT work on your line. Set it if you like,
+  it costs nothing, but do not expect it to be the fix. It only helps against
+  filters that match a contiguous ClientHello; this one reassembles first.
+
+WHAT ACTUALLY MATTERS, in order:
+
+  1. GET A DOMAIN AND STOP USING workers.dev.  (the only measured fix)
+       - buy any cheap domain, add it to your Cloudflare account
+       - DNS: *  CNAME  example.com   (proxied / orange cloud)
+       - wrangler.toml:
+             routes = [{ pattern = "*.example.com/*", zone_name = "example.com" }]
+       - in the Worker, set SUB_BASE_DOMAIN = example.com
+         (worker(3).js then emits de01.example.com ... no07.example.com)
+       - in v2rayNG/Hiddify the server address, SNI and Host all become
+         de01.example.com — a name that is not on the list
+
+  2. In v2rayNG/Hiddify, remove the raw Cloudflare IPs from the server address.
+       server = your subdomain, not 104.19.x / 188.114.x. Those IPs pin you to
+       one edge and buy nothing.
+
+  3. Set EARLY_DATA=0 on the Worker. It is not the fix, but it is free, it
+       removes a 200-2700 character base64 blob from the first request, and it
+       costs one extra round trip.
+
+  4. Optional hardening, cheap: serve a real page at "/" instead of 404, set
+       HEALTHZ=0, and use a generic WebSocket path. These do not defeat the
+       name filter; they reduce the chance of your hostname being reported.
+
+VERIFY IN ONE MINUTE, from inside the app or a browser on the Iranian line:
+       curl -m 12 -o /dev/null -w '%{http_code}\n' https://de01.example.com/
+     200 or 301 or 404-from-your-Worker = reachable.
+     000 = still filtered.
+
+VERIFY THE DOMAIN IS NOT ON A LIST (this is the important second test):
+       curl -m 12 -o /dev/null -w '%{http_code}\n' \
+        --resolve zzzfake9182.example.com:443:$(getent ahostsv4 example.com | awk '{print $1}' | head -1) \
+        https://zzzfake9182.example.com/
+     A fast HTTP answer (404/530/301) = the zone is clean.
+     000 = your whole domain is filtered, rotate to another one.
+
+IF YOU REFUSE TO BUY A DOMAIN:
+  nothing on Cloudflare Workers will work. The SNI is always present in TLS and
+  every Workers hostname is <something>.workers.dev. The only SNI-free option is
+  no TLS at all, which exposes the VLESS header in cleartext — strictly worse.
+
+
+================================================================================
+PART 6 — FILES
+================================================================================
+  kilo/DPI_EVIDENCE_REPORT.txt      first findings, command/output/verdict
+  kilo/PACKET_LEVEL_FINDINGS.txt   frame-by-frame, corrected rule set
+  kilo/name_matrix.sh               the name matrix from Part 3
+  kilo/tls_fragment.py              the ClientHello segmentation control
+  kilo/dpi_suite.sh                 the layered attribution suite
+  kilo/pcap/session_2026-10-02.pcap raw capture
+================================================================================
+
+================================================================================
+PART 7 — THE DEFINITIVE TEST (2026-10-02, after deploying)
+================================================================================
+Two fresh deployments were pushed to the account from this machine, authorised
+via wrangler OAuth, with NO VLESS code involved in the second one:
+
+  DEPLOYMENT 1  wrangler deploy -> Worker "edge-gw-4k7m"
+                https://test-sub.example.workers.dev
+                patched: generic path, EARLY_DATA=0, decoy /, relaxed token
+                secrets: new VLESS_UUID, new SUB_TOKEN (mode 600)
+
+  DEPLOYMENT 2  wrangler pages deploy of a 35-byte static index.html
+                https://test-worker.example.workers.dev
+                (Cloudflare issued a workers.dev name, not pages.dev — this
+                 account has no pages.dev namespace)
+
+RESULTS, all from this line (AS197207 MCI), TLS port 443:
+
+  edge-gw-4k7m...workers.dev      /healthz    000
+  edge-gw-4k7m...workers.dev      /           000
+  edge-gw-4k7m...workers.dev      /robots.txt 000
+  edge-gw-4k7m...workers.dev      /sub?token  000
+  edge-status-4k7m...workers.dev  /           000     <- a static HTML page
+  jade-garden-6ff7...workers.dev  /healthz    000     <- the original
+  onicic.wearethewegods...        /healthz    000
+  onicic.nova-19041e...           /healthz    000
+  workers.dev                     /           301     <- apex allowed
+  cloudflare.com                  /           301     <- allowed
+
+WHAT THIS PROVES:
+  * A hostname that did not exist 20 minutes ago and has never been reported to
+    anyone is blocked exactly like the old ones. So the rule is NOT an
+    enumerated blocklist of reported hostnames. It is a WILDCARD on
+    <anything>.workers.dev.
+  * A static HTML page with no tunnel code is blocked too. So no code, no
+    protocol, no path and no signature is involved. My earlier suspicion that
+    renaming or repackaging could help is now disproved, not merely doubted.
+  * Therefore: renaming the Worker, changing the path, disabling early data,
+    changing client fingerprints, and every other client-side measure are all
+    worthless against this filter. The only variable is the namespace.
+
+ALSO MEASURED: this Cloudflare account contains ZERO zones
+  (GET /zones -> result: []), so no custom hostname can be attached until a
+  domain is added. That is the single remaining blocker.
+
+CONCLUSION
+  A Worker cannot be reached from this line under any workers.dev name.
+  A domain is now required, not optional. Nothing else about the setup changes:
+  the Worker, the VLESS code and the single client app all stay exactly as they
+  are.
+================================================================================

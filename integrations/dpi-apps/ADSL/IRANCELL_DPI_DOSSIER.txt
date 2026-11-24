@@ -1,0 +1,463 @@
+================================================================================
+  DPI / VPN-DESIGN DOSSIER — IRANCELL (AS58224)
+  Prepared: 2026-10-02
+  Egress IP : 2.191.90.154 (AS58224 Irancell, IR)
+  Path      : 192.168.1.1 -> 2.191.64.1 -> 172.19.1.49 -> 10.22.27.41 ->
+              10.21.249.198 -> [hops 6-10 silent] -> 80.81.194.180 (DE-CIX FRA)
+              -> 217.131.59.45 (Turkcell TR) -> 8.8.8.8
+  Host      : 192.168.1.4/24 on wlp8s0, 11 hops to Cloudflare edge
+  Method    : dumpcap/tcpdump-free. No root, no raw sockets required for the
+              core results. Unprivileged ICMP permitted (ping_group_range open).
+
+  THIS IS THE THIRD ISP. The previous reports covered MCI (AS197207) and
+  Rightel (AS57218). Irancell changes several practical conclusions.
+
+  STORED AT: /media/user/kilo/ADSL/
+================================================================================
+
+################################################################################
+#  HEADLINE FINDINGS — READ THESE FIRST
+################################################################################
+
+ 1. workers.dev IS NOT HARD-BLOCKED ON IRANCELL. On MCI it was 0% pass. Here it
+    passes 80%. Your existing VLESS front reaches the server.
+
+ 2. THE BLOCK IS PROBABILISTIC, NOT DETERMINISTIC. This is the single most
+    important discovery, and it contradicts the MCI model. Repeated identical
+    connections give MIXED verdicts:
+        workers.dev apex          15/15 = 100%
+        a.workers.dev  (3 labels) 14/15 =  93%
+        a.b.workers.dev(4 labels) 12/15 =  80%
+        real worker (4 labels)    16/20 =  80%
+        your VLESS front          16/20 =  80%
+    On MCI every one of these was 0/15. So the Irancell filter is weaker,
+    sampling-based, and leaks.
+
+ 3. pages.dev IS HARD-BLOCKED (mechanism 3, TCP RST) — 0/15, deterministic.
+    Same as the other two ISPs.
+
+ 4. DNS FORGERY IS NATIONAL AND UNCHANGED: sinkhole 10.10.34.36, same octet as
+    MCI (Rightel used .35). Forged answer TTL = 191, constant.
+
+ 5. DoH BY IP LITERAL WORKS on 8.8.8.8, 8.8.4.4 AND 9.9.9.9. DoH BY NAME is
+    dead for all 6 tested. 1.1.1.1 is filtered here — the mirror image of MCI.
+
+ 6. The label-count window from MCI REPRODUCES, but as a graded probability, not
+    a wall. More labels = lower pass rate.
+
+################################################################################
+# 1. THE DPI DEVICE — IDENTITY, LOCATION, ADDRESSES
+################################################################################
+
+Q: What is the DPI IP?
+A: There is no single "DPI IP". The filtering is INLINE and the only IP-addressed
+   components are dead DNS sinkholes.
+
+  DNS SINKHOLES (the only IPs with an identity)
+    10.10.34.34   no service   |  10.10.34.35   no service  (Rightel's answer)
+    10.10.34.36   no service   |  <-- the value Irancell injects
+  Full 10.10.34.0/24 sweep: ZERO hosts answer UDP/53 or TCP/53.
+  Port scan of .34/.35/.36 across 60 ports: NOTHING OPEN. Not one refused either
+  — every port is silently dropped. ICMP: 100% loss.
+  => Dead stub addresses. They neutralise a name and nothing more. They are NOT
+     the DPI device and have no exploitable or even reachable surface.
+
+Q: Is it a device, a VPS, or a server?
+A: None of those. It is INLINE PASSIVE NETWORK EQUIPMENT in the operator's path.
+   It holds no address of its own, terminates nothing, and impersonates nothing.
+   Not reachable, not loggable into, not fingerprintable. You cannot "get" its IP
+   because it does not have one — the same reason a firewall has no IP you can
+   see from behind it.
+
+Q: Where exactly is it? Which hop?
+A: MEASURED: the DNS interceptor sits at HOP 8 on this line.
+
+   Method: send UDP/53 DNS queries to 8.8.8.8 with a decreasing IP_TTL. The
+   query stops being answered the moment the TTL is too low to reach the
+   interceptor, and that boundary IS the interceptor's hop position.
+
+       IP_TTL=24 .. 8  ->  REPLY 10.10.34.36   (forged answer comes back)
+       IP_TTL=7  .. 1  ->  no reply at all    (packet died before the forger)
+
+   A clean, unambiguous boundary at 8/7. Everything at TTL>=8 is forged,
+   everything at TTL<=7 is untouched. Hops 6-10 in traceroute are all silent
+   (`*`), consistent with a device deliberately not identifying itself.
+
+   Corroborating evidence that a single device is doing it:
+     - The forged reply TTL is a CONSTANT 191 for every censored name and every
+       resolver asked. A relayed answer would show a TTL decremented per hop and
+       varying by destination. A constant 191 means the packet is ORIGINATED
+       locally by the interceptor, with a high initial TTL to disguise itself.
+     - DNS is forged identically whether you ask the local resolver, or ask
+       8.8.8.8 / 1.1.1.1 / 9.9.9.9 / 94.140.14.14 / 223.5.5.5 / 1.12.12.12 /
+       208.67.222.222 directly. Ten different resolvers, one answer. The
+       rewriting is IN PATH, not inside any resolver.
+
+Q: Vendor / model?
+A: UNKNOWN, and unanswerable from the client side. No vendor, model, product name,
+   line rate or management interface was identified. Claims of "Huawei / ZTE
+   10 Gbps appliances", "ML classifier", "weekly signature DB", "active probing"
+   and any percentage detection accuracy are UNSOURCED OR FABRICATED. An SNI
+   string match plus a flow drop is behaviour, not a vendor signature.
+
+   What is on the path that is publicly attributable:
+     78.39.161.237  =  IR-DCC-20070319, AS12880, "Iran Information Technology
+                      Company PJSC" — the state ICT body that runs national
+                      filtering policy. Appears at hop 6 on the path TOWARD the
+                      sinkhole 10.10.34.36. This is the single most suggestive
+                      attribution signal on the line, and it is still only an
+                      address on a path, not a proven device identity.
+     80.81.194.180  =  DE-CIX Frankfurt IXP peering. Neutral, just transit.
+     217.131.59.45  =  Turkcell, Turkey. Neutral international transit.
+
+################################################################################
+# 2. MECHANISM 1 — DNS FORGERY (national layer)
+################################################################################
+Applies to : youtube.com, facebook.com, instagram.com, x.com, pages.dev,
+             trycloudflare.com, telegram.org, twitter.com, and EVERY
+             encrypted-resolver hostname.
+Forged A    : 10.10.34.36
+Forged AAAA : 2001:4188:2:600::10:10:34:36  (documentation prefix — can never be
+                                              a real routable address)
+Forged TTL  : 394-418, decrements normally. A long-lived lie, NOT TTL reflection.
+NS/MX/TXT   : no answer. Non-existent names get an EMPTY answer, not NXDOMAIN.
+
+MEASURED FORGERY MATRIX (UDP/53, each resolver queried directly):
+  name               8.8.8.8   8.8.4.4  1.1.1.1  1.0.0.1  9.9.9.9  94.140.14  185.222.222  223.5.5.5  1.12.12.12  208.67.222
+  youtube.com        FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  facebook.com       FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  instagram.com      FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  x.com              FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  pages.dev          FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  trycloudflare.com  FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  telegram.org       T/O       FORGED   FORGED   FORGED   T/O      FORGED     T/O          FORGED     FORGED      T/O
+  twitter.com        FORGED    T/O      T/O      T/O      T/O      T/O        T/O          T/O        T/O         T/O
+  dns.google         FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  cloudflare-dns.com FORGED    FORGED   FORGED   FORGED   FORGED   FORGED     FORGED       FORGED     FORGED      FORGED
+  workers.dev        REAL      REAL     REAL     REAL     REAL     REAL       REAL         REAL       T/O         REAL
+  cloudflare.com     REAL      REAL     REAL     REAL     REAL     REAL       REAL         REAL       T/O         REAL
+
+  NOT poisoned: workers.dev, cloudflare.com  -> DNS layer is irrelevant to a
+  Cloudflare-fronted tunnel. Every DNS workaround is pointless for that problem.
+
+  0x20 case randomisation does NOT help. DoT/853 is dead (see section 5).
+
+################################################################################
+# 3. MECHANISM 2 — SNI SILENT DROP, AND THE PROBABILITY CURVE (the key finding)
+################################################################################
+Signature : TLS handshake COMPLETES, genuine Cloudflare certificate delivered,
+            then ZERO application bytes forwarded. No RST, no error, no injection.
+            Client hangs, peer eventually closes on its own timeout.
+
+MEASURED PASS RATES, n=15 to 20 identical connections per name, same edge IP:
+  SNI name                                    labels   pass rate   verdict
+  ---------------------------------------------------------------------------
+  workers.dev                                     2      15/15 100%  SERVED-301
+  a.workers.dev                                   3      14/15  93%  SERVED-404
+  a.b.workers.dev                                 4      12/15  80%  SERVED-404
+  jade-garden-6ff7.medo-...workers.dev (REAL)  4      16/20  80%  SERVED-200
+  loxbhbohu...netfreedom-project.workers.dev      4      16/20  80%  SERVED-404
+  a.b.c.workers.dev                               5       0/15   0%  TLS alert*
+  a.b.c.d.workers.dev                             5       0/15   0%  TLS alert*
+  cloudflare.com                                  3      15/15 100%  SERVED-301
+  challenges.cloudflare.com                       3      15/15 100%  SERVED-403
+  (* TLS alert = genuine Cloudflare handshake_failure: that name doesn't exist.
+   PROVES the connection traversed the filter and reached Cloudflare. This is
+   the positive control that distinguishes forwarded from blocked.)
+
+  CONTRAST WITH MCI: on MCI, a.workers.dev and a.b.workers.dev were 0/15 — hard
+  blocked. Here they pass 93% and 80%. The Irancell filter samples; it does not
+  apply a wall.
+
+  INTERPRETATION: the matcher is still an anchored, label-bounded pattern over
+  the first ~4 dot-separated labels. But on Irancell its ENFORCEMENT is
+  probabilistic rather than absolute. A single successful connection is not proof
+  of a usable tunnel — you must assume some fraction of your connections die.
+
+CASE RANDOMISATION (n=8 each):
+  lowercase          -> SERVED 8/8
+  UPPERCASE          -> BLOCKED 5/8, SERVED 3/8
+  mixed (WorkeRs)    -> BLOCKED 2/8, SERVED 6/8
+  => Case DOES affect the decision here, unlike MCI where the filter normalised
+     case. Randomising case lowers the block rate but does not eliminate it.
+     Note the confound: an uppercase SNI may also simply fail at Cloudflare. The
+     SERVED outcomes prove Cloudflare tolerates it, so the effect is real but
+     the magnitude is not cleanly separable.
+
+################################################################################
+# 4. MECHANISM 3 — pages.dev: TCP RST (hard, deterministic)
+################################################################################
+  pages.dev                 0/15  BLOCKED-RST
+  www.pages.dev             0/15  BLOCKED-RST
+  nonexistent *.pages.dev   0/15  BLOCKED-RST
+  Median time to RST: 0.31s — fast and unmistakable.
+
+  This is the filter, not Cloudflare: a nonexistent *.workers.dev name gets a
+  genuine TLS alert (reaches the edge), while a nonexistent *.pages.dev name gets
+  a RST. Cloudflare refuses neither; the connection is torn down upstream.
+
+  ALSO: pages.dev is DNS-poisoned here, so it is hit by two independent blocks.
+  pages.dev is unusable as a Cloudflare Pages namespace on Irancell, and on
+  either of the other two ISPs.
+
+################################################################################
+# 5. ENCRYPTED DNS — WHAT ACTUALLY WORKS ON IRANCELL
+################################################################################
+DoT/853 — DEAD:
+  8.8.8.8  1.1.1.1  9.9.9.9  94.140.14.14  185.222.222.222  223.5.5.5
+  -> TIMEOUT
+  94.140.14.14 -> ConnectionResetError
+  1.12.12.12   -> ConnectionResetError
+
+DoH BY NAME — DEAD (all 6 tested, 10s timeout each):
+  dns.google  cloudflare-dns.com  one.one.one.one  dns.quad9.net
+  dns.adguard-dns.com  doh.pub          -> all code=000 timeout
+  (Every one of these names is ALSO DNS-forged to 10.10.34.36. Two independent
+   blocks stacked on every resolver name.)
+
+DoH BY IP LITERAL — THE SURVIVING CHANNEL:
+  resolver    result                      note
+  8.8.8.8     code=200, REAL answers       WORKS
+  8.8.4.4     code=200                     WORKS
+  9.9.9.9     code=200 (JSON /resolve 404) WORKS as a resolver
+  1.1.1.1     TIMEOUT                      FILTERED
+  1.0.0.1     TIMEOUT                      FILTERED
+
+  VERIFIED REAL ANSWERS (not just a 200):
+    https://8.8.8.8/resolve?name=youtube.com&type=A
+      -> 192.178.183.136, .91, .190, .93   (genuine, rotating — real Google)
+    https://8.8.4.4/resolve?name=youtube.com&type=A
+      -> same set
+  Compare: plain DNS for youtube.com gives 10.10.34.36. The DoH path is truth.
+
+  THE BOOTSTRAP PATTERN THAT WORKS vs THE ONE THAT BREAKS:
+    https://8.8.8.8/dns-query              (SNI = IP literal)  -> WORKS
+    --resolve dns.google:443:8.8.8.8      (IP pinned, SNI = name) -> RESET
+  Pinning the resolver IP while keeping the resolver HOSTNAME as the SNI fails,
+  because the filter matches the NAME, not the address. This is exactly what
+  broke the active v2rayN config on MCI. Same trap, same fix.
+
+  IP-SCOPING is operator-specific and INVERTED per ISP — the crucial portability
+  lesson:
+      resolver    MCI (AS197207)   RIGHTEL (AS57218)   IRANCELL (AS58224)
+      8.8.8.8     WORKS            filtered           WORKS
+      8.8.4.4     WORKS            filtered           WORKS
+      9.9.9.9     filtered         filtered           WORKS
+      1.1.1.1     filtered         WORKS              filtered
+  => A config that hardcodes ONE resolver will work on one ISP and silently
+     fail on the next. This was a real, recurring defect. Your config must carry
+     MULTIPLE DoH endpoints by IP literal and let the client try each.
+
+################################################################################
+# 6. BIG FOUR — CENSORED AT TWO LAYERS (national)
+################################################################################
+Resolved to true addresses via the working DoH path, then connected with the
+real SNI:
+
+  youtube.com  @142.251.127.91    0/10  BLOCKED-RST
+  facebook.com @157.240.0.35       0/10  BLOCKED-RST
+  x.com       @162.159.140.229    0/10  BLOCKED-RST
+  instagram.com @157.240.0.174    0/10  BLOCKED-silent
+
+CONTROLS — same destination IPs, innocent SNI:
+  cloudflare.com @142.251.127.91  10/10  SERVED-404
+  cloudflare.com @157.240.0.35    10/10  SERVED-400
+
+  The controls prove the addresses are reachable and healthy. The refusals are
+  caused by the NAME. Two independent layers: forged DNS + SNI refusal. This is
+  NOT circumventable by any client-side trick, and is national in scope.
+
+  Note instagram differs from the other three: silent drop, not RST. Two
+  mechanisms, one per zone, on the same ISP.
+
+################################################################################
+# 7. PORT BEHAVIOUR
+################################################################################
+Blocked 4-label SNI across alternate Cloudflare ports (n=8 each):
+  port 2053  8/8 SERVED (100%)
+  port 2083  6/8 (75%)
+  port 2087  5/8 (63%)
+  port 2096  6/8 (75%)
+  port 8443  6/8 (75%)
+  control SNI=workers.dev port 8443: 8/8 (100%)
+
+  The spread tracks the ~80% baseline for that name, so this is the SAME
+  probabilistic filter, NOT a port-based rule. Moving to 2053 looked better in
+  this sample but that is within noise of an 80% pass rate. Do not design around
+  it — there is no evidence port choice changes your odds.
+
+Reachability of common ports to a Cloudflare edge (104.18.12.15):
+  80, 443, 8080, 8443  OPEN
+  500, 1194, 1701, 1723, 4500, 5000, 51820, 3478   filtered
+To youtube (142.251.127.91):
+  80, 443 OPEN; 8080, 8443 filtered; all VPN-protocol ports filtered
+
+  => 80/443/8080/8443 are the only sane transports. IPsec/IKE (500, 4500),
+     L2TP (1701), OpenVPN (1194), WireGuard (51820), STUN (3478) are all
+     filtered to arbitrary destinations. A design must ride TCP 443 or 80.
+
+################################################################################
+# 8. UDP / QUIC / IPv6
+################################################################################
+UDP/443 probe (1200-byte datagram):
+  104.18.12.15 (Cloudflare)  no reply
+  1.1.1.1                    no reply
+  8.8.8.8                    no reply
+  142.251.127.91 (youtube)   replied 116 bytes
+=> UDP/443 is filtered to Cloudflare specifically, not globally dead. A QUIC/HTTP3
+   front on Cloudflare would NOT work. A TCP-based design is mandatory. (Note the
+   youtube reply may just be ICMP-convertible; QUIC itself was not negotiated,
+   so treat "QUIC works" as unproven and "QUIC to Cloudflare fails" as solid.)
+
+IPv6: no usable IPv6. Fabricated AAAA answers point at a documentation prefix and
+      curl -6 fails outright. Design for IPv4 only.
+
+################################################################################
+# 9. CLIENTHELLO FRAGMENTATION — MEASURED, DOES NOT HELP
+################################################################################
+ssl.MemoryBIO controlled segmentation, n=8 each:
+  blocked SNI, single write        SERVED 8/8
+  blocked SNI, 2 writes 150ms     SERVED 8/8
+  blocked SNI, delay 600ms        SERVED 7/8, BLOCKED 1/8
+  allowed SNI, single             SERVED 8/8
+  allowed SNI, 2 writes 150ms     SERVED 8/8
+
+  No measurable effect. The filter reassembles before matching. Fragmentation is
+  not an evasion. Set it if you like, but do not expect anything from it, and do
+  not spend throughput on it.
+
+################################################################################
+# 10. WHAT THE FILTER IS NOT (all measured on Irancell)
+################################################################################
+  NOT TLS interception   Cloudflare's genuine Let's Encrypt cert validates; a
+                         MITM could not produce it.
+  NOT certificate substitution
+  NOT RST injection on workers.dev   zero RSTs in the blocked case; only silence
+  NOT IP-based          Same edge IP (188.114.97.7) serves and blocks in the
+                        same minute: 12/15 pass, 3/15 blocked.
+  NOT port-based        see section 7
+  NOT content-based     a 35-byte static page and a VLESS tunnel are treated the
+                        same; nothing after the ClientHello is inspected
+  NOT hostname-age based a Worker deployed minutes earlier behaves identically
+  NOT protocol based    VLESS vs static page: identical verdicts
+  NOT a Cloudflare WAF  Cloudflare's own TCP accounting shows it never received
+                        the request; it hands out real 200s from other countries
+
+################################################################################
+# 11. DESIGN GUIDANCE FOR THE VPN
+################################################################################
+TRANSPORT
+  - TCP 443 or TCP 80 only. UDP/443 to Cloudflare is filtered; every IPsec/
+    OpenVPN/WireGuard/L2TP port is filtered to arbitrary destinations.
+  - Cloudflare-proxied front is the right architecture: it survives IP-level
+    blocking and gives you many anycast entry points.
+
+NAMING — THE DECISION FOR YOUR IRANCELL DEPLOYMENT
+  - Your EXISTING workers.dev VLESS front PASSES at 80% here. It is not dead on
+    Irancell the way it was on MCI. That is the single biggest practical change.
+  - But 20% failure is not a usable tunnel. Options, in order of preference:
+      a) KEEP workers.dev but design for failure: aggressive retry, multiple
+         parallel connections, connection racing. Cheap, no infrastructure.
+      b) 5-or-more-label hostname on your own Cloudflare zone. On MCI this was
+         MANDATORY (workers.dev hard-blocked). On Irancell it is still the more
+         robust choice because it drops OUT of the matcher's window entirely
+         rather than relying on a probabilistic leak.
+      c) If you take (b), verify before distributing: test your real host AND a
+         non-existent subdomain of the same zone. If the fake name also fails,
+         the whole zone is filtered — rotate.
+  - Do NOT ship raw Cloudflare edge IPs. You pin yourself to one filtered edge.
+
+DNS
+  - Address resolvers by IP LITERAL. https://8.8.8.8/dns-query and
+    https://8.8.4.4/dns-query are confirmed working; 9.9.9.9 also serves.
+  - CARRY ALL THREE. The working set is INVERTED between MCI and Rightel, so a
+    single hardcoded resolver is a portability bug.
+  - NEVER pin a resolver IP in dns.hosts while keeping the resolver hostname as
+    the SNI — measured RESET. This breaks bootstrap and kills the tunnel.
+  - DoT/853 is unavailable; do not build on it.
+
+RELIABILITY (this is where Irancell differs from MCI)
+  - Assume ~20% connection failure on any 4-label workers.dev name and build
+    retry/racing into the client. A single successful test is not evidence of a
+    working configuration — every verdict in this dossier is a pass RATE.
+  - Validate any config with n>=15 trials, not one connection. One-shot testing
+    produced a wrong answer on the very first real worker tested.
+
+HYGIENE
+  - Unset all proxy env vars before measuring. A dead SOCKS proxy was configured
+    system-wide in an earlier session and silently corrupted every result.
+  - Before shipping, re-run the battery on each ISP you care about. The filter
+    differs per operator in ways that will break assumptions.
+
+################################################################################
+# 12. STILL UNKNOWN — DO NOT FILL THESE IN
+################################################################################
+  - Whether the probabilistic behaviour on Irancell is a sampling filter, a
+    per-flow state machine, or Cloudflare edge variance. The controls at 100%
+    (cloudflare.com, workers.dev apex) argue the drops are filter-side, not
+    edge-side, but the mechanism is not established.
+  - Why 3-label passes 93% and 4-label passes 80%. Consistent with a sampling
+    rate that scales with match specificity, but the rule is not characterised.
+  - Whether the matcher is a regex, a label counter, or a fixed byte window.
+    Only the observable boundary is mapped.
+  - Whether hop 8 and the SNI filter are the SAME device or two devices.
+  - Whether QUIC/HTTP3 is filtered to non-Cloudflare destinations. Only
+    Cloudflare was solidly shown blocked.
+  - Whether the workers.dev rule is MCI/Irancell-specific or a national list that
+    Rightel simply does not apply. A fourth network (Shatel, Irancell fixed line,
+    a reseller) would settle it.
+  - The exact TLS record-layer mechanism behind the DoH-by-name failures. They
+    presented as timeouts here; Rightel showed record-layer failures. Possibly
+    two mechanisms.
+  - Whether the case-sensitivity effect is genuine or partly a Cloudflare
+    behaviour. The SERVED cases prove Cloudflare tolerates mixed case, so an
+    effect exists, but not cleanly separable in magnitude.
+  - Vendor, model and line rate. Unanswerable from the client side.
+
+################################################################################
+# 13. ISP COMPARISON — ALL THREE, CORRECTED
+################################################################################
+  behaviour                MCI AS197207      RIGHTEL AS57218    IRANCELL AS58224
+  ---------------------------------------------------------------------------
+  workers.dev SNI filter   HARD 0% pass      NONE, 100%        WEAK, 80-100%
+  real Worker reachable    NO                YES, 200          YES, 200 (80%)
+  your VLESS front         BLOCKED           SERVED            SERVED (80%)
+  pages.dev                TCP RST 0/15      TLS rec. failure  TCP RST 0/15
+  big-4 DNS poisoning      YES               YES               YES
+  big-4 SNI blocking       untested          YES               YES (RST/silent)
+  DNS sinkhole             10.10.34.36       10.10.34.35       10.10.34.36
+  DoT/853                  blocked           blocked           blocked
+  DoH by name              RST everywhere    RST / rec. fail   timeout everywhere
+  DoH by IP that works     8.8.8.8           1.1.1.1           8.8.8.8/8.8.4.4/9.9.9.9
+  IPv6                     fabricated        real              none
+  UDP/443 to Cloudflare    untested          untested          FILTERED
+  CPE                      (not investigated) D-Link DWR-M922    (not investigated)
+
+  CORRECTION to the earlier reports: on MCI the workers.dev block was 100%
+  deterministic. It is NOT 100% on Irancell, and the earlier "no client setting
+  can defeat it" conclusion applies to MCI, not universally.
+
+################################################################################
+# 14. HOW TO REPRODUCE
+################################################################################
+  ALWAYS start by clearing the proxy environment — a dead SOCKS proxy will
+  otherwise silently corrupt every measurement:
+
+    unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY all_proxy \
+          FTP_PROXY ftp_proxy
+
+  Then:
+    # DNS forgery matrix
+    python3 /media/user/kilo/ADSL/ads_ladder.py
+
+    # pass-rate battery (n=15..20 per name)
+    python3 /media/user/kilo/ADSL/ads_battery.py
+
+    # DoH check
+    curl -sS "https://8.8.8.8/resolve?name=youtube.com&type=A"
+
+    # interceptor hop position
+    #   (set IP_TTL on a UDP socket to 8.8.8.8:53 and lower it until replies stop)
+
+  Test with n>=15. One connection is not a verdict on this line.
+================================================================================

@@ -1,0 +1,88 @@
+{
+  "timestamp": "2026-10-13T16:45:25.380369",
+  "current_isp": {
+    "public_ip": "13.229.231.145",
+    "asn": null,
+    "isp_name": "UNKNOWN",
+    "likely_isp": "UNKNOWN"
+  },
+  "workers_dev_status": {
+    "tested": [
+      {
+        "sni": "workers.dev",
+        "label_count": 2,
+        "type": "apex",
+        "blocked": false,
+        "verdict": "SERVED"
+      },
+      {
+        "sni": "a.workers.dev",
+        "label_count": 3,
+        "type": "3-label",
+        "blocked": true,
+        "verdict": "TIMEOUT"
+      },
+      {
+        "sni": "a.b.workers.dev",
+        "label_count": 4,
+        "type": "4-label",
+        "blocked": false,
+        "verdict": "SERVED"
+      },
+      {
+        "sni": "a.b.c.workers.dev",
+        "label_count": 5,
+        "type": "5-label",
+        "blocked": false,
+        "verdict": "ERROR",
+        "error": "[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1032)"
+      }
+    ],
+    "blocked_count": 1,
+    "total_tests": 4,
+    "filter_active": true,
+    "filter_pattern": "PARTIAL_UNKNOWN"
+  },
+  "national_censorship": {
+    "dns_poisoning": [
+      {
+        "domain": "facebook.com",
+        "resolved_ip": "57.144.186.1",
+        "is_sinkhole": false
+      },
+      {
+        "domain": "instagram.com",
+        "resolved_ip": "57.144.186.34",
+        "is_sinkhole": false
+      },
+      {
+        "domain": "youtube.com",
+        "resolved_ip": "74.125.130.91",
+        "is_sinkhole": false
+      },
+      {
+        "domain": "x.com",
+        "resolved_ip": "162.159.140.229",
+        "is_sinkhole": false
+      }
+    ],
+    "sinkhole_ips": [],
+    "all_poisoned": false,
+    "poisoned_count": 0
+  },
+  "isp_specific_censorship": {},
+  "sinkhole_fingerprint": null,
+  "summary": {
+    "detected_isp": "UNKNOWN",
+    "workers_dev_blocked": true,
+    "national_censorship_active": false,
+    "sinkhole_fingerprint": null,
+    "profile_match": "LOW",
+    "censorship_layers": 1
+  },
+  "profile_match": {
+    "matches_mci_profile": false,
+    "matches_rightel_profile": false,
+    "confidence": "LOW"
+  }
+}

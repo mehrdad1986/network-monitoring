@@ -1,0 +1,12 @@
+{
+  "dropshape.py": {
+    "args": ["example.com", "93.184.215.14"],
+    "timeout": 60
+  },
+  "ADSL/ads_ladder.py": {
+    "timeout": 1800
+  },
+  "check ips/monitor_lantern_live.py": {
+    "enabled": false
+  }
+}

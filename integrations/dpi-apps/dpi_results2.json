@@ -1,0 +1,487 @@
+{
+  "results": [
+    {
+      "t": "speedtest.net:443",
+      "tcp": {
+        "status": "OK",
+        "ms": 161.5
+      },
+      "sni_real": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 1347.1
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 402.9
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6201.5,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      }
+    },
+    {
+      "t": "104.19.34.239:2096",
+      "tcp": {
+        "status": "OK",
+        "ms": 136.3
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 410.3,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 415.3
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 845.2,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "104.19.144.20:443",
+      "tcp": {
+        "status": "OK",
+        "ms": 170.9
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6215.1,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 251.4
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6199.1,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      }
+    },
+    {
+      "t": "104.17.216.114:2083",
+      "tcp": {
+        "status": "OK",
+        "ms": 132.8
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 408.4,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 418.5
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 299.0,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "162.159.38.7:2087",
+      "tcp": {
+        "status": "OK",
+        "ms": 1650.0
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 805.5,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 1338.6
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 1160.3,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "104.17.59.102:2053",
+      "tcp": {
+        "status": "OK",
+        "ms": 167.3
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 609.1,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 1439.1
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 305.2,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "104.17.208.131:2083",
+      "tcp": {
+        "status": "OK",
+        "ms": 1217.1
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 316.4,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 517.4
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 216.9,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "104.16.255.213:2096",
+      "tcp": {
+        "status": "OK",
+        "ms": 154.1
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 235.1,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 414.8
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 299.1,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "104.19.151.183:2096",
+      "tcp": {
+        "status": "OK",
+        "ms": 205.5
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 312.4,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 408.7
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 163.0,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "91.193.58.135:2087",
+      "tcp": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 5005.1
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6015.4,
+        "msg": "timed out"
+      },
+      "sni_fake": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6029.8,
+        "msg": "timed out"
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6007.1,
+        "msg": "timed out"
+      }
+    },
+    {
+      "t": "104.19.147.20:2083",
+      "tcp": {
+        "status": "OK",
+        "ms": 225.3
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 404.6,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 411.4
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 302.9,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "8.35.211.76:2083",
+      "tcp": {
+        "status": "OK",
+        "ms": 203.2
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 307.9,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 1244.4
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 289.6,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "104.16.254.249:2087",
+      "tcp": {
+        "status": "OK",
+        "ms": 205.9
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 305.8,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 420.6
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 297.7,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "104.26.13.115:8443",
+      "tcp": {
+        "status": "OK",
+        "ms": 201.6
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 301.2,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 319.8
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 299.0,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "91.193.58.1:2096",
+      "tcp": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 5005.0
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6023.4,
+        "msg": "timed out"
+      },
+      "sni_fake": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6028.3,
+        "msg": "timed out"
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6007.9,
+        "msg": "timed out"
+      }
+    },
+    {
+      "t": "104.17.178.143:2096",
+      "tcp": {
+        "status": "OK",
+        "ms": 281.7
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 409.0,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 414.3
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "ms": 918.8,
+        "msg": "[Errno 104] Connection reset by peer"
+      }
+    },
+    {
+      "t": "162.159.34.187:443",
+      "tcp": {
+        "status": "OK",
+        "ms": 217.1
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6297.4,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 455.6
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6519.5,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      }
+    },
+    {
+      "t": "172.67.235.86:443",
+      "tcp": {
+        "status": "OK",
+        "ms": 231.3
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6196.8,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 364.6
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6196.3,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      }
+    },
+    {
+      "t": "104.25.212.180:443",
+      "tcp": {
+        "status": "OK",
+        "ms": 239.4
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 7133.2,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 449.8
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 9089.4,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      }
+    },
+    {
+      "t": "162.159.43.164:443",
+      "tcp": {
+        "status": "OK",
+        "ms": 112.7
+      },
+      "sni_real": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6212.3,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "sni_fake": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "ms": 1272.8
+      },
+      "sni_none": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "ms": 6200.3,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      }
+    }
+  ]
+}

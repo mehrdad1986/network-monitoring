@@ -1,0 +1,681 @@
+/* Software Updates Styling */
+
+:where([data-page~="SoftwareUpdates"])  .software-updates {
+  background: linear-gradient(135deg, #0f1421 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-header {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-subtitle {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .stat-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="SoftwareUpdates"])  .stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 48px rgba(59, 130, 246, 0.2);
+}
+
+:where([data-page~="SoftwareUpdates"])  .stat-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+:where([data-page~="SoftwareUpdates"])  .stat-content {
+  flex: 1;
+}
+
+:where([data-page~="SoftwareUpdates"])  .stat-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-settings {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .settings-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="SoftwareUpdates"])  .toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .toggle-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #3B82F6;
+}
+
+:where([data-page~="SoftwareUpdates"])  .toggle-text {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+:where([data-page~="SoftwareUpdates"])  .settings-info {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+  padding-bottom: 1rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-tab:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #60a5fa;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-tab.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-content {
+  animation: SoftwareUpdates-fadeIn 0.4s ease;
+}
+
+@keyframes SoftwareUpdates-fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-section {
+  margin-bottom: 2rem;
+}
+
+/* Packages Section */
+:where([data-page~="SoftwareUpdates"])  .packages-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .packages-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .install-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="SoftwareUpdates"])  .install-btn:hover:not(:disabled) {
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="SoftwareUpdates"])  .install-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+:where([data-page~="SoftwareUpdates"])  .packages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-card.installed {
+  opacity: 0.7;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-card.updating {
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-card.failed {
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-checkbox {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #3B82F6;
+  flex-shrink: 0;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-info {
+  flex: 1;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+:where([data-page~="SoftwareUpdates"])  .category-badge,:where([data-page~="SoftwareUpdates"])  
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+:where([data-page~="SoftwareUpdates"])  .category-badge {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+:where([data-page~="SoftwareUpdates"])  .category-badge.security {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+:where([data-page~="SoftwareUpdates"])  .category-badge.bugfix {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+}
+
+:where([data-page~="SoftwareUpdates"])  .category-badge.feature {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+:where([data-page~="SoftwareUpdates"])  .status-badge {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+:where([data-page~="SoftwareUpdates"])  .status-badge.available {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+:where([data-page~="SoftwareUpdates"])  .status-badge.installed {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+:where([data-page~="SoftwareUpdates"])  .status-badge.updating {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+:where([data-page~="SoftwareUpdates"])  .status-badge.failed {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+:where([data-page~="SoftwareUpdates"])  .package-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 8px;
+}
+
+:where([data-page~="SoftwareUpdates"])  .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .detail .label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="SoftwareUpdates"])  .detail .value {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="SoftwareUpdates"])  .changelog {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="SoftwareUpdates"])  .changelog strong {
+  color: #cbd5e1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .changelog ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+:where([data-page~="SoftwareUpdates"])  .changelog li {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+}
+
+:where([data-page~="SoftwareUpdates"])  .changelog li::before {
+  content: '• ';
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+/* System Updates */
+:where([data-page~="SoftwareUpdates"])  .system-updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .system-update-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="SoftwareUpdates"])  .system-update-card.critical {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+:where([data-page~="SoftwareUpdates"])  .system-update-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-info {
+  flex: 1;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-info h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-meta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-meta span {
+  color: #cbd5e1;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-meta .version,:where([data-page~="SoftwareUpdates"])  
+.update-meta .date,:where([data-page~="SoftwareUpdates"])  
+.update-meta .size {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .update-status {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+:where([data-page~="SoftwareUpdates"])  .btn-install,:where([data-page~="SoftwareUpdates"])  
+.btn-details {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .btn-install {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  color: #ffffff;
+}
+
+:where([data-page~="SoftwareUpdates"])  .btn-install:hover {
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="SoftwareUpdates"])  .btn-details {
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+}
+
+:where([data-page~="SoftwareUpdates"])  .btn-details:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+:where([data-page~="SoftwareUpdates"])  .progress-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+:where([data-page~="SoftwareUpdates"])  .progress-bar {
+  flex: 1;
+  height: 24px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+:where([data-page~="SoftwareUpdates"])  .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, #06b6d4);
+  transition: width 0.5s ease;
+}
+
+:where([data-page~="SoftwareUpdates"])  .progress-text {
+  color: #cbd5e1;
+  font-weight: 600;
+  min-width: 45px;
+  text-align: right;
+}
+
+/* History Table */
+:where([data-page~="SoftwareUpdates"])  .history-table-container {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  overflow-x: auto;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table thead {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.08));
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table th {
+  padding: 1rem;
+  text-align: left;
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+  color: #cbd5e1;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table .package-name {
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table .version {
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: #60a5fa;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table .date {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table .status-badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+:where([data-page~="SoftwareUpdates"])  .history-table .status-badge.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="SoftwareUpdates"])  .update-header h1 {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .package-card,:where([data-page~="SoftwareUpdates"])  
+  .system-update-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .update-status {
+    width: 100%;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .update-meta {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="SoftwareUpdates"])  .software-updates {
+    padding: 1rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .update-header h1 {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .update-tabs {
+    gap: 0.25rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .update-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .packages-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .install-btn {
+    width: 100%;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .history-table-container {
+    overflow-x: auto;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .history-table {
+    min-width: 800px;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .package-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="SoftwareUpdates"])  .update-header h1 {
+    font-size: 1.2rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .update-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .stat-icon {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .package-card {
+    flex-direction: column;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .package-header {
+    flex-direction: column;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .package-badges {
+    width: 100%;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .history-table {
+    min-width: 600px;
+  }
+
+  :where([data-page~="SoftwareUpdates"])  .update-meta {
+    gap: 0.75rem;
+  }
+}

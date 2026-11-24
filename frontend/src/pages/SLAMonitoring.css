@@ -1,0 +1,245 @@
+:where([data-page~="SLAMonitoring"])  .sla-monitoring {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: SLAMonitoring-fadeInUp 0.6s ease;
+}
+
+@keyframes SLAMonitoring-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="SLAMonitoring"])  .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="SLAMonitoring"])  .page-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+:where([data-page~="SLAMonitoring"])  .sla-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .summary-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  animation: SLAMonitoring-scaleIn 0.5s ease backwards;
+}
+
+@keyframes SLAMonitoring-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:where([data-page~="SLAMonitoring"])  .summary-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-cyan);
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .summary-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="SLAMonitoring"])  .services-section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .services-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="SLAMonitoring"])  .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .service-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid;
+  border-radius: 16px;
+  padding: 1.5rem;
+  animation: SLAMonitoring-slideIn 0.5s ease backwards;
+  transition: all 0.3s ease;
+}
+
+@keyframes SLAMonitoring-slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+:where([data-page~="SLAMonitoring"])  .service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+:where([data-page~="SLAMonitoring"])  .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+:where([data-page~="SLAMonitoring"])  .card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+:where([data-page~="SLAMonitoring"])  .status-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+:where([data-page~="SLAMonitoring"])  .service-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="SLAMonitoring"])  .uptime-display {
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .uptime-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-cyan);
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .uptime-bar {
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+:where([data-page~="SLAMonitoring"])  .uptime-target {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+:where([data-page~="SLAMonitoring"])  .card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+  font-size: 0.85rem;
+}
+
+:where([data-page~="SLAMonitoring"])  .incident-count {
+  color: var(--text-secondary);
+}
+
+:where([data-page~="SLAMonitoring"])  .status-text {
+  font-weight: 700;
+}
+
+:where([data-page~="SLAMonitoring"])  .status-text.met {
+  color: #10B981;
+}
+
+:where([data-page~="SLAMonitoring"])  .status-text.warning {
+  color: #F59E0B;
+}
+
+:where([data-page~="SLAMonitoring"])  .status-text.breach {
+  color: #EF4444;
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="SLAMonitoring"])  .sla-monitoring {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="SLAMonitoring"])  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="SLAMonitoring"])  .sla-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where([data-page~="SLAMonitoring"])  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

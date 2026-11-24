@@ -1,0 +1,660 @@
+/* Performance Metrics Styling */
+
+:where([data-page~="PerformanceMetrics"])  .performance-metrics {
+  background: linear-gradient(135deg, #0f1421 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metrics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .header-content h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .header-subtitle {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="PerformanceMetrics"])  .time-select {
+  padding: 0.75rem 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="PerformanceMetrics"])  .time-select:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.6);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+/* Statistics Grid */
+:where([data-page~="PerformanceMetrics"])  .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .stat-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="PerformanceMetrics"])  .stat-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="PerformanceMetrics"])  .stat-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+:where([data-page~="PerformanceMetrics"])  .stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .stat-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+:where([data-page~="PerformanceMetrics"])  .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+/* Tabs */
+:where([data-page~="PerformanceMetrics"])  .metrics-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+:where([data-page~="PerformanceMetrics"])  .tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .tab:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #60a5fa;
+}
+
+:where([data-page~="PerformanceMetrics"])  .tab.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Content */
+:where([data-page~="PerformanceMetrics"])  .metrics-content {
+  animation: PerformanceMetrics-fadeIn 0.4s ease;
+}
+
+@keyframes PerformanceMetrics-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="PerformanceMetrics"])  .overview-section,:where([data-page~="PerformanceMetrics"])  
+.details-section,:where([data-page~="PerformanceMetrics"])  
+.thresholds-section {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="PerformanceMetrics"])  .overview-section h3,:where([data-page~="PerformanceMetrics"])  
+.details-section h3,:where([data-page~="PerformanceMetrics"])  
+.thresholds-section h3 {
+  font-size: 1.3rem;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Metrics Grid */
+:where([data-page~="PerformanceMetrics"])  .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-card {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.02));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-left: 4px solid rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-card.normal {
+  border-left-color: #10b981;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-card.warning {
+  border-left-color: #f59e0b;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-card.critical {
+  border-left-color: #ef4444;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: PerformanceMetrics-pulse 2s infinite;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-dot.normal {
+  background: #10b981;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-dot.warning {
+  background: #f59e0b;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-dot.critical {
+  background: #ef4444;
+}
+
+@keyframes PerformanceMetrics-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .unit {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-left: 0.5rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-threshold {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* Metrics List */
+:where([data-page~="PerformanceMetrics"])  .metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border-left: 4px solid rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-row:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-row.normal {
+  border-left-color: #10b981;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-row.warning {
+  border-left-color: #f59e0b;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-row.critical {
+  border-left-color: #ef4444;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-name {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-badge {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-badge.normal {
+  background: #10b981;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-badge.warning {
+  background: #f59e0b;
+}
+
+:where([data-page~="PerformanceMetrics"])  .status-badge.critical {
+  background: #ef4444;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-name h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-name p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-current,:where([data-page~="PerformanceMetrics"])  
+.metric-threshold {
+  text-align: center;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-current .value,:where([data-page~="PerformanceMetrics"])  
+.metric-threshold .value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-current .label,:where([data-page~="PerformanceMetrics"])  
+.metric-threshold .label {
+  display: block;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .metric-usage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .usage-bar {
+  flex: 1;
+  height: 12px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  overflow: hidden;
+}
+
+:where([data-page~="PerformanceMetrics"])  .usage-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+:where([data-page~="PerformanceMetrics"])  .percentage {
+  min-width: 50px;
+  text-align: right;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+/* Thresholds */
+:where([data-page~="PerformanceMetrics"])  .thresholds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .threshold-card {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .threshold-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+:where([data-page~="PerformanceMetrics"])  .threshold-header h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+:where([data-page~="PerformanceMetrics"])  .toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+:where([data-page~="PerformanceMetrics"])  .toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  border-radius: 24px;
+}
+
+:where([data-page~="PerformanceMetrics"])  .toggle-slider::before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+:where([data-page~="PerformanceMetrics"])  .toggle input:checked + .toggle-slider {
+  background-color: #10b981;
+}
+
+:where([data-page~="PerformanceMetrics"])  .toggle input:checked + .toggle-slider::before {
+  transform: translateX(26px);
+}
+
+:where([data-page~="PerformanceMetrics"])  .threshold-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .control-group label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+:where([data-page~="PerformanceMetrics"])  .input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+:where([data-page~="PerformanceMetrics"])  .threshold-input {
+  flex: 1;
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+:where([data-page~="PerformanceMetrics"])  .threshold-input:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.6);
+  background: rgba(59, 130, 246, 0.08);
+}
+
+:where([data-page~="PerformanceMetrics"])  .btn-save {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="PerformanceMetrics"])  .btn-save:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+:where([data-page~="PerformanceMetrics"])  .metrics-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="PerformanceMetrics"])  .metrics-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metrics-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metric-row {
+    grid-template-columns: 1fr 100px 100px 150px;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="PerformanceMetrics"])  .performance-metrics {
+    padding: 1rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .header-content h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metric-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .thresholds-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="PerformanceMetrics"])  .performance-metrics {
+    padding: 0.75rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .header-content h1 {
+    font-size: 1.3rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .header-subtitle {
+    font-size: 0.9rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .stat-card {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .stat-label {
+    font-size: 0.65rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .stat-value {
+    font-size: 1rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metrics-tabs {
+    gap: 0.25rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metric-value {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .unit {
+    font-size: 0.85rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .overview-section,:where([data-page~="PerformanceMetrics"])  
+  .details-section,:where([data-page~="PerformanceMetrics"])  
+  .thresholds-section {
+    padding: 1rem;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metric-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metric-current,:where([data-page~="PerformanceMetrics"])  
+  .metric-threshold {
+    text-align: left;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .metric-usage {
+    width: 100%;
+  }
+
+  :where([data-page~="PerformanceMetrics"])  .threshold-card {
+    padding: 1rem;
+  }
+}

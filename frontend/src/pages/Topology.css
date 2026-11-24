@@ -1,0 +1,95 @@
+/* Topology Page - NOC System Style */
+:where([data-page~="Topology"])  .topology-page {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+:where([data-page~="Topology"])  .topology-card {
+  margin-bottom: 24px;
+}
+
+:where([data-page~="Topology"])  .topology-canvas {
+  min-height: 600px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+:where([data-page~="Topology"])  .topology-placeholder {
+  text-align: center;
+  padding: 60px 40px;
+}
+
+:where([data-page~="Topology"])  .placeholder-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  opacity: 0.3;
+}
+
+:where([data-page~="Topology"])  .topology-placeholder h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+:where([data-page~="Topology"])  .topology-placeholder p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+:where([data-page~="Topology"])  .placeholder-note {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Legend */
+:where([data-page~="Topology"])  .legend-card {
+  padding: 24px;
+}
+
+:where([data-page~="Topology"])  .legend-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+:where([data-page~="Topology"])  .legend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+:where([data-page~="Topology"])  .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+:where([data-page~="Topology"])  .legend-icon {
+  font-size: 24px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :where([data-page~="Topology"])  .topology-canvas {
+    min-height: 400px;
+  }
+
+  :where([data-page~="Topology"])  .legend-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

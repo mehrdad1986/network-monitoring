@@ -1,0 +1,24 @@
+.access-checks { color: var(--text-primary, #e8eef8); padding: 16px; min-width: 0; }
+.access-checks header { margin-bottom: 20px; }
+.access-checks h1 { font-size: 26px; margin: 8px 0; }
+.access-checks h2 { font-size: 18px; margin: 0; }
+.access-checks h3 { font-size: 15px; }
+.access-checks p { line-height: 1.6; color: var(--text-secondary, #a9b6c9); overflow-wrap: anywhere; }
+.access-eyebrow { text-transform: uppercase; letter-spacing: .1em; font-size: 11px; }
+.access-checks button { border: 1px solid var(--border-color, #34435c); border-radius: 6px; padding: 10px 12px; background: var(--bg-secondary, #182339); color: inherit; text-decoration: none; font: inherit; cursor: pointer; }
+.access-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 24px; align-items: start; }
+.access-panel { min-width: 0; padding: 16px; border: 1px solid var(--border-color, #34435c); border-radius: 8px; background: var(--bg-card, #121d30); }
+.access-controls form { display: grid; gap: 12px; }
+.access-controls label { display: grid; gap: 8px; }
+.access-controls input, .access-controls select { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid var(--border-color, #34435c); border-radius: 6px; background: var(--bg-secondary, #182339); color: inherit; font: inherit; }
+.access-result-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.access-terminal { padding: 16px; min-height: 200px; max-height: 360px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: #0b1220; color: #dce9fc; border-radius: 6px; font: 12px/1.65 monospace; }
+.access-table-scroll { overflow: auto; max-width: 100%; max-height: 520px; }
+.access-checks table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.access-checks th, .access-checks td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border-color, #34435c); min-width: 95px; max-width: 350px; overflow-wrap: anywhere; }
+.access-checks th { text-transform: capitalize; }
+.access-pagination { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.access-checks button:disabled { opacity: .5; cursor: default; }
+.access-checks :focus-visible { outline: 2px solid #78b4ff; outline-offset: 3px; }
+.access-controls .access-error { color: var(--danger, #ff9b9b); }
+@media (max-width: 900px) { .access-layout { grid-template-columns: minmax(0, 1fr); } .access-checks { padding: 8px; } }

@@ -1,0 +1,795 @@
+/* User Settings Styling */
+
+:where([data-page~="UserSettings"])  .user-settings {
+  background: linear-gradient(135deg, #0f1421 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .settings-header {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .settings-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="UserSettings"])  .settings-subtitle {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="UserSettings"])  .settings-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .settings-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .settings-tab {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.3), rgba(15, 23, 42, 0.2));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+:where([data-page~="UserSettings"])  .settings-tab:hover {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+}
+
+:where([data-page~="UserSettings"])  .settings-tab.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="UserSettings"])  .settings-tab.danger:hover {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+:where([data-page~="UserSettings"])  .settings-tab.danger.active {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-color: #ef4444;
+}
+
+:where([data-page~="UserSettings"])  .settings-content {
+  animation: UserSettings-fadeIn 0.4s ease;
+}
+
+@keyframes UserSettings-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="UserSettings"])  .settings-section {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="UserSettings"])  .settings-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+:where([data-page~="UserSettings"])  .settings-section h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Profile Picture Section */
+:where([data-page~="UserSettings"])  .profile-picture-section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .picture-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="UserSettings"])  .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  border: 3px solid rgba(59, 130, 246, 0.3);
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .profile-image:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+}
+
+:where([data-page~="UserSettings"])  .profile-image-placeholder {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  border: 3px dashed rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.05);
+}
+
+:where([data-page~="UserSettings"])  .placeholder-icon {
+  font-size: 3rem;
+}
+
+:where([data-page~="UserSettings"])  .picture-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+:where([data-page~="UserSettings"])  .upload-btn,:where([data-page~="UserSettings"])  
+.remove-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="UserSettings"])  .upload-btn {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  color: #ffffff;
+  border: none;
+}
+
+:where([data-page~="UserSettings"])  .upload-btn:hover {
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="UserSettings"])  .remove-btn {
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+:where([data-page~="UserSettings"])  .remove-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+:where([data-page~="UserSettings"])  .picture-info {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* Divider */
+:where([data-page~="UserSettings"])  .divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+  margin: 2rem 0;
+}
+
+/* Profile View/Form */
+:where([data-page~="UserSettings"])  .profile-view,:where([data-page~="UserSettings"])  
+.profile-form {
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="UserSettings"])  .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="UserSettings"])  .info-row:last-child {
+  border-bottom: none;
+}
+
+:where([data-page~="UserSettings"])  .info-label {
+  color: #94a3b8;
+  font-weight: 600;
+  min-width: 120px;
+}
+
+:where([data-page~="UserSettings"])  .info-value {
+  color: #cbd5e1;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="UserSettings"])  .edit-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border: none;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .edit-btn:hover {
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Form Styles */
+:where([data-page~="UserSettings"])  .form-group {
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="UserSettings"])  .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+:where([data-page~="UserSettings"])  .form-input,:where([data-page~="UserSettings"])  
+select {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .form-input:focus,:where([data-page~="UserSettings"])  
+select:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.6);
+  background: rgba(59, 130, 246, 0.08);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="UserSettings"])  .form-input.textarea {
+  resize: vertical;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="UserSettings"])  .form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .btn-save {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .btn-save:hover {
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="UserSettings"])  .btn-cancel {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .btn-cancel:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+:where([data-page~="UserSettings"])  .btn-secondary {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .btn-secondary:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+:where([data-page~="UserSettings"])  .btn-warning {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border: none;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .btn-warning:hover {
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="UserSettings"])  .btn-danger {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .btn-danger:hover {
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="UserSettings"])  .btn-remove {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .btn-remove:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+/* Setting Groups */
+:where([data-page~="UserSettings"])  .setting-group {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .setting-description {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Theme Options */
+:where([data-page~="UserSettings"])  .theme-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .theme-option {
+  padding: 1.5rem;
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+:where([data-page~="UserSettings"])  .theme-option:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+:where([data-page~="UserSettings"])  .theme-option.active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1));
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #60a5fa;
+}
+
+:where([data-page~="UserSettings"])  .theme-preview {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="UserSettings"])  .theme-preview.dark {
+  background: linear-gradient(135deg, #1a1f3a 0%, #0f1421 100%);
+}
+
+:where([data-page~="UserSettings"])  .theme-preview.light {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+:where([data-page~="UserSettings"])  .theme-preview.auto {
+  background: linear-gradient(135deg, #f3f4f6 0%, #1a1f3a 100%);
+}
+
+/* Toggle Settings */
+:where([data-page~="UserSettings"])  .toggle-setting {
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .toggle-setting label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+:where([data-page~="UserSettings"])  .toggle-setting input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #3B82F6;
+}
+
+:where([data-page~="UserSettings"])  .toggle-description {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-left: 2.5rem;
+}
+
+/* Digest Options */
+:where([data-page~="UserSettings"])  .digest-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .digest-option {
+  padding: 0.75rem;
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  background: transparent;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UserSettings"])  .digest-option:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+:where([data-page~="UserSettings"])  .digest-option.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+}
+
+/* Security Info */
+:where([data-page~="UserSettings"])  .security-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="UserSettings"])  .info-card {
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+:where([data-page~="UserSettings"])  .info-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .info-card .info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border: none;
+}
+
+:where([data-page~="UserSettings"])  .status-enabled {
+  color: #10b981;
+  font-weight: 600;
+}
+
+:where([data-page~="UserSettings"])  .status-disabled {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Session List */
+:where([data-page~="UserSettings"])  .session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  gap: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .session-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+:where([data-page~="UserSettings"])  .session-device {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+:where([data-page~="UserSettings"])  .session-location {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="UserSettings"])  .session-time {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+:where([data-page~="UserSettings"])  .session-current {
+  padding: 0.35rem 0.75rem;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Danger Zone */
+:where([data-page~="UserSettings"])  .danger-zone {
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+:where([data-page~="UserSettings"])  .danger-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .danger-card.critical {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+:where([data-page~="UserSettings"])  .danger-info h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+:where([data-page~="UserSettings"])  .danger-info p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+/* Delete Confirmation */
+:where([data-page~="UserSettings"])  .delete-confirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+:where([data-page~="UserSettings"])  .confirmation-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.9), rgba(15, 23, 42, 0.8));
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  backdrop-filter: blur(20px);
+}
+
+:where([data-page~="UserSettings"])  .confirmation-card h3 {
+  margin: 0 0 1rem 0;
+  color: #ef4444;
+}
+
+:where([data-page~="UserSettings"])  .confirmation-card p {
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="UserSettings"])  .confirmation-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+:where([data-page~="UserSettings"])  .confirmation-actions button {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="UserSettings"])  .settings-container {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="UserSettings"])  .settings-sidebar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    position: static;
+  }
+
+  :where([data-page~="UserSettings"])  .settings-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="UserSettings"])  .user-settings {
+    padding: 1rem;
+  }
+
+  :where([data-page~="UserSettings"])  .settings-header h1 {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="UserSettings"])  .settings-section {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="UserSettings"])  .picture-actions {
+    flex-direction: column;
+  }
+
+  :where([data-page~="UserSettings"])  .upload-btn,:where([data-page~="UserSettings"])  
+  .remove-btn {
+    width: 100%;
+  }
+
+  :where([data-page~="UserSettings"])  .theme-options {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="UserSettings"])  .security-info {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="UserSettings"])  .session-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="UserSettings"])  .session-current {
+    align-self: flex-end;
+  }
+
+  :where([data-page~="UserSettings"])  .danger-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  :where([data-page~="UserSettings"])  .danger-card button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="UserSettings"])  .settings-header h1 {
+    font-size: 1.2rem;
+  }
+
+  :where([data-page~="UserSettings"])  .settings-section {
+    padding: 1rem;
+  }
+
+  :where([data-page~="UserSettings"])  .profile-image,:where([data-page~="UserSettings"])  
+  .profile-image-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+
+  :where([data-page~="UserSettings"])  .placeholder-icon {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="UserSettings"])  .form-actions,:where([data-page~="UserSettings"])  
+  .confirmation-actions {
+    flex-direction: column;
+  }
+
+  :where([data-page~="UserSettings"])  .theme-options {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="UserSettings"])  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="UserSettings"])  .info-label {
+    min-width: auto;
+    margin-bottom: 0.25rem;
+  }
+
+  :where([data-page~="UserSettings"])  select {
+    font-size: 16px;
+  }
+}

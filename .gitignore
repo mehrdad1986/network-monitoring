@@ -1,0 +1,71 @@
+# Backend
+backend/bin/
+backend/vendor/
+*.exe
+*.exe~
+*.deb
+*.rpm
+*.pid
+go.work
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# Git-tracked data directory
+# Track JSON/JSONL files but ignore raw snapshots older than retention
+!data/
+!data/**/*.json
+!data/**/*.jsonl
+
+
+
+
+# Local target inventory (retain across application restarts)
+/backend/data/
+.netmon-venvs/
+.runtime/
+
+
+# Dependencies & Virtualenvs
+venv/
+.python-deps/
+.pytest_cache/
+.netmon-venvs/
+.netmon-venvs/
+
+# Sensitive Certificates and Keys
+upload-key.pem
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Network Captures
+*.pcap
+
+# Binaries
+backend/netmon

@@ -1,0 +1,181 @@
+{
+  "timestamp": "2026-10-13T16:54:46.922221",
+  "doh_by_hostname": [
+    {
+      "name": "Google DNS",
+      "url": "https://dns.google/dns-query",
+      "method": "hostname",
+      "accessible": true,
+      "response_time_ms": 1570,
+      "status_code": 200,
+      "error": null,
+      "verdict": "ACCESSIBLE"
+    },
+    {
+      "name": "Cloudflare DNS",
+      "url": "https://cloudflare-dns.com/dns-query",
+      "method": "hostname",
+      "accessible": true,
+      "response_time_ms": 1609,
+      "status_code": 200,
+      "error": null,
+      "verdict": "ACCESSIBLE"
+    },
+    {
+      "name": "Cloudflare 1.1.1.1",
+      "url": "https://one.one.one.one/dns-query",
+      "method": "hostname",
+      "accessible": true,
+      "response_time_ms": 1435,
+      "status_code": 200,
+      "error": null,
+      "verdict": "ACCESSIBLE"
+    },
+    {
+      "name": "Quad9",
+      "url": "https://dns.quad9.net/dns-query",
+      "method": "hostname",
+      "accessible": false,
+      "response_time_ms": 0,
+      "status_code": 0,
+      "error": "HTTP Version Not Supported",
+      "verdict": "BLOCKED"
+    },
+    {
+      "name": "AdGuard",
+      "url": "https://dns.adguard-dns.com/dns-query",
+      "method": "hostname",
+      "accessible": true,
+      "response_time_ms": 4245,
+      "status_code": 200,
+      "error": null,
+      "verdict": "ACCESSIBLE"
+    }
+  ],
+  "doh_by_ip": [
+    {
+      "name": "Google 8.8.8.8",
+      "url": "https://8.8.8.8/dns-query",
+      "method": "ip_literal",
+      "expected_working_on": "MCI",
+      "accessible": true,
+      "response_time_ms": 3187,
+      "status_code": 200,
+      "answers_received": 2,
+      "error": null,
+      "verdict": "WORKING"
+    },
+    {
+      "name": "Google 8.8.4.4",
+      "url": "https://8.8.4.4/dns-query",
+      "method": "ip_literal",
+      "expected_working_on": "MCI",
+      "accessible": true,
+      "response_time_ms": 1605,
+      "status_code": 200,
+      "answers_received": 2,
+      "error": null,
+      "verdict": "WORKING"
+    },
+    {
+      "name": "Cloudflare 1.1.1.1",
+      "url": "https://1.1.1.1/dns-query",
+      "method": "ip_literal",
+      "expected_working_on": "Rightel",
+      "accessible": true,
+      "response_time_ms": 1497,
+      "status_code": 200,
+      "answers_received": 2,
+      "error": null,
+      "verdict": "WORKING"
+    },
+    {
+      "name": "Cloudflare 1.0.0.1",
+      "url": "https://1.0.0.1/dns-query",
+      "method": "ip_literal",
+      "expected_working_on": "Neither",
+      "accessible": true,
+      "response_time_ms": 1635,
+      "status_code": 200,
+      "answers_received": 2,
+      "error": null,
+      "verdict": "WORKING"
+    }
+  ],
+  "dot_status": [
+    {
+      "name": "Cloudflare",
+      "ip": "1.1.1.1",
+      "port": 853,
+      "accessible": false,
+      "handshake_completed": false,
+      "response_time_ms": 0,
+      "error": "check_hostname requires server_hostname",
+      "verdict": "BLOCKED"
+    },
+    {
+      "name": "Google",
+      "ip": "8.8.8.8",
+      "port": 853,
+      "accessible": false,
+      "handshake_completed": false,
+      "response_time_ms": 0,
+      "error": "check_hostname requires server_hostname",
+      "verdict": "BLOCKED"
+    },
+    {
+      "name": "Quad9",
+      "ip": "9.9.9.9",
+      "port": 853,
+      "accessible": false,
+      "handshake_completed": false,
+      "response_time_ms": 0,
+      "error": "check_hostname requires server_hostname",
+      "verdict": "BLOCKED"
+    },
+    {
+      "name": "AdGuard",
+      "ip": "94.140.14.14",
+      "port": 853,
+      "accessible": false,
+      "handshake_completed": false,
+      "response_time_ms": 0,
+      "error": "check_hostname requires server_hostname",
+      "verdict": "BLOCKED"
+    }
+  ],
+  "working_resolvers": [
+    {
+      "name": "Google 8.8.8.8",
+      "url": "https://8.8.8.8/dns-query",
+      "method": "doh_ip_literal"
+    },
+    {
+      "name": "Google 8.8.4.4",
+      "url": "https://8.8.4.4/dns-query",
+      "method": "doh_ip_literal"
+    },
+    {
+      "name": "Cloudflare 1.1.1.1",
+      "url": "https://1.1.1.1/dns-query",
+      "method": "doh_ip_literal"
+    },
+    {
+      "name": "Cloudflare 1.0.0.1",
+      "url": "https://1.0.0.1/dns-query",
+      "method": "doh_ip_literal"
+    }
+  ],
+  "summary": {
+    "doh_by_hostname_tested": 5,
+    "doh_by_hostname_accessible": 4,
+    "doh_by_hostname_blocked": 1,
+    "doh_by_ip_tested": 4,
+    "doh_by_ip_accessible": 4,
+    "dot_tested": 4,
+    "dot_accessible": 0,
+    "total_working_resolvers": 4,
+    "encrypted_dns_available": true,
+    "recommendation": "MULTI_RESOLVER_AVAILABLE - Configure failover: https://8.8.8.8/dns-query, https://8.8.4.4/dns-query, https://1.1.1.1/dns-query, https://1.0.0.1/dns-query"
+  }
+}

@@ -1,0 +1,26 @@
+================================================================================
+SIMPLE WEBSITE CHECKER REPORT - SINGLE DOH SERVER
+================================================================================
+Generated: 2026-10-27 05:07:03
+
+DOH VERIFICATION
+--------------------------------------------------------------------------------
+Total verified: 0
+DNS mode: IPv4 DNS only
+
+
+
+WEBSITE CHECK RESULTS
+--------------------------------------------------------------------------------
+DoH Server: IPv4 DNS only
+Total: 4000
+Accessible: 1636 (40.9%)
+Filtered: 567 (14.2%)
+DNS Mismatches: 425 (10.6%)
+Time: 670.5s
+
+Generated Files:
+  - website_check_results.csv
+  - filtered_websites_report.txt
+  - fastest_100_websites.txt (Top 100 fastest)
+  - filtered_with_wrong_ips.txt (Wrong IPs from 8.8.8.8)

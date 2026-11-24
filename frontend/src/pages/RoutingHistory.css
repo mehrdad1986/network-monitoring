@@ -1,0 +1,103 @@
+:where([data-page~="RoutingHistory"])  .routing-history {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+:where([data-page~="RoutingHistory"])  .page-header {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="RoutingHistory"])  .page-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+:where([data-page~="RoutingHistory"])  .page-header p {
+  color: var(--text-secondary);
+  margin: 0.5rem 0 0 0;
+}
+
+:where([data-page~="RoutingHistory"])  .history-table {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+:where([data-page~="RoutingHistory"])  .table-header {
+  display: grid;
+  grid-template-columns: 120px 150px 100px 100px;
+  gap: 0;
+  background: rgba(0,0,0,0.3);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+:where([data-page~="RoutingHistory"])  .table-row {
+  display: grid;
+  grid-template-columns: 120px 150px 100px 100px;
+  gap: 0;
+  border-bottom: 1px solid var(--glass-border);
+  align-items: center;
+  transition: background 0.2s;
+}
+
+:where([data-page~="RoutingHistory"])  .table-row:hover {
+  background: rgba(168,85,247,0.05);
+}
+
+:where([data-page~="RoutingHistory"])  .col {
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="RoutingHistory"])  .col code {
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-cyan);
+  background: rgba(0,217,255,0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+:where([data-page~="RoutingHistory"])  .action-badge {
+  color: white;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="RoutingHistory"])  .routing-history {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="RoutingHistory"])  .table-header,:where([data-page~="RoutingHistory"])  
+  .table-row {
+    grid-template-columns: 100px 120px 80px 80px;
+    font-size: 0.8rem;
+  }
+
+  :where([data-page~="RoutingHistory"])  .col {
+    padding: 0.75rem;
+  }
+}
+
+.routing-history .routing-history-note,.routing-history .routing-history-empty,.routing-history .routing-history-table-wrap { box-sizing: border-box; margin: 0 0 14px; padding: 18px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-surface); }
+.routing-history .routing-history-note,.routing-history .routing-history-empty p { color: var(--ui-secondary); font-size: 12px; line-height: 1.6; }
+.routing-history .routing-history-empty h2 { margin: 0 0 8px; color: var(--ui-text); font-size: 15px; }
+.routing-history .routing-history-table-wrap { max-width: 100%; overflow-x: auto; }
+.routing-history .routing-history-table-wrap table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.routing-history .routing-history-table-wrap th,.routing-history .routing-history-table-wrap td { padding: 10px 12px; border-bottom: 1px solid var(--ui-border); text-align: left; vertical-align: top; }
+.routing-history .routing-history-table-wrap th { color: var(--ui-secondary); font-size: 10px; text-transform: uppercase; white-space: nowrap; }
+.routing-history .routing-history-table-wrap td { color: var(--ui-text); }
+.routing-history .routing-history-table-wrap td code { color: var(--ui-accent); overflow-wrap: anywhere; }
+.routing-history .routing-history-table-wrap td button { min-height: 32px; padding: 5px 9px; border: 1px solid var(--ui-border); border-radius: 7px; color: var(--ui-text); background: var(--ui-raised); font: inherit; font-size: 11px; cursor: pointer; }
+@media(max-width:700px) { .routing-history .routing-history-note,.routing-history .routing-history-empty,.routing-history .routing-history-table-wrap { padding: 14px; } }

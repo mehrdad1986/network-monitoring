@@ -1,0 +1,19 @@
+.analytics-saved-controls { box-sizing: border-box; margin: 14px 0; padding: 18px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-surface); }
+.analytics-saved-controls > div:first-child { display: inline-block; max-width: 70%; vertical-align: middle; }
+.analytics-saved-controls h2,.analytics-saved-list h3 { margin: 0 0 6px; color: var(--ui-text); font-size: 15px; }
+.analytics-saved-controls p { margin: 0; color: var(--ui-secondary); font-size: 12px; line-height: 1.6; }
+.analytics-saved-controls > button { float: right; min-height: 38px; padding: 7px 13px; border: 1px solid var(--ui-accent); border-radius: 8px; color: var(--ui-text); background: color-mix(in srgb,var(--ui-accent) 16%,var(--ui-surface)); font: inherit; font-size: 12px; font-weight: 650; cursor: pointer; }
+.analytics-saved-controls > button:disabled { opacity: .55; cursor: not-allowed; }
+.analytics-saved-controls > [role=status] { clear: both; padding-top: 10px; }
+.analytics-saved-list { clear: both; padding-top: 18px; }
+.analytics-saved-list article { margin-top: 10px; padding: 14px; border: 1px solid var(--ui-border); border-radius: 9px; background: var(--ui-raised); }
+.analytics-saved-list article header { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.analytics-saved-list article header div { display: grid; gap: 4px; min-width: 0; }
+.analytics-saved-list article strong { color: var(--ui-text); font-size: 12px; }
+.analytics-saved-list time { color: var(--ui-secondary); font-size: 10px; }
+.analytics-saved-list article header button { min-height: 30px; padding: 4px 8px; border: 1px solid var(--ui-border); border-radius: 7px; color: var(--ui-text); background: var(--ui-surface); font: inherit; font-size: 10px; cursor: pointer; }
+.analytics-saved-list dl { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,180px),1fr)); gap: 9px; margin: 12px 0 0; }
+.analytics-saved-list dl div { min-width: 0; padding: 9px; border-radius: 7px; background: var(--ui-surface); }
+.analytics-saved-list dt { color: var(--ui-secondary); font-size: 10px; }
+.analytics-saved-list dd { margin: 4px 0 0; color: var(--ui-text); font-size: 12px; overflow-wrap: anywhere; }
+@media(max-width:620px) { .analytics-saved-controls { padding: 14px; } .analytics-saved-controls > div:first-child { max-width: 100%; } .analytics-saved-controls > button { float: none; width: 100%; margin-top: 10px; } }

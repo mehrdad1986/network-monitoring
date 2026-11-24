@@ -1,0 +1,487 @@
+:where([data-page~="ICMPMonitoring"])  .icmp-monitoring {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: ICMPMonitoring-fadeInUp 0.6s ease;
+}
+
+@keyframes ICMPMonitoring-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="ICMPMonitoring"])  .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="ICMPMonitoring"])  .page-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+:where([data-page~="ICMPMonitoring"])  .btn-refresh {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  min-width: 200px;
+}
+
+:where([data-page~="ICMPMonitoring"])  .btn-refresh:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(168, 85, 247, 0.6);
+}
+
+:where([data-page~="ICMPMonitoring"])  .btn-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Status Summary */
+:where([data-page~="ICMPMonitoring"])  .status-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  animation: ICMPMonitoring-scaleIn 0.5s ease backwards;
+}
+
+@keyframes ICMPMonitoring-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-number {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  font-family: 'Fira Code', monospace;
+  text-shadow: 0 0 20px currentColor;
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-number.online {
+  color: var(--success);
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-number.offline {
+  color: var(--danger);
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-number.total {
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Configuration Section */
+:where([data-page~="ICMPMonitoring"])  .config-section,:where([data-page~="ICMPMonitoring"])  
+.add-target-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  animation: ICMPMonitoring-slideDown 0.5s ease;
+}
+
+@keyframes ICMPMonitoring-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="ICMPMonitoring"])  .config-section h2,:where([data-page~="ICMPMonitoring"])  
+.add-target-section h2,:where([data-page~="ICMPMonitoring"])  
+.targets-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="ICMPMonitoring"])  .config-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .config-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .config-item label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="ICMPMonitoring"])  .config-item input {
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="ICMPMonitoring"])  .config-item input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+/* Add Target Form */
+:where([data-page~="ICMPMonitoring"])  .add-target-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 150px;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+:where([data-page~="ICMPMonitoring"])  .add-target-form input {
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="ICMPMonitoring"])  .add-target-form input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+:where([data-page~="ICMPMonitoring"])  .add-target-form input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+:where([data-page~="ICMPMonitoring"])  .btn-add {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+:where([data-page~="ICMPMonitoring"])  .btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+}
+
+/* Targets Section */
+:where([data-page~="ICMPMonitoring"])  .targets-section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .targets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  animation: ICMPMonitoring-scaleIn 0.5s ease backwards;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), var(--glow-purple);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-card.up {
+  border-left: 3px solid var(--success);
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-card.down,:where([data-page~="ICMPMonitoring"])  
+.target-card.timeout {
+  border-left: 3px solid var(--danger);
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-card.checking {
+  border-left: 3px solid #FFC107;
+}
+
+:where([data-page~="ICMPMonitoring"])  .card-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+}
+
+:where([data-page~="ICMPMonitoring"])  .target-address {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  background: rgba(0, 217, 255, 0.1);
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+}
+
+:where([data-page~="ICMPMonitoring"])  .btn-remove {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+:where([data-page~="ICMPMonitoring"])  .btn-remove:hover {
+  background: rgba(239, 68, 68, 0.2);
+  transform: scale(1.1);
+}
+
+:where([data-page~="ICMPMonitoring"])  .card-body {
+  padding: 1.5rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-icon.online {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--success);
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-icon.offline {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--danger);
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-icon.checking {
+  background: rgba(255, 193, 7, 0.2);
+  color: #FFC107;
+  animation: ICMPMonitoring-spin 1s linear infinite;
+}
+
+@keyframes ICMPMonitoring-spin {
+  to { transform: rotate(360deg); }
+}
+
+:where([data-page~="ICMPMonitoring"])  .status-text {
+  color: var(--text-primary);
+}
+
+:where([data-page~="ICMPMonitoring"])  .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+:where([data-page~="ICMPMonitoring"])  .metric-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="ICMPMonitoring"])  .metric-value {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="ICMPMonitoring"])  .metric-value.excellent {
+  color: var(--success);
+}
+
+:where([data-page~="ICMPMonitoring"])  .metric-value.good {
+  color: #10B981;
+}
+
+:where([data-page~="ICMPMonitoring"])  .metric-value.poor {
+  color: var(--danger);
+}
+
+:where([data-page~="ICMPMonitoring"])  .last-checked {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+  margin-top: 1rem;
+}
+
+:where([data-page~="ICMPMonitoring"])  .empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  color: var(--text-secondary);
+}
+
+:where([data-page~="ICMPMonitoring"])  .empty-state p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :where([data-page~="ICMPMonitoring"])  .icmp-monitoring {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .btn-refresh {
+    width: 100%;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .status-summary {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .add-target-form {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .btn-add {
+    width: 100%;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .targets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .card-header {
+    flex-direction: column;
+  }
+
+  :where([data-page~="ICMPMonitoring"])  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

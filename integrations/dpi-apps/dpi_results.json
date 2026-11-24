@@ -1,0 +1,727 @@
+{
+  "ts": 1791909916.5502782,
+  "results": [
+    {
+      "target": "speedtest.net:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 262.3
+      },
+      "tls_real_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 1004.1
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 268.6,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 507.3
+      }
+    },
+    {
+      "target": "104.19.34.239:2096",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 301.1
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 499.1,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 500.0,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 281.1
+      }
+    },
+    {
+      "target": "104.19.144.20:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 186.1
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6189.7,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 114.6,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 486.5
+      }
+    },
+    {
+      "target": "104.17.216.114:2083",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 704.0
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 395.5,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 179.0,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 495.2
+      }
+    },
+    {
+      "target": "162.159.38.7:2087",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 198.1
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 491.3,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 183.0,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 400.8
+      }
+    },
+    {
+      "target": "104.17.59.102:2053",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 399.9
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 287.6,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 942.1,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 465.9
+      }
+    },
+    {
+      "target": "104.17.208.131:2083",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 187.2
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 283.5,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 184.8,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 393.9
+      }
+    },
+    {
+      "target": "104.16.255.213:2096",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 200.0
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 385.6,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 185.7,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 394.5
+      }
+    },
+    {
+      "target": "104.19.151.183:2096",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 395.7
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 395.8,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 240.0,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 247.9
+      }
+    },
+    {
+      "target": "91.193.58.135:2087",
+      "tcp": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 5005.4
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6006.2,
+        "msg": "timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6006.3,
+        "msg": "timed out"
+      },
+      "tls_fake_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6005.8,
+        "msg": "timed out"
+      }
+    },
+    {
+      "target": "104.19.147.20:2083",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 703.4
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 549.9,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 1393.2,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 1961.8
+      }
+    },
+    {
+      "target": "8.35.211.76:2083",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 174.8
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 294.6,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 178.5,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 492.8
+      }
+    },
+    {
+      "target": "104.16.254.249:2087",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 198.6
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 892.7,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 184.5,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 395.1
+      }
+    },
+    {
+      "target": "104.26.13.115:8443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 196.9
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 390.2,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 184.0,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 395.2
+      }
+    },
+    {
+      "target": "91.193.58.1:2096",
+      "tcp": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 5004.3
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6006.4,
+        "msg": "timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6005.5,
+        "msg": "timed out"
+      },
+      "tls_fake_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6006.4,
+        "msg": "timed out"
+      }
+    },
+    {
+      "target": "104.17.178.143:2096",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 258.0
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 273.4,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 1096.2,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 502.3
+      }
+    },
+    {
+      "target": "162.159.34.187:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 198.0
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6189.9,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 1044.1,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 389.7
+      }
+    },
+    {
+      "target": "172.67.235.86:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 196.0
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6191.7,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 180.4,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 336.5
+      }
+    },
+    {
+      "target": "104.25.212.180:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 201.8
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6180.5,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 120.7,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 395.0
+      }
+    },
+    {
+      "target": "162.159.43.164:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 189.6
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6290.8,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 113.8,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 499.1
+      }
+    },
+    {
+      "target": "104.25.191.190:443",
+      "tcp": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 5004.7
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6005.5,
+        "msg": "timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6005.3,
+        "msg": "timed out"
+      },
+      "tls_fake_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6006.3,
+        "msg": "timed out"
+      }
+    },
+    {
+      "target": "104.24.8.216:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 247.9
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6289.7,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 244.6,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 369.2
+      }
+    },
+    {
+      "target": "104.18.219.45:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 196.8
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6290.2,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 114.9,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 393.8
+      }
+    },
+    {
+      "target": "test-worker.example.workers.dev:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 396.0
+      },
+      "tls_real_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 417.1
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 161.9,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 304.2
+      }
+    },
+    {
+      "target": "104.21.25.78:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 93.1
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6173.8,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 214.7,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 399.3
+      }
+    },
+    {
+      "target": "172.67.223.249:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 198.4
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "TimeoutError",
+        "time_ms": 6105.9,
+        "msg": "_ssl.c:983: The handshake operation timed out"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 206.4,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 412.4
+      }
+    },
+    {
+      "target": "www.speedtest.net:443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 693.4
+      },
+      "tls_real_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 595.5
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 384.6,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 1019.3
+      }
+    },
+    {
+      "target": "test-worker.example.workers.dev:8443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 190.4
+      },
+      "tls_real_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 387.7
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 192.2,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 313.0
+      }
+    },
+    {
+      "target": "104.21.25.78:8443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 182.4
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 383.8,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 186.6,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 913.1
+      }
+    },
+    {
+      "target": "172.67.223.249:8443",
+      "tcp": {
+        "status": "OK",
+        "time_ms": 193.7
+      },
+      "tls_real_sni": {
+        "status": "ERR",
+        "err": "ConnectionResetError",
+        "time_ms": 398.6,
+        "msg": "[Errno 104] Connection reset by peer"
+      },
+      "tls_no_sni": {
+        "status": "ERR",
+        "err": "ValueError",
+        "time_ms": 186.7,
+        "msg": "check_hostname requires server_hostname"
+      },
+      "tls_fake_sni": {
+        "status": "OK",
+        "tls": "TLSv1.3",
+        "time_ms": 467.1
+      }
+    }
+  ]
+}

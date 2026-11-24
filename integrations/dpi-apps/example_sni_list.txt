@@ -1,0 +1,27 @@
+# Example SNI test list
+# One SNI/hostname per line
+# Lines starting with # are comments
+
+# Control domains (should work)
+workers.dev
+cloudflare.com
+google.com
+
+# Known blocked (3-4 labels on MCI)
+test.workers.dev
+example.blocked.workers.dev
+a.b.workers.dev
+
+# Label count bypass test (5+ labels should pass)
+a.b.c.workers.dev
+a.b.c.d.workers.dev
+test.example.subdomain.deep.workers.dev
+
+# Other Cloudflare services
+pages.dev
+trycloudflare.com
+
+# Custom domains (should work)
+example.com
+github.com
+stackoverflow.com

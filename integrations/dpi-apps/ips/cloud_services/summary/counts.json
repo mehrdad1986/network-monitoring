@@ -1,0 +1,102 @@
+{
+  "alibaba_as37963.txt": {
+    "total": 1013,
+    "v4": 870,
+    "v6": 143
+  },
+  "alibaba_as45102.txt": {
+    "total": 1302,
+    "v4": 1181,
+    "v6": 121
+  },
+  "alibaba_combined.txt": {
+    "total": 2287,
+    "v4": 2033,
+    "v6": 254
+  },
+  "aws_ipv4.txt": {
+    "total": 10628,
+    "v4": 10628,
+    "v6": 0
+  },
+  "aws_ipv6.txt": {
+    "total": 6943,
+    "v4": 0,
+    "v6": 6943
+  },
+  "azure_as12076.txt": {
+    "total": 11,
+    "v4": 5,
+    "v6": 6
+  },
+  "azure_as6761.txt": {
+    "total": 16,
+    "v4": 12,
+    "v6": 4
+  },
+  "azure_as8075.txt": {
+    "total": 1364,
+    "v4": 1242,
+    "v6": 122
+  },
+  "azure_combined.txt": {
+    "total": 1385,
+    "v4": 1253,
+    "v6": 132
+  },
+  "cloudflare_ipv4.txt": {
+    "total": 15,
+    "v4": 15,
+    "v6": 0
+  },
+  "cloudflare_ipv6.txt": {
+    "total": 7,
+    "v4": 0,
+    "v6": 7
+  },
+  "digitalocean.txt": {
+    "total": 1234,
+    "v4": 1086,
+    "v6": 148
+  },
+  "gcp.txt": {
+    "total": 1127,
+    "v4": 1032,
+    "v6": 95
+  },
+  "hetzner.txt": {
+    "total": 107,
+    "v4": 102,
+    "v6": 5
+  },
+  "oracle_as12163.txt": {
+    "total": 3,
+    "v4": 3,
+    "v6": 0
+  },
+  "oracle_as13984.txt": {
+    "total": 44,
+    "v4": 33,
+    "v6": 11
+  },
+  "oracle_as20742.txt": {
+    "total": 5,
+    "v4": 4,
+    "v6": 1
+  },
+  "oracle_as31898.txt": {
+    "total": 3866,
+    "v4": 2849,
+    "v6": 1017
+  },
+  "oracle_combined.txt": {
+    "total": 3911,
+    "v4": 2882,
+    "v6": 1029
+  },
+  "vultr.txt": {
+    "total": 3449,
+    "v4": 1872,
+    "v6": 1577
+  }
+}

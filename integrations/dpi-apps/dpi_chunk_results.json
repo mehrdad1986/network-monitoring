@@ -1,0 +1,334 @@
+[
+  {
+    "t": "speedtest.net:443",
+    "tcp": {
+      "ok": true,
+      "ms": 3237.4
+    },
+    "real": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 415.5
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 511.3
+    },
+    "none": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5204.8
+    }
+  },
+  {
+    "t": "104.19.34.239:2096",
+    "tcp": {
+      "ok": true,
+      "ms": 123.1
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 399.9
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 411.3
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 312.2
+    }
+  },
+  {
+    "t": "104.19.144.20:443",
+    "tcp": {
+      "ok": true,
+      "ms": 192.4
+    },
+    "real": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5215.6
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 426.5
+    },
+    "none": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5213.6
+    }
+  },
+  {
+    "t": "104.17.216.114:2083",
+    "tcp": {
+      "ok": true,
+      "ms": 206.7
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 312.7
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 412.8
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 303.0
+    }
+  },
+  {
+    "t": "162.159.38.7:2087",
+    "tcp": {
+      "ok": true,
+      "ms": 193.0
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 312.3
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 532.2
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 216.4
+    }
+  },
+  {
+    "t": "104.17.59.102:2053",
+    "tcp": {
+      "ok": true,
+      "ms": 171.6
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 513.0
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 415.4
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 301.2
+    }
+  },
+  {
+    "t": "104.17.208.131:2083",
+    "tcp": {
+      "ok": true,
+      "ms": 202.5
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 409.7
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 417.3
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 298.7
+    }
+  },
+  {
+    "t": "104.16.255.213:2096",
+    "tcp": {
+      "ok": true,
+      "ms": 409.6
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 413.7
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 412.0
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 217.7
+    }
+  },
+  {
+    "t": "104.19.151.183:2096",
+    "tcp": {
+      "ok": true,
+      "ms": 185.5
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 306.2
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 414.0
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 308.5
+    }
+  },
+  {
+    "t": "91.193.58.135:2087",
+    "tcp": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 4004.9
+    },
+    "real": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5027.9
+    },
+    "fake": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5026.6
+    },
+    "none": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5006.2
+    }
+  },
+  {
+    "t": "104.19.147.20:2083",
+    "tcp": {
+      "ok": true,
+      "ms": 278.6
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 506.4
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 422.6
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 298.3
+    }
+  },
+  {
+    "t": "8.35.211.76:2083",
+    "tcp": {
+      "ok": true,
+      "ms": 213.5
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 503.4
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 413.8
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 303.5
+    }
+  },
+  {
+    "t": "104.16.254.249:2087",
+    "tcp": {
+      "ok": true,
+      "ms": 203.4
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 306.6
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 416.4
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 298.0
+    }
+  },
+  {
+    "t": "104.26.13.115:8443",
+    "tcp": {
+      "ok": true,
+      "ms": 205.0
+    },
+    "real": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 204.5
+    },
+    "fake": {
+      "ok": true,
+      "tls": "TLSv1.3",
+      "ms": 622.2
+    },
+    "none": {
+      "ok": false,
+      "err": "ConnectionResetError",
+      "ms": 198.2
+    }
+  },
+  {
+    "t": "91.193.58.1:2096",
+    "tcp": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 4004.5
+    },
+    "real": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5028.0
+    },
+    "fake": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5022.6
+    },
+    "none": {
+      "ok": false,
+      "err": "TimeoutError",
+      "ms": 5006.4
+    }
+  }
+]

@@ -1,0 +1,832 @@
+{
+  "timestamp": "2026-10-13T03:16:24.931693",
+  "poisoned_domains": [],
+  "clean_domains": [],
+  "doh_resolver_status": [
+    {
+      "domain": "dns.google",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "cloudflare-dns.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "one.one.one.one",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "dns.quad9.net",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.34",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.34"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.34"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.34"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.34"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "dns.adguard-dns.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 236,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "dns.alidns.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 236,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "doh.pub",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 236,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "dns.sb",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 236,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "dns.mullvad.net",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 236,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    }
+  ],
+  "ttl_anomalies": [],
+  "summary": {
+    "total_censored_domains_tested": 6,
+    "censored_domains_poisoned": 6,
+    "doh_resolvers_tested": 9,
+    "doh_resolvers_poisoned": 9,
+    "control_domains_tested": 4,
+    "control_domains_poisoned": 0,
+    "censorship_active": true
+  },
+  "censored_domains": [
+    {
+      "domain": "facebook.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "instagram.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "youtube.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "x.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "pages.dev",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    },
+    {
+      "domain": "trycloudflare.com",
+      "poisoned": true,
+      "sinkhole_ip": "10.10.34.36",
+      "consistent_across_resolvers": true,
+      "ttl_signature": "HIGH_TTL_FORGERY",
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 235,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "10.10.34.36"
+          ],
+          "ttl": 418,
+          "is_sinkhole": true
+        }
+      ]
+    }
+  ],
+  "control_domains": [
+    {
+      "domain": "workers.dev",
+      "poisoned": false,
+      "sinkhole_ip": null,
+      "consistent_across_resolvers": true,
+      "ttl_signature": null,
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "104.18.12.15",
+            "104.18.13.15"
+          ],
+          "ttl": 225,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "104.18.12.15",
+            "104.18.13.15"
+          ],
+          "ttl": 300,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "104.18.12.15",
+            "104.18.13.15"
+          ],
+          "ttl": 133,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "104.18.12.15",
+            "104.18.13.15"
+          ],
+          "ttl": 50,
+          "is_sinkhole": false
+        }
+      ]
+    },
+    {
+      "domain": "cloudflare.com",
+      "poisoned": false,
+      "sinkhole_ip": null,
+      "consistent_across_resolvers": true,
+      "ttl_signature": null,
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "104.16.132.229",
+            "104.16.133.229"
+          ],
+          "ttl": 81,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "104.16.133.229",
+            "104.16.132.229"
+          ],
+          "ttl": 300,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "104.16.132.229",
+            "104.16.133.229"
+          ],
+          "ttl": 29,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "104.16.132.229",
+            "104.16.133.229"
+          ],
+          "ttl": 262,
+          "is_sinkhole": false
+        }
+      ]
+    },
+    {
+      "domain": "go.dev",
+      "poisoned": false,
+      "sinkhole_ip": null,
+      "consistent_across_resolvers": true,
+      "ttl_signature": null,
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "216.239.34.21",
+            "216.239.32.21",
+            "216.239.36.21",
+            "216.239.38.21"
+          ],
+          "ttl": 70,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "216.239.36.21",
+            "216.239.34.21",
+            "216.239.32.21",
+            "216.239.38.21"
+          ],
+          "ttl": 269,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "216.239.36.21",
+            "216.239.32.21",
+            "216.239.34.21",
+            "216.239.38.21"
+          ],
+          "ttl": 234,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "216.239.36.21",
+            "216.239.38.21",
+            "216.239.34.21",
+            "216.239.32.21"
+          ],
+          "ttl": 103,
+          "is_sinkhole": false
+        }
+      ]
+    },
+    {
+      "domain": "rust-lang.org",
+      "poisoned": false,
+      "sinkhole_ip": null,
+      "consistent_across_resolvers": true,
+      "ttl_signature": null,
+      "resolver_results": [
+        {
+          "resolver": "System Default",
+          "addresses": [
+            "185.199.111.153",
+            "185.199.109.153",
+            "185.199.110.153",
+            "185.199.108.153"
+          ],
+          "ttl": 103,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Google",
+          "addresses": [
+            "185.199.111.153",
+            "185.199.108.153",
+            "185.199.110.153",
+            "185.199.109.153"
+          ],
+          "ttl": 103,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Cloudflare",
+          "addresses": [
+            "185.199.108.153",
+            "185.199.109.153",
+            "185.199.111.153",
+            "185.199.110.153"
+          ],
+          "ttl": 142,
+          "is_sinkhole": false
+        },
+        {
+          "resolver": "Quad9",
+          "addresses": [
+            "185.199.111.153",
+            "185.199.109.153",
+            "185.199.108.153",
+            "185.199.110.153"
+          ],
+          "ttl": 300,
+          "is_sinkhole": false
+        }
+      ]
+    }
+  ]
+}

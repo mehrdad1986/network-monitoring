@@ -1,0 +1,241 @@
+/* Card design for authenticated feature pages. Keep layout and data page-owned. */
+.app-main-content {
+  --card-accent: #88c7ff;
+  --card-border: rgba(161, 183, 213, 0.14);
+  --card-surface: linear-gradient(145deg, #121e30 0%, #0e1827 55%, #0d1623 100%);
+  --text-primary: #edf3fc;
+  --text-secondary: #a2b1c7;
+  --text-muted: #8495ad;
+  --text-label: #8495ad;
+  --accent-primary: #88c7ff;
+  --accent-primary-light: rgba(136, 199, 255, 0.09);
+  --glass-border: var(--card-border);
+  --border-color: var(--card-border);
+  background: #080e18;
+}
+
+.app-main-content .page-surface :is(.card, .noc-card, .glass-panel, [class$='-card'], [class*='-card '], .metric-box, .stat-box, .chart-container, .rt-panel, .rt-stats > div) {
+  min-width: 0;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--card-surface);
+  box-shadow: inset 0 1px 0 rgba(222, 235, 255, 0.045), 0 4px 18px rgba(0, 0, 0, 0.12);
+  backdrop-filter: none;
+  transform: none;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.app-main-content .page-surface :is(.card, .noc-card, [class$='-card'], [class*='-card ']):hover {
+  border-color: rgba(161, 183, 213, 0.29);
+  background: var(--card-surface);
+  box-shadow: inset 0 1px 0 rgba(222, 235, 255, 0.065), 0 8px 28px rgba(0, 0, 0, 0.17);
+  transform: none;
+}
+
+/* Legacy decorative overlays must not spill out of card surfaces. */
+.app-main-content .page-surface :is(.card, .noc-card, .stat-card)::before {
+  content: none;
+}
+
+.app-main-content .page-surface :is(.stat-card, .summary-card, .status-card, .metric-box, .kpi-card) {
+  position: relative;
+  padding: 22px;
+  border-top-color: color-mix(in srgb, var(--card-accent) 30%, transparent);
+  background: linear-gradient(125deg, color-mix(in srgb, var(--card-accent) 5%, #111c2c), #0e1725 75%);
+}
+
+.app-main-content .page-surface :is(.stat-card, .summary-card, .status-card, .metric-box, .kpi-card):hover {
+  background: linear-gradient(125deg, color-mix(in srgb, var(--card-accent) 7%, #111c2c), #0e1725 75%);
+}
+
+.app-main-content .page-surface :is(.stat-success, .stat-card.success, .kpi-success) { --card-accent: #65d6b0; }
+.app-main-content .page-surface :is(.stat-warning, .stat-card.warning, .kpi-warning) { --card-accent: #e8bd73; }
+.app-main-content .page-surface :is(.stat-danger, .stat-card.danger, .kpi-danger) { --card-accent: #ed8c9b; }
+.app-main-content .page-surface :is(.stat-info, .stat-card.info, .kpi-info) { --card-accent: #a6b4ff; }
+.app-main-content .page-surface :is(.status-card:has(.open), .target-card.open) { --card-accent: #65d6b0; }
+.app-main-content .page-surface :is(.status-card:has(.closed), .target-card.closed, .target-card.error) { --card-accent: #ed8c9b; }
+
+.app-main-content .page-surface .stat-card {
+  gap: 16px;
+  align-items: center;
+}
+
+.app-main-content .page-surface .stat-content {
+  min-width: 0;
+  gap: 5px;
+}
+
+.app-main-content .page-surface :is(.stat-label, .summary-label, .status-label, .kpi-label) {
+  color: #9eafc6;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.075em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.app-main-content .page-surface :is(.stat-value, .summary-value, .status-number, .kpi-value) {
+  color: #edf3fc;
+  font-size: 28px;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  text-shadow: none;
+}
+
+.app-main-content .page-surface .status-number.open { color: #78d8b6; }
+.app-main-content .page-surface .status-number.closed { color: #ed8c9b; }
+
+.app-main-content .page-surface :is(.stat-icon, .stat-icon-wrapper) {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 1px solid color-mix(in srgb, var(--card-accent) 16%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--card-accent) 8%, transparent);
+  color: var(--card-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.app-main-content .page-surface :is(.stat-icon, .stat-icon-wrapper) svg {
+  width: 21px;
+  height: 21px;
+}
+
+.app-main-content .page-surface :is(.card-title, .device-name, .target-name, .server-name) {
+  color: #edf3fc;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.app-main-content .page-surface :is(.card-header, .device-header, .target-card-header) h3 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.app-main-content .page-surface :is(.card-header, .device-header) {
+  border-color: var(--card-border);
+}
+
+.app-main-content .page-surface :is(.page-breadcrumb, .breadcrumb-label) {
+  margin-bottom: 10px;
+  color: #88c7ff;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.app-main-content .page-surface :is(.page-header, .list-header) h1 { margin-bottom: 8px; }
+
+.app-main-content .page-surface :is(.btn-primary, .btn-add, .btn-test) {
+  min-height: 38px;
+  padding: 9px 15px;
+  border-color: rgba(136, 199, 255, 0.28);
+  border-radius: 9px;
+  background: #b3d8ff;
+  color: #10253d;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 6px rgba(0, 0, 0, 0.12);
+  transform: none;
+}
+
+.app-main-content .page-surface :is(.btn-primary, .btn-add, .btn-test):hover:not(:disabled) {
+  background: #cbe4ff;
+  border-color: #cbe4ff;
+  color: #10253d;
+  box-shadow: 0 3px 12px rgba(136, 199, 255, 0.12);
+  transform: none;
+}
+
+.app-main-content .page-surface :is(.btn-secondary, .btn-refresh) {
+  border-radius: 9px;
+  border-color: rgba(161, 183, 213, 0.2);
+  background: rgba(161, 183, 213, 0.045);
+  color: #c5d2e5;
+}
+
+.app-main-content .page-surface :is(.card-actions, .device-actions, .target-card-footer) {
+  border-color: var(--card-border);
+}
+
+.app-main-content .page-surface a:is(.card, .target-card, .feature-card) {
+  text-decoration: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.app-main-content .page-surface a:is(.card, .target-card, .feature-card):hover {
+  border-color: rgba(136, 199, 255, 0.42);
+  transform: translateY(-2px);
+}
+
+.app-main-content .page-surface :is(.stats-grid, .stats-summary, .stats-overview, .status-summary, .summary-grid, .metrics-container) {
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.app-main-content .page-surface :is(.devices-grid, .targets-grid, .servers-grid, .services-grid) {
+  gap: 20px;
+}
+
+.app-main-content .page-surface :is(.metric-row, .stat-row, .info-row) {
+  font-variant-numeric: tabular-nums;
+}
+
+.app-main-content .page-surface :is(.progress-bar, .progress-track) {
+  border-radius: 20px;
+  background: rgba(161, 183, 213, 0.1);
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .app-main-content .page-surface :is(.stat-card, .summary-card, .status-card, .metric-box, .kpi-card) { padding: 18px; }
+  .app-main-content .page-surface :is(.devices-grid, .targets-grid, .servers-grid, .services-grid) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .app-main-content .page-surface :is(.card, .noc-card, [class$='-card'], [class*='-card '], .metric-box, .stat-box, .chart-container, .rt-panel, .rt-stats > div):hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--card-accent) 38%, transparent);
+    box-shadow: inset 0 1px 0 rgba(222, 235, 255, 0.09), 0 12px 32px rgba(0, 0, 0, 0.24), 0 0 18px rgba(136, 199, 255, 0.035);
+  }
+  .app-main-content .page-surface :is(.stat-icon, .stat-icon-wrapper),
+  .app-main-content [data-page~='NMS'] .device-avatar {
+    transition: transform 260ms ease, background 260ms ease, box-shadow 260ms ease;
+  }
+  .app-main-content .page-surface .stat-card:hover :is(.stat-icon, .stat-icon-wrapper),
+  .app-main-content [data-page~='NMS'] .device-card:hover .device-avatar {
+    transform: translateY(-2px) rotate(-4deg);
+    background: rgba(136, 199, 255, 0.13);
+    box-shadow: 0 0 16px rgba(136, 199, 255, 0.08);
+  }
+  .app-main-content [data-page~='NMS'] .device-card:hover .device-status-dot {
+    animation: card-status-ring 1.8s ease-out infinite;
+  }
+}
+
+@keyframes card-status-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 25%, transparent); }
+  80%, 100% { box-shadow: 0 0 0 5px transparent; }
+}
+
+/* Quality's existing page rules have a deliberately stronger scope. */
+.app .app-main-content .page-surface[data-page~='QualityAnalysis'] .quality-analysis :is(.quality-score-card, .metric-card, .history-section) {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--card-surface);
+  backdrop-filter: none;
+  box-shadow: inset 0 1px 0 rgba(222, 235, 255, 0.045), 0 4px 18px rgba(0, 0, 0, 0.12);
+  animation: none;
+}
+.app .app-main-content .page-surface[data-page~='QualityAnalysis'] .quality-analysis :is(.quality-score-card, .metric-card, .history-section):hover {
+  border-color: rgba(136, 199, 255, 0.38);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-main-content .page-surface :is(.card, .noc-card, [class$='-card'], [class*='-card '], .metric-box, .stat-box, .chart-container, .rt-panel, .rt-stats > div):hover { transform: none; }
+}

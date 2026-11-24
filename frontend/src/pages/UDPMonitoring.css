@@ -1,0 +1,435 @@
+:where([data-page~="UDPMonitoring"])  .udp-monitoring {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: UDPMonitoring-fadeInUp 0.6s ease;
+}
+
+@keyframes UDPMonitoring-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="UDPMonitoring"])  .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="UDPMonitoring"])  .page-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+:where([data-page~="UDPMonitoring"])  .btn-test {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  min-width: 180px;
+}
+
+:where([data-page~="UDPMonitoring"])  .btn-test:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(168, 85, 247, 0.6);
+}
+
+:where([data-page~="UDPMonitoring"])  .btn-test:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  animation: UDPMonitoring-scaleIn 0.5s ease backwards;
+}
+
+@keyframes UDPMonitoring-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:where([data-page~="UDPMonitoring"])  .status-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  font-family: 'Fira Code', monospace;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-number.reachable {
+  color: #06B6D4;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-number.unreachable {
+  color: #EF4444;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-number.total {
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="UDPMonitoring"])  .status-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="UDPMonitoring"])  .add-target-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  animation: UDPMonitoring-slideDown 0.5s ease;
+}
+
+@keyframes UDPMonitoring-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="UDPMonitoring"])  .add-target-section h2,:where([data-page~="UDPMonitoring"])  
+.targets-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="UDPMonitoring"])  .add-target-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) 100px;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+:where([data-page~="UDPMonitoring"])  .add-target-form input {
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UDPMonitoring"])  .add-target-form input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+:where([data-page~="UDPMonitoring"])  .add-target-form input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+:where([data-page~="UDPMonitoring"])  .btn-add {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+:where([data-page~="UDPMonitoring"])  .btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+}
+
+:where([data-page~="UDPMonitoring"])  .targets-section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .targets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .target-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow: hidden;
+  animation: UDPMonitoring-scaleIn 0.5s ease backwards;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="UDPMonitoring"])  .target-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), var(--glow-purple);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+:where([data-page~="UDPMonitoring"])  .target-card.reachable {
+  border-left: 4px solid #06B6D4;
+}
+
+:where([data-page~="UDPMonitoring"])  .target-card.unreachable,:where([data-page~="UDPMonitoring"])  
+.target-card.timeout {
+  border-left: 4px solid #EF4444;
+}
+
+:where([data-page~="UDPMonitoring"])  .target-card.checking {
+  border-left: 4px solid #FFC107;
+}
+
+:where([data-page~="UDPMonitoring"])  .card-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+:where([data-page~="UDPMonitoring"])  .target-info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+:where([data-page~="UDPMonitoring"])  .target-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+}
+
+:where([data-page~="UDPMonitoring"])  .target-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+:where([data-page~="UDPMonitoring"])  .target-address code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  background: rgba(0, 217, 255, 0.1);
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+}
+
+:where([data-page~="UDPMonitoring"])  .port-badge {
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--accent-purple);
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+:where([data-page~="UDPMonitoring"])  .btn-remove {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+:where([data-page~="UDPMonitoring"])  .btn-remove:hover {
+  background: rgba(239, 68, 68, 0.2);
+  transform: scale(1.1);
+}
+
+:where([data-page~="UDPMonitoring"])  .card-body {
+  padding: 1.5rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 1.2rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .status-text {
+  color: var(--text-primary);
+}
+
+:where([data-page~="UDPMonitoring"])  .metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+:where([data-page~="UDPMonitoring"])  .metric-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+:where([data-page~="UDPMonitoring"])  .metric-value {
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="UDPMonitoring"])  .metric-value.excellent {
+  color: #10B981;
+}
+
+:where([data-page~="UDPMonitoring"])  .metric-value.good {
+  color: #10B981;
+}
+
+:where([data-page~="UDPMonitoring"])  .metric-value.fair {
+  color: #FFC107;
+}
+
+:where([data-page~="UDPMonitoring"])  .metric-value.poor {
+  color: #EF4444;
+}
+
+:where([data-page~="UDPMonitoring"])  .last-checked {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+  margin-top: 1rem;
+}
+
+:where([data-page~="UDPMonitoring"])  .empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  color: var(--text-secondary);
+}
+
+:where([data-page~="UDPMonitoring"])  .empty-state p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="UDPMonitoring"])  .udp-monitoring {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .btn-test {
+    width: 100%;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .status-summary {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .add-target-form {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .btn-add {
+    width: 100%;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .targets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="UDPMonitoring"])  .card-header {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,284 @@
+:where([data-page~="RouteMonitoring"])  .route-monitoring {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: RouteMonitoring-fadeInUp 0.6s ease;
+}
+
+@keyframes RouteMonitoring-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="RouteMonitoring"])  .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:where([data-page~="RouteMonitoring"])  .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="RouteMonitoring"])  .page-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+:where([data-page~="RouteMonitoring"])  .btn-refresh {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+}
+
+:where([data-page~="RouteMonitoring"])  .btn-refresh:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(168, 85, 247, 0.6);
+}
+
+:where([data-page~="RouteMonitoring"])  .btn-refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:where([data-page~="RouteMonitoring"])  .status-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+:where([data-page~="RouteMonitoring"])  .status-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  animation: RouteMonitoring-scaleIn 0.5s ease backwards;
+}
+
+@keyframes RouteMonitoring-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:where([data-page~="RouteMonitoring"])  .status-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="RouteMonitoring"])  .status-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="RouteMonitoring"])  .routes-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  animation: RouteMonitoring-slideDown 0.5s ease;
+}
+
+@keyframes RouteMonitoring-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="RouteMonitoring"])  .routes-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="RouteMonitoring"])  .routes-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+:where([data-page~="RouteMonitoring"])  .table-header,:where([data-page~="RouteMonitoring"])  
+.table-row {
+  display: grid;
+  grid-template-columns: 150px 140px 80px 100px 100px 80px;
+  gap: 0;
+  padding: 0;
+}
+
+:where([data-page~="RouteMonitoring"])  .table-header {
+  background: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+:where([data-page~="RouteMonitoring"])  .table-body {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+:where([data-page~="RouteMonitoring"])  .table-row {
+  border-bottom: 1px solid var(--glass-border);
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+:where([data-page~="RouteMonitoring"])  .table-row:hover {
+  background: rgba(168, 85, 247, 0.05);
+}
+
+:where([data-page~="RouteMonitoring"])  .table-row:last-child {
+  border-bottom: none;
+}
+
+:where([data-page~="RouteMonitoring"])  .col {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+:where([data-page~="RouteMonitoring"])  .col code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  background: rgba(0, 217, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+:where([data-page~="RouteMonitoring"])  .col-dest,:where([data-page~="RouteMonitoring"])  
+.col-gateway {
+  font-size: 0.9rem;
+}
+
+:where([data-page~="RouteMonitoring"])  .col-metric,:where([data-page~="RouteMonitoring"])  
+.col-iface,:where([data-page~="RouteMonitoring"])  
+.col-changes {
+  font-size: 0.9rem;
+}
+
+:where([data-page~="RouteMonitoring"])  .col-status {
+  justify-content: center;
+}
+
+:where([data-page~="RouteMonitoring"])  .status-badge {
+  color: white;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1024px) {
+  :where([data-page~="RouteMonitoring"])  .table-header,:where([data-page~="RouteMonitoring"])  
+  .table-row {
+    grid-template-columns: 120px 120px 70px 90px 90px 70px;
+    font-size: 0.85rem;
+  }
+
+  :where([data-page~="RouteMonitoring"])  .col {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="RouteMonitoring"])  .route-monitoring {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="RouteMonitoring"])  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="RouteMonitoring"])  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="RouteMonitoring"])  .btn-refresh {
+    width: 100%;
+  }
+
+  :where([data-page~="RouteMonitoring"])  .status-summary {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="RouteMonitoring"])  .table-header,:where([data-page~="RouteMonitoring"])  
+  .table-row {
+    grid-template-columns: 100px 100px 60px 80px 80px 60px;
+    font-size: 0.7rem;
+  }
+
+  :where([data-page~="RouteMonitoring"])  .col {
+    padding: 0.5rem;
+  }
+}
+
+.route-monitoring .route-live-summary,.route-monitoring .route-live-table-section,.route-monitoring .route-live-empty,.route-monitoring .route-live-error { box-sizing: border-box; margin: 0 0 14px; padding: 18px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-surface); }
+.route-monitoring .route-live-summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; color: var(--ui-secondary); font-size: 12px; }
+.route-monitoring .route-live-summary strong { color: var(--ui-text); font-size: 24px; }
+.route-monitoring .route-live-summary small { flex-basis: 100%; color: var(--ui-secondary); }
+.route-monitoring .route-live-table-section h2,.route-monitoring .route-live-empty h2,.route-monitoring .route-live-error h2 { margin: 0 0 10px; color: var(--ui-text); font-size: 15px; }
+.route-monitoring .route-live-empty p,.route-monitoring .route-live-error p,.route-monitoring .route-live-state,.route-monitoring .route-live-note { color: var(--ui-secondary); font-size: 12px; line-height: 1.6; }
+.route-monitoring .route-live-error button { min-height: 38px; padding: 7px 12px; border: 1px solid var(--ui-accent); border-radius: 8px; color: var(--ui-text); background: var(--ui-raised); font: inherit; cursor: pointer; }
+.route-monitoring .route-live-table-wrap { max-width: 100%; overflow-x: auto; }
+.route-monitoring .route-live-table-wrap table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.route-monitoring .route-live-table-wrap th,.route-monitoring .route-live-table-wrap td { padding: 10px 12px; border-bottom: 1px solid var(--ui-border); text-align: left; white-space: nowrap; }
+.route-monitoring .route-live-table-wrap th { color: var(--ui-secondary); font-size: 10px; text-transform: uppercase; }
+.route-monitoring .route-live-table-wrap td { color: var(--ui-text); }
+.route-monitoring .route-live-table-wrap code { color: var(--ui-accent); }
+@media(max-width:700px) { .route-monitoring .route-live-summary,.route-monitoring .route-live-table-section,.route-monitoring .route-live-empty,.route-monitoring .route-live-error { padding: 14px; } }

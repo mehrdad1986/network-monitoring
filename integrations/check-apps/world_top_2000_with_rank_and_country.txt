@@ -1,0 +1,2002 @@
+# rank_in_original_file	tranco_snapshot_rank_if_present	domain	country_or_origin	country_code	country_confidence
+# Original list position is not a verified current global traffic rank. Blank Tranco rank means absent from the local snapshot, not necessarily unranked globally.
+1	1	google.com	United States	US	High
+2	2	gtld-servers.net	Global / internet infrastructure		Medium
+3	3	googleapis.com	United States	US	High
+4	4	facebook.com	United States	US	High
+5	5	microsoft.com	United States	US	High
+6	6	cloudflare.com	United States	US	High
+7	7	mail.ru	Russia		High
+8	8	gstatic.com	United States	US	High
+9	9	youtube.com	United States	US	High
+10	10	apple.com	United States	US	High
+11	11	amazonaws.com	United States	US	High
+12	12	pv-cdn.net	Global / multi-country infrastructure		Medium
+13	13	instagram.com	United States	US	High
+14	14	dzen.ru	Russia		High
+15	15	akamai.net	United States	US	High
+16	16	fbcdn.net	United States	US	High
+17	18	linkedin.com	United States	US	High
+18	19	office.com	United States	US	High
+19	20	googletagmanager.com	United States	US	High
+20	21	googlevideo.com	United States	US	High
+21	22	akamaiedge.net	Global / multi-country infrastructure		Medium
+22	23	akadns.net	Global / multi-country infrastructure		Medium
+23	24	amazon.com	United States	US	High
+24	25	live.com	United States	US	High
+25	26	keenetic.io	International / multinational		Medium
+26	27	azure.com	United States	US	High
+27	28	wikipedia.org	United States	US	High
+28	29	github.com	United States	US	High
+29	30	doubleclick.net	United States	US	High
+30	31	bing.com	United States	US	High
+31	32	googleusercontent.com	United States	US	High
+32	33	domaincontrol.com	United States	US	High
+33	34	netflix.com	United States	US	High
+34	35	fastly.net	United States	US	High
+35	36	wikipedia.org	United States	US	High
+36	37	whatsapp.net	United States	US	High
+37	38	apple-dns.net	United States	US	High
+38	39	microsoftonline.com	United States	US	High
+39	40	office.net	United States	US	High
+40	41	appsflyersdk.com	Global / multi-country infrastructure		Medium
+41	42	windowsupdate.com	United States	US	High
+42	43	wordpress.org	United States	US	High
+43	44	sharepoint.com	United States	US	High
+44	45	workers.dev	Global / multi-country infrastructure		Medium
+45	46	aaplimg.com	United States	US	High
+46	47	trafficmanager.net	United States	US	High
+47	49	e2ro.com	Unknown / needs verification		Low
+48	50	digicert.com	United States	US	High
+49	51	pinterest.com	United States	US	High
+50	52	whatsapp.com	United States	US	High
+51	53	cloudfront.net	United States	US	High
+52	54	skype.com	United States	US	High
+53	55	icloud.com	United States	US	High
+54	56	yahoo.com	United States	US	High
+55	57	windows.net	United States	US	High
+56	59	googlesyndication.com	United States	US	High
+57	60	x.com	United States	US	High
+58	61	msn.com	United States	US	High
+59	62	telekom.de	Germany	DE	High
+60	63	spotify.com	Sweden	SE	High
+61	64	gandi.net	France	FR	High
+62	65	tiktok.com	China	CN	High
+63	66	vimeo.com	United States	US	High
+64	67	adobe.com	United States	US	High
+65	68	ntp.org	Global / internet infrastructure		Medium
+66	69	gvt1.com	United States	US	High
+67	70	akam.net	Unknown / international (.com/.net/etc.)		Low
+68	71	ripn.net	Russia		High
+69	72	tiktokcdn.com	China	CN	High
+70	73	cloudflare.net	Global / multi-country infrastructure		Medium
+71	74	gvt2.com	United States	US	High
+72	75	myfritz.net	Germany	DE	High
+73	76	zoom.us	United States	US	High
+74	77	wa.me	Unknown / international (.com/.net/etc.)		Low
+75	78	roblox.com	United States	US	High
+76	79	ytimg.com	United States	US	High
+77	80	tiktokv.com	China	CN	High
+78	81	googledomains.com	United States	US	High
+79	82	edgekey.net	Global / multi-country infrastructure		Medium
+80	83	qq.com	China	CN	High
+81	84	yandex.net	Russia		High
+82	85	baidu.com	China	CN	High
+83	86	nginx.org	United States	US	High
+84	87	cloud.microsoft	United States	US	High
+85	88	cloudflare-dns.com	United States	US	High
+86	89	opera.com	Norway	NO	High
+87	90	samsung.com	South Korea	KR	High
+88	91	nic.ru	Russia		High
+89	92	bit.ly	United States	US	High
+90	93	google-analytics.com	United States	US	High
+91	94	nginx.com	United States	US	High
+92	95	wordpress.com	United States	US	High
+93	96	yandex.ru	Russia		High
+94	97	edgesuite.net	Global / multi-country infrastructure		Medium
+95	98	windows.com	United States	US	High
+96	99	office365.com	United States	US	High
+97	100	mozilla.org	United States	US	High
+98	101	ui.com	United States	US	High
+99	102	sentry.io	United States	US	High
+100	103	a2z.com	Unknown / needs verification		Low
+101	104	reddit.com	United States	US	High
+102	105	root-servers.net	Global / internet infrastructure		Medium
+103	106	okcdn.ru	Global / multi-country infrastructure		Medium
+104	107	intuit.com	United States	US	High
+105	108	googleadservices.com	United States	US	High
+106	109	cdninstagram.com	Global / multi-country infrastructure		Medium
+107	110	blogspot.com	United States	US	High
+108	111	unity3d.com	United States	US	High
+109	112	vedcdnlb.com	Global / multi-country infrastructure		Medium
+110	113	b-cdn.net	Global / multi-country infrastructure		Medium
+111	114	europa.eu	European Union		Medium
+112	117	vk.com	Russia		High
+113	118	criteo.com	Global / multi-country infrastructure		Medium
+114	119	snapchat.com	United States	US	High
+115	120	cdn77.org	Global / multi-country infrastructure		Medium
+116	121	amazonvideo.com	United States	US	High
+117	122	github.io	United States	US	High
+118	123	dns.google	United States	US	High
+119	124	dropbox.com	United States	US	High
+120	125	app-measurement.com	Global / multi-country infrastructure		Medium
+121	126	apache.org	United States	US	High
+122	127	amazon-adsystem.com	United States	US	High
+123	128	gravatar.com	United States	US	High
+124	129	outlook.com	United States	US	High
+125	130	amazon.dev	United States	US	High
+126	131	t-msedge.net	United States	US	High
+127	132	spo-msedge.net	United States	US	High
+128	133	msftncsi.com	United States	US	High
+129	134	app-analytics-services.com	Global / multi-country infrastructure		Medium
+130	135	bytefcdn-oversea.com	China	CN	High
+131	136	mailinabox.email	Global / multi-country infrastructure		Medium
+132	137	kaspersky.com	Russia		High
+133	138	epicgames.com	United States	US	High
+134	139	xiaomi.com	China	CN	High
+135	140	steamserver.net	United States	US	High
+136	141	f5.com	United States	US	High
+137	142	azurefd.net	United States	US	High
+138	143	trbcdn.net	Global / multi-country infrastructure		Medium
+139	144	forms.gle	United States	US	High
+140	145	nih.gov	United States	US	High
+141	146	one.one	United States	US	High
+142	147	registrar-servers.com	Global / multi-country infrastructure		Medium
+143	148	archive.org	United States	US	High
+144	149	dnsowl.com	United States	US	High
+145	150	ax-msedge.net	United States	US	High
+146	151	msftconnecttest.com	United States	US	High
+147	152	applovin.com	Global / multi-country infrastructure		Medium
+148	153	miit.gov.cn	China	CN	High
+149	154	tumblr.com	United States	US	High
+150	155	3gppnetwork.org	Global / multi-country infrastructure		Medium
+151	156	ggpht.com	United States	US	High
+152	157	nytimes.com	United States	US	High
+153	158	godaddy.com	United States	US	High
+154	159	aliyuncs.com	China	CN	High
+155	160	discord.com	United States	US	High
+156	161	paypal.com	United States	US	High
+157	162	azurewebsites.net	United States	US	High
+158	163	shopify.com	Canada	CA	High
+159	164	webex.com	United States	US	High
+160	165	wac-msedge.net	United States	US	High
+161	166	reg.ru	Russia		High
+162	167	cdn-apple.com	United States	US	High
+163	168	vkuserphoto.ru	Russia		High
+164	169	tiktokcdn-us.com	China	CN	High
+165	170	adobe.io	United States	US	High
+166	171	akamaized.net	Global / multi-country infrastructure		Medium
+167	172	macromedia.com	United States	US	High
+168	173	example.com	Reserved / example domain		Medium
+169	174	aws.dev	United States	US	High
+170	175	nflxso.net	United States	US	High
+171	176	azureedge.net	United States	US	High
+172	177	soundcloud.com	Germany	DE	High
+173	178	flickr.com	United States	US	High
+174	179	fastly-edge.com	Global / multi-country infrastructure		Medium
+175	180	userapi.com	Russia		High
+176	181	cnn.com	United States	US	High
+177	182	telekom.net	Germany	DE	High
+178	183	ezviz7.com	China	CN	High
+179	184	taboola.com	Global / multi-country infrastructure		Medium
+180	185	avast.com	Czechia	CZ	High
+181	186	w3.org	United States	US	High
+182	187	medium.com	United States	US	High
+183	188	vungle.com	United States	US	High
+184	189	rubiconproject.com	Global / multi-country infrastructure		Medium
+185	190	shifen.com	India	IN	High
+186	191	ttdns2.com	Global / multi-country infrastructure		Medium
+187	192	theguardian.com	United Kingdom	GB	High
+188	193	lencr.org	Global / multi-country infrastructure		Medium
+189	194	wildberries.ru	Russia		High
+190	195	ebay.com	United States	US	High
+191	196	spov-msedge.net	United States	US	High
+192	197	adnxs.com	Global / multi-country infrastructure		Medium
+193	198	pki.goog	United States	US	High
+194	199	msedge.net	United States	US	High
+195	200	forbes.com	United States	US	High
+196	201	nominetdns.uk	United Kingdom	GB	High
+197	202	adtrafficquality.google	United States	US	High
+198	203	ozon.ru	Russia		High
+199	204	vecdnlb.com	Global / multi-country infrastructure		Medium
+200	205	creativecommons.org	United States	US	High
+201	206	twitch.tv	United States	US	High
+202	207	bbc.com	United Kingdom	GB	High
+203	208	nist.gov	United States	US	High
+204	209	oracle.com	United States	US	High
+205	210	jomodns.com	Global / multi-country infrastructure		Medium
+206	212	weather.com	United States	US	High
+207	213	cpanel.net	United States	US	High
+208	214	researchgate.net	United States	US	High
+209	216	dns-parking.com	Global / multi-country infrastructure		Medium
+210	217	sciencedirect.com	Netherlands	NL	High
+211	218	ubuntu.com	United Kingdom	GB	High
+212	219	mit.edu	United States	US	High
+213	220	sourceforge.net	United States	US	High
+214	221	playstation.net	Japan	JP	High
+215	222	t-online.de	Germany	DE	High
+216	223	canva.com	Australia	AU	High
+217	224	pubmatic.com	Global / multi-country infrastructure		Medium
+218	225	meraki.com	Unknown / international (.com/.net/etc.)		Low
+219	226	demdex.net	Global / multi-country infrastructure		Medium
+220	227	adsrvr.org	Global / multi-country infrastructure		Medium
+221	228	android.com	Unknown / international (.com/.net/etc.)		Low
+222	229	doubleverify.com	Global / multi-country infrastructure		Medium
+223	230	roku.com	United States	US	High
+224	231	doi.org	Unknown / international (.com/.net/etc.)		Low
+225	232	forter.com	Israel	IL	High
+226	233	mzstatic.com	United States	US	High
+227	235	gmail.com	United States	US	High
+228	236	static.microsoft	United States	US	High
+229	237	scorecardresearch.com	Global / multi-country infrastructure		Medium
+230	238	wsdvs.com	Unknown / needs verification		Low
+231	239	imdb.com	United States	US	High
+232	240	omtrdc.net	Global / multi-country infrastructure		Medium
+233	241	casalemedia.com	Global / multi-country infrastructure		Medium
+234	242	mts.ru	Russia		High
+235	243	autodesk.com	United States	US	High
+236	244	cdngslb.com	Global / multi-country infrastructure		Medium
+237	245	linktr.ee	Estonia	EE	Medium
+238	246	cisco.com	United States	US	High
+239	247	ksyuncdn.com	China	CN	High
+240	248	0xrpc.io	Global / multi-country infrastructure		Medium
+241	249	comcast.net	Canada	CA	High
+242	250	alibabadns.com	China	CN	High
+243	251	miui.com	China	CN	High
+244	252	akamaitech.net	Global / multi-country infrastructure		Medium
+245	253	who.int	Switzerland / international organization		Medium
+246	254	salesforce.com	United States	US	High
+247	255	hubspot.com	United States	US	High
+248	256	wixsite.com	Israel	IL	High
+249	257	hichina.com	China	CN	High
+250	258	telegram.org	United Arab Emirates	AE	High
+251	259	yandex.com	Russia		High
+252	260	mangosip.ru	Russia		High
+253	261	stripe.com	United States	US	High
+254	262	hp.com	United States	US	High
+255	263	nic.direct	Global / internet infrastructure		Medium
+256	264	example-service.com	United States	US	High
+257	266	wikimedia.org	United States	US	High
+258	267	ttvnw.net	Unknown / international (.com/.net/etc.)		Low
+259	268	launchpad.net	United Kingdom	GB	High
+260	269	libp2p.direct	Global / open-source infrastructure		Medium
+261	270	samsungcloud.com	South Korea	KR	High
+262	271	duckdns.org	United States	US	High
+263	272	mozilla.com	United States	US	High
+264	274	rocket-cdn.com	Global / multi-country infrastructure		Medium
+265	275	tinyurl.com	United States	US	High
+266	276	adsafeprotected.com	United States	US	High
+267	277	ampproject.org	United States	US	High
+268	278	pages.dev	United States	US	High
+269	279	springer.com	United States	US	High
+270	280	hicloudcam.com	China	CN	High
+271	281	appsflyer.com	Global / multi-country infrastructure		Medium
+272	282	akamaihd.net	United States	US	High
+273	283	ipv4only.arpa	Reserved / internet infrastructure		Medium
+274	284	shalltry.com	Unknown / needs verification		Low
+275	285	samsungqbe.com	China	CN	High
+276	286	merkle.io	Global / multi-country infrastructure		Medium
+277	287	openx.net	Global / multi-country infrastructure		Medium
+278	288	dropcatch.com	United States	US	High
+279	289	nr-data.net	United States	US	High
+280	290	inmobi.com	India	IN	High
+281	291	media-amazon.com	United States	US	High
+282	292	heytapmobile.com	South Korea	KR	High
+283	293	etsy.com	United States	US	High
+284	294	ok.ru	Russia		High
+285	295	myshopify.com	Canada	CA	High
+286	296	alibaba.com	China	CN	High
+287	297	booking.com	Netherlands	NL	High
+288	298	www.gov.uk	United Kingdom	GB	Medium
+289	299	dnsmadeeasy.com	United States	US	High
+290	300	reuters.com	Canada	CA	High
+291	301	steampowered.com	United States	US	High
+292	302	sfx.ms	United States	US	High
+293	303	launchdarkly.com	United States	US	High
+294	304	trueconf.net	Russia		High
+295	305	ibm.com	United States	US	High
+296	306	googleblog.com	United States	US	High
+297	307	mtgglobals.com	Unknown / needs verification		Low
+298	308	wbx2.com	United States	US	High
+299	309	drom.ru	Russia		High
+300	310	media.net	Global / multi-country infrastructure		Medium
+301	311	3lift.com	Unknown / international (.com/.net/etc.)		Low
+302	312	jsdelivr.net	United States	US	High
+303	313	weibo.com	China	CN	High
+304	314	harvard.edu	United States	US	Medium
+305	315	edgecdn.ru	Russia		High
+306	316	ea.com	United States	US	High
+307	317	php.net	United States	US	High
+308	318	slack.com	United States	US	High
+309	319	debian.org	Unknown / international (.com/.net/etc.)		Low
+310	320	nature.com	Unknown / international (.com/.net/etc.)		Low
+311	321	onelink.me	Global / multi-country infrastructure		Medium
+312	322	name-services.com	Global / multi-country infrastructure		Medium
+313	323	wiley.com	Unknown / international (.com/.net/etc.)		Low
+314	324	issuu.com	Unknown / international (.com/.net/etc.)		Low
+315	325	crashlytics.com	United States	US	High
+316	326	bilibili.com	China	CN	High
+317	327	smartadserver.com	France	FR	High
+318	328	alidns.com	China	CN	High
+319	329	clarity.ms	United States	US	High
+320	330	ivi.ru	Russia		High
+321	331	checkpoint.com	Israel	IL	High
+322	332	moe.video	Unknown / international (.com/.net/etc.)		Low
+323	333	opendns.com	United States	US	High
+324	334	weebly.com	United States	US	High
+325	335	douyincdn.com	Global / multi-country infrastructure		Medium
+326	336	tradingview.com	United States	US	High
+327	337	adriver.ru	Russia		High
+328	338	cdc.gov	United States	US	Medium
+329	339	kwai-pro.com	China	CN	High
+330	340	washingtonpost.com	United States	US	High
+331	341	gnu.org	Unknown / international (.com/.net/etc.)		Low
+332	342	inner-active.mobi	Global / multi-country infrastructure		Medium
+333	343	grammarly.com	United States	US	High
+334	344	kaspersky-labs.com	Russia		High
+335	345	un.org	Unknown / international (.com/.net/etc.)		Low
+336	346	cookielaw.org	United States	US	High
+337	347	afternic.com	United States	US	High
+338	348	naver.com	South Korea	KR	High
+339	349	cdnbuild.net	Global / multi-country infrastructure		Medium
+340	350	wsj.com	United States	US	High
+341	351	bamgrid.com	United States	US	High
+342	352	tiktokv.us	United States	US	Medium
+343	353	allawnos.com	China	CN	High
+344	354	ezvizlife.com	China	CN	High
+345	355	byteoversea.net	China	CN	High
+346	356	capcutapi.com	China	CN	High
+347	357	aliyun.com	China	CN	High
+348	358	dell.com	United States	US	High
+349	360	xboxlive.com	United States	US	High
+350	361	samsungcloudsolution.com	South Korea	KR	High
+351	362	amplitude.com	United States	US	High
+352	363	vk.ru	Russia		High
+353	364	dailymotion.com	France	FR	High
+354	365	businessinsider.com	United States	US	High
+355	366	bloomberg.com	United States	US	High
+356	367	stanford.edu	United States	US	Medium
+357	368	trustpilot.com	Denmark	DK	High
+358	370	rzone.de	Germany	DE	Medium
+359	371	go.com	United States	US	High
+360	372	nvidia.com	United States	US	High
+361	373	plesk.com	Unknown / international (.com/.net/etc.)		Low
+362	374	espn.com	United States	US	High
+363	375	mynetname.net	Global / multi-country infrastructure		Medium
+364	376	mi.com	United States	US	High
+365	377	temu.com	China	CN	High
+366	378	hcaptcha.com	United States	US	High
+367	379	vkuser.net	Unknown / international (.com/.net/etc.)		Low
+368	380	ibyteimg.com	Unknown / international (.com/.net/etc.)		Low
+369	381	publicnode.com	Global / multi-country infrastructure		Medium
+370	382	avsxappcaptiveportal.com	Global / multi-country infrastructure		Medium
+371	383	tp-link.com	China	CN	High
+372	384	globo.com	Brazil	BR	High
+373	385	tbcache.com	Global / multi-country infrastructure		Medium
+374	386	heytapdl.com	China	CN	High
+375	387	llamarpc.com	Unknown / international (.com/.net/etc.)		Low
+376	388	live-video.net	Global / multi-country infrastructure		Medium
+377	389	scdn.co	Global / multi-country infrastructure		Medium
+378	390	netflix.net	United States	US	High
+379	391	aliexpress.com	Unknown / international (.com/.net/etc.)		Low
+380	392	tiktokcdn-eu.com	Global / multi-country infrastructure		Medium
+381	393	quickconnect.to	Global / multi-country infrastructure		Medium
+382	394	vivoglobal.com	China	CN	High
+383	395	indeed.com	United States	US	High
+384	397	namebrightdns.com	Global / multi-country infrastructure		Medium
+385	398	awsglobalaccelerator.com	United States	US	High
+386	399	online-metrix.net	Global / multi-country infrastructure		Medium
+387	400	unsplash.com	Canada	CA	High
+388	401	zendesk.com	United States	US	High
+389	402	cookiedatabase.org	Unknown / international (.com/.net/etc.)		Low
+390	403	nasa.gov	United States	US	Medium
+391	404	amazonalexa.com	United States	US	High
+392	405	kwaipros.com	China	CN	High
+393	406	cloudns.net	Bulgaria	BG	High
+394	407	adobe.net	United States	US	High
+395	408	intel.com	United States	US	High
+396	409	yccdn.ru	Russia		High
+397	410	elasticbeanstalk.com	United States	US	High
+398	411	netangels.ru	Russia	RU	Medium
+399	412	line.me	Japan	JP	High
+400	413	sc-cdn.net	Global / multi-country infrastructure		Medium
+401	414	sc-gw.com	Unknown / international (.com/.net/etc.)		Low
+402	416	calendly.com	United States	US	High
+403	417	ip-api.com	Unknown / international (.com/.net/etc.)		Low
+404	418	shopifysvc.com	Unknown / international (.com/.net/etc.)		Low
+405	419	aliyuncsslbintl.com	China	CN	High
+406	420	163.com	China	CN	High
+407	421	wp.com	United States	US	High
+408	422	walmart.com	United States	US	High
+409	423	pixabay.com	Unknown / international (.com/.net/etc.)		Low
+410	424	huawei.com	China	CN	High
+411	425	tiktokv.eu	China	CN	High
+412	426	steamcommunity.com	United States	US	High
+413	427	pangle.io	China	CN	High
+414	428	avcdn.net	Global / multi-country infrastructure		Medium
+415	429	cncdn.com	Global / multi-country infrastructure		Medium
+416	430	discord.media	Unknown / international (.com/.net/etc.)		Low
+417	431	taobao.com	China	CN	High
+418	432	aol.com	United States	US	High
+419	433	netease.com	China	CN	High
+420	434	statista.com	Germany	DE	High
+421	435	ipify.org	United States	US	High
+422	436	gitlab.com	United States	US	High
+423	437	vedsalb.com	Unknown / international (.com/.net/etc.)		Low
+424	438	ngenix.net	Russia		High
+425	439	wyzecam.com	United States	US	High
+426	440	tm-azurefd.net	Unknown / international (.com/.net/etc.)		Low
+427	441	hostgator.com	United States	US	High
+428	442	firetvcaptiveportal.com	Unknown / international (.com/.net/etc.)		Low
+429	443	cnbc.com	United States	US	High
+430	444	quora.com	United States	US	High
+431	445	list-manage.com	United States	US	High
+432	446	gamepass.com	Unknown / international (.com/.net/etc.)		Low
+433	447	docker.com	United States	US	High
+434	448	foxnews.com	United States	US	High
+435	450	easebar.com	Unknown / international (.com/.net/etc.)		Low
+436	451	telecid.ru	Russia	RU	Medium
+437	452	goodreads.com	United States	US	High
+438	453	beian.gov.cn	China	CN	High
+439	454	myqcloud.com	China	CN	High
+440	455	expireddomains.com	Unknown / international (.com/.net/etc.)		Low
+441	456	addtoany.com	Unknown / international (.com/.net/etc.)		Low
+442	457	duolingo.com	United States	US	High
+443	458	imcmdb.net	Unknown / international (.com/.net/etc.)		Low
+444	459	eventbrite.com	United States	US	High
+445	460	skyhigh.cloud	Unknown / international (.com/.net/etc.)		Low
+446	461	mikrotik.com	Latvia	LV	High
+447	462	duckduckgo.com	United States	US	High
+448	463	nflxvideo.net	United States	US	High
+449	464	dual-s-msedge.net	Global / multi-country infrastructure		Medium
+450	465	cornell.edu	United States	US	Medium
+451	467	speedtest.net	United States	US	High
+452	468	nflximg.com	Unknown / international (.com/.net/etc.)		Low
+453	469	paloaltonetworks.com	United States	US	High
+454	470	npr.org	United States	US	High
+455	471	kwai.net	China	CN	High
+456	472	eye4.cn	China	CN	Medium
+457	473	2mdn.net	Global / multi-country infrastructure		Medium
+458	474	gosuslugi.ru	Russia		High
+459	475	sberbank.ru	Russia		High
+460	476	mcafee.com	United States	US	High
+461	477	xcal.tv	China	CN	High
+462	478	scribd.com	Unknown / international (.com/.net/etc.)		Low
+463	479	oxylabs.io	Unknown / international (.com/.net/etc.)		Low
+464	480	atlassian.net	Unknown / international (.com/.net/etc.)		Low
+465	481	crpt.ru	Russia	RU	Medium
+466	482	nstld.com	Unknown / international (.com/.net/etc.)		Low
+467	483	mediatek.com	Unknown / international (.com/.net/etc.)		Low
+468	484	gcdn.co	Global / multi-country infrastructure		Medium
+469	485	brave.com	United States	US	High
+470	486	amzn.to	United States	US	High
+471	487	icloud-content.com	United States	US	High
+472	488	bsky.app	United States	US	High
+473	489	mysql.com	United States	US	High
+474	490	nease.net	Global / multi-country infrastructure		Medium
+475	491	triplinkintl.com	Global / multi-country infrastructure		Medium
+476	492	behance.net	United States	US	High
+477	493	tencent-cloud.net	China	CN	High
+478	494	shein.com	Unknown / international (.com/.net/etc.)		Low
+479	495	indiatimes.com	India	IN	High
+480	497	t-mobile.com	United States	US	High
+481	498	slideshare.net	United States	US	High
+482	499	name.com	United States	US	High
+483	500	apnews.com	United States	US	High
+484	501	myhuaweicloud.com	Unknown / international (.com/.net/etc.)		Low
+485	502	stackoverflow.com	United States	US	High
+486	503	supercell.com	Finland	FI	High
+487	504	nbcnews.com	United States	US	High
+488	505	imgsmail.ru	Russia		High
+489	507	gandi-ns.fr	France	FR	Medium
+490	508	okta.com	United States	US	High
+491	509	rbxcdn.com	Global / multi-country infrastructure		Medium
+492	510	sina.com.cn	China	CN	High
+493	511	wired.com	United States	US	High
+494	512	blogger.com	United States	US	High
+495	513	sohu.com	China	CN	High
+496	514	palmplaystore.com	Unknown / international (.com/.net/etc.)		Low
+497	515	360yield.com	Global / multi-country infrastructure		Medium
+498	516	awswaf.com	Global / multi-country infrastructure		Medium
+499	517	firefox.com	United States	US	High
+500	518	visualstudio.com	United States	US	High
+501	519	vkontakte.ru	Russia	RU	Medium
+502	520	uol.com.br	Brazil	BR	High
+503	521	svc.ms	Unknown / international (.com/.net/etc.)		Low
+504	522	dynatrace.com	Germany	DE	High
+505	523	msidentity.com	Unknown / international (.com/.net/etc.)		Low
+506	524	run.app	Unknown / international (.com/.net/etc.)		Low
+507	525	ft.com	United Kingdom	GB	High
+508	526	time.com	United States	US	High
+509	527	worldnic.com	Unknown / international (.com/.net/etc.)		Low
+510	528	alicdn.com	Global / multi-country infrastructure		Medium
+511	529	fandom.com	Unknown / international (.com/.net/etc.)		Low
+512	531	usatoday.com	United States	US	High
+513	532	jquery.com	United States	US	High
+514	533	cdn20.com	Global / multi-country infrastructure		Medium
+515	534	patreon.com	United States	US	High
+516	535	trendmicro.com	Unknown / international (.com/.net/etc.)		Low
+517	536	deviantart.com	Unknown / international (.com/.net/etc.)		Low
+518	537	my.com	Russia		High
+519	538	capcut.com	China	CN	High
+520	539	tplinkcloud.com	China	CN	High
+521	540	teamviewer.com	Germany	DE	High
+522	541	azure-dns.com	Unknown / international (.com/.net/etc.)		Low
+523	542	eset.com	Slovakia	SK	High
+524	543	substack.com	United States	US	High
+525	544	360.cn	China	CN	High
+526	545	cdnvideo.ru	Russia	RU	Medium
+527	546	tripadvisor.com	United States	US	High
+528	547	wix.com	Israel	IL	High
+529	548	adobedtm.com	Unknown / international (.com/.net/etc.)		Low
+530	549	fast.com	Unknown / international (.com/.net/etc.)		Low
+531	550	uk.com	Unknown / international (.com/.net/etc.)		Low
+532	551	dyndns.org	Unknown / international (.com/.net/etc.)		Low
+533	552	amazontrust.com	United States	US	High
+534	553	oup.com	United Kingdom	GB	High
+535	554	notamedia.ru	Russia	RU	Medium
+536	555	tandfonline.com	United Kingdom	GB	High
+537	556	dnspod.net	Unknown / international (.com/.net/etc.)		Low
+538	557	impervadns.net	Unknown / international (.com/.net/etc.)		Low
+539	558	atlassian.com	United States	US	High
+540	559	byteglb.com	Unknown / international (.com/.net/etc.)		Low
+541	560	rlcdn.com	Global / multi-country infrastructure		Medium
+542	561	arubanetworks.com	Unknown / international (.com/.net/etc.)		Low
+543	562	dns-shop.ru	Russia	RU	Medium
+544	563	force.com	United States	US	High
+545	564	hotjar.com	Unknown / international (.com/.net/etc.)		Low
+546	565	withgoogle.com	United States	US	High
+547	566	yahoodns.net	Unknown / international (.com/.net/etc.)		Low
+548	568	playstation.com	Japan	JP	High
+549	570	target.com	Unknown / international (.com/.net/etc.)		Low
+550	571	qlivecdn.com	Global / multi-country infrastructure		Medium
+551	572	ys7.com	Unknown / international (.com/.net/etc.)		Low
+552	573	timeweb.ru	Russia		High
+553	574	markmonitor.com	Unknown / international (.com/.net/etc.)		Low
+554	575	safebrowsing.apple	Unknown / international (.com/.net/etc.)		Low
+555	576	arxiv.org	Unknown / international (.com/.net/etc.)		Low
+556	577	sharethrough.com	Global / multi-country infrastructure		Medium
+557	578	braze.com	United States	US	High
+558	579	xhamster.com	Unknown / international (.com/.net/etc.)		Low
+559	580	a-msedge.net	Global / multi-country infrastructure		Medium
+560	581	berkeley.edu	United States	US	Medium
+561	582	adobedc.net	Unknown / international (.com/.net/etc.)		Low
+562	583	spaceweb.pro	Unknown / international (.com/.net/etc.)		Low
+563	584	cloudflareinsights.com	United States	US	High
+564	585	oraclecloud.com	Unknown / international (.com/.net/etc.)		Low
+565	586	samsungapps.com	South Korea	KR	High
+566	587	xiaomi.net	China	CN	High
+567	588	rt.ru	Russia	RU	Medium
+568	589	ca.gov	United States	US	Medium
+569	590	verisign.com	United States	US	High
+570	591	whecloud.com	China	CN	High
+571	592	mega.co.nz	New Zealand	NZ	Medium
+572	593	avito.ru	Russia		High
+573	594	iiko.it	Italy	IT	Medium
+574	595	bidswitch.net	Unknown / international (.com/.net/etc.)		Low
+575	597	loc.gov	United States	US	Medium
+576	598	consultant.ru	Russia		High
+577	599	wb.ru	Russia	RU	Medium
+578	600	branch.io	Unknown / international (.com/.net/etc.)		Low
+579	601	onetrust.com	United States	US	High
+580	602	aboutads.info	Unknown / international (.com/.net/etc.)		Low
+581	603	live.net	Unknown / international (.com/.net/etc.)		Low
+582	604	nmrodam.com	Unknown / international (.com/.net/etc.)		Low
+583	605	deepl.com	Germany	DE	High
+584	606	ieee.org	United States	US	High
+585	607	jotform.com	United States	US	High
+586	608	britannica.com	United States	US	High
+587	609	surveymonkey.com	United States	US	High
+588	610	ikea.com	Unknown / international (.com/.net/etc.)		Low
+589	611	intercom.io	United States	US	High
+590	612	exp-tas.com	Global / multi-country infrastructure		Medium
+591	613	noaa.gov	United States	US	Medium
+592	614	merriam-webster.com	United States	US	High
+593	615	accuweather.com	United States	US	High
+594	616	free.fr	France	FR	High
+595	617	squarespace.com	United States	US	High
+596	618	hicloud.com	Unknown / international (.com/.net/etc.)		Low
+597	619	klaviyo.com	United States	US	High
+598	620	2gis.com	Russia		High
+599	621	ovh.net	France	FR	High
+600	622	conviva.com	United States	US	High
+601	623	imgur.com	United States	US	High
+602	624	googletagservices.com	United States	US	High
+603	625	nic.io	Unknown / international (.com/.net/etc.)		Low
+604	626	geobasket.ru	Russia		High
+605	627	cafe24.com	Unknown / international (.com/.net/etc.)		Low
+606	628	enacdn.net	Global / multi-country infrastructure		Medium
+607	629	redhat.com	United States	US	High
+608	630	fontawesome.com	United States	US	High
+609	631	telephony.goog	Unknown / international (.com/.net/etc.)		Low
+610	632	yelp.com	United States	US	High
+611	633	shutterstock.com	United States	US	High
+612	634	optimizely.com	United States	US	High
+613	635	mdpi.com	Switzerland	CH	High
+614	636	cnet.com	United States	US	High
+615	637	stackadapt.com	Canada	CA	High
+616	638	nike.com	United States	US	High
+617	639	googlezip.net	United States	US	High
+618	641	twimg.com	United States	US	High
+619	642	licdn.com	United States	US	High
+620	643	nypost.com	United States	US	High
+621	644	cbsnews.com	United States	US	High
+622	645	outbrain.com	Global / multi-country infrastructure		Medium
+623	646	ups.com	United States	US	High
+624	648	ted.com	United States	US	High
+625	649	elpais.com	Spain	ES	High
+626	650	uber.com	United States	US	High
+627	651	w3schools.com	Norway	NO	High
+628	652	rackspace.net	United States	US	High
+629	653	digitalocean.com	United States	US	High
+630	654	dreamhost.com	United States	US	High
+631	655	bx-msedge.net	Global / multi-country infrastructure		Medium
+632	656	comcast.com	United States	US	High
+633	657	bytedns1.com	China	CN	High
+634	659	viber.com	Japan	JP	High
+635	660	wattpad.com	Canada	CA	High
+636	661	vidaahub.com	Unknown / international (.com/.net/etc.)		Low
+637	662	bluehost.com	United States	US	High
+638	664	agkn.com	Global / multi-country infrastructure		Medium
+639	665	unesco.org	Unknown / international (.com/.net/etc.)		Low
+640	666	wswebcdn.com	Global / multi-country infrastructure		Medium
+641	667	anydesk.com	Unknown / international (.com/.net/etc.)		Low
+642	668	dotomi.com	United States	US	High
+643	669	cambridge.org	Unknown / international (.com/.net/etc.)		Low
+644	670	service.gov.uk	United Kingdom	GB	High
+645	671	samsungacr.com	Unknown / international (.com/.net/etc.)		Low
+646	672	yieldmo.com	United States	US	High
+647	673	newrelic.com	United States	US	High
+648	674	typekit.net	United States	US	High
+649	676	techcrunch.com	United States	US	High
+650	677	mailchimp.com	United States	US	High
+651	678	pinimg.com	United States	US	High
+652	680	quantserve.com	Global / multi-country infrastructure		Medium
+653	681	bdydns.com	Global / multi-country infrastructure		Medium
+654	682	smaato.net	Unknown / international (.com/.net/etc.)		Low
+655	683	sophos.com	United Kingdom	GB	High
+656	684	spiegel.de	Germany	DE	High
+657	685	crwdcntrl.net	Global / multi-country infrastructure		Medium
+658	686	ui-dns.com	Unknown / international (.com/.net/etc.)		Low
+659	687	tapad.com	United States	US	High
+660	688	ddnss.de	Germany	DE	Medium
+661	689	ln-msedge.net	Global / multi-country infrastructure		Medium
+662	690	nic.network	Unknown / international (.com/.net/etc.)		Low
+663	691	hihonorcloud.com	Unknown / international (.com/.net/etc.)		Low
+664	692	lemonde.fr	France	FR	High
+665	693	1rx.io	Global / multi-country infrastructure		Medium
+666	694	zoom.com	United States	US	High
+667	695	marriott.com	United States	US	High
+668	697	id5-sync.com	United States	US	High
+669	698	lijit.com	Unknown / international (.com/.net/etc.)		Low
+670	699	360safe.com	Unknown / international (.com/.net/etc.)		Low
+671	700	disneyplus.com	Unknown / international (.com/.net/etc.)		Low
+672	701	volcfcdndvs.com	Global / multi-country infrastructure		Medium
+673	702	ovscdns.com	Global / multi-country infrastructure		Medium
+674	703	appcenter.ms	Unknown / international (.com/.net/etc.)		Low
+675	704	b-msedge.net	Global / multi-country infrastructure		Medium
+676	705	bidr.io	Global / multi-country infrastructure		Medium
+677	706	asus.com	Unknown / international (.com/.net/etc.)		Low
+678	707	steamstatic.com	Unknown / international (.com/.net/etc.)		Low
+679	708	ring.com	Unknown / international (.com/.net/etc.)		Low
+680	709	xvideos.com	Unknown / international (.com/.net/etc.)		Low
+681	710	edgecastdns.net	Unknown / international (.com/.net/etc.)		Low
+682	711	tencent.com	China	CN	High
+683	712	sagepub.com	Unknown / international (.com/.net/etc.)		Low
+684	713	appspot.com	Unknown / international (.com/.net/etc.)		Low
+685	714	grammarly.io	Unknown / international (.com/.net/etc.)		Low
+686	715	ks-cdn.com	Global / multi-country infrastructure		Medium
+687	716	mediafire.com	Unknown / international (.com/.net/etc.)		Low
+688	717	bunnyinfra.net	Unknown / international (.com/.net/etc.)		Low
+689	718	imrworldwide.com	Unknown / international (.com/.net/etc.)		Low
+690	719	freepik.com	Spain	ES	High
+691	720	githubusercontent.com	United States	US	High
+692	722	wbbasket.ru	Russia	RU	Medium
+693	723	ipinfo.io	Unknown / international (.com/.net/etc.)		Low
+694	724	cursor.sh	Unknown / international (.com/.net/etc.)		Low
+695	725	selectel.ru	Russia		High
+696	726	abovedomains.com	Unknown / international (.com/.net/etc.)		Low
+697	727	bestbuy.com	Unknown / international (.com/.net/etc.)		Low
+698	728	box.com	United States	US	High
+699	729	browser-intake-datadoghq.com	United States	US	High
+700	730	hath.network	Unknown / international (.com/.net/etc.)		Low
+701	731	dbankcloud.com	China	CN	High
+702	732	bugsnag.com	United States	US	High
+703	733	threads.com	Unknown / international (.com/.net/etc.)		Low
+704	735	creativecdn.com	Global / multi-country infrastructure		Medium
+705	736	allaboutcookies.org	Unknown / international (.com/.net/etc.)		Low
+706	737	homedepot.com	United States	US	High
+707	738	liadm.com	United States	US	High
+708	739	usgovcloudapi.net	Unknown / international (.com/.net/etc.)		Low
+709	741	herokudns.com	Unknown / international (.com/.net/etc.)		Low
+710	742	omnitagjs.com	Global / multi-country infrastructure		Medium
+711	745	afilias-nst.info	Unknown / international (.com/.net/etc.)		Low
+712	746	airbnb.com	United States	US	High
+713	747	irs.gov	United States	US	Medium
+714	748	bitrix24.ru	Russia	RU	Medium
+715	749	criteo.net	Global / multi-country infrastructure		Medium
+716	750	networkadvertising.org	United States	US	High
+717	751	bandcamp.com	United States	US	High
+718	752	gumgum.com	Global / multi-country infrastructure		Medium
+719	753	zillow.com	United States	US	High
+720	754	he.net	Unknown / international (.com/.net/etc.)		Low
+721	755	latimes.com	United States	US	High
+722	756	dhl.com	United States	US	High
+723	757	nel.goog	Unknown / international (.com/.net/etc.)		Low
+724	758	bytefcdn-ttpeu.com	Global / multi-country infrastructure		Medium
+725	759	lgtvcommon.com	South Korea	KR	High
+726	760	rackspace.com	Unknown / international (.com/.net/etc.)		Low
+727	761	liftoff.io	Global / multi-country infrastructure		Medium
+728	762	everesttech.net	Unknown / international (.com/.net/etc.)		Low
+729	763	zoho.com	India	IN	High
+730	764	ameblo.jp	Japan	JP	High
+731	765	stripchat.com	Unknown / international (.com/.net/etc.)		Low
+732	766	adform.net	Global / multi-country infrastructure		Medium
+733	767	fda.gov	United States	US	Medium
+734	768	chinamobile.com	Unknown / international (.com/.net/etc.)		Low
+735	769	fiverr.com	United States	US	High
+736	770	myspace.com	United States	US	High
+737	771	ozone.ru	Russia	RU	Medium
+738	772	prnewswire.com	United States	US	High
+739	773	hbr.org	Unknown / international (.com/.net/etc.)		Low
+740	774	mixpanel.com	Unknown / international (.com/.net/etc.)		Low
+741	775	hostgator.com.br	Brazil	BR	High
+742	776	people.com	United States	US	High
+743	777	nikkei.com	Japan	JP	High
+744	778	theverge.com	United States	US	High
+745	779	python.org	Unknown / international (.com/.net/etc.)		Low
+746	780	teads.tv	Global / multi-country infrastructure		Medium
+747	781	33across.com	Global / multi-country infrastructure		Medium
+748	783	disqus.com	United States	US	High
+749	784	me.com	Unknown / international (.com/.net/etc.)		Low
+750	785	turn.com	United States	US	High
+751	786	washington.edu	United States	US	Medium
+752	787	no-ip.com	United States	US	High
+753	788	fb-t-msedge.net	Global / multi-country infrastructure		Medium
+754	789	lenovo.com	Unknown / international (.com/.net/etc.)		Low
+755	790	iso.org	Unknown / international (.com/.net/etc.)		Low
+756	791	mckinsey.com	United States	US	High
+757	792	a-mo.net	Unknown / international (.com/.net/etc.)		Low
+758	793	adjust.com	United States	US	High
+759	794	investopedia.com	United States	US	High
+760	795	life360.com	United States	US	High
+761	796	rakuten.com	Japan	JP	High
+762	797	mayoclinic.org	United States	US	High
+763	798	wps.com	United States	US	High
+764	799	alipaydns.com	China	CN	High
+765	800	otto.de	Germany	DE	High
+766	801	welt.de	Germany	DE	High
+767	802	fwmrm.net	Global / multi-country infrastructure		Medium
+768	803	mhverifier.ru	Russia	RU	Medium
+769	804	primevideo.com	United States	US	High
+770	805	onlyfans.com	Unknown / international (.com/.net/etc.)		Low
+771	806	bild.de	Germany	DE	High
+772	807	lefigaro.fr	France	FR	High
+773	808	datadoghq.com	United States	US	High
+774	809	recaptcha.net	United States	US	High
+775	810	virginm.net	Unknown / international (.com/.net/etc.)		Low
+776	811	globalsign.com	United States	US	High
+777	812	mercadolivre.com.br	Brazil	BR	High
+778	813	xbox.com	United States	US	High
+779	814	synology.com	United States	US	High
+780	815	upwork.com	United States	US	High
+781	816	wp.pl	Poland	PL	High
+782	817	usps.com	United States	US	High
+783	818	erome.com	Unknown / international (.com/.net/etc.)		Low
+784	819	allegro.pl	Poland	PL	High
+785	820	singular.net	Unknown / international (.com/.net/etc.)		Low
+786	821	spotifycdn.com	Global / multi-country infrastructure		Medium
+787	822	vivo.com.cn	China	CN	Medium
+788	823	it.com	Unknown / international (.com/.net/etc.)		Low
+789	824	themeforest.net	United States	US	High
+790	825	yellowblue.io	Unknown / international (.com/.net/etc.)		Low
+791	826	academia.edu	United States	US	Medium
+792	827	moloco.com	Unknown / international (.com/.net/etc.)		Low
+793	828	webmd.com	United States	US	High
+794	829	cdnhwc1.com	Global / multi-country infrastructure		Medium
+795	830	squarespacedns.com	Unknown / international (.com/.net/etc.)		Low
+796	831	unpkg.com	United States	US	High
+797	832	dbankcloud.ru	China	CN	High
+798	833	focus.de	Germany	DE	High
+799	834	figma.com	United States	US	High
+800	835	typeform.com	United States	US	High
+801	836	discogs.com	United States	US	High
+802	837	utorrent.com	United States	US	High
+803	838	cloudinary.com	United States	US	High
+804	839	arcgis.com	United States	US	High
+805	840	onetag-sys.com	Global / multi-country infrastructure		Medium
+806	841	herokuapp.com	United States	US	High
+807	842	aniview.com	Global / multi-country infrastructure		Medium
+808	843	zenecn.net	Unknown / international (.com/.net/etc.)		Low
+809	845	pornhub.com	Unknown / international (.com/.net/etc.)		Low
+810	846	ssl-images-amazon.com	United States	US	High
+811	847	livejournal.com	United States	US	High
+812	848	pccc.com	Unknown / international (.com/.net/etc.)		Low
+813	849	sedo.com	United States	US	High
+814	850	pexels.com	United States	US	High
+815	851	nintendo.net	Japan	JP	High
+816	852	openstreetmap.org	Unknown / international (.com/.net/etc.)		Low
+817	853	miwifi.com	China	CN	High
+818	854	afilias-nst.org	Unknown / international (.com/.net/etc.)		Low
+819	855	princeton.edu	United States	US	Medium
+820	856	shopeemobile.com	China	CN	High
+821	857	usda.gov	United States	US	Medium
+822	858	qualtrics.com	United States	US	High
+823	859	flashtalking.com	United States	US	High
+824	860	thenai.org	Unknown / international (.com/.net/etc.)		Low
+825	861	pendo.io	United States	US	High
+826	862	chess.com	United States	US	High
+827	863	azure-devices.net	Unknown / international (.com/.net/etc.)		Low
+828	864	agoda.com	United States	US	High
+829	865	bytefcdn-ttpus.com	Global / multi-country infrastructure		Medium
+830	866	ci-servers.net	Global / multi-country infrastructure		Medium
+831	867	cmediahub.ru	Global / multi-country infrastructure		Medium
+832	869	healthline.com	United States	US	High
+833	870	seznam.cz	Czechia	CZ	High
+834	871	kaspi.kz	Kazakhstan	KZ	Medium
+835	872	goskope.com	Unknown / international (.com/.net/etc.)		Low
+836	873	xerox.com	United States	US	High
+837	874	ci-servers.org	Global / multi-country infrastructure		Medium
+838	875	kick.com	United States	US	High
+839	877	go-mpulse.net	Global / multi-country infrastructure		Medium
+840	878	bankofamerica.com	United States	US	High
+841	879	smartthings.com	Unknown / international (.com/.net/etc.)		Low
+842	880	fidelity.com	United States	US	High
+843	881	deloitte.com	United States	US	High
+844	882	worldbank.org	United States	US	High
+845	883	aiv-delivery.net	Unknown / international (.com/.net/etc.)		Low
+846	884	jetbrains.com	United States	US	High
+847	885	justice.gov	United States	US	Medium
+848	886	sentinelone.net	United States	US	High
+849	887	samsungosp.com	South Korea	KR	High
+850	888	cdn-vk.ru	Russia		High
+851	889	nationalgeographic.com	United States	US	High
+852	890	tiktokrow-cdn.com	Global / multi-country infrastructure		Medium
+853	891	playrix.com	Unknown / international (.com/.net/etc.)		Low
+854	892	wpguardian.com	Unknown / international (.com/.net/etc.)		Low
+855	893	genius.com	United States	US	High
+856	894	sportradar.com	United States	US	High
+857	895	eu-1-id5-sync.com	Global / multi-country infrastructure		Medium
+858	896	docker.io	United States	US	High
+859	897	mailchi.mp	United States	US	High
+860	898	wpguardian.io	Unknown / international (.com/.net/etc.)		Low
+861	899	ubnt.com	Unknown / international (.com/.net/etc.)		Low
+862	900	tplinknbu.com	China	CN	High
+863	901	www.gov.br	Brazil	BR	Medium
+864	902	frontiersin.org	United States	US	High
+865	903	nintendo.com	Japan	JP	High
+866	904	biblegateway.com	United States	US	High
+867	905	onet.pl	Poland	PL	High
+868	906	youku.com	China	CN	High
+869	907	opera-api.com	Unknown / international (.com/.net/etc.)		Low
+870	908	chaturbate.com	Unknown / international (.com/.net/etc.)		Low
+871	909	poki.com	United States	US	High
+872	910	tiktokw.us	United States	US	Medium
+873	911	agora.io	Unknown / international (.com/.net/etc.)		Low
+874	912	digitaloceanspaces.com	Unknown / international (.com/.net/etc.)		Low
+875	913	ryanair.com	Unknown / international (.com/.net/etc.)		Low
+876	914	rutube.ru	Russia		High
+877	915	hm.com	Unknown / international (.com/.net/etc.)		Low
+878	916	webempresa.eu	Unknown / international (.com/.net/etc.)		Low
+879	917	character.ai	Unknown / international (.com/.net/etc.)		Low
+880	918	theatlantic.com	United States	US	High
+881	919	pbs.org	United States	US	High
+882	920	linode.com	United States	US	High
+883	921	rambler.ru	Russia		High
+884	922	ubi.com	United States	US	High
+885	923	nextlgsdp.com	Unknown / international (.com/.net/etc.)		Low
+886	924	kleinanzeigen.de	Germany	DE	High
+887	925	whitehouse.gov	United States	US	Medium
+888	926	smilewanted.com	Unknown / international (.com/.net/etc.)		Low
+889	927	ddns.net	Unknown / international (.com/.net/etc.)		Low
+890	928	seedtag.com	United States	US	High
+891	929	kontur.ru	Russia	RU	Medium
+892	930	segment.io	United States	US	High
+893	931	repubblica.it	Italy	IT	High
+894	932	clever.com	United States	US	High
+895	933	bytefcdn.com	Global / multi-country infrastructure		Medium
+896	934	lowes.com	United States	US	High
+897	935	epa.gov	United States	US	Medium
+898	936	verizon.com	United States	US	High
+899	937	adgrx.com	Global / multi-country infrastructure		Medium
+900	938	readthedocs.io	Unknown / international (.com/.net/etc.)		Low
+901	939	daum.net	South Korea	KR	High
+902	940	state.gov	United States	US	Medium
+903	941	huffpost.com	United States	US	High
+904	942	fbsbx.com	United States	US	High
+905	943	xnxx.com	Unknown / international (.com/.net/etc.)		Low
+906	944	gtm-a2b2.com	Unknown / international (.com/.net/etc.)		Low
+907	945	kunluncan.com	Unknown / international (.com/.net/etc.)		Low
+908	946	weforum.org	Unknown / international (.com/.net/etc.)		Low
+909	947	rbc.ru	Russia		High
+910	948	prodregistryv2.org	Unknown / international (.com/.net/etc.)		Low
+911	949	corriere.it	Italy	IT	High
+912	950	samsungcloudsolution.net	South Korea	KR	High
+913	951	zhihu.com	China	CN	High
+914	952	service-now.com	United States	US	High
+915	953	leiniao.com	Unknown / international (.com/.net/etc.)		Low
+916	954	vk-analytics.ru	Russia		High
+917	956	jd.com	China	CN	High
+918	957	spamhaus.org	United States	US	High
+919	958	footprintdns.com	Global / multi-country infrastructure		Medium
+920	959	elmundo.es	Spain	ES	High
+921	960	grok.com	Unknown / international (.com/.net/etc.)		Low
+922	961	pushy.io	United States	US	High
+923	962	mercadolibre.com.ar	Argentina	AR	Medium
+924	964	tsyndicate.com	Unknown / international (.com/.net/etc.)		Low
+925	965	xing.com	United States	US	High
+926	966	kickstarter.com	United States	US	High
+927	967	netgear.com	United States	US	High
+928	968	cdnhwc2.com	Global / multi-country infrastructure		Medium
+929	969	kslawin.com	Unknown / international (.com/.net/etc.)		Low
+930	970	yandexcloud.net	Russia		High
+931	971	columbia.edu	United States	US	Medium
+932	972	costco.com	United States	US	High
+933	973	nexusmods.com	United States	US	High
+934	974	poshvine.com	Unknown / international (.com/.net/etc.)		Low
+935	975	kwai.com	China	CN	High
+936	976	bol.com	Netherlands	NL	High
+937	977	umich.edu	United States	US	Medium
+938	978	onesignal.com	United States	US	High
+939	979	px-cloud.net	Global / multi-country infrastructure		Medium
+940	980	flipkart.com	India	IN	High
+941	981	amagi.tv	Unknown / international (.com/.net/etc.)		Low
+942	982	theconversation.com	United States	US	High
+943	983	adblockplus.org	United States	US	High
+944	984	caixa.gov.br	Brazil	BR	High
+945	985	note.com	Unknown / international (.com/.net/etc.)		Low
+946	986	binance.com	Unknown / international (.com/.net/etc.)		Low
+947	987	nexthink.cloud	Unknown / international (.com/.net/etc.)		Low
+948	988	lge.com	Unknown / international (.com/.net/etc.)		Low
+949	989	faphouse.com	Unknown / international (.com/.net/etc.)		Low
+950	990	sofascore.com	Unknown / international (.com/.net/etc.)		Low
+951	991	privacy-mgmt.com	Global / multi-country infrastructure		Medium
+952	992	pvp.net	Global / multi-country infrastructure		Medium
+953	993	pixiv.net	Japan	JP	High
+954	994	kueezrtb.com	Global / multi-country infrastructure		Medium
+955	995	cdek.ru	Russia	RU	Medium
+956	996	pikabu.ru	Russia		High
+957	997	dynatracelabs.com	Unknown / international (.com/.net/etc.)		Low
+958	998	quizlet.com	Unknown / international (.com/.net/etc.)		Low
+959	999	salesforceliveagent.com	Unknown / international (.com/.net/etc.)		Low
+960	1000	firebaseio.com	Unknown / international (.com/.net/etc.)		Low
+961	1001	4dex.io	Unknown / international (.com/.net/etc.)		Low
+962	1002	youronlinechoices.com	Unknown / international (.com/.net/etc.)		Low
+963	1003	kohls.com	Unknown / international (.com/.net/etc.)		Low
+964	1004	ad-delivery.net	Global / multi-country infrastructure		Medium
+965	1005	sbb.ch	Switzerland	CH	High
+966	1006	olympics.com	United States	US	High
+967	1007	ancestry.com	United States	US	High
+968	1008	kwcdn.com	Global / multi-country infrastructure		Medium
+969	1009	ecosia.org	Unknown / international (.com/.net/etc.)		Low
+970	1010	heytapmobi.com	Unknown / international (.com/.net/etc.)		Low
+971	1011	leparisien.fr	France	FR	High
+972	1012	infobae.com	Unknown / international (.com/.net/etc.)		Low
+973	1014	incapdns.net	Unknown / international (.com/.net/etc.)		Low
+974	1015	change.org	United States	US	High
+975	1016	macys.com	United States	US	High
+976	1017	tiktokpangle.us	United States	US	Medium
+977	1018	bidmachine.io	Global / multi-country infrastructure		Medium
+978	1019	epicgames.dev	Unknown / international (.com/.net/etc.)		Low
+979	1020	jimdo.com	United States	US	High
+980	1021	immedia-semi.com	Unknown / international (.com/.net/etc.)		Low
+981	1022	trendyol.com	Turkey		High
+982	1023	websitewelcome.com	Unknown / international (.com/.net/etc.)		Low
+983	1024	dribbble.com	United States	US	High
+984	1025	riotgames.com	United States	US	High
+985	1026	yximgs.com	Unknown / international (.com/.net/etc.)		Low
+986	1027	yimg.com	Unknown / international (.com/.net/etc.)		Low
+987	1028	odoo.com	Unknown / international (.com/.net/etc.)		Low
+988	1029	eu.com	Unknown / international (.com/.net/etc.)		Low
+989	1030	afafb.com	Global / multi-country infrastructure		Medium
+990	1031	msftauth.net	Unknown / international (.com/.net/etc.)		Low
+991	1032	1drv.com	Unknown / international (.com/.net/etc.)		Low
+992	1033	fbpigeon.com	Unknown / international (.com/.net/etc.)		Low
+993	1034	coupang.com	South Korea	KR	High
+994	1035	rtbcdn.ru	Global / multi-country infrastructure		Medium
+995	1036	webhostbox.net	United States	US	High
+996	1037	redfin.com	United States	US	High
+997	1038	ovscdns.net	Global / multi-country infrastructure		Medium
+998	1039	app-analytics-services-att.com	Unknown / international (.com/.net/etc.)		Low
+999	1040	classlink.com	Unknown / international (.com/.net/etc.)		Low
+1000	1041	yle.fi	Finland	FI	High
+1001	1042	orderbox-dns.com	Unknown / international (.com/.net/etc.)		Low
+1002	1043	i18n-pglstatp.com	Unknown / international (.com/.net/etc.)		Low
+1003	1044	crazygames.com	United States	US	High
+1004	1045	cbc.ca	Canada	CA	High
+1005	1046	warnerbros.com	United States	US	High
+1006	1047	abc.es	Spain	ES	High
+1007	1048	xhcdn.com	Global / multi-country infrastructure		Medium
+1008	1049	split.io	Unknown / international (.com/.net/etc.)		Low
+1009	1050	signal.org	Unknown / international (.com/.net/etc.)		Low
+1010	1051	russianpost.ru	Russia	RU	Medium
+1011	1052	marca.com	Spain	ES	High
+1012	1053	as.com	Unknown / international (.com/.net/etc.)		Low
+1013	1054	richaudience.com	Global / multi-country infrastructure		Medium
+1014	1055	hilton.com	United States	US	High
+1015	1056	ouest-france.fr	France	FR	High
+1016	1057	alphonso.tv	Unknown / international (.com/.net/etc.)		Low
+1017	1058	terra.com.br	Brazil	BR	High
+1018	1059	cqloud.com	China	CN	High
+1019	1061	letterboxd.com	United States	US	High
+1020	1062	bfmtv.com	Unknown / international (.com/.net/etc.)		Low
+1021	1064	megafon.ru	Russia	RU	Medium
+1022	1065	notion.so	Unknown / international (.com/.net/etc.)		Low
+1023	1066	hotstar.com	Unknown / international (.com/.net/etc.)		Low
+1024	1067	n-tv.de	Germany	DE	High
+1025	1068	attn.tv	Unknown / international (.com/.net/etc.)		Low
+1026	1069	presage.io	Global / multi-country infrastructure		Medium
+1027	1070	ameba.jp	Japan	JP	Medium
+1028	1071	statcounter.com	United States	US	High
+1029	1073	onedrive.com	United States	US	High
+1030	1074	ndr.de	Germany	DE	High
+1031	1075	ilovepdf.com	United States	US	High
+1032	1076	stratoserver.net	Germany	DE	High
+1033	1077	ox.ac.uk	United Kingdom	GB	High
+1034	1078	superhosting.bg	Bulgaria	BG	Medium
+1035	1079	edna.ru	Russia	RU	Medium
+1036	1080	skroutz.gr	Greece	GR	High
+1037	1081	coursera.org	Unknown / international (.com/.net/etc.)		Low
+1038	1082	featureassets.org	Global / multi-country infrastructure		Medium
+1039	1083	meethue.com	Unknown / international (.com/.net/etc.)		Low
+1040	1084	huffingtonpost.com	Unknown / international (.com/.net/etc.)		Low
+1041	1085	parklogic.com	Unknown / international (.com/.net/etc.)		Low
+1042	1086	idnes.cz	Czechia	CZ	High
+1043	1087	moneycontrol.com	India	IN	High
+1044	1088	docomo.ne.jp	Japan	JP	High
+1045	1089	archiveofourown.org	Unknown / international (.com/.net/etc.)		Low
+1046	1090	cloudsink.net	Unknown / international (.com/.net/etc.)		Low
+1047	1092	contentsquare.net	Unknown / international (.com/.net/etc.)		Low
+1048	1093	mythad.com	Unknown / international (.com/.net/etc.)		Low
+1049	1094	lwsdns.com	Unknown / international (.com/.net/etc.)		Low
+1050	1095	gsmarena.com	Unknown / international (.com/.net/etc.)		Low
+1051	1096	fortune.com	Unknown / international (.com/.net/etc.)		Low
+1052	1097	1c.ru	Russia	RU	Medium
+1053	1098	maricopa.gov	United States	US	Medium
+1054	1099	samsungcloud.tv	South Korea	KR	High
+1055	1100	franceinfo.fr	France	FR	High
+1056	1101	garmin.com	Unknown / international (.com/.net/etc.)		Low
+1057	1102	cspserver.net	Global / multi-country infrastructure		Medium
+1058	1103	leboncoin.fr	France	FR	High
+1059	1104	inkuai.com	Unknown / international (.com/.net/etc.)		Low
+1060	1105	eporner.com	Unknown / international (.com/.net/etc.)		Low
+1061	1106	economist.com	Unknown / international (.com/.net/etc.)		Low
+1062	1107	wise.com	Unknown / international (.com/.net/etc.)		Low
+1063	1108	us.com	Unknown / international (.com/.net/etc.)		Low
+1064	1109	tnaflix.com	Unknown / international (.com/.net/etc.)		Low
+1065	1110	microsoftpersonalcontent.com	Unknown / international (.com/.net/etc.)		Low
+1066	1111	lgtvsdp.com	South Korea	KR	High
+1067	1112	apa.org	Unknown / international (.com/.net/etc.)		Low
+1068	1113	deezer.com	France	FR	High
+1069	1114	mercari.com	Japan	JP	High
+1070	1115	oecd.org	Unknown / international (.com/.net/etc.)		Low
+1071	1116	ultimate-guitar.com	Unknown / international (.com/.net/etc.)		Low
+1072	1117	sahibinden.com	Turkey		High
+1073	1118	vivo.com	Unknown / international (.com/.net/etc.)		Low
+1074	1119	usercentrics.eu	Unknown / international (.com/.net/etc.)		Low
+1075	1120	vercel.app	United States	US	High
+1076	1122	gofundme.com	United States	US	High
+1077	1123	tabelog.com	Unknown / international (.com/.net/etc.)		Low
+1078	1124	xhscdn.com	Global / multi-country infrastructure		Medium
+1079	1125	finn.no	Norway	NO	High
+1080	1126	plos.org	Unknown / international (.com/.net/etc.)		Low
+1081	1127	skysports.com	United States	US	High
+1082	1128	ttlivecdn.com	Global / multi-country infrastructure		Medium
+1083	1129	yale.edu	United States	US	Medium
+1084	1130	zeit.de	Germany	DE	High
+1085	1131	pandora.com	United States	US	High
+1086	1132	hltv.org	Unknown / international (.com/.net/etc.)		Low
+1087	1133	mercadolibre.com.mx	Mexico	MX	Medium
+1088	1135	lanacion.com.ar	Argentina	AR	Medium
+1089	1137	byteoversea.com	China	CN	High
+1090	1138	phncdn.com	Global / multi-country infrastructure		Medium
+1091	1139	snapkit.com	United States	US	High
+1092	1140	gismeteo.ru	Russia	RU	Medium
+1093	1141	dafont.com	United States	US	High
+1094	1142	apigee.net	Unknown / international (.com/.net/etc.)		Low
+1095	1143	company-target.com	Global / multi-country infrastructure		Medium
+1096	1144	bitdefender.net	Unknown / international (.com/.net/etc.)		Low
+1097	1145	jstor.org	United States	US	High
+1098	1146	psychologytoday.com	United States	US	High
+1099	1147	usercontent.goog	Unknown / international (.com/.net/etc.)		Low
+1100	1148	azure.net	Unknown / international (.com/.net/etc.)		Low
+1101	1149	furaffinity.net	United States	US	High
+1102	1150	tinkoff.ru	Russia		High
+1103	1151	flashscore.com	United States	US	High
+1104	1152	biomedcentral.com	United States	US	High
+1105	1153	espncricinfo.com	United States	US	High
+1106	1154	ad.nl	Netherlands	NL	High
+1107	1155	idealista.com	Spain	ES	High
+1108	1156	amemv.com	Unknown / international (.com/.net/etc.)		Low
+1109	1157	susercontent.com	Unknown / international (.com/.net/etc.)		Low
+1110	1158	bet365.com	United States	US	High
+1111	1159	trello.com	United States	US	High
+1112	1160	aftonbladet.se	Sweden	SE	High
+1113	1161	vg.no	Norway	NO	High
+1114	1162	starlink.com	United States	US	High
+1115	1163	businesswire.com	United States	US	High
+1116	1164	tubi.io	Unknown / international (.com/.net/etc.)		Low
+1117	1165	lichess.org	United States	US	High
+1118	1166	20minutes.fr	France	FR	High
+1119	1167	aparat.com	Unknown / international (.com/.net/etc.)		Low
+1120	1168	jw.org	Unknown / international (.com/.net/etc.)		Low
+1121	1169	cookpad.com	Japan	JP	High
+1122	1170	newsweek.com	United States	US	High
+1123	1171	nsone.net	Unknown / international (.com/.net/etc.)		Low
+1124	1172	nu.nl	Netherlands	NL	High
+1125	1173	wordwall.net	United States	US	High
+1126	1174	ioam.de	Germany	DE	Medium
+1127	1175	dmm.co.jp	Japan	JP	Medium
+1128	1176	tradplusad.com	Global / multi-country infrastructure		Medium
+1129	1177	vivox.com	Unknown / international (.com/.net/etc.)		Low
+1130	1178	vnexpress.net	Unknown / international (.com/.net/etc.)		Low
+1131	1179	instructure.com	Unknown / international (.com/.net/etc.)		Low
+1132	1180	rule34.xxx	Unknown / international (.com/.net/etc.)		Low
+1133	1181	rustdesk.com	United States	US	High
+1134	1182	easy4ipcloud.com	China	CN	High
+1135	1183	lequipe.fr	France	FR	High
+1136	1184	abc.net.au	Australia	AU	High
+1137	1185	tendawifi.com	China	CN	High
+1138	1186	amd.com	United States	US	High
+1139	1187	alipay.com	China	CN	High
+1140	1188	spoonflower.com	United States	US	High
+1141	1189	usnews.com	United States	US	High
+1142	1190	tbs.co.jp	Japan	JP	High
+1143	1191	pornpics.com	Unknown / international (.com/.net/etc.)		Low
+1144	1192	rightmove.co.uk	United Kingdom	GB	High
+1145	1193	janitorai.com	United States	US	High
+1146	1194	spankbang.com	Unknown / international (.com/.net/etc.)		Low
+1147	1195	hurriyet.com.tr	Turkey		High
+1148	1196	wowhead.com	United States	US	High
+1149	1197	cnnbrasil.com.br	Brazil	BR	High
+1150	1198	bilibili.tv	Unknown / international (.com/.net/etc.)		Low
+1151	1199	meesho.com	India	IN	High
+1152	1200	rapid7.com	United States	US	High
+1153	1201	itmedia.co.jp	Japan	JP	High
+1154	1202	mmechocaptiveportal.com	Unknown / international (.com/.net/etc.)		Low
+1155	1203	groww.in	India	IN	High
+1156	1204	remove.bg	Bulgaria	BG	Medium
+1157	1205	bund.de	Germany	DE	High
+1158	1206	acesso.gov.br	Brazil	BR	High
+1159	1207	wayground.com	United States	US	High
+1160	1208	pravda.com.ua	Ukraine	UA	High
+1161	1210	infoseek.co.jp	Japan	JP	High
+1162	1211	marktplaats.nl	Netherlands	NL	High
+1163	1212	hpeprint.com	United States	US	High
+1164	1213	icanhazip.com	Unknown / international (.com/.net/etc.)		Low
+1165	1214	indiamart.com	India	IN	High
+1166	1216	gazzetta.it	Italy	IT	High
+1167	1217	ynet.co.il	Israel	IL	High
+1168	1218	ixbt.com	Unknown / international (.com/.net/etc.)		Low
+1169	1219	ctdns.cn	China	CN	Medium
+1170	1221	adaether.com	Unknown / international (.com/.net/etc.)		Low
+1171	1223	att.net	United States	US	High
+1172	1224	upenn.edu	United States	US	Medium
+1173	1225	stbid.ru	Global / multi-country infrastructure		Medium
+1174	1226	boyfriendtv.com	Unknown / international (.com/.net/etc.)		Low
+1175	1227	psu.edu	United States	US	Medium
+1176	1228	buzzfeed.com	United States	US	High
+1177	1229	btloader.com	Unknown / international (.com/.net/etc.)		Low
+1178	1230	youporn.com	Unknown / international (.com/.net/etc.)		Low
+1179	1231	sportybet.com	Unknown / international (.com/.net/etc.)		Low
+1180	1232	fetlife.com	Unknown / international (.com/.net/etc.)		Low
+1181	1233	tabor.ru	Russia	RU	Medium
+1182	1234	expressen.se	Sweden	SE	High
+1183	1235	mundodeportivo.com	Unknown / international (.com/.net/etc.)		Low
+1184	1236	hik-connect.com	Unknown / international (.com/.net/etc.)		Low
+1185	1237	namu.wiki	South Korea	KR	High
+1186	1239	ucla.edu	United States	US	Medium
+1187	1240	viasat.io	Unknown / international (.com/.net/etc.)		Low
+1188	1241	myntra.com	India	IN	High
+1189	1242	argos.co.uk	United Kingdom	GB	High
+1190	1244	fanfiction.net	United States	US	High
+1191	1245	prom.ua	Ukraine	UA	High
+1192	1248	cricbuzz.com	Unknown / international (.com/.net/etc.)		Low
+1193	1249	livedoor.com	Japan	JP	High
+1194	1250	bmj.com	Unknown / international (.com/.net/etc.)		Low
+1195	1251	vercel-dns-016.com	Global / multi-country infrastructure		Medium
+1196	1252	makemytrip.com	India	IN	High
+1197	1253	merkur.de	Germany	DE	High
+1198	1254	hln.be	Belgium	BE	Medium
+1199	1255	leroymerlin.fr	France	FR	High
+1200	1256	livescore.com	United States	US	High
+1201	1257	ixl.com	Unknown / international (.com/.net/etc.)		Low
+1202	1258	hotpepper.jp	Japan	JP	High
+1203	1259	uci.edu	United States	US	Medium
+1204	1260	dcinside.com	South Korea	KR	High
+1205	1261	redtube.com	Unknown / international (.com/.net/etc.)		Low
+1206	1262	lc.chat	Unknown / international (.com/.net/etc.)		Low
+1207	1263	blooket.com	United States	US	High
+1208	1264	cdiscount.com	United States	US	High
+1209	1265	hugedomains.com	Unknown / international (.com/.net/etc.)		Low
+1210	1266	ladepeche.fr	France	FR	High
+1211	1267	kicker.de	Germany	DE	High
+1212	1268	ceneo.pl	Poland	PL	High
+1213	1269	xhopen.com	Unknown / international (.com/.net/etc.)		Low
+1214	1270	avira.com	United States	US	High
+1215	1271	labs.google	Unknown / international (.com/.net/etc.)		Low
+1216	1272	gdemoideti.ru	Russia	RU	Medium
+1217	1273	litnet.com	Unknown / international (.com/.net/etc.)		Low
+1218	1274	b7510.com	Unknown / international (.com/.net/etc.)		Low
+1219	1275	letsencrypt.org	United States	US	High
+1220	1276	actu.fr	France	FR	High
+1221	1277	emag.ro	Romania	RO	Medium
+1222	1278	akismet.com	United States	US	High
+1223	1279	dw.com	Germany	DE	High
+1224	1280	admin.ch	Switzerland	CH	High
+1225	1281	pimpbunny.com	Unknown / international (.com/.net/etc.)		Low
+1226	1282	naukri.com	India	IN	High
+1227	1283	datadome.co	Unknown / international (.com/.net/etc.)		Low
+1228	1284	cloud.com	Unknown / international (.com/.net/etc.)		Low
+1229	1285	postgresql.org	Unknown / international (.com/.net/etc.)		Low
+1230	1286	ap4r.com	Global / multi-country infrastructure		Medium
+1231	1287	polybuzz.ai	Unknown / international (.com/.net/etc.)		Low
+1232	1288	championat.com	Unknown / international (.com/.net/etc.)		Low
+1233	1289	fedoraproject.org	Unknown / international (.com/.net/etc.)		Low
+1234	1290	playhop.com	Unknown / international (.com/.net/etc.)		Low
+1235	1291	calculator.net	Unknown / international (.com/.net/etc.)		Low
+1236	1292	aternos.org	Unknown / international (.com/.net/etc.)		Low
+1237	1293	buydomains.com	Unknown / international (.com/.net/etc.)		Low
+1238	1294	noodlemagazine.com	Unknown / international (.com/.net/etc.)		Low
+1239	1295	umn.edu	United States	US	Medium
+1240	1296	gcash.com	Unknown / international (.com/.net/etc.)		Low
+1241	1297	vtwenty.com	Unknown / international (.com/.net/etc.)		Low
+1242	1298	jusbrasil.com.br	Brazil	BR	High
+1243	1299	ilfattoquotidiano.it	Italy	IT	Medium
+1244	1300	justdial.com	Unknown / international (.com/.net/etc.)		Low
+1245	1301	txnhh.com	Unknown / international (.com/.net/etc.)		Low
+1246	1302	xgroovy.com	Unknown / international (.com/.net/etc.)		Low
+1247	1303	autotrader.co.uk	United Kingdom	GB	High
+1248	1304	twilio.com	United States	US	High
+1249	1305	asahi.com	Japan	JP	High
+1250	1306	idealista.it	Italy	IT	Medium
+1251	1307	statuspage.io	United States	US	High
+1252	1308	dlsite.com	Unknown / international (.com/.net/etc.)		Low
+1253	1309	futbin.com	Unknown / international (.com/.net/etc.)		Low
+1254	1310	dnse0.com	Global / multi-country infrastructure		Medium
+1255	1311	videy.co	Unknown / international (.com/.net/etc.)		Low
+1256	1312	funpay.com	United States	US	High
+1257	1313	sapo.pt	Portugal	PT	High
+1258	1314	donmai.us	United States	US	Medium
+1259	1315	xham.live	Unknown / international (.com/.net/etc.)		Low
+1260	1316	haberler.com	Unknown / international (.com/.net/etc.)		Low
+1261	1317	xhaccess.com	Unknown / international (.com/.net/etc.)		Low
+1262	1318	novinky.cz	Czechia	CZ	High
+1263	1319	perplexity.ai	United States	US	High
+1264	1320	dns.cn	China	CN	Medium
+1265	1321	youjizz.com	Unknown / international (.com/.net/etc.)		Low
+1266	1322	turkiye.gov.tr	Turkey		High
+1267	1324	fmkorea.com	South Korea	KR	High
+1268	1325	pornone.com	Unknown / international (.com/.net/etc.)		Low
+1269	1326	thisvid.com	Unknown / international (.com/.net/etc.)		Low
+1270	1327	mbga.jp	Japan	JP	High
+1271	1328	subito.it	Italy	IT	High
+1272	1329	mediaexpert.pl	Poland	PL	High
+1273	1330	medallia.com	Unknown / international (.com/.net/etc.)		Low
+1274	1331	safety.google	Unknown / international (.com/.net/etc.)		Low
+1275	1332	e621.net	Unknown / international (.com/.net/etc.)		Low
+1276	1333	ey43.com	Unknown / international (.com/.net/etc.)		Low
+1277	1334	hollywoodbets.net	Unknown / international (.com/.net/etc.)		Low
+1278	1335	sun.com	Unknown / international (.com/.net/etc.)		Low
+1279	1337	fdown.net	Unknown / international (.com/.net/etc.)		Low
+1280	1338	tesla.com	Unknown / international (.com/.net/etc.)		Low
+1281	1339	aznude.com	Unknown / international (.com/.net/etc.)		Low
+1282	1340	dbankcloud.cn	China	CN	High
+1283	1341	vietnam.vn	Vietnam	VN	High
+1284	1342	russianfood.com	Unknown / international (.com/.net/etc.)		Low
+1285	1343	shop.app	Unknown / international (.com/.net/etc.)		Low
+1286	1344	aiv-cdn.net	Global / multi-country infrastructure		Medium
+1287	1345	sotwe.com	Unknown / international (.com/.net/etc.)		Low
+1288	1346	canada.ca	Canada	CA	High
+1289	1347	mangabuff.ru	Russia	RU	Medium
+1290	1348	xhsocial.com	Unknown / international (.com/.net/etc.)		Low
+1291	1349	coolmathgames.com	Unknown / international (.com/.net/etc.)		Low
+1292	1350	wiktionary.org	Unknown / international (.com/.net/etc.)		Low
+1293	1351	stackexchange.com	United States	US	High
+1294	1352	hitomi.la	Unknown / international (.com/.net/etc.)		Low
+1295	1353	pusher.com	Unknown / international (.com/.net/etc.)		Low
+1296	1354	cardgames.io	Unknown / international (.com/.net/etc.)		Low
+1297	1355	fapello.com	Unknown / international (.com/.net/etc.)		Low
+1298	1356	suumo.jp	Japan	JP	High
+1299	1357	asuracomic.net	Unknown / international (.com/.net/etc.)		Low
+1300	1358	jalan.net	Unknown / international (.com/.net/etc.)		Low
+1301	1359	missav.ws	Unknown / international (.com/.net/etc.)		Low
+1302	1360	xvv1deos.com	Unknown / international (.com/.net/etc.)		Low
+1303	1361	e-hentai.org	Unknown / international (.com/.net/etc.)		Low
+1304	1363	nesine.com	Unknown / international (.com/.net/etc.)		Low
+1305	1364	xxxbp.tv	Unknown / international (.com/.net/etc.)		Low
+1306	1365	xiaohongshu.com	China	CN	High
+1307	1366	dagbladet.no	Norway	NO	High
+1308	1367	fedex.com	Unknown / international (.com/.net/etc.)		Low
+1309	1368	rule34video.com	Unknown / international (.com/.net/etc.)		Low
+1310	1369	9animetv.to	Unknown / international (.com/.net/etc.)		Low
+1311	1370	gst.gov.in	India	IN	High
+1312	1371	wisc.edu	United States	US	Medium
+1313	1372	ovhcloud.com	Unknown / international (.com/.net/etc.)		Low
+1314	1373	rkv1.com	Unknown / international (.com/.net/etc.)		Low
+1315	1374	sex-studentki.team	Unknown / international (.com/.net/etc.)		Low
+1316	1375	tgju.org	Unknown / international (.com/.net/etc.)		Low
+1317	1376	zozo.jp	Japan	JP	High
+1318	1377	starfall.com	Unknown / international (.com/.net/etc.)		Low
+1319	1378	tenki.jp	Japan	JP	High
+1320	1379	platorelay.com	Global / multi-country infrastructure		Medium
+1321	1380	aemet.es	Spain	ES	Medium
+1322	1381	boardgamearena.com	Unknown / international (.com/.net/etc.)		Low
+1323	1382	hwcdn.ru	Russia	RU	Medium
+1324	1383	jable.tv	Unknown / international (.com/.net/etc.)		Low
+1325	1384	weathernews.jp	Japan	JP	High
+1326	1385	jamfcloud.com	Unknown / international (.com/.net/etc.)		Low
+1327	1387	gtld.biz	Global / multi-country infrastructure		Medium
+1328	1388	inps.it	Italy	IT	Medium
+1329	1389	inven.co.kr	South Korea	KR	High
+1330	1390	18comic.vip	Unknown / international (.com/.net/etc.)		Low
+1331	1391	netlify.app	United States	US	High
+1332	1392	divar.ir	Iran	IR	High
+1333	1393	navitime.co.jp	Japan	JP	High
+1334	1394	iltalehti.fi	Finland	FI	High
+1335	1395	index.hr	Croatia	HR	Medium
+1336	1396	meta.com	United States	US	High
+1337	1397	bookmyshow.com	Unknown / international (.com/.net/etc.)		Low
+1338	1398	ilmeteo.it	Italy	IT	Medium
+1339	1399	cronista.com	Unknown / international (.com/.net/etc.)		Low
+1340	1400	adguard-vpn.online	Unknown / international (.com/.net/etc.)		Low
+1341	1401	toyhou.se	Sweden	SE	Medium
+1342	1402	typing.com	Unknown / international (.com/.net/etc.)		Low
+1343	1403	mangago.me	Unknown / international (.com/.net/etc.)		Low
+1344	1404	newyorker.com	Unknown / international (.com/.net/etc.)		Low
+1345	1405	blic.rs	Serbia	RS	Medium
+1346	1406	game8.jp	Japan	JP	High
+1347	1407	eenadu.net	India	IN	High
+1348	1408	sozcu.com.tr	Turkey		High
+1349	1409	syosetu.com	Unknown / international (.com/.net/etc.)		Low
+1350	1410	zedge.net	Unknown / international (.com/.net/etc.)		Low
+1351	1411	admanmedia.com	Global / multi-country infrastructure		Medium
+1352	1412	protothema.gr	Greece	GR	High
+1353	1413	imagefap.com	Unknown / international (.com/.net/etc.)		Low
+1354	1414	xhtotal.com	Unknown / international (.com/.net/etc.)		Low
+1355	1415	cam.ac.uk	United Kingdom	GB	High
+1356	1416	24h.com.vn	Vietnam	VN	High
+1357	1417	wikihow.com	Unknown / international (.com/.net/etc.)		Low
+1358	1418	otomoto.pl	Poland	PL	High
+1359	1419	tbank.ru	Russia		High
+1360	1420	rfihub.com	Global / multi-country infrastructure		Medium
+1361	1421	hianime.to	Unknown / international (.com/.net/etc.)		Low
+1362	1422	youm7.com	Unknown / international (.com/.net/etc.)		Low
+1363	1424	imhentai.xxx	Unknown / international (.com/.net/etc.)		Low
+1364	1425	contextweb.com	Global / multi-country infrastructure		Medium
+1365	1426	jagran.com	India	IN	High
+1366	1427	uidai.gov.in	India	IN	High
+1367	1428	immobiliare.it	Italy	IT	Medium
+1368	1429	ficbook.net	Unknown / international (.com/.net/etc.)		Low
+1369	1430	cityheaven.net	Unknown / international (.com/.net/etc.)		Low
+1370	1431	carsensor.net	Japan	JP	High
+1371	1432	att.com	Unknown / international (.com/.net/etc.)		Low
+1372	1433	eltiempo.es	Spain	ES	Medium
+1373	1434	meitu.com	China	CN	High
+1374	1435	digikala.com	Unknown / international (.com/.net/etc.)		Low
+1375	1436	ekstrabladet.dk	Denmark	DK	Medium
+1376	1437	superporn.com	Unknown / international (.com/.net/etc.)		Low
+1377	1438	ukdevilz.com	Unknown / international (.com/.net/etc.)		Low
+1378	1439	volcgslb.com	Global / multi-country infrastructure		Medium
+1379	1440	pornhat.com	Unknown / international (.com/.net/etc.)		Low
+1380	1441	nosv.org	Unknown / international (.com/.net/etc.)		Low
+1381	1442	betway.co.za	South Africa	ZA	High
+1382	1444	3bmeteo.com	Unknown / international (.com/.net/etc.)		Low
+1383	1445	ultradns.com	Unknown / international (.com/.net/etc.)		Low
+1384	1446	ssstik.io	Unknown / international (.com/.net/etc.)		Low
+1385	1447	ntp.br	Brazil	BR	High
+1386	1448	site.com	Unknown / international (.com/.net/etc.)		Low
+1387	1449	filmweb.pl	Poland	PL	High
+1388	1450	gelbooru.com	Unknown / international (.com/.net/etc.)		Low
+1389	1452	ruliweb.com	South Korea	KR	High
+1390	1453	porno365.gold	Unknown / international (.com/.net/etc.)		Low
+1391	1454	cardmarket.com	Unknown / international (.com/.net/etc.)		Low
+1392	1455	arca.live	Unknown / international (.com/.net/etc.)		Low
+1393	1456	eepurl.com	Global / multi-country infrastructure		Medium
+1394	1457	pussyspace.com	Unknown / international (.com/.net/etc.)		Low
+1395	1458	overwolf.com	Unknown / international (.com/.net/etc.)		Low
+1396	1459	aljazeera.com	Unknown / international (.com/.net/etc.)		Low
+1397	1460	es.io	Unknown / international (.com/.net/etc.)		Low
+1398	1461	luxuretv.com	Unknown / international (.com/.net/etc.)		Low
+1399	1462	netkeiba.com	Japan	JP	High
+1400	1463	bt.dk	Denmark	DK	Medium
+1401	1464	ixxx.com	Unknown / international (.com/.net/etc.)		Low
+1402	1466	liteapks.com	Unknown / international (.com/.net/etc.)		Low
+1403	1467	sexvid.xxx	Unknown / international (.com/.net/etc.)		Low
+1404	1468	joyclub.de	Germany	DE	Medium
+1405	1469	motherless.com	Unknown / international (.com/.net/etc.)		Low
+1406	1470	mat6tube.com	Unknown / international (.com/.net/etc.)		Low
+1407	1471	aniwatchtv.to	Unknown / international (.com/.net/etc.)		Low
+1408	1472	sondakika.com	Unknown / international (.com/.net/etc.)		Low
+1409	1473	programme-tv.net	France	FR	High
+1410	1474	elsevier.com	Netherlands	NL	High
+1411	1476	cmoa.jp	Japan	JP	High
+1412	1477	sxyprn.com	Unknown / international (.com/.net/etc.)		Low
+1413	1478	hdtube.porn	Unknown / international (.com/.net/etc.)		Low
+1414	1479	mangafire.to	Unknown / international (.com/.net/etc.)		Low
+1415	1481	tokyomotion.net	Unknown / international (.com/.net/etc.)		Low
+1416	1483	hostinger.com	Lithuania	LT	High
+1417	1484	caliente.mx	Mexico	MX	High
+1418	1485	wow.xxx	Unknown / international (.com/.net/etc.)		Low
+1419	1486	eci.gov.in	India	IN	High
+1420	1487	255md.com	Unknown / international (.com/.net/etc.)		Low
+1421	1488	1mg.com	India	IN	High
+1422	1490	botinok.porn	Unknown / international (.com/.net/etc.)		Low
+1423	1492	coinmarketcap.com	Unknown / international (.com/.net/etc.)		Low
+1424	1493	testbook.com	India	IN	High
+1425	1494	futbol24.com	Unknown / international (.com/.net/etc.)		Low
+1426	1495	varzesh3.com	Unknown / international (.com/.net/etc.)		Low
+1427	1496	hanime1.me	Unknown / international (.com/.net/etc.)		Low
+1428	1497	iporntv.net	Unknown / international (.com/.net/etc.)		Low
+1429	1498	dkitrxmdwoqruvsi.net	Unknown / international (.com/.net/etc.)		Low
+1430	1499	exhentai.org	Unknown / international (.com/.net/etc.)		Low
+1431	1500	letsporn.com	Unknown / international (.com/.net/etc.)		Low
+1432	1501	eff.org	Unknown / international (.com/.net/etc.)		Low
+1433	1504	supjav.com	Unknown / international (.com/.net/etc.)		Low
+1434	1505	fuq.com	Unknown / international (.com/.net/etc.)		Low
+1435	1506	ptt.cc	Taiwan	TW	High
+1436	1507	byteconnect.io	Unknown / international (.com/.net/etc.)		Low
+1437	1509	pajak.go.id	Indonesia	ID	High
+1438	1510	carwale.com	India	IN	High
+1439	1512	clickpetroleoegas.com.br	Brazil	BR	Medium
+1440	1513	fatalmodel.com	Unknown / international (.com/.net/etc.)		Low
+1441	1514	wnacg.com	Unknown / international (.com/.net/etc.)		Low
+1442	1515	property24.com	Unknown / international (.com/.net/etc.)		Low
+1443	1516	epfindia.gov.in	India	IN	High
+1444	1517	myreadingmanga.info	Unknown / international (.com/.net/etc.)		Low
+1445	1518	goodreturns.in	India	IN	High
+1446	1519	novelbin.com	Unknown / international (.com/.net/etc.)		Low
+1447	1520	rat.xxx	Unknown / international (.com/.net/etc.)		Low
+1448	1521	sexlog.com	Unknown / international (.com/.net/etc.)		Low
+1449	1522	aajtak.in	India	IN	High
+1450	1523	abola.pt	Portugal	PT	High
+1451	1524	sexemodel.com	Unknown / international (.com/.net/etc.)		Low
+1452	1525	namasha.com	Unknown / international (.com/.net/etc.)		Low
+1453	1526	otieu.com	Unknown / international (.com/.net/etc.)		Low
+1454	1527	kooora.com	Unknown / international (.com/.net/etc.)		Low
+1455	1528	casinoplus.com.ph	Philippines	PH	Medium
+1456	1529	kargo.com	Unknown / international (.com/.net/etc.)		Low
+1457	1530	gdz.ru	Russia		High
+1458	1531	lausd.net	Unknown / international (.com/.net/etc.)		Low
+1459	1532	usgovtrafficmanager.net	Global / multi-country infrastructure		Medium
+1460	1533	siemens.com	Unknown / international (.com/.net/etc.)		Low
+1461	1534	gamewith.jp	Japan	JP	High
+1462	1535	listcrawler.eu	Unknown / international (.com/.net/etc.)		Low
+1463	1536	snaptik.app	Unknown / international (.com/.net/etc.)		Low
+1464	1537	fastdl.app	Unknown / international (.com/.net/etc.)		Low
+1465	1538	njuskalo.hr	Croatia	HR	Medium
+1466	1539	zearn.org	Unknown / international (.com/.net/etc.)		Low
+1467	1540	indianrail.gov.in	India	IN	High
+1468	1541	sinoptik.ua	Ukraine	UA	High
+1469	1542	twpornstars.com	Unknown / international (.com/.net/etc.)		Low
+1470	1543	parivahan.gov.in	India	IN	High
+1471	1544	igamecj.com	Unknown / international (.com/.net/etc.)		Low
+1472	1545	porn300.com	Unknown / international (.com/.net/etc.)		Low
+1473	1546	croxyproxy.com	Unknown / international (.com/.net/etc.)		Low
+1474	1547	theblowers.com	Unknown / international (.com/.net/etc.)		Low
+1475	1548	serviporno.com	Unknown / international (.com/.net/etc.)		Low
+1476	1549	ijavhd.com	Unknown / international (.com/.net/etc.)		Low
+1477	1551	hentai.name	Unknown / international (.com/.net/etc.)		Low
+1478	1552	ppomppu.co.kr	South Korea	KR	High
+1479	1553	redwap.sex	Unknown / international (.com/.net/etc.)		Low
+1480	1554	ladies.de	Germany	DE	Medium
+1481	1555	bingoplus.com	Unknown / international (.com/.net/etc.)		Low
+1482	1556	umbrella.com	United States	US	High
+1483	1558	tabletki.ua	Ukraine	UA	High
+1484	1559	porno666.fo	Faroe Islands	FO	Medium
+1485	1560	hochi.news	Unknown / international (.com/.net/etc.)		Low
+1486	1561	bikewale.com	India	IN	High
+1487	1562	pla3.com	Unknown / international (.com/.net/etc.)		Low
+1488	1563	syosetu.org	Unknown / international (.com/.net/etc.)		Low
+1489	1564	librus.pl	Poland	PL	High
+1490	1565	kakuyomu.jp	Japan	JP	High
+1491	1566	kompoz2.com	Unknown / international (.com/.net/etc.)		Low
+1492	1567	nefisyemektarifleri.com	Unknown / international (.com/.net/etc.)		Low
+1493	1568	nya2.com	Unknown / international (.com/.net/etc.)		Low
+1494	1569	mangabuddy.com	Unknown / international (.com/.net/etc.)		Low
+1495	1570	chordtela.com	Unknown / international (.com/.net/etc.)		Low
+1496	1571	mechacomic.jp	Japan	JP	High
+1497	1572	an1.com	Unknown / international (.com/.net/etc.)		Low
+1498	1573	goojara.to	Unknown / international (.com/.net/etc.)		Low
+1499	1574	qorno.com	Unknown / international (.com/.net/etc.)		Low
+1500	1575	skokka.com	Unknown / international (.com/.net/etc.)		Low
+1501		mistral.ai	Unknown / international (.com/.net/etc.)		Low
+1502		huggingface.co	Unknown / international (.com/.net/etc.)		Low
+1503		replicate.com	United States	US	High
+1504		groq.com	United States	US	High
+1505		cohere.com	United States	US	High
+1506		midjourney.com	United States	US	High
+1507		stability.ai	United States	US	High
+1508		runwayml.com	United States	US	High
+1509		poe.com	United States	US	High
+1510		you.com	United States	US	High
+1511		phind.com	United States	US	High
+1512		cursor.com	United States	US	High
+1513		windsurf.com	United States	US	High
+1514		bolt.new	United States	US	High
+1515		lovable.dev	United States	US	High
+1516		replit.com	United States	US	High
+1517		codeium.com	United States	US	High
+1518		blackbox.ai	United States	US	High
+1519		deepai.org	United States	US	High
+1520		elevenlabs.io	United States	US	High
+1521		suno.com	United States	US	High
+1522		udio.com	United States	US	High
+1523		pi.ai	United States	US	High
+1524		inflection.ai	United States	US	High
+1525		github.com	United States	US	High
+1526		example-research.org	United States	US	High
+1527		notebooklm.google	United States	US	High
+1528		v0.dev	United States	US	High
+1529		vercel.com	United States	US	High
+1530		netlify.com	United States	US	High
+1531		render.com	United States	US	High
+1532		railway.app	United States	US	High
+1533		fly.io	United States	US	High
+1534		supabase.com	United States	US	High
+1535		appwrite.io	United States	US	High
+1536		convex.dev	United States	US	High
+1537		planetscale.com	United States	US	High
+1538		neon.tech	United States	US	High
+1539		turso.tech	United States	US	High
+1540		upstash.com	United States	US	High
+1541		modal.com	United States	US	High
+1542		runpod.io	United States	US	High
+1543		vast.ai	United States	US	High
+1544		paperspace.com	United States	US	High
+1545		lambda.ai	United States	US	High
+1546		vastdata.com	Unknown / international (.com/.net/etc.)		Low
+1547		sourcegraph.com	United States	US	High
+1548		bitbucket.org	United States	US	High
+1549		serverfault.com	United States	US	High
+1550		superuser.com	United States	US	High
+1551		askubuntu.com	United States	US	High
+1552		npmjs.com	United States	US	High
+1553		pypi.org	United States	US	High
+1554		crates.io	United States	US	High
+1555		nuget.org	United States	US	High
+1556		maven.org	United States	US	High
+1557		golang.org	United States	US	High
+1558		rust-lang.org	United States	US	High
+1559		nodejs.org	United States	US	High
+1560		bun.sh	United States	US	High
+1561		deno.com	United States	US	High
+1562		kubernetes.io	United States	US	High
+1563		terraform.io	United States	US	High
+1564		pulumi.com	United States	US	High
+1565		ansible.com	United States	US	High
+1566		jenkins.io	United States	US	High
+1567		circleci.com	United States	US	High
+1568		travis-ci.com	United States	US	High
+1569		buildkite.com	United States	US	High
+1570		teamcity.com	United States	US	High
+1571		honeycomb.io	United States	US	High
+1572		grafana.com	United States	US	High
+1573		prometheus.io	United States	US	High
+1574		elastic.co	Unknown / international (.com/.net/etc.)		Low
+1575		splunk.com	United States	US	High
+1576		sumologic.com	United States	US	High
+1577		loggly.com	United States	US	High
+1578		papertrailapp.com	United States	US	High
+1579		betterstack.com	United States	US	High
+1580		uptimerobot.com	United States	US	High
+1581		incident.io	United States	US	High
+1582		pagerduty.com	United States	US	High
+1583		opsgenie.com	United States	US	High
+1584		posthog.com	United States	US	High
+1585		segment.com	United States	US	High
+1586		rudderstack.com	United States	US	High
+1587		heap.io	United States	US	High
+1588		fullstory.com	United States	US	High
+1589		crazyegg.com	United States	US	High
+1590		abtasty.com	United States	US	High
+1591		intercom.com	United States	US	High
+1592		freshdesk.com	United States	US	High
+1593		freshworks.com	United States	US	High
+1594		helpscout.com	United States	US	High
+1595		crisp.chat	United States	US	High
+1596		tawk.to	United States	US	High
+1597		livechat.com	United States	US	High
+1598		pipedrive.com	United States	US	High
+1599		monday.com	Israel	IL	High
+1600		asana.com	United States	US	High
+1601		clickup.com	United States	US	High
+1602		linear.app	United States	US	High
+1603		airtable.com	United States	US	High
+1604		mattermost.com	United States	US	High
+1605		messenger.com	United States	US	High
+1606		threads.net	United States	US	High
+1607		mastodon.social	United States	US	High
+1608		write.as	United States	US	High
+1609		ghost.org	United States	US	High
+1610		douban.com	Unknown / international (.com/.net/etc.)		Low
+1611		wechat.com	China	CN	High
+1612		kakao.com	South Korea	KR	High
+1613		band.us	United States	US	Medium
+1614		rumble.com	United States	US	High
+1615		bitchute.com	United States	US	High
+1616		odysee.com	United States	US	High
+1617		peertube.tv	Unknown / international (.com/.net/etc.)		Low
+1618		hulu.com	United States	US	High
+1619		max.com	United States	US	High
+1620		paramountplus.com	United States	US	High
+1621		peacocktv.com	United States	US	High
+1622		tubi.tv	Unknown / international (.com/.net/etc.)		Low
+1623		pluto.tv	Unknown / international (.com/.net/etc.)		Low
+1624		plex.tv	United States	US	High
+1625		crunchyroll.com	Unknown / international (.com/.net/etc.)		Low
+1626		fubo.tv	United States	US	High
+1627		sling.com	United States	US	High
+1628		tidal.com	United States	US	High
+1629		audiomack.com	United States	US	High
+1630		last.fm	Unknown / international (.com/.net/etc.)		Low
+1631		musixmatch.com	United States	US	High
+1632		rottentomatoes.com	United States	US	High
+1633		metacritic.com	United States	US	High
+1634		allmusic.com	United States	US	High
+1635		concertarchives.org	United States	US	High
+1636		songkick.com	United States	US	High
+1637		setlist.fm	United States	US	High
+1638		imslp.org	United States	US	High
+1639		webnovel.com	United States	US	High
+1640		royalroad.com	United States	US	High
+1641		speakerdeck.com	United States	US	High
+1642		semanticscholar.org	United States	US	High
+1643		dictionary.com	United States	US	High
+1644		wordreference.com	United States	US	High
+1645		thesaurus.com	United States	US	High
+1646		wikidata.org	United States	US	High
+1647		wikivoyage.org	United States	US	High
+1648		wikisource.org	United States	US	High
+1649		wikibooks.org	United States	US	High
+1650		wikiversity.org	United States	US	High
+1651		wikiwand.com	United States	US	High
+1652		udemy.com	United States	US	High
+1653		edx.org	United States	US	High
+1654		khanacademy.org	United States	US	High
+1655		brilliant.org	United States	US	High
+1656		skillshare.com	United States	US	High
+1657		masterclass.com	United States	US	High
+1658		chegg.com	United States	US	High
+1659		turnitin.com	United States	US	High
+1660		scholastic.com	United States	US	High
+1661		brainly.com	United States	US	High
+1662		studocu.com	United States	US	High
+1663		coursehero.com	United States	US	High
+1664		studypool.com	United States	US	High
+1665		prowritingaid.com	United States	US	High
+1666		languagetool.org	United States	US	High
+1667		reverso.net	United States	US	High
+1668		translate.com	United States	US	High
+1669		linguee.com	United States	US	High
+1670		busuu.com	United States	US	High
+1671		babbel.com	United States	US	High
+1672		memrise.com	United States	US	High
+1673		rosettastone.com	United States	US	High
+1674		preply.com	United States	US	High
+1675		italki.com	United States	US	High
+1676		verbling.com	United States	US	High
+1677		clevelandclinic.org	United States	US	High
+1678		medicalnewstoday.com	United States	US	High
+1679		verywellhealth.com	United States	US	High
+1680		drugs.com	United States	US	High
+1681		goodrx.com	United States	US	High
+1682		medlineplus.gov	United States	US	Medium
+1683		nhs.uk	United Kingdom	GB	High
+1684		science.org	United States	US	High
+1685		sciencemag.org	United States	US	High
+1686		newscientist.com	United States	US	High
+1687		phys.org	United States	US	High
+1688		livescience.com	United States	US	High
+1689		space.com	United States	US	High
+1690		weather.gov	United States	US	Medium
+1691		wunderground.com	United States	US	High
+1692		windy.com	United States	US	High
+1693		meteoblue.com	United States	US	High
+1694		openweathermap.org	United States	US	High
+1695		timeanddate.com	United States	US	High
+1696		time.is	United States	US	High
+1697		worldtimebuddy.com	United States	US	High
+1698		wolframalpha.com	United States	US	High
+1699		mathway.com	United States	US	High
+1700		symbolab.com	United States	US	High
+1701		desmos.com	United States	US	High
+1702		geogebra.org	United States	US	High
+1703		rapidtables.com	United States	US	High
+1704		unitconverters.net	United States	US	High
+1705		convertio.co	United States	US	High
+1706		cloudconvert.com	United States	US	High
+1707		smallpdf.com	United States	US	High
+1708		acrobat.com	United States	US	High
+1709		pdf24.org	Unknown / international (.com/.net/etc.)		Low
+1710		sejda.com	Unknown / international (.com/.net/etc.)		Low
+1711		pdfescape.com	Unknown / international (.com/.net/etc.)		Low
+1712		dochub.com	Unknown / international (.com/.net/etc.)		Low
+1713		docusign.com	United States	US	High
+1714		hellosign.com	United States	US	High
+1715		pandadoc.com	United States	US	High
+1716		mega.nz	New Zealand	NZ	Medium
+1717		pcloud.com	United States	US	High
+1718		sync.com	United States	US	High
+1719		icedrive.net	United States	US	High
+1720		proton.me	Switzerland	CH	High
+1721		tuta.com	Unknown / international (.com/.net/etc.)		Low
+1722		fastmail.com	Unknown / international (.com/.net/etc.)		Low
+1723		mail.com	Unknown / international (.com/.net/etc.)		Low
+1724		gmx.com	Unknown / international (.com/.net/etc.)		Low
+1725		constantcontact.com	United States	US	High
+1726		sendgrid.com	United States	US	High
+1727		mailgun.com	United States	US	High
+1728		postmarkapp.com	United States	US	High
+1729		brevo.com	United States	US	High
+1730		convertkit.com	United States	US	High
+1731		beehiiv.com	United States	US	High
+1732		getresponse.com	United States	US	High
+1733		campaignmonitor.com	United States	US	High
+1734		activecampaign.com	United States	US	High
+1735		omnisend.com	United States	US	High
+1736		buttondown.email	United States	US	High
+1737		ko-fi.com	United States	US	High
+1738		buymeacoffee.com	United States	US	High
+1739		gumroad.com	United States	US	High
+1740		itch.io	Unknown / international (.com/.net/etc.)		Low
+1741		indiegogo.com	United States	US	High
+1742		avaaz.org	United States	US	High
+1743		giphy.com	United States	US	High
+1744		tenor.com	United States	US	High
+1745		500px.com	United States	US	High
+1746		gettyimages.com	United States	US	High
+1747		istockphoto.com	United States	US	High
+1748		flaticon.com	United States	US	High
+1749		fontsquirrel.com	United States	US	High
+1750		coolors.co	United States	US	High
+1751		colorhunt.co	United States	US	High
+1752		cleanup.pictures	United States	US	High
+1753		photopea.com	United States	US	High
+1754		pixlr.com	United States	US	High
+1755		fotor.com	United States	US	High
+1756		kapwing.com	United States	US	High
+1757		veed.io	United States	US	High
+1758		descript.com	United States	US	High
+1759		sketch.com	United States	US	High
+1760		invisionapp.com	United States	US	High
+1761		framer.com	United States	US	High
+1762		webflow.com	United States	US	High
+1763		strikingly.com	United States	US	High
+1764		site123.com	United States	US	High
+1765		cargo.site	United States	US	High
+1766		readymag.com	United States	US	High
+1767		typedream.com	United States	US	High
+1768		bubble.io	United States	US	High
+1769		softr.io	United States	US	High
+1770		glideapps.com	United States	US	High
+1771		flutterflow.io	United States	US	High
+1772		adalo.com	United States	US	High
+1773		thunkable.com	United States	US	High
+1774		zapier.com	United States	US	High
+1775		make.com	United States	US	High
+1776		ifttt.com	United States	US	High
+1777		n8n.io	United States	US	High
+1778		workato.com	United States	US	High
+1779		tray.io	United States	US	High
+1780		parabola.io	United States	US	High
+1781		retable.io	United States	US	High
+1782		rows.com	United States	US	High
+1783		coda.io	United States	US	High
+1784		slite.com	United States	US	High
+1785		confluence.com	United States	US	High
+1786		miro.com	United States	US	High
+1787		whimsical.com	United States	US	High
+1788		lucid.app	United States	US	High
+1789		lucidchart.com	United States	US	High
+1790		draw.io	United States	US	High
+1791		diagrams.net	United States	US	High
+1792		excalidraw.com	United States	US	High
+1793		mermaid.live	United States	US	High
+1794		mindmeister.com	United States	US	High
+1795		xmind.app	United States	US	High
+1796		mindnode.com	United States	US	High
+1797		evernote.com	United States	US	High
+1798		onenote.com	United States	US	High
+1799		obsidian.md	Moldova	MD	Medium
+1800		logseq.com	United States	US	High
+1801		anytype.io	United States	US	High
+1802		capacities.io	United States	US	High
+1803		reflect.app	United States	US	High
+1804		readwise.io	United States	US	High
+1805		getpocket.com	United States	US	High
+1806		instapaper.com	United States	US	High
+1807		raindrop.io	United States	US	High
+1808		feedly.com	United States	US	High
+1809		inoreader.com	United States	US	High
+1810		flipboard.com	United States	US	High
+1811		axios.com	United States	US	High
+1812		politico.com	United States	US	High
+1813	640	independent.co.uk	United Kingdom	GB	High
+1814	369	telegraph.co.uk	United Kingdom	GB	High
+1815		sky.com	United Kingdom	GB	High
+1816		france24.com	Unknown / international (.com/.net/etc.)		Low
+1817		faz.net	Germany	DE	High
+1818		ansa.it	Italy	IT	Medium
+1819		ctvnews.ca	Canada	CA	High
+1820		globenews.ca	Canada	CA	Medium
+1821		smh.com.au	Australia	AU	High
+1822		theage.com.au	Australia	AU	High
+1823		stuff.co.nz	New Zealand	NZ	High
+1824		straitstimes.com	Unknown / international (.com/.net/etc.)		Low
+1825		channelnewsasia.com	Unknown / international (.com/.net/etc.)		Low
+1826		scmp.com	Unknown / international (.com/.net/etc.)		Low
+1827		southchina.com	Unknown / international (.com/.net/etc.)		Low
+1828		japantimes.co.jp	Japan	JP	Medium
+1829		mainichi.jp	Japan	JP	High
+1830		koreaherald.com	Unknown / international (.com/.net/etc.)		Low
+1831		koreatimes.co.kr	South Korea	KR	Medium
+1832		hindustantimes.com	Unknown / international (.com/.net/etc.)		Low
+1833		indianexpress.com	Unknown / international (.com/.net/etc.)		Low
+1834		ndtv.com	Unknown / international (.com/.net/etc.)		Low
+1835		thehindu.com	Unknown / international (.com/.net/etc.)		Low
+1836		indiatoday.in	India	IN	High
+1837		livemint.com	Unknown / international (.com/.net/etc.)		Low
+1838		business-standard.com	Unknown / international (.com/.net/etc.)		Low
+1839		tribune.com.pk	Pakistan	PK	Medium
+1840		dawn.com	Unknown / international (.com/.net/etc.)		Low
+1841		thenews.com.pk	Pakistan	PK	Medium
+1842		tehrantimes.com	Unknown / international (.com/.net/etc.)		Low
+1843		al-monitor.com	Unknown / international (.com/.net/etc.)		Low
+1844		haaretz.com	Unknown / international (.com/.net/etc.)		Low
+1845		timesofisrael.com	Israel	IL	High
+1846		jpost.com	Israel	IL	High
+1847		arabnews.com	Unknown / international (.com/.net/etc.)		Low
+1848		gulfnews.com	Unknown / international (.com/.net/etc.)		Low
+1849		khaleejtimes.com	Unknown / international (.com/.net/etc.)		Low
+1850		theafricareport.com	Unknown / international (.com/.net/etc.)		Low
+1851		allafrica.com	Unknown / international (.com/.net/etc.)		Low
+1852		premiumtimesng.com	Unknown / international (.com/.net/etc.)		Low
+1853		news24.com	Unknown / international (.com/.net/etc.)		Low
+1854		iol.co.za	South Africa	ZA	High
+1855		elcomercio.pe	Peru	PE	Medium
+1856		clarin.com	Unknown / international (.com/.net/etc.)		Low
+1857		emol.com	Unknown / international (.com/.net/etc.)		Low
+1858		mercadolibre.com	Unknown / international (.com/.net/etc.)		Low
+1859		olx.com	Unknown / international (.com/.net/etc.)		Low
+1860		carousell.com	Unknown / international (.com/.net/etc.)		Low
+1861		samsclub.com	Unknown / international (.com/.net/etc.)		Low
+1862		kroger.com	Unknown / international (.com/.net/etc.)		Low
+1863		wayfair.com	Unknown / international (.com/.net/etc.)		Low
+1864		chewy.com	Unknown / international (.com/.net/etc.)		Low
+1865		zappos.com	Unknown / international (.com/.net/etc.)		Low
+1866		nordstrom.com	Unknown / international (.com/.net/etc.)		Low
+1867		bloomingdales.com	Unknown / international (.com/.net/etc.)		Low
+1868		newegg.com	Unknown / international (.com/.net/etc.)		Low
+1869		bhphotovideo.com	Unknown / international (.com/.net/etc.)		Low
+1870		adorama.com	Unknown / international (.com/.net/etc.)		Low
+1871		backmarket.com	Unknown / international (.com/.net/etc.)		Low
+1872		swappa.com	Unknown / international (.com/.net/etc.)		Low
+1873		reverb.com	Unknown / international (.com/.net/etc.)		Low
+1874		thomann.de	Germany	DE	Medium
+1875		musicstore.com	Unknown / international (.com/.net/etc.)		Low
+1876		sweetwater.com	Unknown / international (.com/.net/etc.)		Low
+1877		crutchfield.com	Unknown / international (.com/.net/etc.)		Low
+1878		rei.com	Unknown / international (.com/.net/etc.)		Low
+1879		patagonia.com	Unknown / international (.com/.net/etc.)		Low
+1880		thenorthface.com	Unknown / international (.com/.net/etc.)		Low
+1881		columbia.com	Unknown / international (.com/.net/etc.)		Low
+1882		adidas.com	Unknown / international (.com/.net/etc.)		Low
+1883		puma.com	Unknown / international (.com/.net/etc.)		Low
+1884		underarmour.com	Unknown / international (.com/.net/etc.)		Low
+1885		newbalance.com	Unknown / international (.com/.net/etc.)		Low
+1886		asics.com	Unknown / international (.com/.net/etc.)		Low
+1887		lululemon.com	Unknown / international (.com/.net/etc.)		Low
+1888		zara.com	Unknown / international (.com/.net/etc.)		Low
+1889		uniqlo.com	Unknown / international (.com/.net/etc.)		Low
+1890		asos.com	Unknown / international (.com/.net/etc.)		Low
+1891		zalando.com	Unknown / international (.com/.net/etc.)		Low
+1892		farfetch.com	Unknown / international (.com/.net/etc.)		Low
+1893		net-a-porter.com	Unknown / international (.com/.net/etc.)		Low
+1894		ssense.com	Unknown / international (.com/.net/etc.)		Low
+1895		1688.com	Unknown / international (.com/.net/etc.)		Low
+1896		tmall.com	China	CN	High
+1897		pinduoduo.com	China	CN	High
+1898		lazada.com	Unknown / international (.com/.net/etc.)		Low
+1899		shopee.com	Unknown / international (.com/.net/etc.)		Low
+1900		bukalapak.com	Unknown / international (.com/.net/etc.)		Low
+1901		tokopedia.com	Unknown / international (.com/.net/etc.)		Low
+1902		blibli.com	Unknown / international (.com/.net/etc.)		Low
+1903		snapdeal.com	Unknown / international (.com/.net/etc.)		Low
+1904		ajio.com	Unknown / international (.com/.net/etc.)		Low
+1905		nykaa.com	Unknown / international (.com/.net/etc.)		Low
+1906		noon.com	Unknown / international (.com/.net/etc.)		Low
+1907		jumia.com	Unknown / international (.com/.net/etc.)		Low
+1908		takealot.com	Unknown / international (.com/.net/etc.)		Low
+1909		carrefour.com	Unknown / international (.com/.net/etc.)		Low
+1910		auchan.fr	France	FR	Medium
+1911		lidl.com	Unknown / international (.com/.net/etc.)		Low
+1912		aldi.com	Unknown / international (.com/.net/etc.)		Low
+1913		tesco.com	Unknown / international (.com/.net/etc.)		Low
+1914		sainsburys.co.uk	United Kingdom	GB	Medium
+1915		asda.com	Unknown / international (.com/.net/etc.)		Low
+1916		waitrose.com	Unknown / international (.com/.net/etc.)		Low
+1917		ocado.com	Unknown / international (.com/.net/etc.)		Low
+1918		coles.com.au	Australia	AU	Medium
+1919		woolworths.com.au	Australia	AU	Medium
+1920		foodpanda.com	Unknown / international (.com/.net/etc.)		Low
+1921		deliveroo.com	Unknown / international (.com/.net/etc.)		Low
+1922		ubereats.com	Unknown / international (.com/.net/etc.)		Low
+1923		grubhub.com	Unknown / international (.com/.net/etc.)		Low
+1924		just-eat.com	Unknown / international (.com/.net/etc.)		Low
+1925		hellofresh.com	Unknown / international (.com/.net/etc.)		Low
+1926		blueapron.com	Unknown / international (.com/.net/etc.)		Low
+1927		instacart.com	Unknown / international (.com/.net/etc.)		Low
+1928		shipt.com	Unknown / international (.com/.net/etc.)		Low
+1929		doordash.com	Unknown / international (.com/.net/etc.)		Low
+1930		gopuff.com	Unknown / international (.com/.net/etc.)		Low
+1931		lyft.com	Unknown / international (.com/.net/etc.)		Low
+1932		bolt.eu	Unknown / international (.com/.net/etc.)		Low
+1933		grab.com	Unknown / international (.com/.net/etc.)		Low
+1934		gojek.com	Unknown / international (.com/.net/etc.)		Low
+1935		careem.com	Unknown / international (.com/.net/etc.)		Low
+1936		ola.com	Unknown / international (.com/.net/etc.)		Low
+1937		indrive.com	Unknown / international (.com/.net/etc.)		Low
+1938		expedia.com	United States	US	High
+1939		hotels.com	Unknown / international (.com/.net/etc.)		Low
+1940		kayak.com	Unknown / international (.com/.net/etc.)		Low
+1941		skyscanner.net	Unknown / international (.com/.net/etc.)		Low
+1942		trivago.com	Unknown / international (.com/.net/etc.)		Low
+1943		priceline.com	Unknown / international (.com/.net/etc.)		Low
+1944		orbitz.com	Unknown / international (.com/.net/etc.)		Low
+1945		travelocity.com	Unknown / international (.com/.net/etc.)		Low
+1946		momondo.com	Unknown / international (.com/.net/etc.)		Low
+1947		rome2rio.com	Unknown / international (.com/.net/etc.)		Low
+1948		viator.com	Unknown / international (.com/.net/etc.)		Low
+1949		getyourguide.com	Unknown / international (.com/.net/etc.)		Low
+1950		klook.com	Unknown / international (.com/.net/etc.)		Low
+1951		headout.com	Unknown / international (.com/.net/etc.)		Low
+1952		lonelyplanet.com	Unknown / international (.com/.net/etc.)		Low
+1953		roughguides.com	Unknown / international (.com/.net/etc.)		Low
+1954		wikitravel.org	Unknown / international (.com/.net/etc.)		Low
+1955		seatguru.com	Unknown / international (.com/.net/etc.)		Low
+1956		flightaware.com	Unknown / international (.com/.net/etc.)		Low
+1957		flightradar24.com	Unknown / international (.com/.net/etc.)		Low
+1958		enterprise.com	Unknown / international (.com/.net/etc.)		Low
+1959		hertz.com	Unknown / international (.com/.net/etc.)		Low
+1960		avis.com	Unknown / international (.com/.net/etc.)		Low
+1961		sixt.com	Unknown / international (.com/.net/etc.)		Low
+1962		turo.com	Unknown / international (.com/.net/etc.)		Low
+1963		blablacar.com	Unknown / international (.com/.net/etc.)		Low
+1964		flixbus.com	Unknown / international (.com/.net/etc.)		Low
+1965		trainline.com	Unknown / international (.com/.net/etc.)		Low
+1966		omio.com	Unknown / international (.com/.net/etc.)		Low
+1967		rail.ninja	Unknown / international (.com/.net/etc.)		Low
+1968		amtrak.com	Unknown / international (.com/.net/etc.)		Low
+1969		hyatt.com	Unknown / international (.com/.net/etc.)		Low
+1970		ihg.com	Unknown / international (.com/.net/etc.)		Low
+1971		accor.com	Unknown / international (.com/.net/etc.)		Low
+1972		bestwestern.com	Unknown / international (.com/.net/etc.)		Low
+1973		choicehotels.com	Unknown / international (.com/.net/etc.)		Low
+1974		wyndhamhotels.com	Unknown / international (.com/.net/etc.)		Low
+1975		couchsurfing.com	Unknown / international (.com/.net/etc.)		Low
+1976		hostelworld.com	Unknown / international (.com/.net/etc.)		Low
+1977		vrbo.com	Unknown / international (.com/.net/etc.)		Low
+1978		realtor.com	Unknown / international (.com/.net/etc.)		Low
+1979		trulia.com	Unknown / international (.com/.net/etc.)		Low
+1980		zoopla.co.uk	United Kingdom	GB	High
+1981		immobilienscout24.de	Germany	DE	High
+1982		propertyfinder.ae	United Arab Emirates	AE	Medium
+1983		bayut.com	Unknown / international (.com/.net/etc.)		Low
+1984		apartments.com	Unknown / international (.com/.net/etc.)		Low
+1985		rent.com	Unknown / international (.com/.net/etc.)		Low
+1986		loopnet.com	Unknown / international (.com/.net/etc.)		Low
+1987		commercialcafe.com	Unknown / international (.com/.net/etc.)		Low
+1988		glassdoor.com	Unknown / international (.com/.net/etc.)		Low
+1989		ziprecruiter.com	Unknown / international (.com/.net/etc.)		Low
+1990		monster.com	Unknown / international (.com/.net/etc.)		Low
+1991		careerbuilder.com	Unknown / international (.com/.net/etc.)		Low
+1992		simplyhired.com	Unknown / international (.com/.net/etc.)		Low
+1993		wellfound.com	Unknown / international (.com/.net/etc.)		Low
+1994		lever.co	Unknown / international (.com/.net/etc.)		Low
+1995		greenhouse.io	Unknown / international (.com/.net/etc.)		Low
+1996		workday.com	Unknown / international (.com/.net/etc.)		Low
+1997		myworkdayjobs.com	Unknown / international (.com/.net/etc.)		Low
+1998		remote.co	Unknown / international (.com/.net/etc.)		Low
+1999		weworkremotely.com	Unknown / international (.com/.net/etc.)		Low
+2000		remoteok.com	Unknown / international (.com/.net/etc.)		Low

@@ -1,0 +1,819 @@
+{
+  "version": 1,
+  "apps": [
+    {
+      "file": "ADSL/ads_battery.py",
+      "description": "ads_battery.py \u2014 full VPN-design battery for the Irancell line (AS58224).",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "ADSL/ads_ladder.py",
+      "description": "ads_ladder.py \u2014 SNI pass-rate ladder for the Irancell line (AS58224).",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "analyze_paths.py",
+      "description": "Count saved traceroutes containing Az-IX hops, excluding known sinkhole destinations.",
+      "kind": "utility",
+      "args": [],
+      "special": "Utility needs explicit selection or --include-special",
+      "inputs": [
+        "$NETMON_DATA_DIR"
+      ]
+    },
+    {
+      "file": "bgp_report.py",
+      "description": "BGP Route Analysis - From JSON data to comprehensive report",
+      "kind": "saved report",
+      "args": [],
+      "inputs": [
+        "bgp_route_analysis.json"
+      ]
+    },
+    {
+      "file": "bgp_route_analysis.py",
+      "description": "DPI Investigation - BGP/Border Route Analysis",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "big4_filter_methods.py",
+      "description": "Enumerate every blocking method used against facebook/instagram/youtube/x.com.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "big5_dpi_methods.py",
+      "description": "Big-5 platform DPI method enumeration.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "big5_dpi_methods_v2.py",
+      "description": "Comprehensive DNS + SNI analysis for big-4 platforms.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/analyze_lantern.py",
+      "description": "Lantern VPN Traffic Analyzer",
+      "kind": "live monitor",
+      "args": [],
+      "special": "Live monitor needs explicit selection and a timeout",
+      "binaries": [
+        "ss",
+        "ps"
+      ]
+    },
+    {
+      "file": "check ips/aws app.py",
+      "description": "aws app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/aws_test.py",
+      "description": "AWS IP accessibility test with VPN port scanning and DPI method detection.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/azure app.py",
+      "description": "azure app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/cloudflareapp.py",
+      "description": "cloudflareapp",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/digi ocean app.py",
+      "description": "digi ocean app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/digitalocean_test.py",
+      "description": "DigitalOcean IP accessibility test with VPN port scanning and DPI detection.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/gcp app.py",
+      "description": "gcp app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/gcp_test.py",
+      "description": "Google Cloud Platform IP accessibility test with VPN port scanning and DPI detection.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/generate_summary.py",
+      "description": "Quick DPI Analysis Summary Generator",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/hetzner_test.py",
+      "description": "Hetzner IP accessibility test with VPN port scanning and DPI detection.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/master_controller.py",
+      "description": "Master DPI Test Controller & Report Generator",
+      "kind": "batch runner",
+      "args": [],
+      "runner": true
+    },
+    {
+      "file": "check ips/monitor_dns_tunnel.py",
+      "description": "Real-time DNS Tunnel Monitor",
+      "kind": "live monitor",
+      "args": [
+        "--snapshot"
+      ],
+      "special": "Live monitor needs explicit selection and a timeout",
+      "binaries": [
+        "ssh"
+      ]
+    },
+    {
+      "file": "check ips/monitor_lantern_live.py",
+      "description": "Real-time Lantern Traffic Monitor",
+      "kind": "live monitor",
+      "args": [
+        "--yes"
+      ],
+      "special": "Live monitor needs explicit selection and a timeout",
+      "binaries": [
+        "ss",
+        "ps"
+      ]
+    },
+    {
+      "file": "check ips/oracle app.py",
+      "description": "Oracle Cloud IP accessibility test with VPN port scanning and DPI method detection.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/run_all_tests.py",
+      "description": "Master DPI Test Controller - Command Line Version",
+      "kind": "batch runner",
+      "args": [],
+      "runner": true
+    },
+    {
+      "file": "check ips/test_dns_server.py",
+      "description": "DNS Server Testing Tool",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/test_dns_tunnel_client.py",
+      "description": "DNS Tunnel Client Test Script",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "check ips/vultr app.py",
+      "description": "Vultr IP accessibility test with VPN port scanning and DPI method detection.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "claude test dns servers with all list.py",
+      "description": "DoH Tester \u2014 reads https:// servers from all.txt",
+      "kind": "network probe",
+      "args": [],
+      "inputs": [
+        "doh-list.txt"
+      ]
+    },
+    {
+      "file": "cloudflare_port_protocol_scanner.py",
+      "description": "Cloudflare Port & Protocol Scanner",
+      "kind": "network probe",
+      "args": [
+        "--yes"
+      ]
+    },
+    {
+      "file": "comprehensive_live_test.py",
+      "description": "Comprehensive live DPI test from within the filtering network.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "cross_isp_battery.py",
+      "description": "Cross-ISP comparison battery.",
+      "kind": "network probe",
+      "args": [],
+      "binaries": [
+        "dig"
+      ]
+    },
+    {
+      "file": "daily_orchestrator.py",
+      "description": "Daily DPI Test Suite Orchestrator",
+      "kind": "batch runner",
+      "args": [],
+      "runner": true
+    },
+    {
+      "file": "daily_tests/cloudflare_port_protocol_scanner.py",
+      "description": "Cloudflare Port & Protocol Scanner",
+      "kind": "network probe",
+      "args": [
+        "--yes"
+      ]
+    },
+    {
+      "file": "daily_tests/daily_orchestrator.py",
+      "description": "Daily DPI Test Suite Orchestrator",
+      "kind": "batch runner",
+      "args": [],
+      "runner": true
+    },
+    {
+      "file": "daily_tests/dns_poisoning_detector.py",
+      "description": "DNS Poisoning Detector",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "daily_tests/encrypted_dns_monitor.py",
+      "description": "Encrypted DNS Monitor",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "daily_tests/multi_isp_comparison.py",
+      "description": "Multi-ISP Comparison Tool",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "daily_tests/site_blocker_scanner.py",
+      "description": "International Site Blocker Scanner",
+      "kind": "network probe",
+      "args": [
+        "--yes"
+      ]
+    },
+    {
+      "file": "daily_tests/sni_filter_scanner.py",
+      "description": "SNI Filter Scanner",
+      "kind": "network probe",
+      "args": [
+        "--batch",
+        "${APP_ROOT}/example_sni_list.txt"
+      ],
+      "inputs": [
+        "example_sni_list.txt"
+      ]
+    },
+    {
+      "file": "daily_tests/sni_filter_tester.py",
+      "description": "SNI Filter Tester",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "daily_tests/sni_spoofing_tester.py",
+      "description": "SNI Spoofing & Evasion Tester",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "dns_poisoning_detector.py",
+      "description": "DNS Poisoning Detector",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "doh test claude.py",
+      "description": "DoH (DNS over HTTPS) Endpoint Tester",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "doh_mass_tester.py",
+      "description": "DoH Mass Tester",
+      "kind": "network probe",
+      "args": [
+        "--yes"
+      ],
+      "inputs": [
+        "doh-list.txt"
+      ]
+    },
+    {
+      "file": "doh_resolve.py",
+      "description": "Resolve arbitrary names using the ONE DoH path that survives this network's",
+      "kind": "network probe",
+      "args": [
+        "example.com"
+      ]
+    },
+    {
+      "file": "doh_retry.py",
+      "description": "Retry the DoH endpoints whose TLS handshake actually COMPLETED.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "doh_sweep.py",
+      "description": "Exhaustive DoH/DoT reachability probe.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "dpi_probe.py",
+      "description": "dpi_probe.py \u2014 characterise the filtering hop without root or raw sockets.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "dpi_test_agent.py",
+      "description": "DPI/SNI Test Harness (Educational)",
+      "kind": "network probe",
+      "args": [],
+      "inputs": [
+        "subs/all_links.txt"
+      ]
+    },
+    {
+      "file": "dpi_test_agent2.py",
+      "description": "DPI/SNI Test Harness v2 (Educational)",
+      "kind": "network probe",
+      "args": [],
+      "inputs": [
+        "subs/all_links.txt"
+      ]
+    },
+    {
+      "file": "dpi_toolkit_test.py",
+      "description": "Test script for installed DPI toolkits",
+      "kind": "environment diagnostic",
+      "args": []
+    },
+    {
+      "file": "dropshape.py",
+      "description": "dropshape",
+      "kind": "network probe",
+      "args": [],
+      "requires_args": true
+    },
+    {
+      "file": "early_close.py",
+      "description": "early close",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "ech_probe.py",
+      "description": "ECH (Encrypted Client Hello) behavior probe.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "encrypted_dns_monitor.py",
+      "description": "Encrypted DNS Monitor",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "extract_azix.py",
+      "description": "Extract observed Az-IX IPv4 addresses from saved traceroute text files.",
+      "kind": "utility",
+      "args": [],
+      "special": "Utility needs explicit selection or --include-special",
+      "inputs": [
+        "$NETMON_DATA_DIR"
+      ]
+    },
+    {
+      "file": "fake_rst.py",
+      "description": "Compatibility entrypoint for the explicit-connection RST test.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "requires_args": true
+    },
+    {
+      "file": "from cryptography import x509.py",
+      "description": "Generate a local test CA certificate and a private key in a new output directory.",
+      "kind": "utility",
+      "args": [],
+      "special": "Utility needs explicit selection or --include-special"
+    },
+    {
+      "file": "generate_all_ips.py",
+      "description": "Extract and classify valid IPv4 addresses from saved traceroute text files.",
+      "kind": "utility",
+      "args": [],
+      "special": "Utility needs explicit selection or --include-special",
+      "inputs": [
+        "$NETMON_DATA_DIR"
+      ]
+    },
+    {
+      "file": "ip_access_tests/cloudflare/cloudflare app.py",
+      "description": "cloudflare app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "ip_access_tests/digitalocean/digi ocean app.py",
+      "description": "digi ocean app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "ip_access_tests/gcp/app.py",
+      "description": "app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "ip_access_tests/hetzner/app.py",
+      "description": "app",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "live_sni_test.py",
+      "description": "live sni test",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "live_subscription_test.py",
+      "description": "Test actual subscription endpoints + deep SNI/SNI-IP correlation analysis.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "make_xray.py",
+      "description": "Generate a VLESS WebSocket/TLS Xray config from explicit connection parameters.",
+      "kind": "utility",
+      "args": [],
+      "special": "Utility needs explicit selection or --include-special",
+      "requires_args": true
+    },
+    {
+      "file": "master_kilo_runner.py",
+      "description": "Compatibility entrypoint for the sequential backend mother application.",
+      "kind": "batch runner",
+      "args": [],
+      "runner": true
+    },
+    {
+      "file": "multi_isp_comparison.py",
+      "description": "Multi-ISP Comparison Tool",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "netmon_analyzer.py",
+      "description": "netmon analyzer",
+      "kind": "utility",
+      "args": [],
+      "special": "Utility needs explicit selection or --include-special",
+      "inputs": [
+        "$NETMON_DATA_DIR"
+      ]
+    },
+    {
+      "file": "protocol_bypass_analysis.py",
+      "description": "Protocol-layer bypass analysis: VLESS vs Shadowsocks vs Trojan.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "quick_doh_test.py",
+      "description": "Quick DoH Tester - Simple version that ACTUALLY tests if DoH works",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "rst_comprehensive.py",
+      "description": "Comprehensive Packet Injection Test - Try every kind of injection.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "rst_comprehensive_v2.py",
+      "description": "Comprehensive Packet Injection Test - All injection types.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "rst_evader.py",
+      "description": "rst evader",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_evader_v2.py",
+      "description": "RST Injection Evasion Script - Test if injecting fake RST packets can confuse DPI",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special"
+    },
+    {
+      "file": "rst_final.py",
+      "description": "RST/FIN Injection Test - Final version with proper scoping.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "rst_simple_test.py",
+      "description": "Simple RST injection test - send RST without sniffing first.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Uses historical captured connection addresses and sequence numbers; edit those for a current test before running"
+    },
+    {
+      "file": "rst_simple_v2.py",
+      "description": "Simple RST injection - capture handshake then inject.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "rst_test_v2.py",
+      "description": "RST Injection Test v2 - Properly timed RST injection during TLS handshake.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "rst_test_v3.py",
+      "description": "RST Injection Test v3 - Fixed direction detection.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "rst_test_v4.py",
+      "description": "RST Injection Test v4 - Multiple strategies tested sequentially.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "rst_test_v5.py",
+      "description": "RST Injection Test v5 - Fixed packet parsing.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "run_chunked.py",
+      "description": "run chunked",
+      "kind": "network probe",
+      "args": [],
+      "inputs": [
+        "subs/all_links.txt"
+      ]
+    },
+    {
+      "file": "run_dpi_chunk.py",
+      "description": "Run the chunked subscription probe.",
+      "kind": "network probe",
+      "args": [],
+      "inputs": [
+        "subs/all_links.txt"
+      ]
+    },
+    {
+      "file": "simple_sni_test.py",
+      "description": "Simple SNI Tester - Works on Windows, no Unicode issues",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "site_blocker_scanner.py",
+      "description": "International Site Blocker Scanner",
+      "kind": "network probe",
+      "args": [
+        "--yes"
+      ]
+    },
+    {
+      "file": "sni_filter_scanner.py",
+      "description": "SNI Filter Scanner",
+      "kind": "network probe",
+      "args": [
+        "--batch",
+        "${APP_ROOT}/example_sni_list.txt"
+      ],
+      "inputs": [
+        "example_sni_list.txt"
+      ]
+    },
+    {
+      "file": "sni_filter_tester.py",
+      "description": "SNI Filter Tester",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "sni_fragment_sweep.py",
+      "description": "SNI fragmentation timing sweep - determines if ANY millisecond interval",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "sni_preflight.py",
+      "description": "Pre-flight check: will this hostname survive the filter?",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "sni_spoofing_tester.py",
+      "description": "SNI Spoofing & Evasion Tester",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "sni_variants4.py",
+      "description": "Correct SNI/TLS-variant tester for the *.workers.dev filter.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "spoof_rst.py",
+      "description": "Send one TCP RST for an explicitly specified test connection.",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "requires_args": true
+    },
+    {
+      "file": "tcp_flag_evader.py",
+      "description": "Comprehensive TCP Flag Injection Evader - ALL TCP flags tested",
+      "kind": "packet experiment",
+      "args": [],
+      "privileged": true,
+      "special": "Packet experiment; select explicitly or use --include-special",
+      "binaries": [
+        "xray",
+        "curl",
+        "timeout"
+      ],
+      "inputs": [
+        "$DPI_XRAY_CONFIG"
+      ]
+    },
+    {
+      "file": "test_all_apps.py",
+      "description": "Application Testing Suite",
+      "kind": "smoke checks",
+      "args": []
+    },
+    {
+      "file": "test_dns_interception.py",
+      "description": "DPI Investigation - DNS Interception & DoH Bypass Test",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "test_dpi_patterns.py",
+      "description": "test dpi patterns",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "test_fragmentation_idea.py",
+      "description": "Compatibility entrypoint for the implemented TLS fragmentation experiment.",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "test_protocol_detection.py",
+      "description": "DPI Investigation - Comprehensive Protocol & Evasion Test",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "test_sni.py",
+      "description": "test sni",
+      "kind": "network probe",
+      "args": [],
+      "inputs": [
+        "subs/all_links.txt"
+      ]
+    },
+    {
+      "file": "test_sni_filtering.py",
+      "description": "DPI Investigation - SNI Filtering Matrix Test",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "test_sni_tls_fingerprint.py",
+      "description": "DPI Investigation - SNI and TLS Fingerprint Detection Test",
+      "kind": "network probe",
+      "args": []
+    },
+    {
+      "file": "tls_fragment.py",
+      "description": "Compare TLS ClientHello transmission modes using decrypted HTTP responses.",
+      "kind": "network probe",
+      "args": []
+    }
+  ]
+}

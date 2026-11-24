@@ -1,0 +1,194 @@
+================================================================================
+  PACKET-LEVEL FINDINGS — what blocks it, where, when
+  Target : https://test-sub.example.workers.dev
+  Client : 10.170.48.221 (this machine, private IP)
+  Server : 188.114.97.3:443 (Cloudflare edge, FRA)
+  Line   : AS197207 Mobile Communication Company of Iran PLC (MCCI), Tehran
+  Capture: kilo/pcap/session_2026-10-02.pcap
+  Date   : 2026-10-02
+================================================================================
+
+TOOLS USED
+  dumpcap   -i any -s 0 -w file            (cap_net_raw file capability, no root)
+  tshark    -r file -Y <filter> -T fields  (timeline, SNI, TCP analysis)
+  capinfos  -r file                        (capture integrity)
+  openssl s_client -servername / -noservername
+  curl --resolve / --http1.1 / -sv / -D -
+  python3 + ssl.MemoryBIO                 (ClientHello segmentation control)
+  check-host.net API                      (8 global vantages)
+  getent / dig / ip route get / gsettings / ps / env / ss
+
+
+================================================================================
+1. WHAT BLOCKS IT
+================================================================================
+An SNI-based, stateful, passive filter that classifies the flow from the SNI
+string in the TLS ClientHello and then silently blackholes it.
+
+It is NOT:
+  - IP-based          same edge IP 188.114.96/97/98/99 serves both blocked and
+                      allowed flows simultaneously (frames 27-67 blocked,
+                      frames 254-271 allowed, same seconds, same machine)
+  - port-based        port 80 to the same hostname works (200 OK, Worker code ran)
+  - Host-header-based SNI=workers.dev + Host=jade-garden... -> Cloudflare answered
+                      HTTP 403 in 0.30 s. The Host string is not the trigger.
+  - content-based     the filter never sees content; the drop happens on the
+                      first TLS record carrying application data, still opaque
+  - a Cloudflare/WAF  Cloudflare's own stack proves it never received the request
+
+Rule set — CORRECTED 2026-10-02 after a new control experiment.
+An earlier version of this file claimed *.cloudflare.net and *.pages.dev are also
+filtered. THAT CLAIM WAS WRONG and is withdrawn: those names also go silent when
+forced onto a workers.dev edge IP, but that silence is Cloudflare's own edge
+behaviour for a name it does not serve, not censorship. Control:
+
+  go.dev          real IP 216.239.34.21   -> HTTP 200  (DPI does NOT block .dev)
+  rust-lang.org   real IP 185.199.111.153 -> HTTP 200  (DPI does NOT block it)
+  both of the above forced onto 188.114.97.3 -> silent (Cloudflare edge, not DPI)
+
+What is actually established as filtered on AS197207:
+  *.workers.dev  BLOCKED. Real host, "a.b.workers.dev", and names that do not
+                 exist at all. Proven to be censorship and not Cloudflare by
+                 three independent facts: (1) the same host answers HTTP 200
+                 over plaintext port 80 from this machine, (2) the Cloudflare
+                 edge completes TLS with a valid certificate and sends 4889 B of
+                 its own flight, (3) Cloudflare's closing FIN carries Ack=1612,
+                 proving it received the ClientHello but never the request.
+  workers.dev apex  ALLOWED (301 from Cloudflare)
+  cloudflare.com    ALLOWED (301 from Cloudflare, on the same edge IP)
+  .dev as a TLD     ALLOWED (go.dev returns 200)
+  Cloudflare as a vendor, and Cloudflare edge IPs, are NOT the trigger.
+
+
+================================================================================
+2. WHERE
+================================================================================
+Between 10.170.48.221 and 188.114.97.3 — upstream of Cloudflare, on this line.
+
+Hard proof it is NOT Cloudflare, from the captured FIN:
+
+  frame 196  t=18.194328827  188.114.97.3 -> 10.170.48.221
+             [FIN, ACK] Seq=4889 Ack=1612 Win=131072
+
+Cloudflare's own TCP state says: "I have sent 4889 bytes and I have received
+only 1612 bytes." 1612 is exactly the length of the ClientHello flight. The 287
+bytes that followed (client Finished + encrypted HTTP GET, Seq 1612->1899) were
+never received by Cloudflare and were never acknowledged. Cloudflare therefore
+never dispatched the request to the Worker, never produced a response, and after
+~15 s of an incomplete handshake it closed the connection by itself.
+
+Our own ACK at frame 197 also shows the same thing:
+  frame 197  10.170.48.221 -> 188.114.97.3  [ACK] Seq=1899 Ack=4890
+             + [TCP Dup ACK] SLE=4889 SRE=4890   (frames 214, 219)
+
+So the drop is on the client-to-server direction, upstream of Cloudflare.
+Not yet distinguishable: MCI's own filtering infrastructure vs. the CPE router
+on the local LAN. That requires either root (traceroute -T needs privileges:
+"socket: Operation not permitted") or a second device on a second network.
+
+Hop count is consistent with a European path: our SYN leaves with TTL 64, the
+SYN,ACK returns with TTL 49, RTT 113 ms, and the Cloudflare colo header on a
+successful request is FRA.
+
+
+================================================================================
+3. WHEN — exact timeline of the blocked flow (frames 27-219)
+================================================================================
+ t=2.983119  OUT  SYN                       TTL 64   10.170.48.221:45436
+ t=3.096266  IN   SYN,ACK                   TTL 49   188.114.97.3     RTT 113 ms
+ t=3.098296  OUT  ClientHello part 1  (1388 B)
+ t=3.098310  OUT  ClientHello part 2  (223 B)
+             *** SNI = test-sub.example.workers.dev ***
+             *** THIS IS THE MOMENT THE FLOW IS CLASSIFIED ***
+ t=3.204969  IN   ACK Ack=1389
+ t=3.210611  IN   ACK Ack=1612
+ t=3.216023  IN   Server Hello, Change Cipher Spec  1448 B
+ t=3.216024  IN   Application Data               1448 B   (certificate)
+ t=3.216024  IN   Application Data               1448 B   (certificate)
+ t=3.216024  IN   Application Data                 544 B   (certificate chain end)
+ t=3.216089  OUT  ACK Ack=4889                      <- we received all 4889 B fine
+ t=3.217657  OUT  Change Cipher Spec + App Data     80 B   \
+ t=3.217890  OUT  Application Data                  159 B    |  these 287 bytes
+ t=3.218029  OUT  Application Data                   48 B   /   never arrive
+             *** SILENCE BEGINS — 0.0002 s after the last client segment ***
+ t=3.445497  OUT  [TCP Retransmission] Seq=1851 Len=48
+ t=3.790412  OUT  [TCP Retransmission] Seq=1612 Len=287
+ t=4.477562  OUT  [TCP Retransmission] Seq=1612 Len=287
+ t=5.885455  OUT  [TCP Retransmission] Seq=1612 Len=287
+ t=8.637543  OUT  [TCP Retransmission] Seq=1612 Len=287
+ t=14.269547 OUT  [TCP Retransmission] Seq=1612 Len=287
+             *** RTO backoff is exact doubling: .35 .70 1.41 2.81 5.62 11.2 s ***
+             *** and NOT ONE inbound packet arrives: no ACK, no RST, nothing ***
+ t=18.194329  IN  [FIN, ACK] Seq=4889 Ack=1612        <- Cloudflare gives up
+ t=18.498265  IN  [FIN, ACK] retransmission
+ t=18.800662  IN  [FIN, ACK] retransmission
+ t≈15.2 s    curl aborts: "SSL_read: unexpected eof while reading" (error 56)
+
+Precise statement of "when":
+  The classification happens at t=3.098310, when the ClientHello carrying the
+  SNI leaves this machine. The first client segment the filter discards is at
+  t=3.217890 (the 159-byte record). The whole kill therefore takes effect inside
+  a 119 ms window, and is invisible to the client: no RST is ever injected.
+
+
+================================================================================
+4. THE CONTROL FLOW, SAME MACHINE, SAME SECONDS (frames 254-271)
+================================================================================
+ t=20.206074  OUT  SYN                       TTL 64  -> 188.114.98.0
+ t=20.260486  IN   SYN,ACK                   TTL 48
+ t=20.262523  OUT  Client Hello (SNI=workers.dev)
+ t=20.311038  IN   Server Hello, Change Cipher Spec  1448 B
+ t=20.311127  IN   Application Data                 988 B
+ t=20.312252  OUT  Change Cipher Spec + App Data     80 B
+ t=20.312438  OUT  Application Data                  124 B
+ t=20.312465  OUT  Application Data                   48 B
+ t=20.359333  IN   ACK Ack=3885            <- the server answers in 47 ms
+ t=20.359334  IN   Application Data, Application Data  553 B
+ total 0.158 s, HTTP 301
+
+Identical client behaviour, identical edge network, only the SNI differs.
+47 ms from client data to server ACK vs. never.
+
+
+================================================================================
+5. SEGMENTATION CONTROL (does splitting the ClientHello help?)
+================================================================================
+  SNI = jade-garden...workers.dev
+    single    no response, 12 s timeout
+    fragment  (split in two, 150 ms apart)  no response, 12 s timeout
+    delay     (split in two, 600 ms apart)  no response, 12 s timeout
+  SNI = workers.dev        single 0.2 s / fragment 0.4 s / delay 0.8 s  -> fine
+  SNI = cloudflare.com     single 0.2 s / fragment 0.4 s / delay 0.8 s  -> fine
+
+  The filter reassembles the ClientHello before matching. TLS ClientHello
+  fragmentation (Xray "fragment: tls-clienthello") does NOT work on this line.
+
+
+================================================================================
+6. ONE AMBIGUITY, STATED PLAINLY
+================================================================================
+  SNI-less ClientHello (openssl -noservername) to the blocked IP also produced
+  silence. Two explanations fit and I did NOT separate them:
+    (a) the filter also treats a missing SNI as suspicious, or
+    (b) Cloudflare's edge simply does not answer HTTPS without SNI.
+  Do not quote this as evidence either way.
+
+
+================================================================================
+7. WHAT THIS MEANS FOR THE FIX
+================================================================================
+  1. The filter reads the SNI. Anything that puts the real name in the SNI is
+     exposed. There is no TLS-level workaround measured to work here.
+  2. Port 80 to the same hostname was NOT filtered and the Worker executed
+     (200 on /healthz, 404 from its own code on the upgrade). Plaintext ws://
+     therefore appears to work from this line — untested end-to-end with a real
+     VLESS client, and it removes TLS entirely, so it is a diagnostic, not a plan.
+  3. The durable fix is a domain you own on Cloudflare: the SNI becomes an
+     ordinary domain, the pattern rule above does not match it, and the traffic
+     looks like ordinary HTTPS to a web server.
+  4. After deploying, re-run exactly these tests before distributing nodes:
+       - same tests against the new host must return bytes
+       - a NON-EXISTENT subdomain of your zone forced onto the same IP with
+         curl --resolve must ALSO return bytes. If the fake name is blackholed
+         too, your whole domain is filtered.
+================================================================================

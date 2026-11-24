@@ -1,0 +1,51 @@
+server:
+  host: 0.0.0.0
+  port: 8080
+  mode: release
+  readtimeout: 30s
+  writetimeout: 30s
+
+database:
+  host: localhost
+  port: 5432
+  user: netmon
+  password: netmon_dev_password
+  database: netmon
+  sslmode: disable
+  maxconns: 25
+  minconns: 5
+
+redis:
+  host: localhost
+  port: 6379
+  password: ""
+  db: 0
+
+probe:
+  heartbeatinterval: 30s
+
+logging:
+  level: info
+  format: json
+
+# New features from iran-internet-monitor
+ollama:
+  enabled: false  # Set to true when Ollama is running with Hermes model
+  host: http://localhost:11434
+  model: hermes3
+  timeoutseconds: 180
+
+git:
+  enabled: false  # Set to true to enable git commits
+  remote: origin
+  branch: main
+
+rangecheck:
+  enabled: false  # Set to true to enable IP range sweeping
+  csvpath: ranges.csv
+  intervalseconds: 600
+  location: US
+
+export:
+  datadir: data
+  retentiondays: 7

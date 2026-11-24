@@ -1,0 +1,7 @@
+import { NetworkSummary, SummaryDetails } from '../components/NetworkSummary';
+export const DatabaseMonitoring = () => <NetworkSummary title="Database Monitoring" category="Applications" description="Review database capacity, query timing and replication status." metrics={[
+ {label:'Databases',value:4,icon:'server'},{label:'Query time',value:'125.3 ms',icon:'time'},{label:'Active connections',value:'85 / 100',icon:'link'},{label:'Replication lag',value:'0.2 s',icon:'route'},
+]}><SummaryDetails title="Database overview" description="Aggregate values from the existing sample database report." rows={[{label:'Database count',value:4},{label:'Average query time',value:'125.3 ms'},{label:'Connection utilization',value:'85%'},{label:'Replication delay',value:'0.2 seconds'}]} /></NetworkSummary>;
+export const CDNPerformance = () => <NetworkSummary title="CDN Performance" category="Applications" description="Review edge delivery efficiency and response performance." metrics={[
+ {label:'Edge locations',value:150,icon:'globe'},{label:'Cache hit ratio',value:'87.5%',icon:'check'},{label:'Average response',value:'28 ms',icon:'time'},{label:'Throughput',value:'5.2 Tbps',icon:'bolt'},
+]}><SummaryDetails title="Delivery overview" description="Aggregate values from the existing sample CDN report." rows={[{label:'Edge locations',value:150},{label:'Cache hit ratio',value:'87.5%'},{label:'Average response time',value:'28 ms'},{label:'Total throughput',value:'5.2 Tbps'}]} /></NetworkSummary>;

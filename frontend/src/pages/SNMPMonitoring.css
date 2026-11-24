@@ -1,0 +1,13 @@
+:where([data-page~="SNMPMonitoring"])  .snmp-monitoring { padding: 2.5rem; max-width: 1800px; margin: 0 auto; }
+:where([data-page~="SNMPMonitoring"])  .snmp-monitoring h1 { font-size: 2rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+:where([data-page~="SNMPMonitoring"])  .snmp-monitoring p { color: var(--text-secondary); margin: 0.5rem 0 2rem 0; }
+:where([data-page~="SNMPMonitoring"])  .devices-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+:where([data-page~="SNMPMonitoring"])  .device-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.5rem; }
+:where([data-page~="SNMPMonitoring"])  .device-card.offline { border-left: 4px solid #EF4444; }
+:where([data-page~="SNMPMonitoring"])  .device-card.online { border-left: 4px solid #10B981; }
+:where([data-page~="SNMPMonitoring"])  .device-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border); }
+:where([data-page~="SNMPMonitoring"])  .device-header h3 { margin: 0; color: var(--text-primary); }
+:where([data-page~="SNMPMonitoring"])  .status { font-weight: 600; }
+:where([data-page~="SNMPMonitoring"])  .device-info p { margin: 0.5rem 0; font-size: 0.9rem; color: var(--text-secondary); }
+:where([data-page~="SNMPMonitoring"])  .device-info code { font-family: 'Fira Code', monospace; color: var(--accent-cyan); background: rgba(0,217,255,0.1); padding: 0.2rem 0.4rem; border-radius: 3px; }
+@media (max-width: 768px) { :where([data-page~="SNMPMonitoring"])  .snmp-monitoring { padding: 1.5rem; } :where([data-page~="SNMPMonitoring"])  .devices-list { grid-template-columns: 1fr; } }

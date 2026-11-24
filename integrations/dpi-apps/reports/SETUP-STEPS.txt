@@ -1,0 +1,123 @@
+================================================================================
+HOW TO BRING YOUR VLESS BACK UP PAST THE FILTER  (Cloudflare-domain route)
+Date: 2026-02 written 2026-10-02
+Full diagnosis: /home/user
+Generator:      /home/user
+Pre-flight:     /home/user
+================================================================================
+
+WHY THIS IS NECESSARY
+Your endpoint is a workers.dev name. Measured on this network today: names with
+2 to 4 labels are blocked, 5 or more labels are forwarded. A workers.dev
+subdomain is only ever one label deep, so every possible workers.dev name is
+inside the blocked window. Case-mangling the name (which all 16 panel variants
+do) no longer helps, because the filter normalises case. Fragmenting the
+ClientHello cannot help either, because the filter matches the name itself.
+So the front has to change. You have a domain, so put the front on it.
+
+
+--------------------------------------------------------------------------------
+UPDATE 2026-10-02 07:00 — IMPORTANT, THIS CHANGES THE ADVICE
+--------------------------------------------------------------------------------
+Tested on a second ISP (Rightel, AS57218): *.workers.dev is NOT filtered there,
+and the original case-mangled workers.dev SNI WORKS. The workers.dev block is
+MCI-specific, not national. If your target network is Rightel, you do not need
+a custom domain and the existing panel config is fine as-is.
+
+Do NOT hardcode a single DoH resolver. Measured, per ISP:
+    8.8.8.8 / 8.8.4.4   work on MCI, filtered on Rightel
+    1.1.1.1             filtered on MCI, WORKS on Rightel
+The generated config now carries BOTH https://1.1.1.1/dns-query and
+https://8.8.8.8/dns-query so it survives an ISP change.
+DNS poisoning of facebook/instagram/youtube/x, DoT/853, and DoH-by-name are
+blocked on BOTH ISPs, so those mitigations remain mandatory.
+
+--------------------------------------------------------------------------------
+STEP 1 — Cloudflare: give the Worker a deep hostname (5+ labels)
+--------------------------------------------------------------------------------
+In the Cloudflare dashboard, open the Worker that serves your VLESS endpoint
+(the one behind loxbhbohukwgvx51h35nv6befnha4a.netfreedom-project.workers.dev):
+
+    Workers & Pages  ->  your Worker  ->  Settings  ->  Domains & Routes
+    ->  Add  ->  Custom domain
+
+    Hostname:  a.b.c.d.yourdomain.com        (5+ labels total, including "com")
+    Zone:      yourdomain.com
+    ->  Add domain
+
+Cloudflare creates the DNS record and provisions the certificate
+automatically. Nothing else on the server changes: the same Worker answers, the
+same WebSocket path stays valid.
+
+Use 5 or more labels. If you cannot get 5 labels, a normal 3-label custom domain
+also passed in testing (cloudflare.com and challenges.cloudflare.com are both
+served normally), so either is fine — 5 labels is simply the safer default.
+
+--------------------------------------------------------------------------------
+STEP 2 — Pre-flight the new name BEFORE touching your phone
+--------------------------------------------------------------------------------
+    python3 /home/user a.b.c.d.yourdomain.com
+
+Expected:
+
+    VERDICT  : SERVED (HTTP/1.1 ... )
+    OK: this name is forwarded. Safe to use as SNI/Host.
+
+If it says BLOCKED or RESET, pick a different hostname and test again — it costs
+about ten seconds per name. If it says NXDOMAIN, the DNS record has not
+propagated yet; wait a minute.
+
+--------------------------------------------------------------------------------
+STEP 3 — Generate the config and import it
+--------------------------------------------------------------------------------
+    /home/user a.b.c.d.yourdomain.com
+
+This writes /home/user and prints a
+vless:// share link.
+
+In v2rayNG:  Menu  ->  +  ->  Add from clipboard  (paste the link)
+The generated JSON keeps your existing UUID, port, path and flow, and changes
+only the SNI and Host to the new hostname. It has been validated with
+"xray run -test" (Configuration OK) and needs no geodata files.
+
+--------------------------------------------------------------------------------
+WHAT THE GENERATED CONFIG CHANGES, AND WHY
+--------------------------------------------------------------------------------
+dns            https://8.8.8.8/dns-query, and nothing else. Every DoH resolver
+               NAME on this network is both DNS-poisoned to the dead sinkhole
+               10.10.34.36 and TCP-reset at the TLS layer. The IP literal works,
+               the certificate is CN=dns.google with IP SAN 8.8.8.8, so
+               verification succeeds. Verified by fetch, not assumed.
+routing        Blocks the sinkhole ranges 10.10.34.0/24 and 2001:4188:2:600::/64
+               so a poisoned answer can never be dialled by mistake.
+               Blocks UDP/443 so QUIC is forced down to TCP, which is the path
+               that actually works here.
+               Private ranges go direct; everything else goes through the proxy.
+removed        No finalmask / fragment / noise rules. They cost throughput and,
+               as measured, do not defeat a name match.
+queryStrategy  UseIPv4, since the IPv6 answers on this network are fabricated.
+
+--------------------------------------------------------------------------------
+IF YOU PREFER TO KEEP USING THE BPB PANEL
+--------------------------------------------------------------------------------
+The panel generates the SNI itself and will keep producing blocked names, so
+point the panel at the new front instead: give the panel your own domain and
+hostname rather than letting it derive a workers.dev one. Any SNI the panel
+emits that is under workers.dev will be blocked regardless of its case.
+
+--------------------------------------------------------------------------------
+IF THIS STILL FAILS
+--------------------------------------------------------------------------------
+Work down this list; each step is cheap and each isolates a layer.
+
+ 1. Preflight says SERVED but the proxy does not connect
+      -> the hostname is fine; the failure is Cloudflare-side. Check the
+         Worker is deployed, the custom domain finished provisioning, and the
+         path still matches exactly (it is case-sensitive).
+ 2. Preflight says SERVED, proxy connects, but nothing loads
+      -> try the JSON config instead of the share link, and read the log at
+         loglevel "debug" to see where it stops.
+ 3. Everything fails intermittently
+      -> 8.8.8.8 is occasionally slow here. Add a second DoH entry,
+         https://8.8.4.4/dns-query, which behaves identically.
+================================================================================

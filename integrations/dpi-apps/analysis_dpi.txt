@@ -1,0 +1,7 @@
+Observations (educational testing):
+- TCP connect succeeds on many Cloudflare/CDN IPs, but TLS handshake with SNI often results in immediate RST (ConnectionResetError) on some ports (2083/2087/2096/2053). This is consistent with DPI/SNI filtering behavior in some networks.
+- speedtest.net (likely fronted differently) completes TLS handshake successfully.
+- Timeouts vs RST differ - RST suggests active intervention (reset by middlebox) rather than silent drop in some cases.
+- Behavior varies by host/port (not all endpoints affected equally).
+
+What changed vs before: can't conclusively say without longitudinal tests, but pattern suggests active inspection targeting certain SNI/ports. ISN/sequence methods not directly tested here.

@@ -1,0 +1,16 @@
+.dns-investigation-form { margin-bottom: 18px; padding: 22px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-surface); }
+.dns-investigation-form > label { display: block; margin-bottom: 8px; color: var(--ui-text); font-size: 13px; font-weight: 650; }
+.dns-investigation-input-row { display: flex; gap: 10px; }
+.dns-investigation-input-row input { flex: 1; min-width: 0; min-height: 44px; padding: 10px 12px; border: 1px solid var(--ui-border); border-radius: 8px; outline: none; color: var(--ui-text); background: var(--ui-input); font: inherit; }
+.dns-investigation-input-row input:focus-visible { border-color: var(--ui-accent); outline: 2px solid color-mix(in srgb, var(--ui-accent) 30%, transparent); outline-offset: 1px; }
+.dns-investigation-input-row button { min-height: 44px; padding: 0 16px; border: 1px solid var(--ui-accent); border-radius: 8px; color: var(--ui-text); background: color-mix(in srgb, var(--ui-accent) 16%, var(--ui-surface)); font: inherit; font-size: 12px; font-weight: 650; cursor: pointer; }
+.dns-investigation-input-row button:disabled { opacity: .55; cursor: not-allowed; }
+.dns-investigation-input-row button:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 3px; }
+.dns-investigation-form p, .dns-investigation-state { margin: 10px 0 0; color: var(--ui-secondary); font-size: 12px; line-height: 1.6; }
+.dns-investigation-result { margin-top: 16px; padding: 20px; border: 1px solid var(--ui-border); border-radius: 12px; background: var(--ui-surface); }
+.dns-investigation-result h2 { margin: 0 0 12px; color: var(--ui-text); font-size: 15px; }
+.dns-resolver-list { display: grid; gap: 10px; }
+.dns-resolver-list > div { display: flex; justify-content: space-between; gap: 18px; padding: 10px 0; border-top: 1px solid var(--ui-border); color: var(--ui-secondary); font-size: 12px; }
+.dns-resolver-list strong { color: var(--ui-text); }
+.dns-resolver-list span { overflow-wrap: anywhere; text-align: right; }
+@media (max-width: 620px) { .dns-investigation-input-row { flex-direction: column; } .dns-investigation-input-row button { width: 100%; } .dns-resolver-list > div { flex-direction: column; gap: 5px; } .dns-resolver-list span { text-align: left; } }

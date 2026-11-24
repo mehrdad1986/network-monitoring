@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "isp": "New ISP (10.0.22.x network)",
+    "local_ip": "192.168.0.102",
+    "router": "192.168.0.1",
+    "timestamp": "2026-10-15T02:50:24.618854",
+    "sinkhole_ip": "10.10.34.36",
+    "old_sinkhole_ip": "10.10.34.35"
+  },
+  "traceroutes": {},
+  "dns_poisoning": {
+    "sinkhole_ip": "10.10.34.36",
+    "tests": {
+      "youtube.com": "10.10.34.36",
+      "instagram.com": "10.10.34.36",
+      "facebook.com": "10.10.34.36",
+      "netflix.com": "10.10.34.36",
+      "pages.dev": "10.10.34.36",
+      "binance.com": "10.10.34.36",
+      "google.com": "216.239.38.120 (NOT poisoned)",
+      "github.com": "140.82.121.4 (NOT poisoned)",
+      "cloudflare.com": "104.16.133.229, 104.16.132.229 (NOT poisoned)",
+      "vercel.app": "216.198.79.131, 64.29.17.131 (NOT poisoned)",
+      "workers.dev": "104.18.13.15, 104.18.12.15 (NOT poisoned)",
+      "bing.com": "204.79.197.220 (NOT poisoned)",
+      "duckduckgo.com": "40.114.177.246 (NOT poisoned)"
+    }
+  },
+  "sni_filtering_cloudflare": {
+    "ip": "104.16.133.229",
+    "tests": {
+      "cloudflare.com": "PASS",
+      "test.com": "BLOCKED (Alert 40)",
+      "youtube.com": "PASS",
+      "instagram.com": "PASS",
+      "netflix.com": "PASS",
+      "example.app": "BLOCKED (Alert 40)",
+      "workers.dev": "PASS",
+      "a.workers.dev": "PASS",
+      "a.b.workers.dev": "PASS",
+      "a.b.c.workers.dev": "BLOCKED (Alert 40)",
+      "bing.com": "BLOCKED (Alert 40)",
+      "duckduckgo.com": "BLOCKED (Alert 40)",
+      "No SNI": "BLOCKED"
+    }
+  },
+  "sni_filtering_vercel": {
+    "ip": "216.198.79.131",
+    "tests": {
+      "vercel.app": "PASS",
+      "a.vercel.app": "PASS",
+      "aparatcom.vercel.app": "PASS",
+      "test.com": "PASS",
+      "cloudflare.com": "PASS"
+    }
+  },
+  "port_filtering_cloudflare": {
+    "ip": "104.16.133.229",
+    "open": [
+      80,
+      443,
+      8080,
+      8443,
+      2053,
+      2083,
+      2087,
+      2096
+    ],
+    "closed": [
+      22,
+      25,
+      53,
+      123,
+      1443,
+      1445,
+      9443,
+      3389,
+      8888,
+      3000,
+      4000,
+      5000,
+      993,
+      995,
+      465,
+      587,
+      110,
+      143
+    ]
+  },
+  "port_filtering_vercel": {
+    "ip": "216.198.79.131",
+    "open": [
+      80,
+      443
+    ],
+    "closed": [
+      22,
+      25,
+      53,
+      8080,
+      8443,
+      2053,
+      2083,
+      2087,
+      2096,
+      22,
+      8888,
+      3000,
+      4000,
+      5000,
+      993,
+      995,
+      465,
+      587,
+      110,
+      143,
+      123
+    ]
+  },
+  "doh_bypass": "BLOCKED - TLS handshake hangs",
+  "routing_paths": {
+    "cloudflare_dex": {
+      "hops": [
+        1,
+        "192.168.0.1",
+        7,
+        "10.0.22.161",
+        8,
+        "10.0.22.130",
+        9,
+        "10.0.22.137",
+        10,
+        "10.0.22.142",
+        11,
+        "10.30.96.157",
+        12,
+        "10.202.7.132",
+        13,
+        "10.21.21.11",
+        14,
+        "80.81.194.180 (AS13335 DE-CIX Frankfurt)",
+        15,
+        "162.158.84.119 (CF Frankfurt)"
+      ]
+    },
+    "google_dns": {
+      "hops": [
+        1,
+        "192.168.0.1",
+        7,
+        "10.0.22.161",
+        8,
+        "10.0.22.130",
+        9,
+        "10.0.22.137",
+        10,
+        "10.0.22.142",
+        11,
+        "10.30.96.157",
+        12,
+        "10.202.7.132",
+        13,
+        "10.21.21.11",
+        14,
+        "10.21.41.13",
+        15,
+        "10.202.9.142",
+        16,
+        "217.131.59.45 (AS6453 Tellcom)",
+        17,
+        "72.14.212.96 (AS15169 Google)"
+      ]
+    },
+    "vercel": {
+      "hops": [
+        1,
+        "192.168.0.1",
+        7,
+        "10.0.22.177",
+        8,
+        "10.0.22.134",
+        9,
+        "10.0.22.130",
+        10,
+        "10.0.22.137",
+        11,
+        "10.0.22.142",
+        12,
+        "10.30.96.157",
+        13,
+        "10.202.7.132",
+        14,
+        "10.21.211.20",
+        15,
+        "91.93.169.33 (AS6453 Tata/Tellcom)"
+      ]
+    }
+  },
+  "bgp_gateways": {
+    "80.81.194.180": {
+      "asn": "AS13335",
+      "name": "Cloudflare/DE-CIX Frankfurt peering"
+    },
+    "193.251.150.199": {
+      "asn": "AS5412",
+      "name": "Turkcell Superonline (Google)"
+    },
+    "217.131.59.45": {
+      "asn": "AS6453",
+      "name": "Superonline/Tellcom (Google transit)"
+    },
+    "72.14.214.52": {
+      "asn": "AS15169",
+      "name": "Google backbone"
+    },
+    "91.93.169.33": {
+      "asn": "AS6453",
+      "name": "Tata/Tellcom (Vercel/AWS)"
+    },
+    "10.40.131.52": {
+      "asn": "AS16509",
+      "name": "AWS backbone"
+    },
+    "85.132.90.153": {
+      "asn": "UNKNOWN",
+      "name": "Turkcell backbone (Quad9)"
+    },
+    "85.132.90.161": {
+      "asn": "UNKNOWN",
+      "name": "Turkcell backbone (Quad9)"
+    },
+    "213.248.93.33": {
+      "asn": "AS174",
+      "name": "Cogent (Quad9)"
+    },
+    "62.115.182.189": {
+      "asn": "AS174",
+      "name": "Cogent"
+    }
+  }
+}

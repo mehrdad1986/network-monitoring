@@ -1,0 +1,626 @@
+################################################################################
+#                                                                              #
+#   MASTER FINDINGS — COMPLETE RECORD OF THE DPI INVESTIGATION                  #
+#                                                                              #
+#   Target      : why *.workers.dev, and other names, are unreachable from       #
+#                 this line, and what the filtering equipment actually does     #
+#   Line        : AS197207 Mobile Communication Company of Iran PLC (MCCI)      #
+#   Client      : 10.170.48.221 (private), public 188.210.73.149, Tehran        #
+#   Dates       : 2026-10-02, 04:30 - 06:45 (+01:00)                            #
+#   Compiled    : 2026-10-02, consolidating all nine earlier reports            #
+#                                                                              #
+#   This file supersedes nothing; it CROSS-REFERENCES the earlier reports and   #
+#   states plainly which earlier claims were later WITHDRAWN as wrong.          #
+#                                                                              #
+################################################################################
+
+################################################################################
+PART 1 — THE ANSWER IN ONE PAGE
+################################################################################
+Something on this line reads the TLS ClientHello, matches the server NAME, and
+drops the connection when the name matches a list. It does not need to decrypt
+anything, and it never does.
+
+For *.workers.dev specifically the name is read from the ClientHello, the
+handshake is allowed to COMPLETE (Cloudflare's real certificate is delivered
+intact), and then every client-to-server byte is discarded. You see a hang, not
+an error, lasting about 15 seconds, after which Cloudflare gives up and closes.
+There is no RST, no interception, and no certificate substitution.
+
+Three consequences that decide everything else:
+
+  1. The block is on the NAME, so it cannot be defeated from the client. Not by
+     fragmenting the ClientHello (measured), not by renaming (measured), not by
+     changing protocol, path, fingerprint, early data, or app.
+
+  2. workers.dev hostnames are only ever ONE label deep, and the filter's
+     matcher reaches four labels. So every possible workers.dev name is inside
+     the blocked window, by construction. There is no workers.dev name that
+     works from this line.
+
+  3. Therefore the fix is not a setting. It is a different name — a hostname on
+     a domain you control. Names with five or more labels are forwarded.
+
+Alongside that sit three other mechanisms, all measured: DNS forgery for the
+heavily censored sites, TCP reset for pages.dev and for every encrypted-resolver
+hostname, and a working bypass for encrypted DNS that exists only because
+addressing a resolver by IP removes the name from the wire.
+
+################################################################################
+PART 2 — ENVIRONMENT, TOOLS, AND CONSTRAINTS
+################################################################################
+TOOLS USED
+  dumpcap / tshark / capinfos    packet capture and frame-level timeline
+  openssl s_client                TLS with explicit -servername / -noservername
+  curl --resolve / --http1.1      name-varied tests against a pinned IP
+  python3 + ssl.MemoryBIO         ClientHello segmentation control, verdict logic
+  dig / nslookup / host           DNS behaviour across record types
+  check-host.net API              8 independent global vantages
+  getent / ip route / traceroute  routing and hop behaviour
+  ps / ss / env / gsettings       the dead-proxy discovery
+
+HARD CONSTRAINTS ON THIS HOST
+  - sudo requires interactive auth, so no passwordless privilege escalation.
+  - tcpdump fails: "You don't have permission to perform this capture ... "
+    (CAP_NET_RAW may be required). Only dumpcap worked, via a file capability.
+  - Scapy raw sockets unusable for the same reason.
+  - No HTTP/3 client: curl has no nghttp3/QUIC support, so QUIC and UDP/443
+    behaviour was NEVER measured. Any statement about QUIC is assumption.
+  - No second network available, so MCI-only vs national scope is untestable.
+
+THREE ENVIRONMENT TRAPS THAT PRODUCED FALSE RESULTS EARLY
+  (a) A DEAD SOCKS PROXY. v2rayA (snap, pid 6670) had set GNOME proxy mode to
+      "manual" with SOCKS 127.0.0.1:10810, with nothing listening. Every early
+      measurement returned curl error 7 / code 000 because of this, not because
+      of censorship. All later results were taken with every proxy variable
+      unset.
+  (b) AN EMPTY PYTHON TRUST STORE. Python's default CA path /usr/lib/ssl/cert.pem
+      does not exist here, so certificate verification failed with code 20
+      ("unable to get local issuer certificate") while openssl verified the same
+      chain cleanly ("Verify return code: 0 (ok)"). This briefly made a
+      WORKING DoH endpoint look broken. Fixed by loading
+      /etc/ssl/certs/ca-certificates.crt explicitly.
+  (c) A BROKEN VERDICT FUNCTION IN MY OWN TESTER. See Part 9. This one was mine.
+
+################################################################################
+PART 3 — WHAT THE FILTER IS, AND WHERE IT SITS
+################################################################################
+An SNI-based passive filter on this line, upstream of Cloudflare.
+
+IT IS NOT:
+  IP-based           The same anycast addresses (188.114.96/97/98) serve blocked
+                     and allowed flows simultaneously, same machine, same
+                     seconds: frames 27-67 blocked, frames 254-271 allowed.
+  port-based         Port 80 to the blocked hostname returns HTTP 200 and the
+                     Worker's own code executes.
+  Host-header-based  SNI=workers.dev with Host=<blocked worker name> returned
+                     Cloudflare's 403 in 0.30 s. The Host string is not the
+                     trigger; the SNI is.
+  content-based      The filter never sees content. The drop happens on the
+                     first client record carrying application data, still opaque.
+  a Cloudflare WAF   Cloudflare's own TCP state proves it never got the request.
+  TLS interception    Cloudflare's genuine Let's Encrypt certificate is presented
+                     and validates. So no decryption, no protocol visibility.
+
+LOCATION
+  Between this host and Cloudflare, on the MCI line. Not yet distinguishable
+  between MCI's own filtering infrastructure and the CPE router on the local LAN;
+  traceroute -T needs privileges this host does not have.
+
+HARD PROOF IT IS NOT CLOUDFLARE — from the captured FIN:
+
+  frame 196  t=18.194328827  188.114.97.3 -> 10.170.48.221
+             [FIN, ACK] Seq=4889 Ack=1612 Win=131072
+
+Cloudflare's own TCP accounting says: "I sent 4889 bytes and received only 1612."
+1612 is exactly the ClientHello flight. The 287 bytes that followed (client
+Finished plus the encrypted request, Seq 1612->1899) never arrived and were
+never acknowledged. So Cloudflare never dispatched the request to the Worker,
+never produced a response, and after its own ~15 s timeout closed by itself.
+Our side shows the mirror image: ACK Seq=1899 Ack=4890, then duplicate ACKs
+(frames 214, 219).
+
+The ~15 second delay is therefore CLOUDFLARE'S TLS TIMEOUT, not a censorship
+timer. This corrects an earlier reading that treated 15 s as a filter behaviour.
+
+ROUTE
+  13 hops to 188.114.97.3; TTLs 1-12 return EHOSTUNREACH, TTL 13 connects.
+  SYN leaves with TTL 64, SYN-ACK returns with TTL 49, RTT 113 ms. The colo code
+  on successful TLS requests is FRA (Frankfurt); the plaintext port-80 request
+  came back GYD (Delhi). Consistent with a European path.
+  "ping -M do -s 1472" succeeds, so the tested MTU-blackhole behaviour is ruled out.
+
+EXIT-NODE LABELS ARE FICTION
+  cf-ray ...-FRA for TLS, ...-GYD for the plaintext request. The subscription's
+  "USA - New York", "Germany - Frankfurt", "Netherlands - Amsterdam" nodes are
+  the same Frankfurt exit wearing different names. INFERRED from colo codes, not
+  independently verified.
+
+################################################################################
+PART 4 — EXACT TIMELINE OF A BLOCKED FLOW  (frames 27-219)
+################################################################################
+  t=2.983119  OUT  SYN                        TTL 64
+  t=3.096266  IN   SYN,ACK                    TTL 49      RTT 113 ms
+  t=3.098296  OUT  ClientHello part 1  (1388 B)
+  t=3.098310  OUT  ClientHello part 2  (223 B)
+              *** SNI = test-sub.example.workers.dev ***
+              *** THE FLOW IS CLASSIFIED AT THIS INSTANT ***
+  t=3.204969  IN   ACK Ack=1389
+  t=3.210611  IN   ACK Ack=1612
+  t=3.216023  IN   Server Hello, Change Cipher Spec  1448 B
+  t=3.216024  IN   Application Data            1448 B   certificate
+  t=3.216024  IN   Application Data            1448 B   certificate
+  t=3.216024  IN   Application Data              544 B   chain end
+  t=3.216089  OUT  ACK Ack=4889          <- we received all 4889 B fine
+  t=3.217657  OUT  Change Cipher Spec + App Data    80 B  |
+  t=3.217890  OUT  Application Data                 159 B  |  these 287 bytes
+  t=3.218029  OUT  Application Data                  48 B  /   never arrive
+              *** SILENCE BEGINS 0.0002 s after the last client segment ***
+  t=3.445497  OUT  [TCP Retransmission] Seq=1851 Len=48
+  t=3.790412  OUT  [TCP Retransmission] Seq=1612 Len=287
+  t=4.477562  OUT  [TCP Retransmission] Seq=1612 Len=287
+  t=5.885455  OUT  [TCP Retransmission] Seq=1612 Len=287
+  t=8.637543  OUT  [TCP Retransmission] Seq=1612 Len=287
+  t=14.269547 OUT  [TCP Retransmission] Seq=1612 Len=287
+              *** RTO backoff is exact doubling: .35 .70 1.41 2.81 5.62 11.2 s ***
+              *** NOT ONE inbound packet arrives: no ACK, no RST, nothing ***
+  t=18.194329  IN  [FIN, ACK] Seq=4889 Ack=1612     <- Cloudflare gives up
+  t≈15.2 s    curl aborts: "SSL_read: unexpected eof while reading" (error 56)
+
+Precise statement of "when": classification happens at t=3.098310 when the
+ClientHello carrying the SNI leaves this machine. The first discarded segment is
+at t=3.217890. The entire kill takes effect inside a 119 ms window and is
+invisible to the client, because no RST is ever injected.
+
+THE CONTROL, SAME MACHINE, SAME SECONDS  (frames 254-271)
+  SYN to 188.114.98.0, SYN-ACK in 54 ms, ClientHello with SNI=workers.dev at
+  t=20.262523, server flight by t=20.311127, server ACK of client data at
+  t=20.359333, HTTP 301, total 0.158 s.
+  47 ms from client data to server ACK, versus never.
+
+################################################################################
+PART 5 — THE NAME MATRIX  (measured from this line)
+################################################################################
+NAME                                        TLS:443    HTTP:80   VERDICT
+------------------------------------------  ---------  --------  ------------------------
+workers.dev                (apex)           301        301       ALLOWED
+a.workers.dev              (3 labels)       -          -         BLOCKED
+a.b.workers.dev            (4 labels)       -          -         BLOCKED
+a.b.c.workers.dev          (5 labels)       alert      -         FORWARDED to CF
+a.b.c.d.workers.dev        (6 labels)       alert      -         FORWARDED to CF
+a.b.c.d.e.workers.dev      (7 labels)       alert      -         FORWARDED to CF
+random9999.workers.dev     (2 labels)       -          -         BLOCKED
+www.workers.dev                            -          -         BLOCKED
+jade-garden-6ff7...workers.dev (real)      silent     200       BLOCKED
+onicic.wearethewegods...workers.dev        silent     -         BLOCKED
+edge-gw-4k7m...workers.dev (fresh, 20 min) silent     -         BLOCKED
+edge-status-4k7m...workers.dev (static)    silent     -         BLOCKED
+cloudflare.com                             301        301       ALLOWED
+challenges.cloudflare.com                  200        -         ALLOWED
+www.cloudflare.com                         200        -         ALLOWED
+go.dev                     (TLD .dev)       -          200       ALLOWED
+rust-lang.org                              -          200       ALLOWED
+pages.github.com                           -          200       ALLOWED
+pages.dev                  (apex)           RST        403       BLOCKED (hard)
+www.pages.dev                              RST        -         BLOCKED (hard)
+nonexistent *.pages.dev                    RST        -         BLOCKED (hard)
+
+KEY POINT: workers.dev is NOT DNS-poisoned, so it is the clean instrument for
+measuring the SNI layer. Every other censored zone here is poisoned first and
+never reaches this layer at all.
+
+################################################################################
+PART 6 — THE FIVE ENFORCEMENT MECHANISMS
+################################################################################
+The filter is not one mechanism. Five distinct responses were observed. The
+differences matter for detection and for writing client rules.
+
+MECHANISM 1 — DNS FORGERY
+  Symptom   forged A and AAAA; no answer for NS/MX/TXT; identical answer no
+            matter which resolver is asked; identical for case-randomised names
+  Applies   facebook.com, instagram.com, youtube.com, x.com, pages.dev, and
+            every encrypted-resolver hostname
+  Values    A    = 10.10.34.36                (dead sinkhole)
+            AAAA = 2001:4188:2:600:10:10:34:36  (documentation prefix, so the
+                                                  address can never be real)
+  TTL       ~417-418 on forged answers, lower on legitimate ones
+  0x20 case randomisation does NOT help.
+
+MECHANISM 2 — SNI SILENT DROP
+  Symptom   TLS handshake COMPLETES, genuine certificate delivered, then zero
+            application bytes; peer hangs until it times out
+  Applies   *.workers.dev, 2 to 4 labels
+  Not       MITM, certificate substitution, or injected RST
+
+MECHANISM 3 — SNI TCP RESET
+  Symptom   TCP RST during the handshake; handshake never completes
+  Applies   pages.dev (apex, www, and nonexistent names); every DoH resolver name
+  Why this is the filter and not Cloudflare: a nonexistent *.workers.dev name
+  gets a genuine TLS alert from Cloudflare, whereas a nonexistent *.pages.dev
+  name gets a RST. Cloudflare refuses neither; the connection dies upstream.
+
+MECHANISM 4 — LABEL-COUNT WINDOW
+  Symptom   names with 5 or more labels are forwarded untouched
+  Scope     any hostname, not just workers.dev
+  Note      this is a parsing limitation of the matcher, not a smarter filter.
+            It is NOT a usable evasion for workers.dev, because Cloudflare
+            serves no such name — the name is forwarded and then rejected.
+
+MECHANISM 5 — PORT/ADDRESS SCOPING (observed, not fully characterised)
+  1.1.1.1 and 1.0.0.1 time out even addressed by IP, while Cloudflare's CDN
+  addresses connect fine. 8.8.8.8 and 9.9.9.9 refuse plain HTTP/80 connections
+  while 1.1.1.1 answers 301 and doh.pub answers 403. So port and address
+  behaviour varies per service and was not mapped exhaustively.
+
+################################################################################
+PART 7 — ENCRYPTED DNS: THE FULL RESULT
+################################################################################
+DoT, port 853 — NO ANSWER from any of:
+    1.1.1.1, 8.8.8.8, 9.9.9.9, 94.140.14.14, 185.222.222.222, 1.12.12.12,
+    223.5.5.5
+
+DoH ADDRESSED BY NAME — TCP RESET during the handshake, every one:
+    cloudflare-dns.com   (104.16.248.249 and 104.16.249.249)
+    one.one.one.one      (at the same Cloudflare addresses)
+    dns.google           (8.8.8.8 and 8.8.4.4)
+    dns.quad9.net        (9.9.9.9 and 149.112.112.112)
+    dns.adguard-dns.com  (94.140.14.14 and 94.140.15.15)
+    dns.alidns.com       (223.5.5.5)
+    doh.pub              (1.12.12.12)
+    dns.sb               (185.222.222.222)
+    dns.mullvad.net      (194.242.2.2)
+    doh.opendns.com, dns.nextdns.io, doh.dns.sb, dot.pub
+  Every one of these names is ALSO DNS-poisoned to 10.10.34.36, so they cannot
+  be resolved either. Two independent blocks stacked on every resolver name.
+
+DoH ADDRESSED BY IP LITERAL — THIS IS THE ONE THAT WORKS:
+    https://8.8.8.8/dns-query    real DNS answers returned
+    https://8.8.4.4/dns-query    same
+  Certificate presented is CN=dns.google with SANs including IP addresses
+  8.8.8.8, 8.8.4.4, 8.8.8.53, so hostname verification succeeds; openssl
+  reports "Verify return code: 0 (ok)". Because no resolver NAME appears on the
+  wire, the name-matching filter has nothing to match.
+  Verified by fetching real answers for example.com, cloudflare.com, workers.dev.
+
+WHY THE SPLIT: two candidate bypasses were tested and behaved differently.
+  SNI=cloudflare.com at 104.16.248.249 with Host: cloudflare-dns.com  -> 403
+    (connection survives; Cloudflare itself refuses the mismatched Host)
+  SNI=workers.dev at 188.114.96.3 with Host: cloudflare-dns.com       -> 403
+  SNI=one.one.one.one at 104.16.248.249                               -> RESET
+  So a NON-resolver SNI does get through and the reset really is keyed on the
+  resolver NAME. Routing still fails, but only because Cloudflare refuses the
+  mismatched Host — not because of the DPI.
+
+PLAIN HTTP, port 80, for context:
+    1.1.1.1:80   answers 301        (port open, request form refused)
+    doh.pub:80   answers 403
+    8.8.8.8:80   TCP connect fails
+    9.9.9.9:80   TCP connect fails
+
+CONSEQUENCE: the only usable encrypted resolver on this line is Google's, and
+only by IP literal. This is why the BPB panel's https://8.8.8.8/dns-query is
+still correct, and why the ACTIVE v2rayN config was broken — it pins resolver
+IPs in dns.hosts but keeps the resolver HOSTNAME as the SNI, which is reset.
+
+################################################################################
+PART 8 — THE VLESS FRONT WAS DEAD, AND NO CLIENT SETTING COULD SAVE IT
+################################################################################
+THE SETUP FOUND ON THIS MACHINE
+    v2rayN desktop:  /home/user
+    VLESS + WebSocket + TLS through Cloudflare at 104.21.28.168:443
+    UUID   38befcfd-b4f3-405c-89a7-19eeaf8d7105
+    path   /vl/Xu1qOzZTZNtI8Np5i7K8oW5X0fz?ed=2560
+    SNI    LoXBhBOHuKwgVX51H35nv6bEFNHa4a.neTFREedoM-PROJeCT.wORKErs.DEv
+    Host   loxbhbohukwgvx51h35nv6befnha4a.netfreedom-project.workers.dev
+
+The BPB panel template (/home/user 9 entries)
+generates SIXTEEN outbound variants whose only difference is the CASE of the
+four labels in that same workers.dev SNI. The intent was to defeat a literal
+byte comparison against "workers.dev", which is a reasonable idea in principle.
+
+MEASURED AT THE REAL SERVER, 104.21.28.168:443:
+    SNI as written (mixed case)          BLOCKED, 0 bytes
+    SNI lowercased                       BLOCKED, 0 bytes
+    WS Host workers.dev name             BLOCKED, 0 bytes
+    cloudflare.com                       SERVED  HTTP/1.1 301
+    challenges.cloudflare.com            SERVED  HTTP/1.1 200
+    a.b.workers.dev                      BLOCKED
+    a.b.c.workers.dev                    reached Cloudflare (real TLS alert)
+
+Both evasion mechanisms the panel relies on are dead:
+  (a) CASE RANDOMISATION fails — the filter normalises case.
+  (b) EVERY variant is a FOUR-label name, i.e. inside the blocked window.
+
+WHY FRAGMENTATION CANNOT HELP
+The "tls fragment" file (/home/user fragment, a truncated JSON
+paste fragment from the same panel) routes TLS through a "tcp-fragment-tls"
+outbound whose streamSettings.finalmask splits the ClientHello (packets
+"tlshello", then 114+1 byte fragments, maxSplit 11). Fragmentation only ever
+helps against a filter that inspects the FIRST contiguous segment. This filter
+reassembles first. Directly measured with ssl.MemoryBIO:
+
+    SNI = <blocked worker name>
+      single   (one write)               -> no response, 12 s timeout
+      fragment (2 writes, 150 ms apart)  -> no response, 12 s timeout
+      delay    (2 writes, 600 ms apart)  -> no response, 12 s timeout
+    SNI = workers.dev      single 0.2 s / fragment 0.4 s / delay 0.8 s  -> fine
+    SNI = cloudflare.com   single 0.2 s / fragment 0.4 s / delay 0.8 s  -> fine
+
+So splitting the ClientHello changes nothing, and splitting a connection whose
+SNI is blocked cannot hide that SNI. Finalmask buys nothing and costs throughput.
+
+TWO MINOR PROBLEMS WITH THE FRAGMENT FILE ITSELF
+  - It is NOT valid JSON. It begins mid-object (the opening "{" is gone) and is
+    truncated at the end. It is a paste fragment for the panel, not a runnable
+    config. It also cannot be array-wrapped: Xray's loader wants one object.
+  - Its DoH bootstrap maps "cloudflare-dns.com" to challenges.cloudflare.com's
+    address via dns.hosts. That pins only the IP; the TLS SNI is still the
+    literal string "cloudflare-dns.com", which is now reset.
+
+THE FIX DELIVERED
+A hostname with 5 or more labels on a domain the user controls, proxied by
+Cloudflare. This keeps the whole VLESS+WS+TLS+CDN design, the UUID and the path,
+and changes only the SNI and Host.
+    Documents/make_v2rayng_config.sh   generator; warns if host has <5 labels
+    kilo/sni_preflight.py              "will this hostname pass?" checker
+    Documents/SETUP-STEPS.txt          the Cloudflare-side steps
+  The generated config was validated with "xray run -test" -> Configuration OK,
+  and needs no geodata files. NOT validated end to end, because the hostname
+  does not exist in the Cloudflare account yet.
+  That Cloudflare account currently contains ZERO zones (GET /zones -> []), which
+  is why a custom hostname could not simply be attached.
+
+################################################################################
+PART 9 — CORRECTIONS AND WITHDRAWN CLAIMS
+################################################################################
+Read this section before quoting anything from the earlier reports.
+
+WITHDRAWN 1 — "*.cloudflare.net and *.pages.dev are also filtered"
+  WRONG. Those names also go silent when forced onto a workers.dev EDGE IP, but
+  that silence is Cloudflare's own edge behaviour for a name it does not serve.
+  Control: go.dev on its real IP 216.239.34.21 -> 200; rust-lang.org on
+  185.199.111.153 -> 200; both forced onto 188.114.97.3 -> silent. So .dev as a
+  TLD is NOT filtered.
+  NOTE, partial correction: pages.dev IS separately blocked, but by MECHANISM 3
+  (TCP reset), and it is also DNS-poisoned. Those two facts were conflated.
+
+WITHDRAWN 2 — "blocking a.b.workers.dev proves the whole namespace is filtered"
+  That test alone cannot distinguish DPI from Cloudflare, because a.b.workers.dev
+  does not exist and Cloudflare has no certificate for it. The claim was
+  unsupported at the time.
+  IT IS NOW PROVEN ANYWAY, by a much stronger experiment: a Worker deployed 20
+  minutes earlier, never reported to anyone, with no tunnel code at all — a
+  35-byte static HTML page — is blocked exactly like the original. So the rule is
+  a WILDCARD on <anything>.workers.dev, not an enumerated list of reported names.
+
+WITHDRAWN 3 — "the ~15 second delay is the filter's behaviour"
+  It is Cloudflare's own TLS handshake timeout. Its FIN carries Ack=1612, proving
+  Cloudflare was waiting for the client's remaining 287 bytes. INFERRED, not
+  measured.
+
+WITHDRAWN 4 — MY OWN SNI TESTER WAS WRONG FOR SEVERAL HOURS
+  sni_variants.py, sni_variants2.py and sni_variants3.py all reported the CONTROL
+  hostname as blocked, contradicting curl. Cause: the verdict searched RAW
+  SOCKET BYTES for b"HTTP/", and TLS 1.3 application data is still ciphertext on
+  the wire, so every healthy response was mislabelled BLOCKED. A second bug
+  compounded it: only the first recv() was read, so a slow first TLS record gave
+  a false "0 bytes". Proof the control is reachable: 946 bytes of application
+  data arrive in 0.25 s. sni_variants4.py decrypts through SSLObject.read() and
+  is the ONLY tester whose output is citable. Every conclusion that rested on
+  the earlier three files is void.
+
+CLAIMS FROM ANOTHER REPORT THAT ARE FALSE OR UNSUPPORTED
+  "VLESS protocol signature detected in traffic"        FALSE, impossible: the
+        traffic is TLS with a valid certificate, so no decryption, and the tunnel
+        bytes never reached Cloudflare (Ack=1612).
+  "Early data in Sec-WebSocket-Protocol reveals VLESS"  FALSE, same reason, and
+        the header never left the machine. Turning early data off cannot help.
+  "DPI sees WebSocket upgrade headers after the handshake" FALSE: the headers
+        are inside TLS, and in the capture the request was never delivered.
+  "DPI drops all packets from the server"               FALSE and backwards: the
+        server sent 4889 bytes and every byte was ACKed. The drop is
+        client-to-server.
+  "Traffic-behaviour ML classifier, 70% confidence"    UNSUPPORTED, no method,
+        no counter-example.
+  "Huawei / ZTE 10 Gbps+ DPI appliances"                UNSUPPORTED. No vendor,
+        model or throughput evidence exists. A string match and a flow drop need
+        no vendor identification. See Part 10.
+  "Signature DB updated weekly, commercial threat-intel feeds, active probing"
+                                                         UNSUPPORTED, asserted.
+  "Detection probability 95%, drops to 35-40% / 70% / 50-60% / 85%"
+                                                         FABRICATED. These numbers
+        were never measured by anyone and are the most load-bearing part of that
+        report's recommendations. Ignore every one of them.
+  "Enable client-side fragmentation"                    MEASURED USELESS here.
+
+WHAT IS GENUINELY UNKNOWN
+  - Whether the matcher is a regex, a label counter, or a fixed byte window.
+    Only its observable boundary is mapped.
+  - Whether the workers.dev and pages.dev rules are explicit entries or one
+    broader Cloudflare-zone category.
+  - Whether QUIC/HTTP3 is filtered. UDP/443 was blocked client-side in the
+    configs and this host has no HTTP/3 client, so it was never measured.
+  - Whether all of this is MCI-specific or national. Needs a second network.
+  - Whether a TLS 1.2-only client changes anything (the verdict test was
+    confounded by cipher configuration until retested properly; retest showed
+    TLS 1.2-capable and TLS 1.3-only give IDENTICAL verdicts).
+  - Whether an actual VLESS handshake completes end to end through a working
+    tunnel.
+  - SNI-less ClientHello silence: (a) the filter may treat a missing SNI as
+    suspicious, or (b) Cloudflare may simply not answer HTTPS without SNI. These
+    were never separated. Do not quote this either way.
+
+################################################################################
+PART 10 — THE VENDOR QUESTION, STATED HONESTLY
+################################################################################
+NO vendor, model, or management interface has been identified. There is no
+evidence for Huawei, ZTE, or any other appliance, and none for any throughput
+figure.
+
+WHAT IS KNOWN ABOUT THE INFRASTRUCTURE
+  - The gateway at 10.170.48.246 exposes TCP/53 among scanned administration and
+    DPI sinkhole ports, and nothing else identified. Router identity unknown.
+  - The gateway MAC 36:a4:df:c6:e3:f6 is randomised, so no vendor OUI applies.
+  - The sinkhole addresses 10.10.34.34, .35 and .36 answer nothing: no TCP or
+    UDP service, no ICMP, no useful fingerprint. The gateway does not answer
+    either.
+  - The forged AAAA prefix 2001:4188:2:600:: is a documentation range, chosen
+    for plausibility, not assigned to any operator.
+
+WHAT IS INFERRED, NOT MEASURED
+  - That the filtering sits on MCI's network rather than the local CPE, from the
+    route and the fact that the drop is upstream of Cloudflare. Not proven.
+
+CONCLUSION: the equipment has not been identified and probably cannot be from
+the client side. An SNI string match and a silent flow drop are behaviour, not
+a signature of any particular vendor.
+
+################################################################################
+PART 11 — WHAT TO DO, IN ORDER OF EXPECTED EFFECT
+################################################################################
+ 1. STOP USING workers.dev. It is filtered as a namespace and no client-side
+    measure defeats that. Put a domain you control on Cloudflare and issue nodes
+    as a 5-or-more-label hostname with SNI == Host. This is the only change that
+    addresses the measured cause.
+ 2. VERIFY THE NEW NAME BEFORE DISTRIBUTING IT, and test a NON-EXISTENT
+    subdomain of the same zone the same way. If the fake name is blocked too,
+    the whole zone is filtered — rotate.
+    Use kilo/sni_preflight.py, which resolves via the working DoH path and
+    classifies the result.
+ 3. USE ONLY https://8.8.8.8/dns-query or https://8.8.4.4/dns-query for DNS.
+    Every resolver NAME is blocked twice over. Do not pin resolver IPs in
+    dns.hosts while keeping the hostname as SNI; that is what broke the active
+    v2rayN config.
+ 4. DO NOT rely on TLS ClientHello fragmentation. Measured: it does not work on
+    this line. Set it if you like, it costs nothing, but do not expect it to be
+    the fix.
+ 5. DO NOT ship raw Cloudflare edge IPs in a subscription. They pin you to
+    whichever edge is filtered and buy nothing.
+ 6. STOP EXPORTING THE NODES BY COLO NAME. Everything exits Frankfurt.
+ 7. CONSIDER PLAINTEXT ON PORT 80 as a diagnostic only. It was not filtered and
+    the Worker executed, but ws:// in the clear exposes the VLESS header and is
+    strictly worse than TLS. Diagnostic, not a plan.
+ 8. REMOVE THE DEAD v2rayA SYSTEM PROXY, or start its core. While it is
+    configured dead it silently corrupts curl and every other tool you use to
+    debug this.
+
+################################################################################
+PART 12 — FILE INDEX AND REPRODUCTION
+################################################################################
+REPORTS  (all in /home/user all mirrored to
+          /media/user/kilo)
+  MASTER_FINDINGS.txt              this document, the complete record
+  SESSION_2_FINDINGS.txt           DNS poisoning, encrypted DNS, mechanisms,
+                                   the VLESS front, corrections
+  SNI_FILTER_RULE_REPORT.txt       the label-count rule, mapped
+  WHY_TLS_FRAGMENT_CONFIG_BROKE.txt  why the front died, and the fix
+  DPI_HOP_DEEP_REPORT.txt          consolidated DPI findings
+  DPI_INFRASTRUCTURE_REPORT.txt    infrastructure
+  HUAWEI_THE_DPI_DEVICE.txt        identical to the above; kept for continuity.
+                                   CONTAINS NO VENDOR EVIDENCE — the name is
+                                   historical, the content states that the
+                                   device was never identified
+  DPI_EVIDENCE_REPORT.txt          first findings, command/output/verdict
+  PACKET_LEVEL_FINDINGS.txt        frame-by-frame timeline
+  RECONCILIATION_AND_ACTION.txt    verdict on every claim of another report
+
+SCRIPTS
+  sni_variants4.py     the ONLY valid SNI/TLS tester (see WITHDRAWN 4)
+  sni_preflight.py     will this hostname pass the filter?
+  doh_resolve.py       working DoH client (SNI=8.8.8.8)
+  doh_sweep.py         DoH/DoT sweep by resolver name
+  doh_retry.py         DoH retry with verification off
+  big4_filter_methods.py  per-domain method enumeration
+  tls_fragment.py      ClientHello segmentation control
+  dropshape.py         TLS timing, established the 15 s timeout origin
+  dpi_probe.py         DNS and reachability probe
+  dpi_suite.sh         layered attribution suite
+  name_matrix.sh       the name matrix
+  pcap/session_2026-10-02.pcap   the raw capture all frame numbers refer to
+
+DELIVERABLES
+  Documents/make_v2rayng_config.sh   generates the v2rayNG config and link
+  Documents/SETUP-STEPS.txt          Cloudflare-side setup
+  Documents/v2rayng-<host>.json      generated, validated "Configuration OK"
+
+REPRODUCTION
+  Always unset the proxy environment first; a dead SOCKS proxy is configured
+  system-wide and will otherwise corrupt every result:
+    unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY all_proxy \
+          FTP_PROXY ftp_proxy
+
+  Then:
+    python3 /home/user <your-5-label-host>
+    xray run -test -c /home/user
+################################################################################
+################################################################################
+PART 13 — SECOND ISP: RIGHTEL (AS57218). THE workers.dev BLOCK IS NOT NATIONAL
+################################################################################
+Added 2026-10-02 07:00. Full side-by-side in ISP_COMPARISON.txt; battery script
+cross_isp_battery.py. This answers the question Part 9 listed as unanswerable
+from one network.
+
+THE NEW LINE
+  Rightel Communication Service Company PJS (RighTel), 37.137.0.0/19, IR,
+  AS57218, described "RighTel-3G-LTE". Public IP 37.137.10.18, local
+  192.168.0.102 on WiFi, gateway 192.168.0.1, carrier NAT 10.204.36.1,
+  RTT to Cloudflare ~205 ms (vs ~113 ms on MCI).
+
+THE DEVICE ON IT
+  D-Link DWR-M922, a 4G/LTE CPE. Identified from <title>DWR-M922</title> and a
+  self-signed certificate issued by "D-Link Corporation, OU=D-Link WRPD,
+  CN=General Root CA, C=TW". Firmware page is Realtek SDK based, served by
+  micro_httpd; open ports tcp/53, tcp/80, tcp/443; HTTPS listener closes
+  immediately after the 30-year self-signed certificate.
+  NEGATIVE FINDING worth keeping: /version, /info, /cgi-bin/luci, /HNAP1,
+  /status.html and /api/system/info all return HTTP 200 but every one is the
+  same 108-byte redirect stub. That is a catch-all, not exposed management
+  interfaces. The MAC OUI dc:ea:e7 is absent from the local IEEE and nmap
+  databases, so it does not corroborate the vendor.
+
+HEADLINE: workers.dev IS NOT FILTERED ON RIGHTEL
+  workers.dev apex, a.workers.dev (3 labels) and a.b.workers.dev (4 labels) are
+  all SERVED on Rightel, where all three were BLOCKED on MCI. The real Worker
+  returns HTTP/2 200 with its genuine HTML body, presenting a valid Let's
+  Encrypt certificate (CN=test-worker.example.workers.dev, "Verify return
+  code: 0 (ok)"), and it even completes over IPv6 (2a06:98c1:3120::3).
+  The user's VLESS front — the case-mangled workers.dev SNI, in either case —
+  SERVES on Rightel. A MITM could not present that certificate, so this is a
+  genuine pass, not a spoofed one.
+
+  CONSEQUENCE: the custom-domain recommendation in Parts 8 and 11 is
+  MCI-SPECIFIC, not a national requirement. On Rightel the existing
+  configuration works unchanged.
+
+WHAT IS IDENTICAL ON BOTH ISPs (the national layer)
+  - DNS poisoning of facebook.com, instagram.com, youtube.com, x.com, identical
+    for every resolver and for case-randomised names. The sinkhole differs by one
+    octet: 10.10.34.36 on MCI, 10.10.34.35 on Rightel. That octet is a usable
+    attribution fingerprint for a poisoned answer.
+  - DoT/853 dead everywhere (5 resolvers tested).
+  - DoH by name dead everywhere.
+  - The big four are ALSO refused by SNI at their true addresses, verified by
+    resolving them through a working resolver: facebook and x reset, instagram
+    fails at the TLS record layer, youtube resets; control at the same address
+    with SNI=cloudflare.com returns a certificate-valid 301. So they are
+    censored at two layers on both networks.
+  - pages.dev blocked on both.
+
+WHAT DIFFERS
+  - DoH by IP literal is nearly OPPOSITE: 8.8.8.8/8.8.4.4 work on MCI and are
+    filtered on Rightel; 1.1.1.1 is filtered on MCI and WORKS on Rightel.
+    Each operator appears to block the other's surviving resolver.
+    THIS WAS A REAL DEFECT in the generated config, which hardcoded 8.8.8.8 and
+    therefore broke the instant the ISP changed. It now carries both.
+  - pages.dev fails by reset on MCI, at the TLS record layer on Rightel.
+  - DoH names split on Rightel: cloudflare-dns.com, dns.google and
+    dns.quad9.net fail at the record layer, while adguard, dns.sb and doh.pub
+    reset. Two mechanisms may be in play; not characterised.
+  - IPv6 is fabricated on MCI and genuinely usable on Rightel.
+
+STILL NOT ESTABLISHED
+  With one sample per operator, "MCI-specific" and "national except Rightel"
+  cannot be separated. A third network (Shatel, Irancell, or a fixed line) is
+  needed before concluding that workers.dev is unusual rather than merely
+  unenforced by Rightel. Also still unmeasured anywhere: QUIC/HTTP3.
+################################################################################

@@ -1,0 +1,432 @@
+================================================================================
+  THE FILTERING HOP — maximum-information report
+  Subject: the equipment on AS197207 (MCCI) that terminates *.workers.dev
+  Measured from: 10.170.48.221 -> public 188.210.73.149, Tehran, MCI
+  Date: 2026-10-02
+================================================================================
+
+HOW TO READ THIS
+  Every block marked MEASURED was produced by a command shown in the same block.
+  Every block marked DOCUMENTED is public record, not my observation.
+  Every block marked UNKNOWN is a real gap; I have not filled it with a guess.
+
+
+================================================================================
+1. EXECUTIVE SUMMARY (MEASURED)
+================================================================================
+  The filtering hop is inline equipment between your router and Cloudflare.
+  Against your Workers it performs exactly ONE action:
+
+      it reads the SNI in the TLS ClientHello, and if the name matches
+      <anything>.workers.dev it discards the client's application-layer
+      segments for the rest of that connection.
+
+  It does not:
+    - intercept or terminate TLS      (Cloudflare's real Let's Encrypt cert is
+                                       verified by curl on every connection)
+    - inject a TCP RST               (zero RSTs in 134 KB of capture)
+    - care which port you use        (443, 2053, 2083, 2087, 2096, 8443 all fail)
+    - poison DNS for workers.dev     (it resolves correctly)
+    - manipulate MTU                  (1472-byte payload passes)
+    - react to any protocol, path, UUID or payload — a static HTML page is
+      blocked exactly the same way
+    - target a list of reported hostnames — a hostname created 10 minutes
+      earlier is blocked the same way
+
+  Two independent mechanisms were found. Only the second one affects you.
+
+    MECHANISM A — DNS poisoning to 10.10.34.36
+    MECHANISM B — SNI-based flow termination
+
+
+================================================================================
+2. MECHANISM A — DNS POISONING (MEASURED)
+================================================================================
+[CMD] dig +short <name> A     and     dig +short @1.1.1.1 <name> A
+
+  NAME                              YOUR RESOLVER        @1.1.1.1
+  --------------------------------  -------------------  -------------------
+  youtube.com                       10.10.34.36          10.10.34.36
+  pages.dev                          10.10.34.36          10.10.34.36
+  trycloudflare.com                  10.10.34.36          10.10.34.36
+  instagram.com / telegram.org /
+  twitter.com                        10.10.34.36
+  workers.dev                        104.18.12.15         not poisoned
+  cloudflare.com                     104.16.132.229       not poisoned
+  go.dev                             216.239.x.x          not poisoned
+
+  Querying a public resolver directly still returns the poisoned address, so the
+  rewriting is IN PATH on the way to any resolver, not inside your resolver.
+
+[CMD] dnspython, UDP and TCP transport, answer TTLs
+[OUT]  youtube.com   udp  418 IN A 10.10.34.36
+       youtube.com   tcp  417 IN A 10.10.34.36
+       pages.dev     udp  418 / tcp 417
+       workers.dev   udp  171 / tcp 170  (legitimate, low and normal)
+       cloudflare.com udp  57 / tcp 56  (legitimate)
+       nonexistent-9182qzx.example.com -> empty answer, no NXDOMAIN
+
+  The poisoned answers carry a HIGH TTL (~420) and decrement normally. This is
+  not the low-TTL "TTL reflection" signature; it is a long-lived lie.
+
+[CMD] DoT: dns.query.tls to 1.1.1.1:853 and 8.8.8.8:853
+[OUT]  Timeout, both resolvers.
+       => DNS-over-TLS is blocked as well. DoH over HTTPS is the only
+          resolver channel that survived my attempt.
+
+[CMD] TCP connect to the sinkhole addresses
+[OUT]  10.10.34.34 / .35 / .36 — every port (53,80,443,8080,22) refused or
+       filtered; UDP/53 does not answer; ICMP 100% loss.
+       curl to http://youtube.com/ fails in 38 ms with "could not connect",
+       because the poisoned address simply refuses.
+
+  MEASURED CONCLUSION: names on the DNS blocklist are neutralised by handing
+  back a private sinkhole address. workers.dev is NOT on that list, which is
+  why the DNS layer is irrelevant to your tunnel and why every DNS-based
+  workaround is pointless for this problem.
+
+  CONSEQUENCE FOR MY EARLIER ADVICE: I suggested Cloudflare Pages as a free
+  alternative namespace. It would NOT have worked — pages.dev is DNS-poisoned
+  on your line. Cloudflare also issued that Pages project a workers.dev name.
+
+
+================================================================================
+3. MECHANISM B — SNI FLOW TERMINATION (MEASURED, PACKET LEVEL)
+================================================================================
+Source: kilo/pcap/session_2026-10-02.pcap (134 KB, dumpcap, no root needed)
+
+  frame  time      dir  event
+  27     2.983119  out  SYN                      TTL 64
+  28     3.096266  in   SYN,ACK                  TTL 49   RTT 113 ms
+  31     3.098310  out  Client Hello  SNI=<your-host>.workers.dev   <== judged here
+  37-43 3.216     in   Server Hello + certificate chain, 4889 B, all ACKed
+  44     3.216089  out  ACK Ack=4889
+  45-47 3.2176    out  CCS + 80 B + 159 B + 48 B  (client Finished + request)
+                  ==> NOT ONE of these 287 bytes ever arrived anywhere
+  48-134          out  6 retransmissions, RTO .35 .70 1.41 2.81 5.62 11.2 s
+                  ==> ZERO inbound packets in response. No ACK, no RST.
+  196    18.194329 in   [FIN,ACK] Seq=4889 Ack=1612
+  213/218          in   FIN retransmissions
+
+  The single most important field in that capture is Cloudflare's own
+  Ack=1612. It is Cloudflare's TCP stack stating: "I sent 4889 bytes and I
+  received 1612." 1612 is exactly the length of the ClientHello flight. So the
+  client's post-ClientHello bytes were destroyed somewhere on the path, and
+  Cloudflare sat waiting for a handshake that could never complete until its own
+  15-second handshake timeout expired and it closed the socket itself.
+
+  THE FILTER IS NOT USING A TIMER. Test: complete the TLS handshake, then send
+  NOTHING and just sit there.
+
+    [CMD] SSLObject handshake, then idle 30 s, blocked SNI
+    [OUT] handshake COMPLETED at t=0.121s
+          -> connection CLOSED at t=15.166s, zero bytes received
+    [CMD] same test, allowed SNI (workers.dev) on the SAME edge IP
+    [OUT] handshake COMPLETED at t=0.114s
+          -> 474 bytes received at t=15.126s (normal post-handshake traffic)
+
+  Both events land at ~15 s, and that is the giveaway: the 15-second hang you
+  see is CLOUDFLARE'S HANDSHAKE TIMEOUT, not a censorship timer. The filter
+  simply never forwards your Finished bytes. It sends no signal of any kind.
+
+  TIME DECISION WINDOW: classification at t=3.098310 (ClientHello out), first
+  discarded segment at t=3.217890. The kill takes effect inside 119 ms and is
+  completely invisible to the client.
+
+  HOSTS CONFIRMED BLOCKED (all tested on 2026-10-02 from this line, TLS:443):
+    test-sub.example.workers.dev    (your original)
+    onicic.wearethewegods.workers.dev
+    onicic.nova-19041e.workers.dev
+    test-sub.example.workers.dev        (deployed today)
+    test-worker.example.workers.dev    (static HTML only)
+
+  HOSTS CONFIRMED ALLOWED on the same edge IPs, same seconds:
+    workers.dev        (apex)      301
+    cloudflare.com                 301
+    cloudflare.net                 403
+    zzz-not-real-9271.cloudflare.com  530   (Cloudflare answers unknown CF names)
+    go.dev, pages.github.com       200 on their own IPs
+
+
+================================================================================
+4. IS IT PORT-BASED? NO (MEASURED) — this kills the "use port 8443" idea
+================================================================================
+[CMD] pinned to 188.114.96.3, SNI = the blocked host, a real request on each port
+
+    port 80     -> 200                      (plaintext, no SNI, works)
+    port 443    -> no response bytes
+    port 2053   -> no response bytes
+    port 2083   -> no response bytes
+    port 2087   -> no response bytes
+    port 2096   -> no response bytes
+    port 8443   -> no response bytes
+
+  Port 80 working is the cleanest proof of all: same host, same edge IP, same
+  second — no SNI, no block. The decision is made on the ClientHello SNI and on
+  nothing else.
+
+
+================================================================================
+5. WHAT THE FILTER IS NOT DOING (MEASURED — all negative results)
+================================================================================
+  NOT TLS interception   curl: "SSL certificate verified via OpenSSL", real
+                         Let's Encrypt chain for the exact hostname, every time.
+                         A MITM could not produce that.
+  NOT RST injection      134 KB capture, zero RST packets.
+  NOT MTU manipulation   ping -M do -s 1472 -> OK (full 1500-byte path MTU).
+  NOT IP-based           same edge IP serves allowed and blocked flows.
+  NOT port-based         section 4.
+  NOT DNS-based (here)   workers.dev resolves correctly.
+  NOT protocol-based     a static HTML page is blocked identically to a VLESS
+                         tunnel.
+  NOT signature-based    splitting the ClientHello across two TCP writes,
+                         150 ms and 600 ms apart, changes nothing; the filter
+                         reassembles before matching. (ssl.MemoryBIO control:
+                         allowed hosts answer in 0.2-0.8 s in all three modes.)
+  NOT IP-reputation      Cloudflare's IPs are fine; hundreds of CF-hosted
+                         domains work from this line.
+
+
+================================================================================
+6. WHERE ON THE PATH (MEASURED, AND WHERE IT STOPS BEING MEASURED)
+================================================================================
+[CMD] ip route get / traceroute -n 188.114.97.3
+[OUT]   1  10.170.48.246    1.558 ms    <- your CPE/router
+        2  *
+        3  10.0.22.177     23.076 ms
+        4  10.0.22.134     32.057 ms
+        5  10.0.22.130     29.032 ms
+        6  10.0.22.137     33.574 ms
+        7  10.0.22.142     23.099 ms
+        8  10.30.96.157    23.656 ms
+        9  10.202.7.132    27.373 ms
+       10  10.21.211.10    28.971 ms
+       11  *
+       12  *
+       13  188.114.97.3  106.098 ms    <- Cloudflare edge (Frankfurt)
+
+  Every hop before Cloudflare is a private 10.x address. The path never leaves
+  MCI's own network, so the filter is inside MCI — but I cannot say whether it
+  is at the peering edge or deep in their core.
+
+[CMD] TTL-limited connects to the edge IP (no raw socket needed)
+[OUT]  ttl 1..12 -> EHOSTUNREACH (hops do not answer ICMP to us)
+       ttl 13    -> connected, 106.2 ms
+  Confirms 13 hops. The intermediate routers are not identifiable from here.
+
+[CMD] scan of your own gateway 10.170.48.246
+[OUT]  53 open;  22 23 80 443 7547 8080 8443 5000 1900 52869 37215 closed
+  A locked-down CPE with no admin interface, no SSH and no UPnP. That makes a
+  filtering device on your own LAN unlikely.
+  Gateway MAC 36:a4:df:c6:e3:f6 is a RANDOMISED address (locally-administered
+  bit set), so the router model/vendor cannot be derived from it.
+
+  UNKNOWN: whether the device sits in MCI's core or on their peering edge.
+  RESOLUTION: run the same check from a phone on mobile data.
+      curl -m 12 -o /dev/null -w '%{http_code}\n' https://test-sub.example.workers.dev/healthz
+    000 on mobile data  -> operator network, CPE ruled out
+    200 on mobile data  -> your CPE or LAN
+  Second unknown: whether the rule is nationwide or MCI-only. Needs a second
+  Iranian operator (Irancell, Shatel, Rightel).
+
+
+================================================================================
+7. IDENTITY OF THE DEVICE (DOCUMENTED — no source exists for your line)
+================================================================================
+  From the English Wikipedia article "Internet censorship in Iran" (2026-10-02),
+  which cites a 2025 academic study characterising Iran's filtering as
+  "a bidirectional, in-path system that censors multiple protocols":
+
+    - forged DNS responses to 10.10.34.*        [I CONFIRMED 10.10.34.36]
+    - HTTP 403 block-page injection "without requiring a full TCP handshake
+      (semi-stateful but TCP-noncompliant)"      [NOT observed here]
+    - HTTPS terminated by SNI inspection + RST   [RST NOT observed in my case;
+                                                 I see a silent discard instead]
+    - UDP dropping, notably QUIC                 [UNTESTED, no HTTP/3 in curl]
+    - three DNS filters, 10.10.34.34/.35/.36     [.36 confirmed, others
+                                                 do not answer us]
+    - one filter shows TTL reflection like the Great Firewall of China
+                                                 [NOT seen; my poisoned answers
+                                                 carry TTL ~420]
+
+  Historical and governance context, same source:
+    - SmartFilter by Secure Computing was Iran's original engine; Iran later
+      built its own hardware and software.
+    - Nokia Siemens Networks installed a lawful-intercept monitoring centre;
+      the Wall Street Journal reported in 2009 that Nokia may have sold DPI
+      software to Iran for voice/e-mail monitoring (Nokia said it does not sell
+      DPI products for interception).
+    - 19 Feb 2023: Cloudflare reported ~70% of Iranian traffic cut off after
+      Cloudflare was blocked. Late May 2024: Cloudflare reported IPv6 blocking.
+    - 2026: the article states Iran imported Chinese censorship technology.
+    - Authority: Supreme Council of Cyberspace sets policy; the Internet
+      Filtering Committee under the Prosecutor-General decides what is censored;
+      all traffic transits TCI; Computer Crimes Law art. 21 forces ISPs to
+      retain traffic data for three months inside Iran.
+
+  NO SOURCE FOUND ANYWHERE for: the hardware vendor of the device filtering
+  AS197207, the product or application name, line rate, whether it is one box or
+  a cluster, or its rule-set update mechanism. The other AI's report asserted
+  "Huawei / ZTE 10 Gbps appliances", "ML classifier with 90%+ accuracy",
+  "weekly-updated signature database from commercial threat-intel feeds" and an
+  "active probing system". None of it is sourced. An SNI string match needs no
+  vendor attribution whatsoever, which is probably why the question is
+  unanswerable and was answered anyway.
+
+  The sinkhole addresses 10.10.34.34/.35/.36 are the only parts of the filtering
+  system with an IP identity, and they refuse or ignore everything:
+  all TCP ports closed/filtered, UDP/53 silent, ICMP 100% loss. There is no
+  service to fingerprint.
+
+
+================================================================================
+8. TOOL INVENTORY — what each tool actually proved
+================================================================================
+  dumpcap (file cap cap_net_raw; tcpdump needs root, dumpcap does not)
+      -> produced the 134 KB capture that contains the Ack=1612 evidence.
+  tshark -r ... -Y 'tls.handshake.type==1'
+      -> extracted SNI from the ClientHello in the capture.
+  tshark -z conv,tcp, -o tcp.relative_sequence_numbers:FALSE
+      -> per-flow packet/byte counts and the retransmission timeline.
+  capinfos -> capture integrity and timing base.
+  curl --resolve / --http1.1 / --http2 / -D - / -sv
+      -> every allowed/blocked verdict; port 80 vs 443; HTTP/1.1 vs HTTP/2;
+         browser-like headers made no difference.
+  openssl s_client -servername / -noservername / -quiet
+      -> SNI vs Host swaps, SNI-less probe, per-port tests, certificate CN.
+  python3 ssl.MemoryBIO (tls_fragment.py)
+      -> ClientHello segmentation control; proved fragmentation does not help.
+  python3 ssl.MemoryBIO (dropshape.py)
+      -> proved the 15 s hang is Cloudflare's handshake timeout, not a filter
+         timer.
+  dnspython 2.8.0 (dns.query.udp/tcp/tls)
+      -> DNS answer TTLs, UDP+TCP poisoning, DoT blocked, empty-answer behaviour.
+  getent / dig / ip route get / ip neigh
+      -> resolution results, path selection, gateway MAC (randomised).
+  traceroute -n (ICMP/UDP mode only; -T refused without root)
+      -> 13-hop path, all private before Cloudflare.
+  ping -M do (MTU discovery)
+      -> full 1500-byte path MTU, so no MTU interference.
+  check-host.net API
+      -> 8 global vantages proving the Worker is alive; the workaround test.
+  nmap / hping3 / mtr
+      -> NOT AVAILABLE: all need raw sockets or root; this box has no
+         passwordless sudo. TTL-limited Python connects were used instead.
+  scapy 2.7.0 (installed)
+      -> installed but unusable: sniff()/send() need CAP_NET_RAW, which this
+         user does not have. Everything above was done without it.
+
+  Installed for this work: /home/user (dnspython 2.8.0, scapy 2.7.0),
+  scripts dpi_probe.py, tls_fragment.py, name_matrix.sh, dpi_suite.sh.
+
+
+================================================================================
+9. WHAT WOULD CLOSE THE REMAINING GAPS
+================================================================================
+  1. Phone on mobile data, same curl command      -> operator core vs your CPE
+  2. A second Iranian operator (Irancell/Shatel)  -> MCI-only vs nationwide
+  3. An HTTP/3-capable client (curl --http3, or a QUIC probe)
+                                                  -> confirm the documented
+                                                     UDP/QUIC dropping
+  4. sudo ufw status / nft list ruleset           -> rule out any local
+                                                     interference on your box
+  5. Re-run after a few weeks                    -> is the workers.dev rule
+                                                     permanent or campaign-based?
+
+  None of these changes the conclusion: the filter matches a name you do not
+  control, so the fix is to serve the Worker from a hostname you do control.
+
+
+================================================================================
+10. BOTTOM LINE
+================================================================================
+  Two mechanisms, one causes your outage.
+
+    DNS:    blocked names are answered with 10.10.34.36, a dead sinkhole.
+            workers.dev is not on that list.
+
+    TLS:    the ClientHello SNI is read at t=3.098; 119 ms later your
+            application segments stop being forwarded; Cloudflare times out at
+            15 s and closes the connection; you see a hang, not a block.
+            No RST, no MITM, no protocol inspection, no dependence on port,
+            IP, MTU, hostname age or content.
+
+  It is not your code, not the VLESS protocol, not your client app, and not the
+  Cloudflare edge. It is a string match on the name in the handshake, done by
+  equipment on MCI's network that cannot be identified, fingerprinted or talked
+  to. The only remedy is a different name.
+================================================================================
+================================================================================
+ADDENDUM — 2026-10-02 — SNI MATCH RULE MAPPED  (see SNI_FILTER_RULE_REPORT.txt)
+================================================================================
+Measurement correction first: sni_variants.py/.2/.3 were broken and must not be
+cited. They inspected raw socket bytes for b"HTTP/", which cannot match TLS 1.3
+ciphertext, so they mislabelled the healthy control (workers.dev, real 301) as
+"BLOCKED". sni_variants4.py decrypts via SSLObject.read() and is the only tester
+whose output is valid.
+
+New, reproducible finding — the match is a BOUNDED-LABEL pattern, not a
+wildcard on the zone. Same IP, same TLS stack, same request, SNI varied:
+
+    workers.dev                (2 labels)  ALLOWED  HTTP/301
+    a.workers.dev              (3 labels)  BLOCKED  0 app bytes
+    a.b.workers.dev            (4 labels)  BLOCKED  0 app bytes
+    a.b.c.workers.dev          (5 labels)  PASSED   reached Cloudflare
+    a.b.c.d.workers.dev        (6 labels)  PASSED   reached Cloudflare
+
+"PASSED" is proven by a positive control: those names serve nothing, so the real
+TLS handshake_failure alert from Cloudflare proves the connection got through.
+Reproduced 3x and on both Cloudflare edges. A length sweep from 13 to 55 chars
+was blocked at every length, so this is a label-count window, not truncation.
+It does not restore Worker access — usable workers.dev names are one label deep
+and all sit inside the blocked window.
+
+Also established: TLS version is irrelevant (1.3-only and 1.2-capable give
+identical verdicts); the filter is stateless (5/5 identical); no first-connection
+allowance.
+
+pages.dev is enforced differently and harder — TCP RST during the handshake for
+the apex, www, and nonexistent names, on both edges. A nonexistent workers.dev
+name yields a Cloudflare alert instead, so the RST is filter-generated, not an
+edge refusal. Signature summary: workers.dev = clean handshake then silence;
+pages.dev = reset before the handshake completes. pages.dev is also separately
+DNS-poisoned, while workers.dev is not — which is why workers.dev remains the
+clean measurement in this investigation.
+
+================================================================================
+ADDENDUM 2026-10-02 06:45 — see SESSION_2_FINDINGS.txt for the full record
+================================================================================
+Four DISTINCT enforcement mechanisms were measured, not one:
+
+  1 DNS FORGERY    facebook.com, instagram.com, youtube.com, x.com, pages.dev and
+                   every encrypted-resolver hostname answer with forged
+                   A=10.10.34.36 and AAAA=2001:4188:2:600:10:10:34:36 (a
+                   documentation prefix, so never a real address). NS/MX/TXT get
+                   no answer. Identical whatever resolver is asked, and identical
+                   for case-randomised names, so 0x20 encoding does not help.
+  2 SNI SILENT DROP *.workers.dev with 2 to 4 labels: handshake completes,
+                   certificate delivered, then zero application bytes.
+  3 SNI TCP RESET  pages.dev (apex, www, and nonexistent names) and every DoH
+                   resolver hostname: TCP RST mid-handshake. Filter-generated,
+                   not Cloudflare refusing, since a nonexistent workers.dev name
+                   gets a real TLS alert while a nonexistent pages.dev name gets
+                   a reset.
+  4 LABEL WINDOW   names with 5 or more labels are forwarded untouched.
+
+Encrypted DNS: DoT/853 dead everywhere (7 resolvers). DoH by NAME reset for 13
+resolver names, all of which are also DNS-poisoned. DoH by IP LITERAL WORKS:
+https://8.8.8.8/dns-query and https://8.8.4.4/dns-query return real answers,
+cert CN=dns.google carrying IP SANs 8.8.8.8/8.8.4.4. Cloudflare's resolver
+addresses 1.1.1.1 and 1.0.0.1 time out even by IP, while Cloudflare CDN
+addresses connect fine, so the block is specific to the resolver service.
+
+Consequence for tooling: the filter's decision is made on the name, so
+ClientHello fragmentation cannot defeat it. A VLESS front on a case-mangled
+workers.dev SNI is dead (all 16 generated variants verified blocked at the real
+server, both cases, with served controls). Fix is a 5+ label hostname on the
+user's own Cloudflare domain; see WHY_TLS_FRAGMENT_CONFIG_BROKE.txt.
+
+Correction carried forward: sni_variants{,2,3}.py are invalid (they searched
+raw bytes for b"HTTP/" and so mislabelled healthy TLS 1.3 responses as blocked).
+Only sni_variants4.py is citable. The vendor question remains unanswered; no
+appliance, model or management interface was identified.

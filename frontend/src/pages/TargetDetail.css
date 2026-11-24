@@ -1,0 +1,403 @@
+:where([data-page~="TargetDetail"])  .target-detail {
+  padding: 2.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  animation: TargetDetail-fadeInUp 0.6s ease;
+}
+
+@keyframes TargetDetail-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="TargetDetail"])  .breadcrumb {
+  margin-bottom: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+:where([data-page~="TargetDetail"])  .breadcrumb a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+:where([data-page~="TargetDetail"])  .breadcrumb a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-cyan);
+  transition: width 0.3s ease;
+}
+
+:where([data-page~="TargetDetail"])  .breadcrumb a:hover::after {
+  width: 100%;
+}
+
+:where([data-page~="TargetDetail"])  .breadcrumb a:hover {
+  text-shadow: var(--glow-cyan);
+}
+
+:where([data-page~="TargetDetail"])  .target-header {
+  margin-bottom: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+:where([data-page~="TargetDetail"])  .target-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="TargetDetail"])  .target-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 1rem;
+}
+
+:where([data-page~="TargetDetail"])  .target-address {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background: rgba(0, 217, 255, 0.1);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: var(--accent-cyan);
+  font-weight: 500;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+:where([data-page~="TargetDetail"])  .target-status {
+  font-weight: 700;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+:where([data-page~="TargetDetail"])  .status-up {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  text-shadow: var(--glow-success);
+}
+
+:where([data-page~="TargetDetail"])  .status-degraded {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.1));
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+:where([data-page~="TargetDetail"])  .status-down {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+:where([data-page~="TargetDetail"])  .stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+:where([data-page~="TargetDetail"])  .stat-box {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: TargetDetail-scaleIn 0.5s ease backwards;
+}
+
+@keyframes TargetDetail-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Stagger animation */
+:where([data-page~="TargetDetail"])  .stat-box:nth-child(1) { animation-delay: 0.1s; }
+:where([data-page~="TargetDetail"])  .stat-box:nth-child(2) { animation-delay: 0.15s; }
+:where([data-page~="TargetDetail"])  .stat-box:nth-child(3) { animation-delay: 0.2s; }
+:where([data-page~="TargetDetail"])  .stat-box:nth-child(4) { animation-delay: 0.25s; }
+:where([data-page~="TargetDetail"])  .stat-box:nth-child(5) { animation-delay: 0.3s; }
+:where([data-page~="TargetDetail"])  .stat-box:nth-child(6) { animation-delay: 0.35s; }
+
+:where([data-page~="TargetDetail"])  .stat-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), var(--glow-cyan);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+:where([data-page~="TargetDetail"])  .stat-box .stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+:where([data-page~="TargetDetail"])  .stat-box .stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+:where([data-page~="TargetDetail"])  .charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+:where([data-page~="TargetDetail"])  .chart-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: TargetDetail-slideInRight 0.6s ease backwards;
+}
+
+@keyframes TargetDetail-slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+:where([data-page~="TargetDetail"])  .chart-container:nth-child(1) { animation-delay: 0.2s; }
+:where([data-page~="TargetDetail"])  .chart-container:nth-child(2) { animation-delay: 0.3s; }
+
+:where([data-page~="TargetDetail"])  .chart-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), var(--glow-purple);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+:where([data-page~="TargetDetail"])  .chart-container h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+:where([data-page~="TargetDetail"])  .recent-checks {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--glass-shadow);
+  animation: TargetDetail-slideInUp 0.6s ease;
+}
+
+@keyframes TargetDetail-slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="TargetDetail"])  .recent-checks h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+:where([data-page~="TargetDetail"])  .checks-table {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+:where([data-page~="TargetDetail"])  .checks-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+:where([data-page~="TargetDetail"])  .checks-table th {
+  background: rgba(0, 217, 255, 0.1);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="TargetDetail"])  .checks-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  transition: background 0.2s ease;
+}
+
+:where([data-page~="TargetDetail"])  .checks-table tr:hover td {
+  background: rgba(0, 217, 255, 0.05);
+}
+
+:where([data-page~="TargetDetail"])  .check-success {
+  background: rgba(16, 185, 129, 0.05);
+}
+
+:where([data-page~="TargetDetail"])  .check-failure {
+  background: rgba(239, 68, 68, 0.05);
+}
+
+:where([data-page~="TargetDetail"])  .status-badge {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="TargetDetail"])  .status-badge.success {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+:where([data-page~="TargetDetail"])  .status-badge.failure {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+}
+
+:where([data-page~="TargetDetail"])  .error-cell {
+  color: var(--danger);
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.8rem;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:where([data-page~="TargetDetail"]) .target-tools {
+  padding: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+}
+:where([data-page~="TargetDetail"]) .target-tools-header,
+:where([data-page~="TargetDetail"]) .target-tool-result-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+:where([data-page~="TargetDetail"]) .target-tools-header { margin-bottom: 20px; }
+:where([data-page~="TargetDetail"]) .target-tools-header h2 { margin: 0 0 6px; font-size: 20px; }
+:where([data-page~="TargetDetail"]) .target-tools-header p,
+:where([data-page~="TargetDetail"]) .target-tool-option p,
+:where([data-page~="TargetDetail"]) .target-tool-time { margin: 0; color: var(--text-secondary); font-size: 12px; line-height: 1.55; }
+:where([data-page~="TargetDetail"]) .target-tools-actions { display: flex; gap: 8px; }
+:where([data-page~="TargetDetail"]) .target-tools-layout { display: grid; grid-template-columns: minmax(240px, .72fr) minmax(0, 1.8fr); gap: 20px; align-items: start; }
+:where([data-page~="TargetDetail"]) .target-tool-catalog,
+:where([data-page~="TargetDetail"]) .target-tool-results { min-width: 0; }
+:where([data-page~="TargetDetail"]) .target-tool-catalog h3,
+:where([data-page~="TargetDetail"]) .target-tool-results h3 { margin: 0 0 12px; font-size: 15px; }
+:where([data-page~="TargetDetail"]) .target-tool-option { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--glass-border); }
+:where([data-page~="TargetDetail"]) .target-tool-option strong { font-size: 13px; }
+:where([data-page~="TargetDetail"]) .target-tool-option button { width: 34px; height: 34px; flex: 0 0 34px; border: 1px solid var(--glass-border); border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary); font-size: 20px; cursor: pointer; }
+:where([data-page~="TargetDetail"]) .target-tool-option button:hover,
+:where([data-page~="TargetDetail"]) .target-tools-actions button:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+:where([data-page~="TargetDetail"]) .target-tool-result { min-width: 0; margin-bottom: 12px; padding: 14px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--bg-secondary); }
+:where([data-page~="TargetDetail"]) .target-tool-result-header > div { display: flex; align-items: center; gap: 10px; }
+:where([data-page~="TargetDetail"]) .target-tool-result h4 { margin: 0; font-size: 14px; }
+:where([data-page~="TargetDetail"]) .target-tool-result button,
+:where([data-page~="TargetDetail"]) .target-tools-actions button { min-height: 34px; padding: 7px 11px; border: 1px solid var(--glass-border); border-radius: 7px; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; }
+:where([data-page~="TargetDetail"]) .target-tools-actions .target-tool-run { border-color: var(--accent-primary); background: var(--accent-primary); color: #081321; font-weight: 650; }
+:where([data-page~="TargetDetail"]) .target-tool-state { padding: 3px 7px; border-radius: 12px; background: rgba(148, 163, 184, .14); color: var(--text-secondary); font-size: 10px; text-transform: capitalize; }
+:where([data-page~="TargetDetail"]) .target-tool-state.completed { color: var(--success); }
+:where([data-page~="TargetDetail"]) .target-tool-state.no-response,
+:where([data-page~="TargetDetail"]) .target-tool-state.no-open-ports { color: var(--warning); }
+:where([data-page~="TargetDetail"]) .target-tool-state.failed { color: var(--danger); }
+:where([data-page~="TargetDetail"]) .target-tool-state.running { color: var(--info); }
+:where([data-page~="TargetDetail"]) .target-tool-time { margin: 10px 0; }
+:where([data-page~="TargetDetail"]) .target-tool-error { color: var(--danger); overflow-wrap: anywhere; }
+:where([data-page~="TargetDetail"]) .target-tool-output { max-height: 320px; overflow: auto; padding: 12px; border-radius: 7px; background: #0b1220; color: #dce7f7; white-space: pre-wrap; overflow-wrap: anywhere; font: 11px/1.55 monospace; }
+:where([data-page~="TargetDetail"]) .target-tools-empty { padding: 20px; border: 1px dashed var(--glass-border); border-radius: 8px; color: var(--text-secondary); }
+:where([data-page~="TargetDetail"]) .target-tools button:disabled { opacity: .55; cursor: default; }
+:where([data-page~="TargetDetail"]) .target-tools :focus-visible { outline: 2px solid var(--accent-primary); outline-offset: 3px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="TargetDetail"]) .target-tools-layout { grid-template-columns: minmax(220px, .8fr) minmax(0, 1.4fr); }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="TargetDetail"])  .target-detail {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="TargetDetail"]) .target-tools-layout { grid-template-columns: minmax(0, 1fr); }
+  :where([data-page~="TargetDetail"]) .target-tools { padding: 16px; }
+
+  :where([data-page~="TargetDetail"])  .target-header h1 {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="TargetDetail"])  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  :where([data-page~="TargetDetail"])  .checks-table {
+    font-size: 0.75rem;
+  }
+
+  :where([data-page~="TargetDetail"])  .checks-table th,:where([data-page~="TargetDetail"])  
+  .checks-table td {
+    padding: 0.75rem;
+  }
+}

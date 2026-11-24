@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "targets": [
+    {
+      "id": "fc33bbf8-1974-4258-b729-84e5749208c9",
+      "name": "sdwd",
+      "target_type": "server",
+      "address": "150.120.35.12",
+      "port": 443,
+      "enabled": true,
+      "description": "",
+      "created_at": "2026-10-27T04:46:27.668533334Z",
+      "updated_at": "2026-10-27T04:46:27.668533334Z",
+      "metadata": null
+    }
+  ]
+}

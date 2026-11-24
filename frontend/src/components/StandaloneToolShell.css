@@ -1,0 +1,6 @@
+.standalone-tool-shell { box-sizing: border-box; width: 100%; min-height: 100vh; padding: 18px clamp(12px, 3vw, 36px) 28px; overflow-x: clip; color: var(--ui-text); background: var(--ui-canvas); }
+.standalone-tool-header { display: flex; width: min(100%, 1360px); align-items: center; justify-content: space-between; gap: 12px; margin: 0 auto 14px; color: var(--ui-secondary); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.standalone-tool-header a { display: grid; flex: 0 0 40px; width: 40px; height: 40px; place-items: center; border: 1px solid var(--ui-border); border-radius: 9px; color: var(--ui-secondary); background: var(--ui-surface); }
+.standalone-tool-header a:hover { color: var(--ui-text); border-color: var(--ui-accent); }
+.standalone-tool-header a:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 3px; }
+.standalone-tool-shell > .network-summary { width: min(100%, 1360px); margin: 0 auto; }

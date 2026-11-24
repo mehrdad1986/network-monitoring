@@ -1,0 +1,333 @@
+{
+  "metadata": {
+    "isp_number": 3,
+    "local_ip": "192.168.1.10",
+    "router": "192.168.1.1",
+    "timestamp": "2026-10-15T01:03:16.493091Z",
+    "sinkhole_ip": "10.10.34.35",
+    "isp_subnet": "10.21.x.x / 10.230.x.x / 10.224.x.x / 10.202.x.x"
+  },
+  "routes": {
+    "1.1.1.1": [
+      {
+        "hop": 1,
+        "ip": "192.168.1.1"
+      },
+      {
+        "hop": 2,
+        "ip": "*"
+      },
+      {
+        "hop": 3,
+        "ip": "*"
+      },
+      {
+        "hop": 4,
+        "ip": "*"
+      },
+      {
+        "hop": 5,
+        "ip": "*"
+      },
+      {
+        "hop": 6,
+        "ip": "*"
+      },
+      {
+        "hop": 7,
+        "ip": "1.1.1.1"
+      }
+    ],
+    "8.8.8.8": [
+      {
+        "hop": 1,
+        "ip": "192.168.1.1"
+      },
+      {
+        "hop": 2,
+        "ip": "*"
+      },
+      {
+        "hop": 3,
+        "ip": "10.230.219.65"
+      },
+      {
+        "hop": 4,
+        "ip": "*"
+      },
+      {
+        "hop": 5,
+        "ip": "10.224.195.121"
+      },
+      {
+        "hop": 6,
+        "ip": "10.21.251.114"
+      },
+      {
+        "hop": 7,
+        "ip": "8.8.8.8"
+      }
+    ],
+    "8.8.4.4": [
+      {
+        "hop": 1,
+        "ip": "192.168.1.1"
+      },
+      {
+        "hop": 2,
+        "ip": "*"
+      },
+      {
+        "hop": 3,
+        "ip": "10.230.219.65"
+      },
+      {
+        "hop": 4,
+        "ip": "*"
+      },
+      {
+        "hop": 5,
+        "ip": "10.224.195.121"
+      },
+      {
+        "hop": 6,
+        "ip": "10.202.6.114"
+      },
+      {
+        "hop": 7,
+        "ip": "8.8.4.4"
+      }
+    ],
+    "9.9.9.9": [
+      {
+        "hop": 1,
+        "ip": "192.168.1.1"
+      },
+      {
+        "hop": 2,
+        "ip": "*"
+      },
+      {
+        "hop": 3,
+        "ip": "10.230.219.65"
+      },
+      {
+        "hop": 4,
+        "ip": "*"
+      },
+      {
+        "hop": 5,
+        "ip": "10.224.195.121"
+      },
+      {
+        "hop": 6,
+        "ip": "10.21.251.122"
+      },
+      {
+        "hop": 7,
+        "ip": "*"
+      }
+    ],
+    "142.250.202.163 (google.ca)": [
+      {
+        "hop": 1,
+        "ip": "192.168.1.1"
+      },
+      {
+        "hop": 2,
+        "ip": "*"
+      },
+      {
+        "hop": 3,
+        "ip": "10.230.219.65"
+      },
+      {
+        "hop": 4,
+        "ip": "*"
+      },
+      {
+        "hop": 5,
+        "ip": "10.224.195.121"
+      },
+      {
+        "hop": 6,
+        "ip": "10.202.6.114"
+      },
+      {
+        "hop": 7,
+        "ip": "142.250.202.163"
+      }
+    ],
+    "216.198.79.131 (Vercel)": [
+      {
+        "hop": 1,
+        "ip": "192.168.1.1"
+      },
+      {
+        "hop": 2,
+        "ip": "*"
+      },
+      {
+        "hop": 3,
+        "ip": "10.230.219.65"
+      },
+      {
+        "hop": 4,
+        "ip": "*"
+      },
+      {
+        "hop": 5,
+        "ip": "10.224.195.121"
+      },
+      {
+        "hop": 6,
+        "ip": "10.202.6.114"
+      }
+    ],
+    "151.101.65.164 (NYTimes/Fastly)": [
+      {
+        "hop": 1,
+        "ip": "192.168.1.1"
+      },
+      {
+        "hop": 2,
+        "ip": "*"
+      },
+      {
+        "hop": 3,
+        "ip": "10.230.219.65"
+      },
+      {
+        "hop": 4,
+        "ip": "*"
+      },
+      {
+        "hop": 5,
+        "ip": "10.224.195.121"
+      },
+      {
+        "hop": 6,
+        "ip": "10.21.251.58"
+      }
+    ]
+  },
+  "dns_poisoning": {
+    "sinkhole_ip": "10.10.34.35",
+    "poisoned_domains": [
+      "youtube.com",
+      "instagram.com",
+      "facebook.com",
+      "netflix.com",
+      "pages.dev"
+    ],
+    "not_poisoned": [
+      "google.com",
+      "github.com",
+      "cloudflare.com",
+      "vercel.app",
+      "workers.dev",
+      "bing.com",
+      "duckduckgo.com",
+      "medium.com",
+      "revolut.com",
+      "pinterest.com"
+    ]
+  },
+  "sni_filtering": {
+    "cloudflare_ip": "104.16.133.229",
+    "vercel_ip": "64.29.17.67",
+    "result": "NO SNI FILTERING - ALL PASS",
+    "tests": {
+      "cloudflare.com": "PASS",
+      "test.com": "PASS",
+      "youtube.com": "PASS",
+      "example.app": "PASS",
+      "workers.dev": "PASS",
+      "a.workers.dev": "PASS",
+      "a.b.workers.dev": "PASS",
+      "a.b.c.workers.dev": "PASS",
+      "vercel.app": "PASS",
+      "a.vercel.app": "PASS",
+      "No SNI": "PASS"
+    }
+  },
+  "port_filtering": {
+    "cloudflare_ip": {
+      "open": [
+        80,
+        443,
+        8080,
+        8443,
+        2053,
+        2083,
+        2087,
+        2096
+      ],
+      "closed": [
+        22,
+        25,
+        53,
+        123,
+        8888,
+        3000,
+        4000,
+        5000,
+        993,
+        995,
+        465,
+        587
+      ]
+    },
+    "vercel_ip": {
+      "open": [
+        80,
+        443
+      ],
+      "closed": [
+        8080,
+        8443,
+        2053,
+        2083,
+        2087,
+        2096,
+        22,
+        25,
+        53,
+        8888
+      ]
+    }
+  },
+  "doh_bypass": "BLOCKED - TLS handshake to 1.1.1.1:443 fails",
+  "bgp_gateways": {
+    "10.230.219.65": {
+      "role": "ISP aggregation",
+      "asn": "UNKNOWN",
+      "appears_in": "All routes"
+    },
+    "10.224.195.121": {
+      "role": "ISP core",
+      "asn": "UNKNOWN",
+      "appears_in": "6 of 7 routes"
+    },
+    "10.21.251.114": {
+      "role": "International gateway (Google)",
+      "asn": "UNKNOWN",
+      "appears_in": "8.8.8.8 only"
+    },
+    "10.202.6.114": {
+      "role": "International gateway (Google/Vercel)",
+      "asn": "UNKNOWN",
+      "appears_in": "8.8.4.4, google.ca, Vercel"
+    },
+    "10.21.251.122": {
+      "role": "International gateway (Quad9)",
+      "asn": "UNKNOWN",
+      "appears_in": "9.9.9.9 only"
+    },
+    "10.21.251.58": {
+      "role": "International gateway (Fastly)",
+      "asn": "UNKNOWN",
+      "appears_in": "Fastly/NYTimes only"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+:where([data-page~="DataCenters"])  .datacenters { padding: 2.5rem; max-width: 1800px; margin: 0 auto; }
+:where([data-page~="DataCenters"])  .datacenters h1 { font-size: 2rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+:where([data-page~="DataCenters"])  .datacenters p { color: var(--text-secondary); margin: 0.5rem 0 2rem 0; }
+:where([data-page~="DataCenters"])  .dc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+:where([data-page~="DataCenters"])  .dc-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.5rem; border-left: 4px solid #10B981; }
+:where([data-page~="DataCenters"])  .dc-card h3 { margin: 0 0 0.5rem 0; color: var(--text-primary); }
+:where([data-page~="DataCenters"])  .region { color: var(--text-secondary); margin: 0 0 1rem 0; font-size: 0.9rem; }
+:where([data-page~="DataCenters"])  .metrics { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; }
+:where([data-page~="DataCenters"])  .status { font-weight: 600; margin-top: 0.5rem; }
+@media (max-width: 768px) { :where([data-page~="DataCenters"])  .datacenters { padding: 1.5rem; } :where([data-page~="DataCenters"])  .dc-grid { grid-template-columns: 1fr; } }

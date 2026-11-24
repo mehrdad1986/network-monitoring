@@ -1,0 +1,299 @@
+:where([data-page~="ASPathAnalysis"])  .as-path-analysis {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: ASPathAnalysis-fadeInUp 0.6s ease;
+}
+
+@keyframes ASPathAnalysis-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="ASPathAnalysis"])  .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="ASPathAnalysis"])  .page-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+:where([data-page~="ASPathAnalysis"])  .btn-analyze {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  min-width: 180px;
+}
+
+:where([data-page~="ASPathAnalysis"])  .btn-analyze:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(168, 85, 247, 0.6);
+}
+
+:where([data-page~="ASPathAnalysis"])  .btn-analyze:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:where([data-page~="ASPathAnalysis"])  .status-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .status-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  animation: ASPathAnalysis-scaleIn 0.5s ease backwards;
+}
+
+@keyframes ASPathAnalysis-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:where([data-page~="ASPathAnalysis"])  .status-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .status-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="ASPathAnalysis"])  .paths-section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .paths-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="ASPathAnalysis"])  .paths-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  animation: ASPathAnalysis-slideDown 0.5s ease;
+  transition: all 0.3s ease;
+}
+
+@keyframes ASPathAnalysis-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-card.stable {
+  border-left: 4px solid #10B981;
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-card.suboptimal {
+  border-left: 4px solid #F59E0B;
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-card.unstable {
+  border-left: 4px solid #EF4444;
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-dest {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+:where([data-page~="ASPathAnalysis"])  .metric-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+:where([data-page~="ASPathAnalysis"])  .metric-value {
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="ASPathAnalysis"])  .as-path {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+:where([data-page~="ASPathAnalysis"])  .path-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .as-node {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+:where([data-page~="ASPathAnalysis"])  .node-label {
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: var(--accent-purple);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+:where([data-page~="ASPathAnalysis"])  .node-arrow {
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="ASPathAnalysis"])  .as-path-analysis {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .btn-analyze {
+    width: 100%;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .status-summary {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .path-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .path-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .path-nodes {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="ASPathAnalysis"])  .node-arrow {
+    transform: rotate(90deg);
+    margin: 0.5rem 0;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-09-15T16:48:57Z",
+  "overall_status": "operational",
+  "counts": {
+    "up": 0,
+    "degraded": 0,
+    "down": 0
+  },
+  "total_checks": 0,
+  "message": "Initial placeholder - will be populated by first monitoring pass"
+}

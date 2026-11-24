@@ -1,0 +1,1987 @@
+================================================================================
+  Hetzner IP Accessibility & DPI Detection Test
+  Educational tool for network filtering analysis
+================================================================================
+
+[*] Networks loaded: 37
+[*] Testing 37 sampled IPs across Hetzner infrastructure
+[*] Testing TCP ports: 443, 8443, 2053, 2083, 2087, 2096, 8080, 8880, 3128, 3129, 80, 8000, 22, 2222, 1080, 9050, 1194, 1443, 51820, 5201
+[*] Testing UDP ports: 51820, 1194, 1197, 500, 4500, 1701, 4569
+
+======================================================================
+TESTING 5.9.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 23.88.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 46.4.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 49.12.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 49.13.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 65.108.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 65.109.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 78.46.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 78.47.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 85.10.192.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 88.99.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 91.107.128.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 94.130.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 95.216.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 95.217.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 116.202.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 116.203.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 128.140.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 135.181.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+
+======================================================================
+TESTING 136.243.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✓ OK
+
+[Layer 2: TCP VPN Ports]
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    212ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    217ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    229ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    230ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    238ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    241ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    246ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    249ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    254ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    263ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    266ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    275ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    278ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    279ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    293ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    293ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    293ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    299ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    308ms
+  ✓ TCP   443 (HTTPS/Trojan   ): CONNECT    308ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    288ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    314ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    314ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    297ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    313ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    316ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    296ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    320ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    313ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    298ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    295ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    328ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    297ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    303ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    294ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    299ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    304ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    312ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    327ms
+  ✓ TCP  8443 (HTTPS-alt      ): CONNECT    317ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    340ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    343ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    346ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    358ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    390ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    391ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    376ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    382ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    391ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    389ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    401ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    417ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    430ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    437ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    440ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    437ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    450ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    445ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    451ms
+  ✓ TCP  2053 (Cloudflare-alt ): CONNECT    468ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    454ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    433ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    468ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    445ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    431ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    436ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    437ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    451ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    452ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    448ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    469ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    465ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    482ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    482ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    467ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    482ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    458ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    482ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    462ms
+  ✓ TCP  2083 (cPanel-SSL     ): CONNECT    465ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    476ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    508ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    512ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    514ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    525ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    536ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    554ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    557ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    552ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    556ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    540ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    555ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    550ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    565ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    567ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    581ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    583ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    573ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    597ms
+  ✓ TCP  2087 (WHM-SSL        ): CONNECT    599ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    595ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    573ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    567ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    589ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    563ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    565ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    549ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    568ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    572ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    568ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    563ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    546ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    524ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    522ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    546ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    531ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    529ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    526ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    548ms
+  ✓ TCP  2096 (cPanel-WebMail ): CONNECT    535ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    533ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    547ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    561ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    545ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    542ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    551ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    542ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    537ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    535ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    563ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    546ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    562ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    537ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    531ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    547ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    547ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    547ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    546ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    527ms
+  ✓ TCP  8080 (HTTP-Proxy     ): CONNECT    538ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    564ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    579ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    570ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    581ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    581ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    582ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    598ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    575ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    587ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    592ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    601ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    610ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    617ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    640ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    655ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    655ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    651ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    659ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    663ms
+  ✓ TCP  8880 (HTTP-Proxy-alt ): CONNECT    669ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    713ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    764ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    755ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    789ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    762ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    778ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    796ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    810ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    816ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    784ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    818ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    791ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    825ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    810ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    760ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    783ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    777ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    780ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    809ms
+  ✓ TCP  3128 (Squid-Proxy    ): CONNECT    805ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    773ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    718ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    710ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    718ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    690ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    680ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    665ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    672ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    652ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    659ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    644ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    649ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    659ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    660ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    633ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    649ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    651ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    640ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    623ms
+  ✓ TCP  3129 (Squid-alt      ): CONNECT    634ms
+  ✓ TCP    80 (HTTP           ): CONNECT    672ms
+  ✓ TCP    80 (HTTP           ): CONNECT    672ms
+  ✓ TCP    80 (HTTP           ): CONNECT    661ms
+  ✓ TCP    80 (HTTP           ): CONNECT    697ms
+  ✓ TCP    80 (HTTP           ): CONNECT    705ms
+  ✓ TCP    80 (HTTP           ): CONNECT    701ms
+  ✓ TCP    80 (HTTP           ): CONNECT    723ms
+  ✓ TCP    80 (HTTP           ): CONNECT    717ms
+  ✓ TCP    80 (HTTP           ): CONNECT    715ms
+  ✓ TCP    80 (HTTP           ): CONNECT    731ms
+  ✓ TCP    80 (HTTP           ): CONNECT    715ms
+  ✓ TCP    80 (HTTP           ): CONNECT    718ms
+  ✓ TCP    80 (HTTP           ): CONNECT    719ms
+  ✓ TCP    80 (HTTP           ): CONNECT    721ms
+  ✓ TCP    80 (HTTP           ): CONNECT    731ms
+  ✓ TCP    80 (HTTP           ): CONNECT    764ms
+  ✓ TCP    80 (HTTP           ): CONNECT    763ms
+  ✓ TCP    80 (HTTP           ): CONNECT    763ms
+  ✓ TCP    80 (HTTP           ): CONNECT    758ms
+  ✓ TCP    80 (HTTP           ): CONNECT    757ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1064ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1156ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1160ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1221ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1249ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1260ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1281ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1282ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1278ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1292ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1292ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1329ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1329ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1357ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1340ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1403ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1438ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1455ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1447ms
+  ✓ TCP  8000 (HTTP-alt       ): CONNECT    1499ms
+  ✓ TCP    22 (SSH            ): CONNECT    1544ms
+  ✓ TCP    22 (SSH            ): CONNECT    1467ms
+  ✓ TCP    22 (SSH            ): CONNECT    1487ms
+  ✓ TCP    22 (SSH            ): CONNECT    1488ms
+  ✓ TCP    22 (SSH            ): CONNECT    1520ms
+  ✓ TCP    22 (SSH            ): CONNECT    1547ms
+  ✓ TCP    22 (SSH            ): CONNECT    1520ms
+  ✓ TCP    22 (SSH            ): CONNECT    1531ms
+  ✓ TCP    22 (SSH            ): CONNECT    1547ms
+  ✓ TCP    22 (SSH            ): CONNECT    1537ms
+  ✓ TCP    22 (SSH            ): CONNECT    1523ms
+  ✓ TCP    22 (SSH            ): CONNECT    1526ms
+  ✓ TCP    22 (SSH            ): CONNECT    1545ms
+  ✓ TCP    22 (SSH            ): CONNECT    1538ms
+  ✓ TCP    22 (SSH            ): CONNECT    1560ms
+  ✓ TCP    22 (SSH            ): CONNECT    1580ms
+  ✓ TCP    22 (SSH            ): CONNECT    1576ms
+  ✓ TCP    22 (SSH            ): CONNECT    1575ms
+  ✓ TCP    22 (SSH            ): CONNECT    1594ms
+  ✓ TCP    22 (SSH            ): CONNECT    1576ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1409ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1411ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1412ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1453ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1480ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1565ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1647ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1672ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1672ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1701ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1717ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1713ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1734ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1729ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1713ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1706ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1669ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1674ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1688ms
+  ✓ TCP  2222 (SSH-alt        ): CONNECT    1673ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1749ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1806ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1795ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1750ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1710ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1676ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1642ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1656ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1673ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1675ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1666ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1682ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1688ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1687ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1709ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1752ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1787ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1813ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1781ms
+  ✓ TCP  1080 (SOCKS5         ): CONNECT    1804ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1750ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1721ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1720ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1733ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1790ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1787ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1796ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1798ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1826ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1841ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1880ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1918ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1905ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1915ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1953ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1951ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    1968ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    2017ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    2016ms
+  ✓ TCP  9050 (Tor-SOCKS      ): CONNECT    2024ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2217ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2258ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2261ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2338ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2469ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2541ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2729ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2785ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2908ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2953ms
+  ✓ TCP  1194 (OpenVPN-TCP    ): CONNECT    2971ms
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10000ms
+  SNI=hetzner.com:     HANG         | silent drop after 10001ms
+  SNI=hetzner.com:     HANG         | silent drop after 10013ms
+  SNI=hetzner.com:     HANG         | silent drop after 10001ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10015ms
+  SNI=hetzner.com:     HANG         | silent drop after 10015ms
+  SNI=hetzner.com:     HANG         | silent drop after 10015ms
+  SNI=hetzner.com:     HANG         | silent drop after 9999ms
+  SNI=hetzner.com:     HANG         | silent drop after 10015ms
+  SNI=hetzner.com:     HANG         | silent drop after 9999ms
+  SNI=hetzner.com:     HANG         | silent drop after 9999ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10013ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10015ms
+  SNI=hetzner.com:     HANG         | silent drop after 10001ms
+  SNI=hetzner.com:     HANG         | silent drop after 10002ms
+  SNI=hetzner.com:     HANG         | silent drop after 10001ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10015ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10012ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10013ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10015ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10015ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10011ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10014ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10014ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10014ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10001ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10001ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10002ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10013ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10013ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10013ms
+  SNI=(empty):         HANG         | silent drop after 10015ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10001ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10001ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10015ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10012ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 9999ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10000ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10013ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10000ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 9999ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10015ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10013ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10011ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10000ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10001ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10000ms
+
+[Layer 6: Plain HTTP Request]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 138.201.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 142.132.128.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 144.76.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 148.251.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 157.90.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 159.69.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 162.55.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 167.233.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 167.235.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 168.119.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 176.9.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 178.63.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 188.34.128.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 188.40.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 195.201.0.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 213.133.64.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+
+======================================================================
+TESTING 213.239.192.1
+======================================================================
+
+[Layer 1: ICMP Ping]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+>>> DPI METHODS:    SNI_based_silent_drop
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ICMP: ✗ FAIL
+
+[Layer 2: TCP VPN Ports]
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP   443 (HTTPS/Trojan   ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  8443 (HTTPS-alt      ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2053 (Cloudflare-alt ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2083 (cPanel-SSL     ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2087 (WHM-SSL        ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  2096 (cPanel-WebMail ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8080 (HTTP-Proxy     ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  8880 (HTTP-Proxy-alt ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3128 (Squid-Proxy    ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP  3129 (Squid-alt      ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP    80 (HTTP           ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP  8000 (HTTP-alt       ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP    22 (SSH            ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  2222 (SSH-alt        ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  1080 (SOCKS5         ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  9050 (Tor-SOCKS      ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1194 (OpenVPN-TCP    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP  1443 (OpenVPN-alt    ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP 51820 (WireGuard-TCP  ): TIMEOUT    timeout
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ✗ TCP  5201 (iPerf3         ): TIMEOUT    timeout
+
+[Layer 3: UDP VPN Ports]
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP 51820 (WireGuard      ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1194 (OpenVPN        ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  1197 (OpenVPN-alt    ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP   500 (IKEv2          ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4500 (IKEv2-NAT      ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  1701 (L2TP           ): OPEN|FILTERED   no response
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ? UDP  4569 (IAX2           ): OPEN|FILTERED   no response
+
+[Layer 4: DoH DNS Resolution Check]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  ✗ DoH: FAILED (failed)
+
+[Layer 5: TLS/SNI Deep Packet Inspection Test]
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10013ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10012ms
+  SNI=hetzner.com:     HANG         | silent drop after 10011ms
+  SNI=hetzner.com:     HANG         | silent drop after 10010ms
+  SNI=hetzner.com:     HANG         | silent drop after 10000ms
+  SNI=hetzner.com:     HANG         | silent drop after 10000ms
+  SNI=hetzner.com:     HANG         | silent drop after 10013ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10013ms
+  SNI=hetzner.com:     HANG         | silent drop after 10014ms
+  SNI=hetzner.com:     HANG         | silent drop after 10011ms
+  SNI=hetzner.com:     HANG         | silent drop after 10011ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10002ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10002ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10002ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10002ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10012ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10012ms
+  SNI=cloudflare.com:  HANG         | silent drop after 9999ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10003ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10003ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 9999ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 9999ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10000ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10001ms
+  SNI=cloudflare.com:  HANG         | silent drop after 10001ms
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10001ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10002ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10002ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10015ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10014ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10000ms
+
+[Layer 6: Plain HTTP Request]
+  SNI=(empty):         HANG         | silent drop after 10000ms
+
+[Layer 6: Plain HTTP Request]
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+  HTTP hetzner.com: TIMEOUT      | no response
+
+>>> CLASSIFICATION: IP_BLACKHOLE
+>>> DPI METHODS:    IP_null_route
+
+================================================================================
+SUMMARY TABLE
+================================================================================
+IP               Ping   443        TLS-SNI         HTTP         UDP    Classification
+--------------------------------------------------------------------------------
+5.9.0.1          ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+23.88.0.1        ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+46.4.0.1         ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+49.12.0.1        ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+49.13.0.1        ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+65.108.0.1       ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+65.109.0.1       ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+78.46.0.1        ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+78.47.0.1        ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+85.10.192.1      ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+88.99.0.1        ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+91.107.128.1     ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+94.130.0.1       ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+95.216.0.1       ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+95.217.0.1       ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+116.202.0.1      ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+116.203.0.1      ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+128.140.0.1      ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+135.181.0.1      ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+136.243.0.1      ✓      CONNECT    HANG            TIMEOUT      YES    TCP_443_OK | SNI_SILENT_DROP | UDP_REACHABLE
+138.201.0.1      ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+142.132.128.1    ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+144.76.0.1       ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+148.251.0.1      ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+157.90.0.1       ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+159.69.0.1       ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+162.55.0.1       ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+167.233.0.1      ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+167.235.0.1      ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+168.119.0.1      ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+176.9.0.1        ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+178.63.0.1       ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+188.34.128.1     ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+188.40.0.1       ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+195.201.0.1      ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+213.133.64.1     ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+213.239.192.1    ✗      TIMEOUT    HANG            TIMEOUT      YES    IP_BLACKHOLE
+
+================================================================================
+DPI METHOD STATISTICS
+================================================================================
+  SNI_based_silent_drop         :  20 IPs ( 54.1%)
+  IP_null_route                 :  17 IPs ( 45.9%)
+
+================================================================================
+FINAL RESULTS: 20/37 accessible (54.1%), 17 blocked (45.9%)
+================================================================================
+

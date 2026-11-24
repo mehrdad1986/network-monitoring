@@ -1,0 +1,678 @@
+{
+  "original_app_count": 103,
+  "syntax_passed": 103,
+  "ready": 83,
+  "unavailable": 20,
+  "undefined_globals": [],
+  "apps": [
+    {
+      "file": "ADSL/ads_battery.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "ADSL/ads_ladder.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "analyze_paths.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing input: /home/user py apps/data"
+      ],
+      "kind": "utility"
+    },
+    {
+      "file": "bgp_report.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "saved report"
+    },
+    {
+      "file": "bgp_route_analysis.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "big4_filter_methods.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "big5_dpi_methods.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "big5_dpi_methods_v2.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/analyze_lantern.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "live monitor"
+    },
+    {
+      "file": "check ips/aws app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/aws_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/azure app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/cloudflareapp.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/digi ocean app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/digitalocean_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/gcp app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/gcp_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/generate_summary.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/hetzner_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/master_controller.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "batch runner"
+    },
+    {
+      "file": "check ips/monitor_dns_tunnel.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "live monitor"
+    },
+    {
+      "file": "check ips/monitor_lantern_live.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "live monitor"
+    },
+    {
+      "file": "check ips/oracle app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/run_all_tests.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "batch runner"
+    },
+    {
+      "file": "check ips/test_dns_server.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/test_dns_tunnel_client.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "check ips/vultr app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_dns_servers_list.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "cloudflare_port_protocol_scanner.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "comprehensive_live_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "cross_isp_battery.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_orchestrator.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "batch runner"
+    },
+    {
+      "file": "daily_tests/cloudflare_port_protocol_scanner.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_tests/daily_orchestrator.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "batch runner"
+    },
+    {
+      "file": "daily_tests/dns_poisoning_detector.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_tests/encrypted_dns_monitor.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_tests/multi_isp_comparison.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_tests/site_blocker_scanner.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_tests/sni_filter_scanner.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_tests/sni_filter_tester.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "daily_tests/sni_spoofing_tester.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "dns_poisoning_detector.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_doh.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "doh_mass_tester.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "doh_resolve.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "doh_retry.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "doh_sweep.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "dpi_probe.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "dpi_test_agent.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "dpi_test_agent2.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "dpi_toolkit_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "dropshape.py",
+      "syntax": "pass",
+      "issues": [
+        "Arguments required; supply args for this app in --config"
+      ],
+      "kind": "network probe"
+    },
+    {
+      "file": "early_close.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "ech_probe.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "encrypted_dns_monitor.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "extract_azix.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing input: /home/user py apps/data"
+      ],
+      "kind": "utility"
+    },
+    {
+      "file": "fake_rst.py",
+      "syntax": "pass",
+      "issues": [
+        "Packet capture/injection requires root or CAP_NET_RAW",
+        "Arguments required; supply args for this app in --config"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "from cryptography import x509.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "utility"
+    },
+    {
+      "file": "generate_all_ips.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing input: /home/user py apps/data"
+      ],
+      "kind": "utility"
+    },
+    {
+      "file": "ip_access_tests/cloudflare/cloudflare app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "ip_access_tests/digitalocean/digi ocean app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "ip_access_tests/gcp/app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "ip_access_tests/hetzner/app.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "live_sni_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "live_subscription_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "make_xray.py",
+      "syntax": "pass",
+      "issues": [
+        "Arguments required; supply args for this app in --config"
+      ],
+      "kind": "utility"
+    },
+    {
+      "file": "master_kilo_runner.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "batch runner"
+    },
+    {
+      "file": "multi_isp_comparison.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "netmon_analyzer.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing input: /home/user py apps/data"
+      ],
+      "kind": "utility"
+    },
+    {
+      "file": "protocol_bypass_analysis.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "quick_doh_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "rst_comprehensive.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_comprehensive_v2.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_evader.py",
+      "syntax": "pass",
+      "issues": [
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_evader_v2.py",
+      "syntax": "pass",
+      "issues": [
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_final.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_simple_test.py",
+      "syntax": "pass",
+      "issues": [
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_simple_v2.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_test_v2.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_test_v3.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_test_v4.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "rst_test_v5.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "run_chunked.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "run_dpi_chunk.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "simple_sni_test.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "site_blocker_scanner.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "sni_filter_scanner.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "sni_filter_tester.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "sni_fragment_sweep.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "sni_preflight.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "sni_spoofing_tester.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "sni_variants4.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "spoof_rst.py",
+      "syntax": "pass",
+      "issues": [
+        "Packet capture/injection requires root or CAP_NET_RAW",
+        "Arguments required; supply args for this app in --config"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "tcp_flag_evader.py",
+      "syntax": "pass",
+      "issues": [
+        "Missing executable: xray",
+        "Packet capture/injection requires root or CAP_NET_RAW"
+      ],
+      "kind": "packet experiment"
+    },
+    {
+      "file": "test_all_apps.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_dns_interception.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_dpi_patterns.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_fragmentation_idea.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_protocol_detection.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_sni.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_sni_filtering.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "test_sni_tls_fingerprint.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    },
+    {
+      "file": "tls_fragment.py",
+      "syntax": "pass",
+      "issues": [],
+      "kind": "network probe"
+    }
+  ]
+}

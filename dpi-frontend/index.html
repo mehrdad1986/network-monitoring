@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>DPI Apps · Network Toolkit</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <div class="dpi-shell">
+    <header class="dpi-header">
+      <a class="dpi-brand" href="#applications"><span class="dpi-mark" aria-hidden="true">◈</span><span>DPI Apps<small>NETWORK TOOLKIT</small></span></a>
+      <nav class="dpi-primary" aria-label="Main navigation">
+        <a href="#applications">Applications</a><a href="#runs">Runs</a><a href="#connection">Connection</a>
+      </nav>
+      <span class="dpi-status" role="status"><i aria-hidden="true"></i> Checking backend…</span>
+    </header>
+    <main id="main-content"></main>
+    <footer class="dpi-footer">DPI investigation workspace <span>Standalone frontend · Local Python execution</span></footer>
+  </div>
+  <dialog id="app-details" aria-labelledby="detail-title"></dialog>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
+

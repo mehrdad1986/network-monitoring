@@ -1,0 +1,418 @@
+:where([data-page~="PacketCapture"])  .packet-capture {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: PacketCapture-fadeInUp 0.6s ease;
+}
+
+@keyframes PacketCapture-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="PacketCapture"])  .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:where([data-page~="PacketCapture"])  .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="PacketCapture"])  .page-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+:where([data-page~="PacketCapture"])  .btn-capture {
+  background: linear-gradient(135deg, #10B981, var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+}
+
+:where([data-page~="PacketCapture"])  .btn-capture:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6);
+}
+
+:where([data-page~="PacketCapture"])  .btn-stop {
+  background: linear-gradient(135deg, #EF4444, #DC2626);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+  animation: PacketCapture-pulse 2s infinite;
+}
+
+:where([data-page~="PacketCapture"])  .btn-stop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(239, 68, 68, 0.6);
+}
+
+@keyframes PacketCapture-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+:where([data-page~="PacketCapture"])  .capture-controls {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  animation: PacketCapture-slideDown 0.5s ease;
+}
+
+@keyframes PacketCapture-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="PacketCapture"])  .capture-controls h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="PacketCapture"])  .controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="PacketCapture"])  .control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:where([data-page~="PacketCapture"])  .control-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="PacketCapture"])  .control-group select,:where([data-page~="PacketCapture"])  
+.control-group input {
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="PacketCapture"])  .control-group select:focus,:where([data-page~="PacketCapture"])  
+.control-group input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+:where([data-page~="PacketCapture"])  .stats-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="PacketCapture"])  .stat-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  animation: PacketCapture-scaleIn 0.5s ease backwards;
+}
+
+@keyframes PacketCapture-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:where([data-page~="PacketCapture"])  .stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="PacketCapture"])  .stat-value.tcp {
+  color: #3B82F6;
+}
+
+:where([data-page~="PacketCapture"])  .stat-value.udp {
+  color: #10B981;
+}
+
+:where([data-page~="PacketCapture"])  .stat-value.icmp {
+  color: #F59E0B;
+}
+
+:where([data-page~="PacketCapture"])  .stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="PacketCapture"])  .packets-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  animation: PacketCapture-slideDown 0.5s ease;
+}
+
+:where([data-page~="PacketCapture"])  .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="PacketCapture"])  .section-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+:where([data-page~="PacketCapture"])  .btn-load-more {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: var(--accent-purple);
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="PacketCapture"])  .btn-load-more:hover {
+  background: rgba(168, 85, 247, 0.3);
+  border-color: rgba(168, 85, 247, 0.6);
+}
+
+:where([data-page~="PacketCapture"])  .empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-secondary);
+}
+
+:where([data-page~="PacketCapture"])  .empty-state p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+:where([data-page~="PacketCapture"])  .packets-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+:where([data-page~="PacketCapture"])  .table-header,:where([data-page~="PacketCapture"])  
+.table-row {
+  display: grid;
+  grid-template-columns: 50px 80px 90px 120px 120px 80px 1fr;
+  gap: 0;
+  padding: 0;
+}
+
+:where([data-page~="PacketCapture"])  .table-header {
+  background: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+:where([data-page~="PacketCapture"])  .table-body {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+:where([data-page~="PacketCapture"])  .table-row {
+  border-bottom: 1px solid var(--glass-border);
+  transition: background 0.2s ease;
+  align-items: center;
+}
+
+:where([data-page~="PacketCapture"])  .table-row:last-child {
+  border-bottom: none;
+}
+
+:where([data-page~="PacketCapture"])  .table-row:hover {
+  background: rgba(168, 85, 247, 0.05);
+}
+
+:where([data-page~="PacketCapture"])  .col {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+:where([data-page~="PacketCapture"])  .col-id {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+:where([data-page~="PacketCapture"])  .col-time {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="PacketCapture"])  .col-protocol {
+  display: flex;
+  align-items: center;
+}
+
+:where([data-page~="PacketCapture"])  .protocol-badge {
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+:where([data-page~="PacketCapture"])  .col-source,:where([data-page~="PacketCapture"])  
+.col-dest {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="PacketCapture"])  .col-source code,:where([data-page~="PacketCapture"])  
+.col-dest code {
+  background: rgba(0, 217, 255, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+:where([data-page~="PacketCapture"])  .col-length {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  text-align: right;
+}
+
+:where([data-page~="PacketCapture"])  .col-info {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1200px) {
+  :where([data-page~="PacketCapture"])  .table-header,:where([data-page~="PacketCapture"])  
+  .table-row {
+    grid-template-columns: 50px 70px 80px 100px 100px 70px 1fr;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="PacketCapture"])  .packet-capture {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="PacketCapture"])  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="PacketCapture"])  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="PacketCapture"])  .btn-capture,:where([data-page~="PacketCapture"])  
+  .btn-stop {
+    width: 100%;
+  }
+
+  :where([data-page~="PacketCapture"])  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="PacketCapture"])  .stats-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where([data-page~="PacketCapture"])  .table-header,:where([data-page~="PacketCapture"])  
+  .table-row {
+    grid-template-columns: 40px 60px 70px 90px 90px 60px 1fr;
+    font-size: 0.75rem;
+  }
+
+  :where([data-page~="PacketCapture"])  .col {
+    padding: 0.75rem;
+  }
+}

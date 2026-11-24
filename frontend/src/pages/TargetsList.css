@@ -1,0 +1,450 @@
+:where([data-page~="TargetsList"])  .targets-list {
+  padding: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  animation: TargetsList-fadeInUp 0.6s ease;
+}
+
+@keyframes TargetsList-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="TargetsList"])  .list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+
+:where([data-page~="TargetsList"])  .list-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+:where([data-page~="TargetsList"])  .list-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+:where([data-page~="TargetsList"])  .btn-primary {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+:where([data-page~="TargetsList"])  .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+:where([data-page~="TargetsList"])  .btn-primary:hover::before {
+  left: 100%;
+}
+
+:where([data-page~="TargetsList"])  .btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5), var(--glow-cyan);
+}
+
+:where([data-page~="TargetsList"])  .btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+:where([data-page~="TargetsList"])  .targets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="TargetsList"])  .target-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+  animation: TargetsList-scaleIn 0.5s ease backwards;
+}
+
+@keyframes TargetsList-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Stagger animation */
+:where([data-page~="TargetsList"])  .target-card:nth-child(1) { animation-delay: 0.1s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(2) { animation-delay: 0.15s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(3) { animation-delay: 0.2s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(4) { animation-delay: 0.25s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(5) { animation-delay: 0.3s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(6) { animation-delay: 0.35s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(7) { animation-delay: 0.4s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(8) { animation-delay: 0.45s; }
+:where([data-page~="TargetsList"])  .target-card:nth-child(9) { animation-delay: 0.5s; }
+
+:where([data-page~="TargetsList"])  .target-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(168, 85, 247, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+:where([data-page~="TargetsList"])  .target-card:hover::before {
+  opacity: 1;
+}
+
+:where([data-page~="TargetsList"])  .target-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), var(--glow-cyan);
+  border-color: rgba(0, 217, 255, 0.4);
+}
+
+:where([data-page~="TargetsList"])  .target-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+:where([data-page~="TargetsList"])  .target-card-header h3 {
+  font-size: 1.35rem;
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+:where([data-page~="TargetsList"])  .status-indicator {
+  font-size: 1.75rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px currentColor);
+  animation: TargetsList-pulse 2s ease-in-out infinite;
+}
+
+:where([data-page~="TargetsList"])  .status-indicator.enabled {
+  color: var(--success);
+}
+
+:where([data-page~="TargetsList"])  .status-indicator.disabled {
+  color: var(--text-muted);
+  animation: none;
+}
+
+@keyframes TargetsList-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+:where([data-page~="TargetsList"])  .target-card-body {
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+:where([data-page~="TargetsList"])  .target-address {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background: rgba(0, 217, 255, 0.1);
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  font-weight: 500;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+:where([data-page~="TargetsList"])  .target-port {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+:where([data-page~="TargetsList"])  .target-type {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(0, 217, 255, 0.2));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-purple);
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(168, 85, 247, 0.2);
+}
+
+:where([data-page~="TargetsList"])  .target-card-footer {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+:where([data-page~="TargetsList"])  .empty-state {
+  text-align: center;
+  padding: 6rem 2rem;
+  animation: TargetsList-fadeIn 0.6s ease;
+}
+
+@keyframes TargetsList-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+:where([data-page~="TargetsList"])  .empty-state p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+:where([data-page~="TargetsList"])  .empty-state::before {
+  content: '📡';
+  display: block;
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+  filter: grayscale(0.5);
+}
+
+/* Modal Styles */
+:where([data-page~="TargetsList"])  .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: TargetsList-fadeIn 0.3s ease;
+}
+
+:where([data-page~="TargetsList"])  .modal-content {
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), var(--glow-cyan);
+  animation: TargetsList-slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes TargetsList-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+:where([data-page~="TargetsList"])  .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+:where([data-page~="TargetsList"])  .modal-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+:where([data-page~="TargetsList"])  .modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="TargetsList"])  .modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  transform: rotate(90deg);
+}
+
+:where([data-page~="TargetsList"])  .form-group {
+  margin-bottom: 1.5rem;
+}
+
+:where([data-page~="TargetsList"])  .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+:where([data-page~="TargetsList"])  .form-group input,:where([data-page~="TargetsList"])  
+.form-group select,:where([data-page~="TargetsList"])  
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+:where([data-page~="TargetsList"])  .form-group input:focus,:where([data-page~="TargetsList"])  
+.form-group select:focus,:where([data-page~="TargetsList"])  
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+:where([data-page~="TargetsList"])  .form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+:where([data-page~="TargetsList"])  .modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+:where([data-page~="TargetsList"])  .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  padding: 0.875rem 1.75rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="TargetsList"])  .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+:where([data-page~="TargetsList"])  .btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :where([data-page~="TargetsList"])  .targets-list {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="TargetsList"])  .list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  :where([data-page~="TargetsList"])  .list-header h1 {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="TargetsList"])  .targets-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="TargetsList"])  .modal-content {
+    padding: 2rem;
+    width: 95%;
+  }
+
+  :where([data-page~="TargetsList"])  .modal-actions {
+    flex-direction: column;
+  }
+
+  :where([data-page~="TargetsList"])  .modal-actions button {
+    width: 100%;
+  }
+}

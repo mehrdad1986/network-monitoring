@@ -1,0 +1,823 @@
+/* Diagnostics Dashboard Styling */
+
+:where([data-page~="DiagnosticsDashboard"])  .diagnostics {
+  background: linear-gradient(135deg, #0f1421 0%, #1a1f3a 50%, #0a0e27 100%);
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .diagnostics.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .loading-spinner {
+  text-align: center;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .loading-spinner div {
+  border: 4px solid rgba(59, 130, 246, 0.2);
+  border-top: 4px solid #3B82F6;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: DiagnosticsDashboard-spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes DiagnosticsDashboard-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .diag-header {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .diag-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .diag-header .subtitle {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .tabs-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+  padding-bottom: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .tab:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #60a5fa;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .tab.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .diag-content {
+  animation: DiagnosticsDashboard-fadeIn 0.4s ease;
+}
+
+@keyframes DiagnosticsDashboard-fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  border-left: 4px solid #3B82F6;
+  padding-left: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .stat-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 48px rgba(59, 130, 246, 0.2);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .stat-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .stat-info {
+  flex: 1;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .stat-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .stat-detail {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+/* Ping Results */
+:where([data-page~="DiagnosticsDashboard"])  .ping-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .result-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .result-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .protocol-badge {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric {
+  display: flex;
+  flex-direction: column;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #60a5fa;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .loss-bar {
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .loss-label {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .loss-progress {
+  width: 100%;
+  height: 12px;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .loss-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .packet-stats {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  text-align: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+/* Traceroute */
+:where([data-page~="DiagnosticsDashboard"])  .traceroute-hops {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hop-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hop-card:hover {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hop-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+  text-align: center;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hop-details {
+  flex: 1;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hop-ip {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hostname {
+  display: block;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hop-location {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .hop-metrics {
+  display: flex;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-item .metric-label {
+  margin-bottom: 0.2rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-item .metric-value {
+  font-size: 1rem;
+}
+
+/* HTTP Results */
+:where([data-page~="DiagnosticsDashboard"])  .http-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .http-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .http-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .http-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  word-break: break-all;
+  flex: 1;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .status-code {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .status-code.success {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .status-code.error {
+  background: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .http-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .detail {
+  display: flex;
+  flex-direction: column;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .detail .label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .detail .value {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  word-break: break-all;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-breakdown {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-breakdown h4 {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-bar {
+  display: flex;
+  height: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  gap: 2px;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 2px;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  min-width: 40px;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-segment.dns {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-segment.connect {
+  background: linear-gradient(135deg, #06B6D4, #0891B2);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-segment.ttfb {
+  background: linear-gradient(135deg, #10B981, #059669);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-stats {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .timing-stats p {
+  margin: 0;
+}
+
+/* Speed Test */
+:where([data-page~="DiagnosticsDashboard"])  .speed-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  max-width: 800px;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-metric .metric-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-metric .metric-label {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-metric .metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .speed-metric .metric-unit {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .quality-indicators {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .indicator {
+  text-align: center;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .indicator-label {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .indicator-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* VoIP */
+:where([data-page~="DiagnosticsDashboard"])  .voip-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .voip-card {
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .voip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .voip-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .mos-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .detail-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .detail-value {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .voip-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-name {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  min-width: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .metric-value {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  min-width: 70px;
+  text-align: right;
+  font-weight: 600;
+}
+
+/* Packet Capture Table */
+:where([data-page~="DiagnosticsDashboard"])  .packets-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .packets-table thead {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.08));
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .packets-table th {
+  padding: 1rem;
+  text-align: left;
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .packets-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+  color: #cbd5e1;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .packets-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-bottom-color: rgba(59, 130, 246, 0.25);
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .ip-cell {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.8rem;
+}
+
+:where([data-page~="DiagnosticsDashboard"])  .flags {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="DiagnosticsDashboard"])  .diag-header h1 {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .ping-results,:where([data-page~="DiagnosticsDashboard"])  
+  .http-results,:where([data-page~="DiagnosticsDashboard"])  
+  .voip-results {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .speed-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="DiagnosticsDashboard"])  .diagnostics {
+    padding: 1rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .diag-header h1 {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .tabs-container {
+    gap: 0.25rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .hop-card {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .hop-metrics {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .http-details {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .timing-bar {
+    height: 24px;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .speed-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .quality-indicators {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .packets-table {
+    font-size: 0.75rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .packets-table th,:where([data-page~="DiagnosticsDashboard"])  
+  .packets-table td {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="DiagnosticsDashboard"])  .diag-header h1 {
+    font-size: 1.2rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .stat-icon {
+    font-size: 2.5rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .tabs-container {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  :where([data-page~="DiagnosticsDashboard"])  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

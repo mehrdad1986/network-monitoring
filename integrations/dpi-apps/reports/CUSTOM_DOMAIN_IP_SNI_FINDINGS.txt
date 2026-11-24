@@ -1,0 +1,139 @@
+================================================================================
+                 CUSTOM DOMAIN INVESTIGATION - SESSION 3
+            Why the Custom Domain Appears Blocked on MCI (2026-10-11)
+================================================================================
+
+INVESTIGATOR: Kilo
+NETWORK: MCI (AS197207) - confirmed via DoH/workers.dev behavioral tests
+TARGET: islam.janex.ir (user's custom domain, 3 DNS labels)
+NODE: ss://aes-128-gcm@islam.janex.ir:443 (v2ray-plugin websocket+TLS+ECH)
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+The custom domain islam.janex.ir is NOT entirely blocked. It WORKS on
+Cloudflare IP 172.67.163.235 (HTTP 200) but is BLOCKED on 104.21.66.195
+(HTTP 000, silent drop, 12s timeout). The DPI is using a targeted (IP, SNI)
+combination block, NOT a pure SNI wildcard. This is a NEW finding that
+contradicts the previous report's conclusion "Is it IP-based? NO" (which was
+based solely on workers.dev testing).
+
+Additionally, the ECH bootstrap in the node config is broken because
+dns.google is DNS-poisoned to the sinkhole 10.10.34.36.
+
+ROOT CAUSE: Two independent failures:
+  1. Client connects to 104.21.66.195 (blocked) instead of 172.67.163.235 (works)
+  2. ECH bootstrap fetches config from dns.google (poisoned) -> fails
+
+================================================================================
+NETWORK ENVIRONMENT (CONFIRMED MCI)
+================================================================================
+
+- 8.8.8.8 DoH: WORKS (HTTP 400 = connected, Google responded)
+- 1.1.1.1 DoH: BLOCKED (HTTP 000)
+- a.workers.dev (3 labels): BLOCKED (HTTP 000)
+- workers.dev apex (2 labels): WORKS (HTTP 301)
+- facebook.com, youtube.com, instagram.com, x.com: DNS-poisoned to 10.10.34.36
+- dns.google: DNS-poisoned to 10.10.34.36
+- Private IP: 192.168.0.102, Public IP: 5.106.193.154
+
+================================================================================
+KEY FINDING: TARGETED (IP, SNI) BLOCK
+================================================================================
+
+IP x SNI matrix on MCI:
+
+  IP               SNI              Result
+  ---------------- ---------------- --------------------
+  104.21.66.195    islam.janex.ir   BLOCKED (000, 12.0s)
+  104.21.66.195    cloudflare.com   WORKS   (301, 0.66s)
+  104.21.66.195    workers.dev      WORKS   (301, 0.50s)
+  172.67.163.235   islam.janex.ir   WORKS   (200, 0.91s)
+  172.67.163.235   cloudflare.com   WORKS   (301, 0.60s)
+  172.67.163.235   workers.dev      WORKS   (301, 0.60s)
+
+Consistency: 3/3 attempts each, fully deterministic.
+
+Interpretation:
+- On 104.21.66.195, ONLY SNI=islam.janex.ir is blocked; other SNIs pass.
+- On 172.67.163.235, SNI=islam.janex.ir works.
+- Therefore the block targets the specific (IP, SNI) pair, not the SNI alone.
+- This is DIFFERENT from workers.dev, which is blocked on ALL IPs (pure SNI rule).
+
+DNS records for islam.janex.ir (via DoH 8.8.8.8, TTL 300):
+  - 172.67.163.235  (WORKS)
+  - 104.21.66.195   (BLOCKED)
+
+TLS: Valid certificate CN=islam.janex.ir, issuer Google Trust Services WE1,
+     Verify return code: 0 (ok) on both IPs.
+
+================================================================================
+ECH BOOTSTRAP FAILURE
+================================================================================
+
+Node config ECH parameter:
+  ech=cloudflare-ech.com+https://dns.google/dns-query
+
+Problem:
+  - dns.google resolves to 10.10.34.36 (MCI sinkhole, DNS-poisoned)
+  - The ECH config fetch from https://dns.google/dns-query FAILS (HTTP 000)
+  - ECH never activates
+
+Cover domain:
+  - cloudflare-ech.com: WORKS (HTTP 301) on both IPs
+
+================================================================================
+WHY THE USER SEES "BLOCKED"
+================================================================================
+
+1. Client resolves islam.janex.ir -> gets 104.21.66.195 and 172.67.163.235
+2. Client connects to 104.21.66.195 (first/primary IP) -> DPI silent drop -> 12s timeout
+3. AND/OR ECH bootstrap fails (dns.google poisoned) -> connection fails
+4. User concludes "custom domain is blocked"
+
+But the domain WORKS on 172.67.163.235.
+
+================================================================================
+FIXES
+================================================================================
+
+1. PIN TO WORKING IP: Set address=172.67.163.235, SNI=islam.janex.ir
+   Fixed ss:// link (ECH removed, IP pinned):
+   ss://YWVzLTEyOC1nY206NDYxYmNmMzYtMTkyMS00MmQ3LWI5ZGYtMjA2YmRjNmY0NTI1@172.67.163.235:443?plugin=v2ray-plugin%3Bmode%3Dwebsocket%3Bhost%3Dislam.janex.ir%3Bpath%3D%2F48de965c6b6e%3Fenc%3Daes-128-gcm%3Btls%3Bmux%3D0#digikala-443-fixed
+
+2. REMOVE ECH: Delete the ech=... parameter (or fix bootstrap to use 8.8.8.8 DoH)
+
+3. FAST FAILOVER: Set connect/first-byte timeout to 2.0-2.5s so the client
+   quickly switches to the working IP if the primary is blocked.
+
+4. DoH BY IP LITERAL: Configure client to resolve via 8.8.8.8 (MCI) / 1.1.1.1 (Rightel)
+
+================================================================================
+IMPLICATIONS FOR THESIS
+================================================================================
+
+NEW FINDING: The DPI uses at least TWO distinct filtering mechanisms:
+
+  Mechanism A: SNI wildcard rules (e.g., *.workers.dev with label-count window)
+    - Applies to ALL destination IPs
+    - Stateless, pattern-based
+    - Measured in previous sessions (2026-10-02)
+
+  Mechanism B: Targeted (IP, SNI) combination rules (e.g., islam.janex.ir on 104.21.66.195)
+    - Applies to SPECIFIC IP+SNI pairs
+    - Suggests the DPI can target individual domains by their primary CDN IP
+    - NEW: not documented in previous sessions
+
+This implies the DPI maintains a per-(IP, SNI) blocklist for reported/targeted
+domains, in addition to namespace-wide wildcard rules. The secondary CDN IP
+(172.67.163.235) is not yet flagged - a cat-and-mouse dynamic where blocking
+the primary IP drives users to the secondary, which may be flagged later.
+
+Note: The previous report's conclusion "Is it IP-based? NO" was correct for
+workers.dev (pure SNI wildcard) but INCOMPLETE for custom domains, which can
+be targeted via (IP, SNI) combination rules.
+
+================================================================================
+END OF REPORT
+================================================================================

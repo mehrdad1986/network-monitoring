@@ -1,0 +1,167 @@
+================================================================================
+SNI FILTER RULE — CHARACTERISATION AND MEASUREMENT-BUG CORRECTION
+Date: 2026-10-02
+Host: /home/xxx  (network: MCI, Iran)
+Tester: /home/user  (supersedes sni_variants.py, .2, .3)
+Targets: 188.114.96.3 and 188.114.97.3 (Cloudflare anycast, legitimate A records)
+================================================================================
+
+--------------------------------------------------------------------------------
+0. CORRECTION: THE EARLIER SNI VARIANT TABLE WAS WRONG — DO NOT TRUST IT
+--------------------------------------------------------------------------------
+sni_variants.py / sni_variants2.py / sni_variants3.py reported that the CONTROL
+hostname (workers.dev) was also "BLOCKED / 0 response bytes". That contradicted
+curl, which returns HTTP 301 for workers.dev. The network was fine; the tester
+was broken.
+
+Root cause: the verdict function searched the RAW socket bytes for b"HTTP/".
+Under TLS 1.3 the application data is still ciphertext on the wire, so a
+perfectly healthy response never matched and every allowed host was mislabelled
+BLOCKED. A second, separate bug compounded it: only the first recv() was
+inspected, so a slow first TLS record produced a false "0 bytes" reading.
+
+Verified proof that the control is reachable at the TLS layer:
+    control workers.dev : 946 bytes of encrypted app data arrive in 0.25 s
+    blocked worker name : 0 bytes after 8.01 s
+sni_variants4.py fixes both faults by feeding socket bytes back through
+SSLObject.read() (real decryption) and reading until end-of-headers.
+
+ALL EARLIER CONCLUSIONS THAT DEPEND ON sni_variants*.py ARE VOID.
+The results below supersede them.
+
+--------------------------------------------------------------------------------
+1. HEADLINE RESULT — THE FILTER IS A BOUNDED-LABEL PATTERN MATCH
+--------------------------------------------------------------------------------
+Sending the SAME Cloudflare IP, the SAME TLS stack, the SAME HTTP request, and
+changing only the SNI string, produces a clean, reproducible boundary:
+
+  SNI name                        labels   verdict
+  ------------------------------  -------  -----------------------------------
+  workers.dev                         2     ALLOWED   HTTP/1.1 301
+  a.workers.dev                       3     BLOCKED   0 app bytes
+  a.b.workers.dev                     4     BLOCKED   0 app bytes
+  a.b.c.workers.dev                   5     PASSED    reached Cloudflare
+  a.b.c.d.workers.dev                 6     PASSED    reached Cloudflare
+  a.b.c.d.e.workers.dev               7     PASSED    reached Cloudflare
+
+"PASSED" is distinguished from "allowed" by a positive control: a 5+ label name
+does not resolve to anything, so Cloudflare answers with a real TLS
+handshake_failure alert. Receiving that alert proves the connection traversed
+the filter and reached Cloudflare, whereas a blocked name yields a clean
+handshake followed by zero application bytes.
+
+Consistent interpretation: the classifier matches the SNI with a full-string,
+ANCHORED pattern that admits at most two labels in front of "workers.dev"
+(equivalent to: it only inspects the first four dot-separated labels). Any SNI
+carrying five or more labels falls outside the match window and is forwarded.
+This is a parsing limitation of the filter, not evidence of a smarter filter.
+
+Practical caveat: this does NOT restore access to Cloudflare Workers. workers.dev
+hostnames are only ever one label deep, so every usable name sits inside the
+blocked window. The bypass is a characterisation result, not a working evasion.
+
+--------------------------------------------------------------------------------
+2. WORKERS.DEV — BEHAVIOUR DETAIL
+--------------------------------------------------------------------------------
+TLS version is irrelevant to the decision. With a matched 2/3-label name:
+  TLS 1.3-only     blocked-name BLOCKED  |  control ALLOWED (301)
+  TLS 1.2-capable  blocked-name BLOCKED  |  control ALLOWED (301)
+So the filter is not keyed to TLS version, and no TLS-downgrade trick helps.
+
+No statefulness or per-flow memory. Five sequential connections to the blocked
+name were blocked identically (0 app bytes, 108-127 ms handshake each time). The
+filter is stateless and consistent; there is no first-connection allowance, no
+ramp-up, and no decay.
+
+Case handling: UPPERCASE SNI is also blocked, but the control in the same shape
+(WORKERS.DEV) also failed, so the case-insensitivity result is INCONCLUSIVE —
+it cannot be separated from Cloudflare simply not serving an uppercase name.
+
+Trailing dot ("name.workers.dev.") timed out at the TCP stage for BOTH the
+blocked name and the control, so that variant is INCONCLUSIVE and should not be
+cited either way.
+
+Length is NOT the discriminator. A sweep of <label>.workers.dev from 13 to 55
+characters (label 'a' repeated 1..43 times) was blocked at every length; the
+5+ label ladder result above is therefore a label-count effect, not a buffer
+overflow or truncation bug.
+
+Long-name re-test, 3 repetitions, stable:
+  x.test-sub.example.workers.dev   PASSED (5 labels)
+  workers.dev                                         ALLOWED 301 (2 reps)
+Same result on both Cloudflare edges (188.114.96.3 and 188.114.97.3), so it is a
+property of the filter, not of one edge.
+
+--------------------------------------------------------------------------------
+3. PAGES.DEV — A DIFFERENT, HARDER ENFORCEMENT MECHANISM
+--------------------------------------------------------------------------------
+pages.dev is not merely blocked; it is reset:
+
+  SNI                          verdict   detail
+  ---------------------------  --------  ---------------------------
+  pages.dev                    RESET     ConnectionResetError
+  www.pages.dev                RESET     ConnectionResetError
+  definitely-not-real-zzz9...  RESET     ConnectionResetError
+  (all four, repeated, on both 188.114.96.3 and 188.114.97.3)
+
+The nonexistent-name control is what makes this a filter finding rather than a
+Cloudflare finding: a nonexistent workers.dev name returns a real TLS alert from
+Cloudflare (proving the name reached the edge), whereas a nonexistent pages.dev
+name returns a TCP RST instead. Cloudflare is not refusing these names; the
+connection is torn down upstream of it.
+
+Signature difference, which matters for detection and for writing filter rules:
+  workers.dev subdomains -> handshake COMPLETES, then 0 application bytes
+  pages.dev (any name)   -> TCP RST, handshake never completes
+
+The RST fires during the handshake, so it is triggered by SNI inspection and not
+by anything in the HTTP request.
+
+Scope note: pages.dev is ALSO DNS-poisoned on this network (to 10.10.34.36), so
+it is hit by two independent mechanisms. workers.dev is NOT DNS-poisoned — it
+resolves to genuine Cloudflare addresses — which is exactly why the SNI-layer
+behaviour of workers.dev is the cleaner measurement in this whole investigation.
+
+--------------------------------------------------------------------------------
+4. WHAT THIS ADDS TO THE EXISTING MODEL
+--------------------------------------------------------------------------------
+1. The filter is confirmed to be an SNI string matcher operating on the
+   Cloudflare-facing path, with no TLS termination, no injected RST on
+   workers.dev, and no certificate substitution (consistent with the earlier
+   finding that the ClientHello completes and the server's Certificate reaches
+   the client with Ack=1612).
+2. Its matching rule is bounded: full-string, anchored, at most two labels
+   before the zone. SNI with 5+ labels is forwarded untouched.
+3. Enforcement differs per zone: silent application-layer drop for
+   *.workers.dev, TCP RST for pages.dev.
+4. The filter is stateless and TLS-version independent.
+
+--------------------------------------------------------------------------------
+5. STILL NOT KNOWN
+--------------------------------------------------------------------------------
+- The exact pattern/regex behind the match; only its observable boundary is
+  mapped. Whether other registrable domains use the same bounded-label rule is
+  untested — a short list of other Cloudflare zones would settle it.
+- Whether the workers.dev block is an explicit entry for that zone or a
+  consequence of a broader Cloudflare/CF-Tunnel category rule.
+- Whether any of this is MCI-specific or national. Untestable from a single
+  ISP; needs a second network.
+- No vendor, model, or management interface has been identified. The 15 s delay
+  seen earlier remains Cloudflare's own TLS timeout, not a censorship timer.
+
+--------------------------------------------------------------------------------
+6. REPRODUCTION
+--------------------------------------------------------------------------------
+  unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY ALL_PROXY all_proxy \
+        FTP_PROXY ftp_proxy
+  python3 /home/user
+
+Ground-truth cross-check that does not depend on the Python tester at all:
+  curl -sS -m 12 -o /dev/null -w '%{http_code}\n' https://workers.dev/   # 301
+  curl -sS -m 12 -o /dev/null -w '%{http_code}\n' \
+       https://test-sub.example.workers.dev/          # 000
+
+Files: sni_variants4.py is the only SNI tester whose output should be cited.
+       sni_variants.py / sni_variants2.py / sni_variants3.py are retained only
+       as a record of the measurement bug described in section 0.
+================================================================================

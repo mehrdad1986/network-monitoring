@@ -1,0 +1,199 @@
+================================================================================
+ISP COMPARISON — MCI (AS197207) vs RIGHTEL (AS57218)
+Date: 2026-10-02, 06:45 - 07:05 (+01:00)
+Purpose: the open question from the whole investigation — is the filtering
+         operator-specific or national? Answered by repeating the identical
+         battery on a second, independent network.
+Battery script: /home/user  (same code both times)
+================================================================================
+
+--------------------------------------------------------------------------------
+0. THE NEW LINE
+--------------------------------------------------------------------------------
+  ISP            Rightel Communication Service Company PJS  (RighTel)
+  Registry       37.137.0.0/19, country IR, origin AS57218
+  Description    "RighTel-3G-LTE"  — a mobile LTE operator
+  Public IP      37.137.10.18
+  Local IP       192.168.0.102/24 on wlp8s0 (WiFi)
+  Gateway        192.168.0.1
+  Gateway MAC    dc:ea:e7:6a:ee:c3  (NOT randomised on this device)
+  Carrier NAT    10.204.36.1 seen at hop 3
+  Route to CF    11 hops; hops 1-10 mostly non-responsive, hop 11 = 188.114.96.3
+  RTT to edge    ~205 ms (vs ~113 ms on MCI)
+
+--------------------------------------------------------------------------------
+1. THE DEVICE ON THE NEW LINE
+--------------------------------------------------------------------------------
+IDENTIFIED: D-Link DWR-M922, a 4G/LTE CPE router.
+
+  Firmware page   HTTP 200 at /login.htm, 12258 bytes
+  Model string    <title>DWR-M922</title>
+  Copyright line  "Copyright (c) Realtek Semiconductor Corp., 2003"
+                  -> built on the Realtek SDK, as D-Link's CPEs are
+  Web server      Server: micro_httpd
+  Login page      redirects via parent.location='/login.htm'
+  Open ports      tcp/53, tcp/80, tcp/443
+  TLS on 443      self-signed, presented as:
+                    subject  CN=General Root CA
+                    issuer   CN=General Root CA  (self-signed)
+                    O=D-Link Corporation, OU=D-Link WRPD
+                    C=TW, ST=Taiwan, L=Taipei
+                    valid    2023-09-13  ->  2053-09-05
+                  The client sees a 30-year validity and then an immediate EOF,
+                  i.e. the HTTPS listener is not really serving an admin UI.
+
+  IMPORTANT NEGATIVE FINDING: /version, /info, /cgi-bin/luci, /HNAP1,
+  /status.html, /index.html and /api/system/info ALL return HTTP 200 — but
+  every one of them returns the identical 108-byte redirect stub to /login.htm.
+  This is a catch-all, not a set of real endpoints. Only /login.htm is a real
+  page. Do not read those 200s as exposed management interfaces.
+
+  No UPnP device description on port 5000.
+  MAC OUI dc:ea:e7 is NOT in the local IEEE and nmap OUI databases, so the prefix
+  is either newer than the local databases or randomised. It cannot be used to
+  corroborate the vendor. The vendor identification rests on the DWR-M922 model
+  string and the D-Link certificate, not on the MAC.
+
+--------------------------------------------------------------------------------
+2. HEADLINE: workers.dev IS NOT FILTERED ON RIGHTEL
+--------------------------------------------------------------------------------
+Same edge IP, same code, positive controls in every run:
+
+  NAME                            MCI (AS197207)      RIGHTEL (AS57218)
+  ------------------------------  ------------------  ------------------
+  workers.dev       (2 labels)    SERVED 301          SERVED 301
+  a.workers.dev     (3 labels)    BLOCKED             SERVED 404
+  a.b.workers.dev   (4 labels)    BLOCKED             SERVED 404
+  a.b.c.workers.dev (5 labels)    forwarded           forwarded
+  real Worker (jade-garden-6ff7) BLOCKED, 0 bytes    SERVED, HTTP 200
+  cloudflare.com                  SERVED 301          SERVED 301
+  challenges.cloudflare.com       SERVED 200          SERVED 200
+
+The real Worker returns its genuine page on Rightel:
+
+  certificate   CN=test-worker.example.workers.dev, issuer Let's Encrypt YE1,
+                SAN *.test-worker.example.workers.dev
+                "Verify return code: 0 (ok)"   <- chain AND hostname valid
+  response      HTTP/2 200, server: cloudflare, cf-ray: ...-FRA, real HTML body
+  over IPv6     curl connected to 2a06:98c1:3120::3 and succeeded
+
+This is the strongest possible evidence that the block is not spoofed and not a
+silent substitute: a MITM could not present a valid Let's Encrypt certificate
+for that hostname without being Cloudflare.
+
+THE USER'S VLESS FRONT ALSO WORKS ON RIGHTEL
+  their SNI as-written            SERVED (Cloudflare answers, 404 on GET /)
+  their SNI lowercased            SERVED
+  their WS Host (workers.dev)     SERVED
+  a GET to the VLESS host returns 404 from Cloudflare, which is the expected
+  answer for a non-WebSocket GET on a WS path — the connection completes and the
+  endpoint is reachable.
+
+CONCLUSION: the *.workers.dev SNI filter is MCI-SPECIFIC, NOT national. The
+previously dead configuration works unchanged on Rightel. This is the single
+most useful result of the ISP switch, and it reverses the practical conclusion
+of the earlier reports.
+
+--------------------------------------------------------------------------------
+3. WHAT IS THE SAME ON BOTH ISPs  (the national layer)
+--------------------------------------------------------------------------------
+3.1 DNS POISONING — still active, but a DIFFERENT sinkhole address
+  facebook.com, instagram.com, youtube.com, x.com:
+      A     = 10.10.34.36 on MCI   ->   10.10.34.35 on RIGHTEL
+      AAAA  = 2001:4188:2:600:10:10:34:36  ->  ...:10:10:34:35
+  Identical whatever resolver is asked (1.1.1.1 and 8.8.8.8 both), and identical
+  for case-randomised names. The sinkhole IP differs by one octet between the
+  operators, which is a useful fingerprint for attributing a poisoned answer.
+  workers.dev and cloudflare.com are NOT poisoned on either ISP.
+
+3.2 DoT/853 — blocked everywhere on both
+  1.1.1.1, 8.8.8.8, 9.9.9.9, 94.140.14.14, 185.222.222.222 all TIMEOUT on
+  Rightel, exactly as on MCI.
+
+3.3 DoH BY NAME — blocked on both, with a DIFFERENT signature
+  On MCI every resolver name produced a TCP RST during the handshake.
+  On Rightel the behaviour splits:
+      cloudflare-dns.com, dns.google, dns.quad9.net  -> TLS record layer failure
+      dns.adguard-dns.com, dns.sb, doh.pub          -> TCP RST
+  RECORD_LAYER_FAILURE is a different symptom from a reset and suggests a second
+  mechanism operating on the TLS record rather than on the connection. Worth
+  noting as a difference; not fully characterised.
+
+3.4 THE BIG FOUR ARE ALSO SNI-BLOCKED, not merely DNS-poisoned
+  Resolving their true addresses through a working encrypted resolver and
+  connecting with the real SNI, on Rightel:
+      facebook.com   @157.240.0.35    ConnectionResetError
+      instagram.com  @157.240.0.174   TLS record layer failure
+      youtube.com    @142.251.14.136  ConnectionResetError
+      x.com          @162.159.140.229 ConnectionResetError
+  Control at the same address: x.com @162.159.140.229 with SNI=cloudflare.com
+  returns a certificate-valid HTTP 301. The address is reachable and healthy, so
+  the refusals are caused by the name.
+  CONCLUSION: facebook/instagram/youtube/x are censored on BOTH ISPs, at two
+  layers — forged DNS and refused SNI. That censorship is national in scope.
+
+3.5 pages.dev — blocked on both, different signature
+  On Rightel pages.dev and www.pages.dev fail at the TLS record layer rather than
+  by reset.
+
+3.6 WHICH ENCRYPTED RESOLVER WORKS IS DIFFERENT, AND NEARLY OPPOSITE
+  DoH addressed by IP literal:
+      resolver     MCI            RIGHTEL
+      8.8.8.8      WORKS          filtered (handshake timeout)
+      8.8.4.4      WORKS          filtered (handshake timeout)
+      1.1.1.1      filtered       WORKS  (HTTP 200, answers=2)
+      1.0.0.1      filtered       filtered (handshake timeout)
+      9.9.9.9      filtered       filtered (handshake timeout)
+  Each operator appears to block the other's surviving resolver. A hardcoded
+  DoH choice is therefore a portability liability: the config must be able to
+  use more than one, or it will work on one ISP and silently fail on another.
+  Cloudflare's CDN addresses are reachable on both; only the resolver service is
+  targeted.
+
+--------------------------------------------------------------------------------
+4. WHAT DIFFERS, IN ONE LINE EACH
+--------------------------------------------------------------------------------  behaviour            MCI              RIGHTEL
+  *.workers.dev SNI filter    YES (2-4 labels)  NO — not filtered at all
+  real Worker reachable       NO               YES, HTTP 200, cert valid
+  user's VLESS front          BLOCKED          SERVED
+  DNS sinkhole address        10.10.34.36      10.10.34.35
+  big-4 DNS poisoning         YES              YES
+  big-4 SNI blocking          untested         YES (reset / record failure)
+  pages.dev                   TCP RST          TLS record failure
+  DoH by name                 RST everywhere   RST or record failure (split)
+  DoH by IP that works        8.8.8.8          1.1.1.1
+  DoT/853                     blocked          blocked
+  IPv6                        fabricated AAAA  real IPv6, real connectivity
+  RTT to Cloudflare edge      ~113 ms          ~205 ms
+  colo reached                FRA              FRA
+  CPE                         10.170.48.246    192.168.0.1 D-Link DWR-M922
+
+--------------------------------------------------------------------------------
+5. WHAT THIS CHANGES ABOUT THE RECOMMENDATION
+--------------------------------------------------------------------------------
+CORRECTED: the earlier reports concluded that a custom domain was REQUIRED,
+because workers.dev is filtered as a namespace. On Rightel that is false. The
+requirement is MCI-SPECIFIC. If the target network is Rightel, the existing
+configuration works as-is and the custom-domain work is unnecessary.
+
+STILL TRUE on both ISPs:
+  - DNS poisoning must be defeated with a real resolver. DoT is dead on both.
+  - DoH by name is dead on both; address resolvers by IP.
+  - Because the working resolver differs per ISP, a config should carry BOTH
+    https://1.1.1.1/dns-query and https://8.8.8.8/dns-query and let the client
+    try the first that answers. The generated config currently uses only
+    8.8.8.8, which is why resolution broke the moment the ISP changed.
+    This is a real defect in the generated config and is worth fixing.
+  - The big-4 censorship cannot be worked around at all; it is enforced twice.
+
+STILL NOT ESTABLISHED
+  - Whether Rightel's behaviour is national or Rightel-specific on its own. One
+    MCI sample and one Rightel sample cannot separate "operator-specific" from
+    "nationwide". A third network (Shatel, Irancell, a fixed line) is still
+    needed to know whether workers.dev is blocked everywhere except Rightel.
+  - The exact mechanism behind the TLS record-layer failures seen on Rightel.
+  - Whether the workers.dev rule on MCI is a policy of MCI specifically, or MCI
+    complying with a national list that Rightel does not apply to that zone.
+  - Whether QUIC/HTTP3 is filtered on either ISP. Still unmeasured: no HTTP/3
+    client on this host.
+================================================================================

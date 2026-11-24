@@ -1,0 +1,635 @@
+:where([data-page~="Dashboard"])  .dashboard-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  animation: Dashboard-fadeIn 0.6s ease;
+  padding-bottom: 4rem;
+}
+
+:where([data-page~="Dashboard"]) .dashboard-targets {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  background: rgba(10, 14, 26, 0.62);
+}
+:where([data-page~="Dashboard"]) .dashboard-targets-heading,
+:where([data-page~="Dashboard"]) .dashboard-target-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+:where([data-page~="Dashboard"]) .dashboard-targets-heading h2 { margin: 0 0 6px; color: var(--text-primary); font-size: 1.25rem; }
+:where([data-page~="Dashboard"]) .dashboard-targets-heading p,
+:where([data-page~="Dashboard"]) .dashboard-target-more { margin: 0; color: var(--text-secondary); font-size: .85rem; }
+:where([data-page~="Dashboard"]) .dashboard-target-actions a,
+:where([data-page~="Dashboard"]) .dashboard-target-empty a,
+:where([data-page~="Dashboard"]) .dashboard-target-more a { color: #79d9ee; font-weight: 650; text-decoration: none; }
+:where([data-page~="Dashboard"]) .dashboard-target-actions button,
+:where([data-page~="Dashboard"]) .dashboard-target-error button {
+  padding: 8px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 7px;
+  color: var(--text-primary); background: rgba(255,255,255,.05); cursor: pointer;
+}
+:where([data-page~="Dashboard"]) .dashboard-target-actions button:disabled { opacity: .55; cursor: wait; }
+:where([data-page~="Dashboard"]) .dashboard-target-table-wrap { overflow-x: auto; }
+:where([data-page~="Dashboard"]) .dashboard-target-table { width: 100%; border-collapse: collapse; color: var(--text-primary); text-align: left; font-size: .85rem; }
+:where([data-page~="Dashboard"]) .dashboard-target-table th { padding: 11px 12px; color: var(--text-secondary); font-size: .7rem; text-transform: uppercase; letter-spacing: .07em; }
+:where([data-page~="Dashboard"]) .dashboard-target-table td { padding: 13px 12px; border-top: 1px solid rgba(255,255,255,.08); white-space: nowrap; }
+:where([data-page~="Dashboard"]) .dashboard-target-table a { color: #8be3f0; text-decoration: none; }
+:where([data-page~="Dashboard"]) .dashboard-target-table code { color: var(--text-secondary); font-size: .8rem; }
+:where([data-page~="Dashboard"]) .dashboard-target-status { text-transform: capitalize; }
+:where([data-page~="Dashboard"]) .dashboard-target-status.unknown { color: #f2c979; text-transform: none; }
+:where([data-page~="Dashboard"]) .dashboard-target-status.up { color: #6ee7b7; }
+:where([data-page~="Dashboard"]) .dashboard-target-status.down { color: #fca5a5; }
+:where([data-page~="Dashboard"]) .dashboard-target-status.degraded { color: #f2c979; }
+:where([data-page~="Dashboard"]) .dashboard-target-empty,
+:where([data-page~="Dashboard"]) .dashboard-target-error { padding: 14px; border-radius: 8px; background: rgba(255,255,255,.04); color: var(--text-secondary); }
+:where([data-page~="Dashboard"]) .dashboard-target-error { color: #f2c979; }
+:where([data-page~="Dashboard"]) .dashboard-target-empty p { margin: 0 0 10px; }
+:where([data-page~="Dashboard"]) .dashboard-target-more { padding: 13px 12px 0; }
+
+/* Hero Section */
+:where([data-page~="Dashboard"])  .dashboard-hero {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 102, 255, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3rem;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: Dashboard-float 6s ease-in-out infinite;
+}
+
+@keyframes Dashboard-float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, -20px);
+  }
+}
+
+@media (max-width: 700px) {
+  :where([data-page~="Dashboard"]) .dashboard-targets { padding: 16px; }
+  :where([data-page~="Dashboard"]) .dashboard-targets-heading { align-items: flex-start; flex-direction: column; }
+  :where([data-page~="Dashboard"]) .dashboard-target-actions { width: 100%; justify-content: flex-start; }
+}
+
+:where([data-page~="Dashboard"])  .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-signout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-signout:hover {
+  border-color: rgba(248, 113, 113, 0.5);
+  background: rgba(248, 113, 113, 0.1);
+  color: #fca5a5;
+}
+
+:where([data-page~="Dashboard"])  .hero-text {
+  margin-bottom: 2rem;
+  padding-right: 7rem;
+}
+
+:where([data-page~="Dashboard"])  .hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-user-name {
+  background: linear-gradient(135deg, #00d9ff 0%, #0066ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:where([data-page~="Dashboard"])  .hero-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+:where([data-page~="Dashboard"])  .hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="Dashboard"])  .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="Dashboard"])  .stat-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 217, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="Dashboard"])  .stat-icon {
+  font-size: 2rem;
+}
+
+:where([data-page~="Dashboard"])  .stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+:where([data-page~="Dashboard"])  .stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+:where([data-page~="Dashboard"])  .stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Dashboard Section */
+:where([data-page~="Dashboard"])  .dashboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+:where([data-page~="Dashboard"])  .section-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="Dashboard"])  .section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+:where([data-page~="Dashboard"])  .section-header p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Dashboard Grid */
+:where([data-page~="Dashboard"])  .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Dashboard Card */
+:where([data-page~="Dashboard"])  .dashboard-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 270px;
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: rgba(10, 14, 26, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+  animation: Dashboard-slideUp 0.6s ease-out backwards;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+@keyframes Dashboard-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(0, 102, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card:hover::before {
+  opacity: 1;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card:hover {
+  border-color: rgba(0, 217, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.2);
+  transform: translateY(-6px);
+  background: rgba(10, 14, 26, 0.8);
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card:hover .dashboard-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card:hover .dashboard-card-gradient {
+  opacity: 0.15;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card.coming-soon {
+  cursor: not-allowed;
+  opacity: 0.78;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card.coming-soon:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  transform: none;
+  background: rgba(10, 14, 26, 0.6);
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card.coming-soon:hover::before {
+  opacity: 0;
+}
+
+:where([data-page~="Dashboard"])  .status-badge {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  border-radius: 999px;
+  color: #facc15;
+  background: rgba(250, 204, 21, 0.08);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Card Components */
+:where([data-page~="Dashboard"])  .dashboard-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card-icon {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
+}
+
+:where([data-page~="Dashboard"])  .status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+}
+
+:where([data-page~="Dashboard"])  .status-indicator.active {
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+  animation: Dashboard-pulse 2s ease-in-out infinite;
+}
+
+@keyframes Dashboard-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+:where([data-page~="Dashboard"])  .status-indicator.active::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #4ade80;
+  border-radius: 50%;
+  animation: Dashboard-ripple 2s ease-out infinite;
+}
+
+@keyframes Dashboard-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-metric {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-metric:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+:where([data-page~="Dashboard"])  .dashboard-metric-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-metric-value {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card-gradient {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  opacity: 0.08;
+  border-radius: 50%;
+  filter: blur(40px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-cyan-500 { background: #06b6d4; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-blue-500 { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-purple-500 { background: #a855f7; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-pink-500 { background: linear-gradient(135deg, #a855f7, #ec4899); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-green-500 { background: #22c55e; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-teal-500 { background: linear-gradient(135deg, #22c55e, #14b8a6); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-blue-500 { background: #3b82f6; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-indigo-500 { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-orange-500 { background: #f97316; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-red-500 { background: linear-gradient(135deg, #f97316, #ef4444); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-yellow-500 { background: #eab308; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-orange-500 { background: linear-gradient(135deg, #eab308, #f97316); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-pink-500 { background: #ec4899; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-rose-500 { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-indigo-500 { background: #6366f1; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-purple-500 { background: linear-gradient(135deg, #6366f1, #a855f7); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-red-500 { background: #ef4444; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-gray-500 { background: #6b7280; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-slate-500 { background: linear-gradient(135deg, #6b7280, #64748b); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-teal-500 { background: #14b8a6; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-cyan-500 { background: linear-gradient(135deg, #14b8a6, #06b6d4); }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.from-lime-500 { background: #84cc16; }
+:where([data-page~="Dashboard"])  .dashboard-card-gradient.to-green-500 { background: linear-gradient(135deg, #84cc16, #22c55e); }
+
+:where([data-page~="Dashboard"])  .dashboard-card-arrow {
+  position: absolute;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  color: rgba(0, 217, 255, 0.8);
+  z-index: 2;
+}
+
+/* Dashboard Footer */
+:where([data-page~="Dashboard"])  .dashboard-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 2rem;
+}
+
+/* Animations */
+@keyframes Dashboard-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  :where([data-page~="Dashboard"])  .hero-title {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="Dashboard"])  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-grid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 968px) {
+  :where([data-page~="Dashboard"])  .dashboard-hero {
+    padding: 2rem;
+  }
+
+  :where([data-page~="Dashboard"])  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  :where([data-page~="Dashboard"])  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="Dashboard"])  .dashboard-container {
+    gap: 2rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-hero {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-signout {
+    position: static;
+    margin-top: 1rem;
+  }
+
+  :where([data-page~="Dashboard"])  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="Dashboard"])  .hero-text {
+    padding-right: 0;
+  }
+
+  :where([data-page~="Dashboard"])  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  :where([data-page~="Dashboard"])  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-card {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-card-icon {
+    font-size: 2rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-card-title {
+    font-size: 1.1rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-card-description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="Dashboard"])  .dashboard-hero {
+    padding: 1.25rem;
+  }
+
+  :where([data-page~="Dashboard"])  .hero-title {
+    font-size: 1.25rem;
+  }
+
+  :where([data-page~="Dashboard"])  .stat-item {
+    padding: 1rem;
+  }
+
+  :where([data-page~="Dashboard"])  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  :where([data-page~="Dashboard"])  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-card {
+    padding: 1.25rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-card-metrics {
+    gap: 0.5rem;
+  }
+
+  :where([data-page~="Dashboard"])  .dashboard-metric {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}

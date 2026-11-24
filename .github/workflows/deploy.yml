@@ -1,0 +1,44 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'data/latest.json'
+      - 'data/site.json'
+      - 'data/analysis/**'
+      - 'data/networks.json'
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Assemble distribution
+        run: |
+          mkdir -p dist
+          cp -r web/* dist/
+          cp data/latest.json dist/ || true
+          cp data/site.json dist/ || true
+          cp data/networks.json dist/ || true
+          cp data/analysis/latest.json dist/analysis-latest.json || true
+
+          # Conditionally copy history if < 25MB
+          if [ -f data/history.jsonl ] && [ $(stat -f%z data/history.jsonl 2>/dev/null || stat -c%s data/history.jsonl) -lt 26214400 ]; then
+            cp data/history.jsonl dist/
+          fi
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=netmon --commit-dirty=true

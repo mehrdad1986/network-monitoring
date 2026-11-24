@@ -1,0 +1,6 @@
+import { NetworkSummary } from '../components/NetworkSummary';
+import { UIIcon } from '../components/UIIcon';
+const locations=[{name:'US-East',latency:15.2,status:'online'},{name:'US-West',latency:42.5,status:'online'},{name:'EU-Central',latency:58.3,status:'online'},{name:'APAC',latency:125.8,status:'online'}];
+export const MultiLocation=()=> <NetworkSummary title="Multi-Location Monitoring" category="ISP & Connectivity" description="Compare geographic monitoring locations and their recorded response times." metrics={[
+{label:'Locations',value:locations.length,icon:'globe'},{label:'Online locations',value:locations.filter(l=>l.status==='online').length,icon:'check'},{label:'Average latency',value:(locations.reduce((sum,l)=>sum+l.latency,0)/locations.length).toFixed(1)+' ms',icon:'time'}
+]}><div className="summary-provider-grid">{locations.map(location=><section className="summary-provider-card" key={location.name}><div className="summary-provider-header"><span className="summary-metric-icon"><UIIcon symbol="globe" /></span><h3>{location.name}</h3><span className="summary-inline-badge"><UIIcon symbol="check" />Online</span></div><dl><div><dt>Response time</dt><dd>{location.latency} ms</dd></div><div><dt>Location</dt><dd>{location.name}</dd></div></dl></section>)}</div></NetworkSummary>;

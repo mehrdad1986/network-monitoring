@@ -1,0 +1,427 @@
+:where([data-page~="LatencyMonitoring"])  .latency-monitoring {
+  padding: 2.5rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: LatencyMonitoring-fadeInUp 0.6s ease;
+}
+
+@keyframes LatencyMonitoring-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="LatencyMonitoring"])  .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+:where([data-page~="LatencyMonitoring"])  .page-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+}
+
+:where([data-page~="LatencyMonitoring"])  .header-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+:where([data-page~="LatencyMonitoring"])  .time-range-select {
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="LatencyMonitoring"])  .time-range-select:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+:where([data-page~="LatencyMonitoring"])  .btn-measure {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+}
+
+:where([data-page~="LatencyMonitoring"])  .btn-measure:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+}
+
+:where([data-page~="LatencyMonitoring"])  .btn-measure:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:where([data-page~="LatencyMonitoring"])  .stats-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .stat-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  animation: LatencyMonitoring-scaleIn 0.5s ease backwards;
+}
+
+@keyframes LatencyMonitoring-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:where([data-page~="LatencyMonitoring"])  .stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="LatencyMonitoring"])  .add-target-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  animation: LatencyMonitoring-slideDown 0.5s ease;
+}
+
+@keyframes LatencyMonitoring-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:where([data-page~="LatencyMonitoring"])  .add-target-section h2,:where([data-page~="LatencyMonitoring"])  
+.targets-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+}
+
+:where([data-page~="LatencyMonitoring"])  .add-target-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) 100px;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+:where([data-page~="LatencyMonitoring"])  .add-target-form input {
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="LatencyMonitoring"])  .add-target-form input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+:where([data-page~="LatencyMonitoring"])  .add-target-form input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+:where([data-page~="LatencyMonitoring"])  .btn-add {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+:where([data-page~="LatencyMonitoring"])  .btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.4);
+}
+
+:where([data-page~="LatencyMonitoring"])  .targets-section {
+  margin-bottom: 2rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .metric-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: LatencyMonitoring-scaleIn 0.5s ease backwards;
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="LatencyMonitoring"])  .metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), var(--glow-purple);
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+:where([data-page~="LatencyMonitoring"])  .card-header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+:where([data-page~="LatencyMonitoring"])  .target-info h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+:where([data-page~="LatencyMonitoring"])  .target-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+}
+
+:where([data-page~="LatencyMonitoring"])  .target-host {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  background: rgba(0, 217, 255, 0.1);
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  display: block;
+  word-break: break-all;
+}
+
+:where([data-page~="LatencyMonitoring"])  .btn-remove {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+:where([data-page~="LatencyMonitoring"])  .btn-remove:hover {
+  background: rgba(239, 68, 68, 0.2);
+  transform: scale(1.1);
+}
+
+:where([data-page~="LatencyMonitoring"])  .card-body {
+  padding: 1.5rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+:where([data-page~="LatencyMonitoring"])  .status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 1.2rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .status-text {
+  color: white;
+}
+
+:where([data-page~="LatencyMonitoring"])  .metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+:where([data-page~="LatencyMonitoring"])  .metric-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+:where([data-page~="LatencyMonitoring"])  .metric-value {
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+:where([data-page~="LatencyMonitoring"])  .metric-value.current {
+  font-size: 1.1rem;
+  color: #10B981;
+}
+
+:where([data-page~="LatencyMonitoring"])  .latency-bar {
+  height: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+:where([data-page~="LatencyMonitoring"])  .last-checked {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+  margin-top: 1rem;
+}
+
+:where([data-page~="LatencyMonitoring"])  .empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  color: var(--text-secondary);
+}
+
+:where([data-page~="LatencyMonitoring"])  .empty-state p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="LatencyMonitoring"])  .latency-monitoring {
+    padding: 1.5rem;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .header-controls {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .time-range-select,:where([data-page~="LatencyMonitoring"])  
+  .btn-measure {
+    width: 100%;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .stats-summary {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .add-target-form {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .btn-add {
+    width: 100%;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="LatencyMonitoring"])  .card-header {
+    flex-direction: column;
+  }
+}

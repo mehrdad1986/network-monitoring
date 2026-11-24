@@ -1,0 +1,783 @@
+/* VPN Manager Styling */
+
+:where([data-page~="VPNManager"]).vpn-standalone {
+  display: flex;
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 32px clamp(20px, 3vw, 48px);
+  background: #0b1220;
+}
+:where([data-page~="VPNManager"]) .vpn-manager.vpn-config-page {
+  position: static;
+  right: auto;
+  top: auto;
+  width: 100%;
+  height: auto;
+}
+:where([data-page~="VPNManager"]) .vpn-config-page {
+  position: static;
+  right: auto;
+  top: auto;
+  z-index: auto;
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 90px);
+  padding: 4px 0 32px;
+  color: #e8eef8;
+}
+:where([data-page~="VPNManager"]) .vpn-config-page .page-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; width: 100%; max-width: none; margin: 0; }
+:where([data-page~="VPNManager"]) .vpn-config-page .page-header h1 { margin: 0 0 8px; color: #eef5ff; font-size: clamp(24px, 3vw, 34px); }
+:where([data-page~="VPNManager"]) .vpn-config-page .page-description { margin: 0; color: #a9bad0; }
+:where([data-page~="VPNManager"]) .vpn-back-link { display: grid; flex: 0 0 auto; width: 42px; height: 42px; place-items: center; border: 1px solid #2b3d55; border-radius: 10px; color: #c4d5e8; background: #111c2b; }
+:where([data-page~="VPNManager"]) .vpn-back-link:hover { color: #fff; border-color: #5b8bb6; background: #17263a; }
+:where([data-page~="VPNManager"]) .vpn-back-link:focus-visible { outline: 2px solid #88c7ff; outline-offset: 3px; }
+:where([data-page~="VPNManager"]) .vpn-protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+}
+:where([data-page~="VPNManager"]) .vpn-protocol-card {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid #263a52;
+  border-radius: 14px;
+  color: #e8eef8;
+  background: linear-gradient(145deg, #142135, #101a29);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+:where([data-page~="VPNManager"]) .vpn-protocol-card:hover,
+:where([data-page~="VPNManager"]) .vpn-protocol-card.selected {
+  transform: translateY(-2px);
+  border-color: #5b8bb6;
+  background: linear-gradient(145deg, #192b42, #111e30);
+}
+:where([data-page~="VPNManager"]) .vpn-protocol-card:focus-visible { outline: 2px solid #88c7ff; outline-offset: 3px; }
+:where([data-page~="VPNManager"]) .vpn-protocol-icon { display: grid; width: 42px; height: 42px; place-items: center; margin-bottom: 18px; border-radius: 10px; color: #9bcfff; background: #88c7ff16; }
+:where([data-page~="VPNManager"]) .vpn-protocol-name { font-size: 18px; font-weight: 700; }
+:where([data-page~="VPNManager"]) .vpn-protocol-description { margin-top: 8px; color: #a9bad0; font-size: 13px; line-height: 1.55; }
+:where([data-page~="VPNManager"]) .vpn-protocol-action { margin-top: auto; padding-top: 18px; color: #9bcfff; font-size: 12px; font-weight: 650; }
+:where([data-page~="VPNManager"]) .vpn-protocol-selection { margin-top: 18px; color: #b7c9de; font-size: 13px; }
+@media (max-width: 760px) {
+  :where([data-page~="VPNManager"]) .vpn-protocol-grid { grid-template-columns: 1fr; }
+  :where([data-page~="VPNManager"]) .vpn-protocol-card { min-height: 190px; }
+}
+
+:where([data-page~="VPNManager"])  .vpn-manager {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 999;
+}
+
+:where([data-page~="VPNManager"])  .vpn-manager.closed {
+  pointer-events: none;
+}
+
+/* VPN Toggle Button */
+:where([data-page~="VPNManager"])  .vpn-toggle-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  flex-direction: column;
+  font-size: 0.7rem;
+}
+
+:where([data-page~="VPNManager"])  .vpn-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 48px rgba(59, 130, 246, 0.6);
+}
+
+:where([data-page~="VPNManager"])  .vpn-icon {
+  font-size: 1.5rem;
+}
+
+:where([data-page~="VPNManager"])  .vpn-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+:where([data-page~="VPNManager"])  .vpn-status {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.8rem;
+  animation: VPNManager-pulse 2s infinite;
+}
+
+:where([data-page~="VPNManager"])  .vpn-status.connected {
+  color: #10b981;
+}
+
+:where([data-page~="VPNManager"])  .vpn-status.disconnected {
+  color: #ef4444;
+}
+
+@keyframes VPNManager-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* VPN Panel */
+:where([data-page~="VPNManager"])  .vpn-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 450px;
+  background: linear-gradient(135deg, #0f1421 0%, #1a1f3a 50%, #0a0e27 100%);
+  border-left: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  animation: VPNManager-slideIn 0.3s ease;
+  z-index: 1001;
+}
+
+@keyframes VPNManager-slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+:where([data-page~="VPNManager"])  .vpn-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 450px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  animation: VPNManager-fadeIn 0.3s ease;
+}
+
+@keyframes VPNManager-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* VPN Panel Header */
+:where([data-page~="VPNManager"])  .vpn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(26, 31, 58, 0.5);
+}
+
+:where([data-page~="VPNManager"])  .vpn-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+}
+
+:where([data-page~="VPNManager"])  .close-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+:where([data-page~="VPNManager"])  .close-btn:hover {
+  color: #60a5fa;
+}
+
+/* Active Connection */
+:where([data-page~="VPNManager"])  .active-connection {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+}
+
+:where([data-page~="VPNManager"])  .connection-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+:where([data-page~="VPNManager"])  .connection-status.connected {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+:where([data-page~="VPNManager"])  .connection-status.disconnected {
+  background: rgba(107, 114, 128, 0.1);
+  border-color: rgba(107, 114, 128, 0.3);
+}
+
+:where([data-page~="VPNManager"])  .status-icon {
+  font-size: 1.5rem;
+}
+
+:where([data-page~="VPNManager"])  .status-info {
+  flex: 1;
+}
+
+:where([data-page~="VPNManager"])  .status-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+:where([data-page~="VPNManager"])  .status-info p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="VPNManager"])  .disconnect-btn {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+:where([data-page~="VPNManager"])  .disconnect-btn:hover {
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Connection Stats */
+:where([data-page~="VPNManager"])  .connection-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+:where([data-page~="VPNManager"])  .stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+}
+
+:where([data-page~="VPNManager"])  .stat-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+:where([data-page~="VPNManager"])  .stat-value {
+  font-size: 0.95rem;
+  color: #60a5fa;
+  font-weight: 700;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+/* Bandwidth Section */
+:where([data-page~="VPNManager"])  .bandwidth-section {
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+}
+
+:where([data-page~="VPNManager"])  .bandwidth-section h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+:where([data-page~="VPNManager"])  .bandwidth-stats {
+  display: flex;
+  gap: 1rem;
+}
+
+:where([data-page~="VPNManager"])  .bandwidth-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+:where([data-page~="VPNManager"])  .bandwidth-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+:where([data-page~="VPNManager"])  .bandwidth-value {
+  font-size: 0.95rem;
+  color: #10b981;
+  font-weight: 700;
+}
+
+/* VPN Tabs */
+:where([data-page~="VPNManager"])  .vpn-tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(26, 31, 58, 0.5);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  overflow-x: auto;
+}
+
+:where([data-page~="VPNManager"])  .tab {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+  color: #cbd5e1;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+:where([data-page~="VPNManager"])  .tab:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+}
+
+:where([data-page~="VPNManager"])  .tab.active {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  border-color: #3B82F6;
+  color: #ffffff;
+}
+
+/* VPN Content */
+:where([data-page~="VPNManager"])  .vpn-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+:where([data-page~="VPNManager"])  .vpn-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+:where([data-page~="VPNManager"])  .vpn-content::-webkit-scrollbar-track {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+:where([data-page~="VPNManager"])  .vpn-content::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 3px;
+}
+
+:where([data-page~="VPNManager"])  .vpn-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* Connections List */
+:where([data-page~="VPNManager"])  .connections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:where([data-page~="VPNManager"])  .connection-item {
+  padding: 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.3), rgba(15, 23, 42, 0.2));
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="VPNManager"])  .connection-item:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+}
+
+:where([data-page~="VPNManager"])  .connection-item.connected {
+  border-left: 4px solid #10b981;
+}
+
+:where([data-page~="VPNManager"])  .connection-item.disconnected {
+  border-left: 4px solid #6b7280;
+  opacity: 0.8;
+}
+
+:where([data-page~="VPNManager"])  .connection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+:where([data-page~="VPNManager"])  .connection-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+:where([data-page~="VPNManager"])  .status-indicator {
+  font-size: 0.8rem;
+  animation: VPNManager-pulse 2s infinite;
+}
+
+:where([data-page~="VPNManager"])  .status-indicator.connected {
+  color: #10b981;
+}
+
+:where([data-page~="VPNManager"])  .status-indicator.disconnected {
+  color: #6b7280;
+}
+
+:where([data-page~="VPNManager"])  .status-indicator.connecting {
+  color: #f59e0b;
+}
+
+:where([data-page~="VPNManager"])  .connection-details h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+:where([data-page~="VPNManager"])  .connection-details p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+:where([data-page~="VPNManager"])  .protocol-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+:where([data-page~="VPNManager"])  .connection-stats-mini {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+:where([data-page~="VPNManager"])  .connection-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+:where([data-page~="VPNManager"])  .btn-connect,:where([data-page~="VPNManager"])  
+.btn-disconnect {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+:where([data-page~="VPNManager"])  .btn-connect {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+}
+
+:where([data-page~="VPNManager"])  .btn-connect:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+:where([data-page~="VPNManager"])  .btn-disconnect {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+}
+
+:where([data-page~="VPNManager"])  .btn-disconnect:hover {
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Servers List */
+:where([data-page~="VPNManager"])  .servers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+:where([data-page~="VPNManager"])  .server-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.3), rgba(15, 23, 42, 0.2));
+  transition: all 0.3s ease;
+}
+
+:where([data-page~="VPNManager"])  .server-item:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, rgba(26, 31, 58, 0.5), rgba(15, 23, 42, 0.3));
+}
+
+:where([data-page~="VPNManager"])  .server-info {
+  flex: 1;
+}
+
+:where([data-page~="VPNManager"])  .server-info h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+:where([data-page~="VPNManager"])  .server-info p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+:where([data-page~="VPNManager"])  .server-stats {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+:where([data-page~="VPNManager"])  .server-stats span {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+}
+
+:where([data-page~="VPNManager"])  .btn-connect-server {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+:where([data-page~="VPNManager"])  .btn-connect-server:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+/* VPN Settings */
+:where([data-page~="VPNManager"])  .vpn-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+:where([data-page~="VPNManager"])  .setting-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+}
+
+:where([data-page~="VPNManager"])  .setting-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  flex: 1;
+  color: #cbd5e1;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="VPNManager"])  .setting-item input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #3B82F6;
+}
+
+:where([data-page~="VPNManager"])  .setting-item select {
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 4px;
+  color: #60a5fa;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+
+:where([data-page~="VPNManager"])  .setting-item select:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  :where([data-page~="VPNManager"])  .vpn-panel {
+    width: 380px;
+  }
+
+  :where([data-page~="VPNManager"])  .vpn-overlay {
+    right: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  :where([data-page~="VPNManager"])  .vpn-toggle-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 0.6rem;
+  }
+
+  :where([data-page~="VPNManager"])  .vpn-panel {
+    width: 100%;
+    border-left: none;
+  }
+
+  :where([data-page~="VPNManager"])  .vpn-overlay {
+    right: 0;
+  }
+
+  :where([data-page~="VPNManager"])  .connection-stats {
+    grid-template-columns: 1fr;
+  }
+
+  :where([data-page~="VPNManager"])  .server-stats {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  :where([data-page~="VPNManager"])  .vpn-panel {
+    width: 100%;
+  }
+
+  :where([data-page~="VPNManager"])  .vpn-header {
+    padding: 1rem;
+  }
+
+  :where([data-page~="VPNManager"])  .vpn-header h2 {
+    font-size: 1.1rem;
+  }
+
+  :where([data-page~="VPNManager"])  .active-connection {
+    padding: 1rem;
+  }
+
+  :where([data-page~="VPNManager"])  .connection-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  :where([data-page~="VPNManager"])  .disconnect-btn {
+    width: 100%;
+    align-self: flex-end;
+  }
+
+  :where([data-page~="VPNManager"])  .server-item {
+    flex-wrap: wrap;
+  }
+
+  :where([data-page~="VPNManager"])  .btn-connect-server {
+    width: 100%;
+  }
+
+  :where([data-page~="VPNManager"])  .vpn-tabs {
+    overflow-x: auto;
+  }
+}
+
+/* This component owns a full feature route, rather than a collapsed floating widget. */
+:where([data-page~="VPNManager"]) .vpn-manager.vpn-page { position: static; height: auto; min-height: 0; width: 100%; z-index: auto; }
+:where([data-page~="VPNManager"]) .vpn-page .vpn-panel { position: static; width: 100%; height: auto; max-height: none; border: 1px solid var(--glass-border); border-radius: 12px; background: var(--bg-card); box-shadow: none; animation: none; z-index: auto; }
+:where([data-page~="VPNManager"]) .vpn-page .vpn-content { max-height: none; overflow: visible; padding: 24px; }
+:where([data-page~="VPNManager"]) .vpn-page .connection-stats { grid-template-columns: repeat(auto-fit,minmax(min(100%,160px),1fr)); gap: 18px; }
+:where([data-page~="VPNManager"]) .vpn-page .connection-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+:where([data-page~="VPNManager"]) .vpn-page .connection-details p { margin-top: 5px; line-height: 1.6; }
+:where([data-page~="VPNManager"]) .vpn-page .vpn-tabs { padding: 0 24px; }
+:where([data-page~="VPNManager"]) .vpn-page .vpn-tabs button { min-height: 44px; }
+
+/* Full-screen protocol picker overrides the legacy fixed VPN drawer rules above. */
+:where([data-page~="VPNManager"]) .vpn-config-page.vpn-manager {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: flex;
+  flex: 1 0 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  flex-direction: column;
+}
+:where([data-page~="VPNManager"]) .vpn-config-page .page-header,
+:where([data-page~="VPNManager"]) .vpn-protocol-grid { width: 100%; max-width: none; }
+:where([data-page~="VPNManager"]) .vpn-config-page .page-header { margin-bottom: 0; }
+:where([data-page~="VPNManager"]) .vpn-protocol-grid {
+  flex: 1;
+  grid-template-rows: repeat(2, minmax(190px, 1fr));
+  align-content: stretch;
+}
+:where([data-page~="VPNManager"]) .vpn-protocol-card { min-height: 0; }
+@media (max-width: 760px) {
+  :where([data-page~="VPNManager"]).vpn-standalone { padding-top: 24px; padding-bottom: 24px; }
+  :where([data-page~="VPNManager"]) .vpn-protocol-grid { grid-template-rows: none; grid-auto-rows: minmax(180px, auto); }
+}

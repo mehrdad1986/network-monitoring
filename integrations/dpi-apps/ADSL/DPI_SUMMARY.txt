@@ -1,0 +1,273 @@
+================================================================================
+  DPI SUMMARY — condensed from the /home/xxx/kilo report set
+  Date: 2026-10-02
+  Scope: the filtering equipment only. Local modem / router / PC facts are
+         deliberately excluded, as requested.
+  Source of record: MASTER_FINDINGS.txt (see its Part 9 for withdrawn claims)
+================================================================================
+
+--------------------------------------------------------------------------------
+1. WHAT THE DPI IS, IN ONE LINE
+--------------------------------------------------------------------------------
+An inline, passive, SNI-based filter on the ISP's network. It reads the hostname
+in the TLS ClientHello, matches it against rules, and enforces the match at the
+transport layer. It never decrypts TLS and never substitutes a certificate.
+
+Confirmed properties:
+  - No TLS interception / no MITM  (genuine Let's Encrypt chain validates)
+  - No certificate substitution
+  - Not IP-based  (same Cloudflare anycast IP serves blocked and allowed flows
+                  in the same second)
+  - Not port-based (see section 4)
+  - Not content-based (a 35-byte static HTML page is blocked exactly like a
+                  VLESS tunnel)
+  - Not MTU-based (1472-byte payload passes)
+  - Stateless (5 consecutive connections behave identically, no first-connection
+                  allowance, no ramp-up, no decay)
+  - TLS-version independent (TLS 1.3-only and TLS 1.2-capable give identical
+                  verdicts)
+  - Case-insensitive (case-randomising the SNI does not help)
+  - Reassembles before matching (ClientHello fragmentation does not help)
+
+--------------------------------------------------------------------------------
+2. THE FIVE ENFORCEMENT MECHANISMS, WITH DETAIL
+--------------------------------------------------------------------------------
+
+MECHANISM 1 — DNS FORGERY
+  Where      : on-path, in the DNS request/response stream
+  Trigger    : the queried NAME, before any connection exists
+  Applies to : facebook.com, instagram.com, youtube.com, x.com, pages.dev,
+              trycloudflare.com, telegram.org, twitter.com, and EVERY
+              encrypted-resolver hostname (cloudflare-dns.com, dns.google,
+              dns.quad9.net, dns.adguard-dns.com, dns.alidns.com, doh.pub,
+              dns.sb, dns.mullvad.net, doh.opendns.com, dns.nextdns.io)
+  Output     : forged A and AAAA. NS / MX / TXT get no answer at all.
+              Non-existent names get an EMPTY answer, not NXDOMAIN.
+  Forged A   : 10.10.34.36 on MCI, 10.10.34.35 on Rightel  <- one-octet
+               difference between operators = usable attribution fingerprint
+  Forged AAAA : 2001:4188:2:600::10:10:34:36 (.35 on Rightel)
+               2001:4188:2:600:: is a documentation range, so the address can
+               never be a real one
+  TTL        : ~417-418 on forged answers (a long-lived lie, NOT TTL reflection);
+               legit names show normal low TTLs (57-171)
+  Evidence   : the same forged answer is returned by the local resolver AND when
+               querying 1.1.1.1 / 8.8.8.8 directly, and over both UDP and TCP
+               -> the rewriting is in path, not inside any resolver
+  0x20 case randomisation does NOT defeat it.
+  NOT applied to: workers.dev, cloudflare.com, go.dev (these resolve genuinely)
+
+MECHANISM 2 — SNI SILENT DROP (this is the one that matters for Cloudflare)
+  Where      : on-path, on the client-to-server direction only
+  Trigger    : SNI string in the ClientHello
+  Applies to : <anything>.workers.dev, 2 to 4 labels
+  Signature  : TLS handshake COMPLETES normally, real certificate delivered
+               (4889 B, all ACKed), then ZERO application bytes are forwarded.
+               No RST. No error. Client sees a silent hang, then the peer closes
+               after its own timeout.
+  Proof      : the server's FIN carries Ack=1612 = exactly the ClientHello
+               flight length, i.e. "I sent 4889, I received 1612". The 287
+               client bytes after the ClientHello (Finished + request) never
+               arrived and were never acknowledged.
+  Timing     : classified at t=3.098310 (ClientHello out), first discarded segment
+               t=3.217890 -> effective inside a 119 ms window.
+  RTO        : client retransmits with exact doubling .35 .70 1.41 2.81 5.62 11.2 s
+  The ~15 s hang is CLOUDFLARE'S TLS handshake timeout (FIN at t=18.194), not a
+               censorship timer. Proven by an idle test: handshake completes then
+               sit silent -> peer closes at 15.166 s with 0 bytes; the same test
+               with an allowed SNI gets 474 bytes at 15.126 s.
+  Is it a named-list block? NO. A Worker created 20 minutes earlier with no
+               tunnel code was blocked identically. It is a WILDCARD on
+               <anything>.workers.dev.
+
+MECHANISM 3 — SNI TCP RESET
+  Where      : on-path, during the handshake
+  Trigger    : SNI string
+  Applies to : pages.dev (apex, www, and non-existent names) and every encrypted
+              resolver hostname
+  Signature  : TCP RST mid-handshake; handshake never completes
+  Why it is the filter and not the CDN: a NON-EXISTENT *.workers.dev name returns
+               a genuine TLS alert from Cloudflare (so the name reached the edge),
+               whereas a NON-EXISTENT *.pages.dev name returns a RST. Cloudflare
+               refuses neither; the connection is torn down upstream.
+  Signature difference that matters for rule-writing: workers.dev subdomains ->
+               handshake completes then silence; pages.dev -> RST, no handshake.
+
+MECHANISM 4 — LABEL-COUNT WINDOW (a parsing limitation, not a smarter filter)
+  Rule       : the matcher is a full-string anchored pattern admitting at most
+               two labels in front of the zone, i.e. it inspects roughly the
+               first four dot-separated labels.
+  Boundary   :  workers.dev (2) ALLOWED | a.workers.dev (3) BLOCKED |
+                a.b.workers.dev (4) BLOCKED | a.b.c.workers.dev (5) FORWARDED |
+                5, 6, 7 labels all FORWARDED
+  Proof of forward: a 5+ label name reaches Cloudflare, which answers with a real
+               handshake_failure TLS alert.
+  Scope      : applies to any hostname, not just workers.dev.
+  Not length: a sweep of label lengths 13..55 chars was blocked at EVERY length,
+               so this is a label-count effect, not a buffer-overflow artefact.
+  Stable on : both edge IPs 188.114.96.3 and 188.114.97.3, 3 repetitions.
+  It is NOT a usable workers.dev evasion: workers.dev names are only ever one
+  label deep, so every real one is inside the blocked window by construction.
+  It IS exploitable by putting a 5+ label hostname on a domain you control.
+
+MECHANISM 5 — PORT / ADDRESS SCOPING (observed, NOT exhaustively characterised)
+  Service-specific, and each operator blocks the OTHER operator's surviving
+  resolver:
+      DoH by IP literal    8.8.8.8 / 8.8.4.4  -> WORK on MCI, filtered on Rightel
+                           1.1.1.1 / 1.0.0.1  -> filtered on MCI, 1.1.1.1 WORKS
+                                                   on Rightel
+                           9.9.9.9             -> filtered on both
+  Plain HTTP/80:  1.1.1.1 answers 301, doh.pub answers 403, 8.8.8.8 and 9.9.9.9
+                  refuse the TCP connect.
+  DoT/853: NO ANSWER from 1.1.1.1, 8.8.8.8, 9.9.9.9, 94.140.14.14, 185.222.222.222,
+           1.12.12.12, 223.5.5.5 on either ISP.
+  Cloudflare CDN addresses are reachable on both; only the resolver SERVICE is
+  targeted.
+  DoH by NAME is dead on both. DoH by IP LITERAL is the only surviving channel,
+  and it works precisely because no resolver NAME appears on the wire, so the
+  name-matching filter has nothing to match. The certificate presented is
+  CN=dns.google with IP SANs, so verification succeeds.
+  A non-resolver SNI with a resolver Host header DOES get through (403 comes from
+  Cloudflare itself, not the DPI) -> the reset is genuinely keyed on the name.
+
+--------------------------------------------------------------------------------
+3. WHAT THE DEVICE IS — AND WHAT IT IS NOT
+--------------------------------------------------------------------------------
+IT IS:
+  - Inline network equipment somewhere on the ISP's path, upstream of Cloudflare.
+  - A stateless string matcher plus a flow-drop action. Behaviour, not a signature.
+  - Present on MCI (AS197207). NOT enforced on Rightel (AS57218), where the same
+    workers.dev names and the same VLESS front all serve normally with valid certs
+    over IPv4 AND IPv6.
+  - Enforced nationally for the "big four" (facebook / instagram / youtube / x),
+    which are hit at TWO layers on both ISPs: forged DNS, and SNI refusal
+    (facebook and youtube reset, x resets, instagram fails at the TLS record
+    layer; control at the same address with SNI=cloudflare.com returns a valid
+    301, so the address is healthy and it is the NAME being refused).
+
+IT IS NOT:
+  - NOT a Huawei, ZTE, Nokia or any other identified appliance. No vendor, model,
+    product name, management interface or line rate was ever established.
+    "Huawei / ZTE 10 Gbps", "ML classifier at 90% accuracy", "weekly-updated
+    signature DB from commercial threat-intel feeds", "active probing",
+    "95% detection probability" are all UNSOURCED or FABRICATED. The file
+    HUAWEI_THE_DPI_DEVICE.txt is a historical filename only; its content states
+    the device was never identified.
+  - NOT a single box vs a cluster — unknowable from the client side.
+  - NOT something you can talk to, fingerprint, or query. An SNI string match and
+    a silent flow drop require no vendor attribution, which is exactly why the
+    question is unanswerable from outside.
+
+--------------------------------------------------------------------------------
+4. THE IP ADDRESSES AND THE OPEN-PORT ANSWER
+--------------------------------------------------------------------------------
+DIRECT ANSWER TO "which port of the DPI IP is open": NONE. There is no such port.
+
+The only IPs with any IP identity in the filtering system are the DNS sinkholes,
+and they are dead ends, not the DPI device:
+
+  SINKHOLE ADDRESSES
+    10.10.34.34   no service of any kind
+    10.10.34.35   no service of any kind   (the one Rightel hands out)
+    10.10.34.36   no service of any kind   (the one MCI hands out)
+
+  Port state on 10.10.34.34 / .35 / .36, measured:
+    TCP  53, 80, 443, 8080, 22   -> closed or filtered
+    UDP  53                      -> silent, no answer
+    ICMP                         -> 100% loss
+  They refuse or ignore everything. There is nothing to fingerprint and no port
+  to connect to. A curl to a poisoned host fails in ~38 ms with "could not
+  connect", because the forged address simply refuses.
+
+  These are RESPONDER/STUB addresses used to neutralise a name at the DNS layer.
+  They are not the DPI appliance. The appliance itself has NO known address from
+  the client side, and no port on it has been or can be observed.
+
+  For completeness, the one non-sinkhole address in the path with a
+  fingerprintable service is the first-hop gateway 10.170.48.246, which exposes
+  TCP/53 and nothing else (22/23/80/443/7547/8080/8443/5000/1900/52869/37215 all
+  closed) — a locked-down CPE with no admin interface, no SSH, no UPnP, and a
+  randomised MAC (36:a4:df:c6:e3:f6), so no vendor OUI applies. That is LAN
+  equipment, NOT the DPI, and it is listed here only to close the question.
+
+--------------------------------------------------------------------------------
+5. IS IT A DEVICE, A VPS, OR A SERVER?
+--------------------------------------------------------------------------------
+  Not a VPS and not a server — those are things you can address, log into, or
+  fingerprint, and nothing like that was reachable. It is not a host with an
+  IP identity at all.
+
+  It is INLINE PASSIVE NETWORK EQUIPMENT, physically in the ISP's path (or in
+  their core / at their peering edge — not distinguishable from the client side
+  without privileged TTL-limited tracing). It is transparent: no address of its
+  own is presented, no TLS is terminated, nothing is impersonated. It observes
+  and selectively discards traffic.
+
+  Governance context (public record, not measured on these lines): the Supreme
+  Council of Cyberspace sets policy, the Internet Filtering Committee under the
+  Prosecutor-General decides what is censored, and all traffic transits TCI.
+  Iran's original engine was Secure Computing's SmartFilter; Iran later built its
+  own hardware and software and is reported to have imported Chinese censorship
+  technology. A Nokia Siemens Networks lawful-intercept centre exists in the
+  country. None of this identifies the box filtering AS197207.
+
+--------------------------------------------------------------------------------
+6. WHERE IT SITS ON THE PATH
+--------------------------------------------------------------------------------
+  13 hops to the Cloudflare edge. Every hop before Cloudflare is a private 10.x
+  address, so the path never leaves the operator's own network -> the filter is
+  inside the operator, not on the public internet. Hops 1-12 return EHOSTUNREACH;
+  TTL 13 connects. SYN leaves TTL 64, SYN-ACK returns TTL 49, RTT 113 ms.
+  Colos reached: FRA on TLS, GYD on the plaintext request.
+  Not distinguishable from the client side between MCI's core and its peering
+  edge.
+
+--------------------------------------------------------------------------------
+7. SCOPE, PER OPERATOR
+--------------------------------------------------------------------------------
+  workers.dev SNI filter    MCI: YES (2-4 labels)   RIGHTEL: NO
+  real Worker reachable     MCI: NO                RIGHTEL: YES, HTTP/2 200
+  user's VLESS front        MCI: BLOCKED           RIGHTEL: SERVED
+  pages.dev                 MCI: TCP RST           RIGHTEL: TLS record failure
+  DoH by name               MCI: RST everywhere    RIGHTEL: RST or record failure
+  DoH by IP that works      MCI: 8.8.8.8           RIGHTEL: 1.1.1.1
+  DoT/853                   blocked on both
+  DNS sinkhole              10.10.34.36            10.10.34.35
+  big-4 poisoning + SNI     both (national)
+  IPv6                      fabricated AAAA       genuinely usable
+
+--------------------------------------------------------------------------------
+8. WHAT IS STILL UNKNOWN (do not fill these in)
+--------------------------------------------------------------------------------
+  - The exact matcher: regex, label counter, or fixed byte window. Only the
+    observable boundary is mapped.
+  - Whether the workers.dev and pages.dev rules are explicit entries or one
+    broader Cloudflare-zone category.
+  - Whether QUIC / HTTP3 / UDP/443 is filtered. Never measured: no HTTP/3 client
+    on this host. All statements about QUIC are assumption.
+  - Whether the workers.dev rule is MCI-specific or "national except Rightel".
+    One sample per operator cannot separate the two. A third network (Shatel,
+    Irancell, a fixed line) is needed.
+  - The mechanism behind the TLS record-layer failures seen on Rightel.
+  - SNI-less ClientHello behaviour — filter-suspicion vs Cloudflare not answering
+    HTTPS without SNI was never separated.
+  - Whether the rule is permanent or campaign-based (needs re-measurement).
+
+--------------------------------------------------------------------------------
+9. PRACTICAL CONSEQUENCES
+--------------------------------------------------------------------------------
+  1. On MCI: stop using workers.dev. No client-side measure defeats a name match.
+     Use a 5-or-more-label hostname on a domain you control, proxied by
+     Cloudflare, SNI == Host. Validate with sni_preflight.py before distributing,
+     and also test a NON-EXISTENT subdomain of the same zone — if the fake name
+     is blocked too, the whole zone is filtered and must be rotated.
+  2. On Rightel: the existing configuration works unchanged.
+  3. Carry BOTH https://1.1.1.1/dns-query and https://8.8.8.8/dns-query. A single
+     hardcoded resolver works on one ISP and silently fails on the other — that
+     was a real defect in the generated config.
+  4. Do NOT pin resolver IPs in dns.hosts while keeping the resolver HOSTNAME as
+     the SNI. That is what broke the active v2rayN config.
+  5. ClientHello fragmentation is measured useless here. Set it if you like; do
+     not expect it to be the fix.
+  6. Do not ship raw Cloudflare edge IPs in a subscription; do not export nodes by
+     colo name — everything exits Frankfurt regardless of the label.
+================================================================================
